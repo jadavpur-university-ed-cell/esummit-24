@@ -1,9 +1,11 @@
-import Image from "next/image";
+import ComingSoon from "@/components/ComingSoon/comingsoon"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <h1>Home Page</h1>
+    <main className=" text-white relative bg-[#101720] flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+    <div className="max-w-7xl w-full">
+    <ComingSoon/>
+    </div>
     </main>
   );
 }
