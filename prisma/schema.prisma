@@ -20,6 +20,7 @@ model User{
   Usertype String?
   college String?
   teams  Team[] @relation("UserTeam")
+  isVerified Boolean @default(false)
 }
 
 model Team{
@@ -27,8 +28,16 @@ model Team{
   name  String 
   users User[] @relation("UserTeam")
   events Event[] @relation("EventTeam")
+  isRegistered Boolean @default(false)
 }
 
+// register logic is something like this:
+// Imagine i make a team with 4 ppl, then I want to register for an event.
+// in their dashboard, the can see "my teams " and under there for any event they can see "register" button.
+// when they click on register, the team is registered for the event,
+// then a notification is sent to everyone in the team, when if everyone accepts
+// isRegistered is set to true.
+// multiple teams can be made and registered for a user and also the event.
 model Event{
   id    String @id
   name  String
