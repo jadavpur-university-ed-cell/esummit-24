@@ -1,19 +1,9 @@
-# E-Summit Website For 2024
+## Issues
 
-## Tech-Stack Used: Next JS,TS, Prisma+PostGreSQL,Next-Auth, Aceternity UI
+1. Can't get login session after login action is performed using Credentials Provider.
+2. Redirect URL function not working
+3. /api/auth/session shows "null" after login.
 
-### Job Assigned:
+## Possible Fixes
 
- #### Week 1-2:
-
- - Wireframe of a Coming Soon+ designs for esummit
- - Implementing the Coming soon before Wednesday this week on Website
- - Backend processes to start immediately.
-
-
- ### First Commit:
- - [x] Created Next App on TSX
- - [x] Initailsed Next-Auth + Secret, Prisma,Aceternity Ui, created a migrate code from client in dev mode to prisma in build mode
- - [ ] Seed Due, Prisma lib
-
-to access, run git clone (github clone link) and then run npm i
+1. Get session after login.
