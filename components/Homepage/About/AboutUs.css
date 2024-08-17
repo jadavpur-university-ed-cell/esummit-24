@@ -1,0 +1,217 @@
+body {
+	width: 1407px;
+	  height: 565px;
+	background-color: #101720; /* Dark background color */
+	font-family: 'Arial', sans-serif; /* Choose a suitable font */
+	color: #f5f5f5; /* Light text color */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.container {
+	
+	display: flex;
+	width: 1407px;
+	height: 565px;
+	top: 67px;
+	left: 16px;
+	gap: 0px;
+	border-radius: 40px 0px 0px 0px;
+	border: 3px 0px 0px 0px;
+	opacity: 0.77px;
+	background: #101720;
+	border: 3px solid #FFFFFF
+}
+
+.image-column {
+	/* flex: 1; /* Image column takes up available space */
+	 position: relative; /* For positioning the button  */
+	width: 528px;
+	height: 272px;
+	top: 158px;
+	left: 74px;
+	gap: 0px;
+	border-radius: 40px 40px 40px 40px;
+	border: 3px 3px 3px 3px;
+	opacity: 0px;
+	background: linear-gradient(180deg, rgba(16, 23, 32, 0.3) 0.01%, rgba(234, 226, 183, 0.1) 100%);
+	border: 3px solid;
+
+	border-image-source: linear-gradient(180deg, #FFFFFF 0%, #A9ABAF 36%, #101720 100%);
+
+	box-shadow: 0px 4px 24px -1px #00000033;
+
+
+
+}
+
+img {
+	width: 100%; /* Image fills its container width */
+	height: auto; /* Maintain aspect ratio */
+}
+
+.text-column {
+	flex: 1; /* Text column takes up available space */
+	display: flex;
+	flex-direction: column;
+	gap: 10px; /* Adjust the gap between elements */
+	text-align: justify;
+	width: 532px;
+	height: 253px;
+	top: 259px;
+	left: 702px;
+	gap: 0px;
+	opacity: 0px;
+	position: absolute;
+}
+
+h2 {
+	font-size: 3em; /* Adjust the heading size */
+	font-weight: bold;
+	color: #FCBF49; /* Yellow color for the heading */
+	text-align : center;
+	margin-bottom: 20px;
+	width: 607px;
+	height: 107px;
+	top: 152px;
+	left: 584px;
+	gap: 0px;
+	opacity: 0px;
+	position: absolute;
+	font-family: Poppins;
+	font-size: 64px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: -0.23000000417232513px;
+	text-align: left;
+
+}
+
+p {
+	line-height: 1.5; /* Adjust line spacing */
+	text-align: justify; /* Adjust text alignment */
+	color: var(--Grays-White, #fff);
+	  letter-spacing: -0.704px;
+	  flex-shrink: 0;
+	  width: 532px;
+	  height: 253px;
+	  font-family: Poppins;
+	  font-size: 32px;
+	  font-style: normal;
+	  font-weight: 700;
+	  line-height: 150%;
+	  display: inline-block;
+}
+
+button {
+	background-color: #FCBF49; /* Yellow button background */
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 25px; /* Round button corners */
+	font-size: 1em;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	top: 447px;
+	left: 1161px;
+	gap: 0px;
+	opacity: 0px;
+	/* position: absolute;
+	  bottom: 0;
+	  right: 0;
+	  margin: 10px; */
+	
+
+}
+.vec{
+	width: 60px;
+	height: 20px;
+	/* background-color: #FCBF49; */
+	/* border-radius: 25px; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	
+}
+/* ... existing code ... */
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	.container {
+	  flex-direction: column; /* Stack columns vertically */
+	  gap: 10px;
+	}
+  
+	.image-column {
+	  flex: 1; /* Image takes up available width */
+	  position: relative;
+	}
+  
+	.text-column {
+	  flex: 1; /* Text takes up available width */
+	  text-align: center;
+	}
+  }
+  
+  @media screen and (max-width: 480px) {
+	.container {
+	  width: 100%; /* Make container full-width */
+	  padding: 20px; /* Add some padding */
+	}
+  
+	.image-column {
+	  width: 100%; /* Make image full-width */
+	  height: auto; /* Maintain aspect ratio */
+	}
+  
+	.text-column {
+	  width: 100%; /* Make text full-width */
+	  padding: 20px; /* Add some padding */
+	}
+  
+	h2 {
+	  font-size: 2em; /* Reduce heading size */
+	}
+  
+	p {
+	  font-size: 1.5em; /* Reduce paragraph size */
+	}
+  
+	button {
+	  width: 100%; /* Make button full-width */
+	  padding: 10px; /* Add some padding */
+	}
+  }
+  
+  @media screen and (max-width: 320px) {
+	.container {
+	  padding: 10px; /* Reduce padding */
+	}
+  
+	.image-column {
+	  height: 150px; /* Reduce image height */
+	}
+  
+	.text-column {
+	  padding: 10px; /* Reduce padding */
+	}
+  
+	h2 {
+	  font-size: 1.5em; /* Reduce heading size */
+	}
+  
+	p {
+	  font-size: 1em; /* Reduce paragraph size */
+	}
+  
+	button {
+	  padding: 5px; /* Reduce padding */
+	}
+  
+}
