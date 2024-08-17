@@ -1,10 +1,10 @@
 import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerate } from "./TextGenerate";
+import MagicButton from "../MagicButton";
+import { Spotlight } from "../ui/Spotlight";
+import { TextGenerate } from "../TextGenerate";
 import Image from "next/image";
-import Footer from "./Footer";
-import AlertText from "./AlertText";
+import Footer from "../Footer";
+import AlertText from "../AlertText";
 // import { Logo_Glow } from "@/public/svg_pers";
 
 const ComingSoon = () => {

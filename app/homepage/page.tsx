@@ -1,4 +1,5 @@
 import Navbar from "@/components/Homepage/Navbar/Navbar";
+import Hero from "@/components/Homepage/Hero/Hero";
 import About from "@/components/Homepage/About/About";
 import Events from "@/components/Homepage/Events/Events";
 import Speakers from "@/components/Homepage/Speakers/Speakers";
@@ -13,6 +14,7 @@ export default function Home() {
     <div>
 
     <Navbar/>  
+    <Hero/>
     <About/>
     <Events/>
     <Speakers/>

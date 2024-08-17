@@ -2,7 +2,7 @@ import React from 'react'
 
 function Gallery() {
   return (
-    <section id='events'>
+    <section id='gallery'>
      <div className='h-screen  bg-black'></div>
    </section>
   )
