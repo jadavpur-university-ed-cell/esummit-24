@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GeistSans } from 'geist/font/sans';
 import "./globals.css";
-import Header from "@/components/Header";
-import Provider from "@/components/Provider";
-import { Session } from "inspector";
-import { auth } from "@/lib/auth";
+// import Header from "@/components/Header";
+// import Provider from "@/components/Provider";
+// import { Session } from "inspector";
+// import { auth } from "@/lib/auth";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -19,14 +19,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  // const session = await auth();
   
   return (
     <html lang="en">
       <body className={GeistSans.className}>
-        <Provider session={session}>
+        {/* <Provider session={session}>
           <Header />
-        </Provider>
+        </Provider> */}
           <main>
             {children}
           </main>

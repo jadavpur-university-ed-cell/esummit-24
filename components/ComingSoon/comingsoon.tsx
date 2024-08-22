@@ -32,7 +32,7 @@ const ComingSoon = () => {
        *  change bg color to bg-black-100 and reduce grid color from
        *  0.2 to 0.03
        */}
-       //TODO: FIX THE GRID
+       {/* //TODO: FIX THE GRID */}
       <div
         className="h-screen w-full bg-[#101720] bg-grid-white/[0.1]
        absolute top-0 left-0 flex items-center justify-center"
