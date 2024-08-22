@@ -1,0 +1,40 @@
+h2 {
+  font-size: 3rem;
+  font-family: 'Poppins';
+  color: #fcbf49;
+  font-weight:normal;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: none;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  align-self: center;
+  vertical-align: middle;
+  height: 34%;
+  font-size: 1.8em;
+  font-weight: bold;
+  background: #ffffff;
+  border: 2px solid black;
+  border-radius: 33px;
+}
+h3 {
+  margin: auto;
+}
+.button:hover {
+  width: 62%;
+  height: 35%;
+  cursor: pointer;
+  font-size: 1.85em;
+}
+h2 strong {
+  font-size: 1.9rem;
+}
+
+
