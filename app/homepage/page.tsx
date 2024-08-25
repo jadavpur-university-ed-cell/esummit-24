@@ -1,5 +1,5 @@
 import Navbar from "@/components/Homepage/Navbar/Navbar";
-import Hero from "@/components/Homepage/Hero/hero";
+import Hero from "@/components/Homepage/Hero/Hero";
 import About from "@/components/Homepage/About/AboutUs";
 import Events from "@/components/Homepage/Events/Events";
 import Speakers from "@/components/Homepage/Speakers/Speakers";
