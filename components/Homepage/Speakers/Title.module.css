@@ -1,9 +1,9 @@
-h2 {
+/* h2 {
   font-size: 3rem;
   font-family: 'Poppins';
   color: #fcbf49;
   font-weight:normal;
-}
+} */
 .title {
   display: flex;
   flex-direction: column;
@@ -24,17 +24,17 @@ h2 {
   border: 2px solid black;
   border-radius: 33px;
 }
-h3 {
+/* h3 {
   margin: auto;
-}
+} */
 .button:hover {
   width: 62%;
   height: 35%;
   cursor: pointer;
   font-size: 1.85em;
 }
-h2 strong {
+/* h2 strong {
   font-size: 1.9rem;
-}
+} */
 
 

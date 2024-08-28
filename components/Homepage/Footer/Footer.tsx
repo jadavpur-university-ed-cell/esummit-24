@@ -8,6 +8,7 @@ export type RootType = {className?: string;};
 const Root: FunctionComponent<RootType> = ({ className = "" }) => 
   {
   return (
+    <footer className='relative'>
     <div className={[styles.root, className].join(" ")}>
       <section className={styles.content} />
       <section className={styles.structure}>
@@ -28,6 +29,7 @@ const Root: FunctionComponent<RootType> = ({ className = "" }) =>
         </div>
       </section>
     </div>
+    </footer>
   );
 };
 

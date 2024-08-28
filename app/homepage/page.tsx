@@ -15,7 +15,7 @@ export default function Home() {
 
     <Navbar/>  
     <Hero/>
-    <About/>
+    {/* <About/> */}
     <Events/>
     <Speakers/>
     <Gallery/>
