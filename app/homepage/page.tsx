@@ -1,6 +1,6 @@
 import Navbar from "@/components/Homepage/Navbar/Navbar";
 import Hero from "@/components/Homepage/Hero/Hero";
-import About from "@/components/Homepage/About/AboutUs";
+import About from "@/components/Homepage/About/About";
 import Events from "@/components/Homepage/Events/Events";
 import Speakers from "@/components/Homepage/Speakers/Speakers";
 import Gallery from "@/components/Homepage/Gallery/Gallery";
@@ -14,8 +14,8 @@ export default function Home() {
     <div>
 
     <Navbar/>  
-    <Hero/>
-    {/* <About/> */}
+    {/* <Hero/> */}
+    <About/>
     <Events/>
     <Speakers/>
     <Gallery/>

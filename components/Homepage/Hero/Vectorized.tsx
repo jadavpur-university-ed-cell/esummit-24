@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import "./Vectorized.css";
+// import "./Vectorized.css";
 
 export type VectorizedType = {
   className?: string;
