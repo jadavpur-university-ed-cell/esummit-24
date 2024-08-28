@@ -42,6 +42,7 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
+  phone         String?
   emailVerified DateTime? @map("email_verified")
   image         String?
   accounts      Account[]
@@ -65,17 +66,17 @@ model VerificationToken {
 }
 
 model Team {
-  teamId    String  @id @default(cuid())
+  teamId    String @id @default(cuid()) @unique
   eventName String
   teamName  String
   member2Id String
   member1Id String
   member3Id String
   member4Id String
-  member1   User    @relation("member1", fields: [member1Id], references: [id])
-  member2   User    @relation("member2", fields: [member2Id], references: [id])
-  member3   User    @relation("member3", fields: [member3Id], references: [id])
-  member4   User    @relation("member4", fields: [member4Id], references: [id])
+  member1   User   @relation("member1", fields: [member1Id], references: [id])
+  member2   User   @relation("member2", fields: [member2Id], references: [id])
+  member3   User   @relation("member3", fields: [member3Id], references: [id])
+  member4   User   @relation("member4", fields: [member4Id], references: [id])
 
   @@unique([eventName, teamName])
   @@unique([eventName, member1Id])

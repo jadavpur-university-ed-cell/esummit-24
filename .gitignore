@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+/data
+docker-compose.yml
 
 # next.js
 /.next/

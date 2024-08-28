@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { FaPen, FaSquareMinus } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import ExportCSV from "./ExportCSV";
-import AddTeamButton from "./AddTeamButton";
+import Link from "next/link";
 import clsx from "clsx";
+import DeleteTeam from "./DeleteTeam";
 
 function ShowUserData({ team }: { team: any }) {
 	return (
@@ -12,31 +12,30 @@ function ShowUserData({ team }: { team: any }) {
 			<div className="w-2/3 rounded-lg my-4 p-4 bg-[#17212e]">
 				<div className="flex justify-between px-[3%] mb-3">
 					<h2 className="text-2xl text-[#eae2b7]">{team.teamName}</h2>
-					<div className="flex gap-x-5">
-						<button className="text-white hover:text-[#eae2b7] transition-colors text-lg">
-							<FaPen />
-						</button>
-						<button className="text-red-500 hover:text-red-700 transition-colors text-2xl">
-							<FaSquareMinus />
-						</button>
+					<div>
+						<DeleteTeam teamId={team.teamId}/>
 					</div>
 				</div>
 				<div className="text-white px-6 flex flex-col">
-					<p className="grid grid-cols-3 bg-[#10182288] py-1 px-2">
+					<p className="grid grid-cols-3 bg-[#10182288] py-1 px-2 text-center">
 						<span>{team.member1.name}</span>
 						<span>{team.member1.email}</span>
+						<span>{team.member1.phone}</span>
 					</p>
-					<p className="grid grid-cols-3 px-2 py-1">
+					<p className="grid grid-cols-3 px-2 py-1 text-center">
 						<span>{team.member2.name}</span>
 						<span>{team.member2.email}</span>
+						<span>{team.member2.phone}</span>
 					</p>
-					<p className="grid grid-cols-3 px-2 py-1 bg-[#10182288]">
+					<p className="grid grid-cols-3 px-2 py-1 bg-[#10182288] text-center">
 						<span>{team.member3.name}</span>
 						<span>{team.member3.email}</span>
+						<span>{team.member3.phone}</span>
 					</p>
-					<p className="grid grid-cols-3 px-2 py-1">
+					<p className="grid grid-cols-3 px-2 py-1 text-center">
 						<span>{team.member4.name}</span>
 						<span>{team.member4.email}</span>
+						<span>{team.member4.phone}</span>
 					</p>
 				</div>
 			</div>
@@ -84,7 +83,8 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 							<span className="text-2xl font-medium"> {teams.length} </span>
 							Teams
 						</h3>
-						<AddTeamButton />
+						<Link href="../admin/createTeam" target="_blank" className="bg-[#101720] px-2 py-1 rounded-[4px]">Add Team</Link>
+
 					</div>
 					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-lg px-2 py-6 flex flex-col items-center justify-around">
 						<h2>Export as CSV</h2>
