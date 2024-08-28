@@ -1,5 +1,5 @@
 import Navbar from "@/components/Homepage/Navbar/Navbar";
-import Hero from "@/components/Homepage/Hero/Hero";
+import Hero from "@/components/Homepage/Hero/Root";
 import About from "@/components/Homepage/About/About";
 import Events from "@/components/Homepage/Events/Events";
 import Speakers from "@/components/Homepage/Speakers/Speakers";
@@ -8,13 +8,14 @@ import Partners from "@/components/Homepage/Partners/Partners";
 import Footer from "@/components/Homepage/Footer/Footer";
 
 
+
 export default function Home() {
   return (
     
     <div>
 
     <Navbar/>  
-    {/* <Hero/> */}
+    <Hero/>
     <About/>
     <Events/>
     <Speakers/>
