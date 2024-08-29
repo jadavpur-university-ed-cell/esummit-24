@@ -9,17 +9,15 @@ backdrop-filter: blur(20px);
   border-radius: 40px;
   border-top: 1px solid white;
   color: white;
- 
 }
 .name {
   font-family: 'Poppins';
   font-size:x-large;
   width:100%;
-  margin: 0;
   padding-left:0;
   position: absolute;
   left: 5%;
-  bottom: 0;
+  bottom: 10%;
 }
 
 
@@ -32,6 +30,7 @@ backdrop-filter: blur(20px);
   right: 15px; 
   border-radius: 50%;
   border:0px;
+  padding: 5%;
 }
 
 
