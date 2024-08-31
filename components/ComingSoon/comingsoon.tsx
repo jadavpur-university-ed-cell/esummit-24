@@ -10,7 +10,15 @@ import AlertText from "../AlertText";
 const ComingSoon = () => {
   return (
     <>
-    <div className="h-screen">
+    <div className="h-screen bg-[#101720] bg-grid-white/[0.05]  md:bg-grid-large-white/[0.05] text-white">
+    <Spotlight
+        className="-top-0 left-0 sm:left-20 md:left-40 lg:left-60 lg:-top-20"
+        fill="white"
+      />
+      <Spotlight
+        className="-top-8 left-0 sm:left-40 md:left-60 lg:left-80 lg:-top-40"
+        fill="white"
+      />
       <div className="flex flex-col items-center gap-0">
         <AlertText/>
         <p className="text-center md:tracking-wider mb-0 sm:mb-4 text-sm md:text-lg lg:text-2xl">

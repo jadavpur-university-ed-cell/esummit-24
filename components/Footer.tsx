@@ -7,7 +7,7 @@ import Link from "next/link";
    
    export default function Footer() {
     return (
-      <section id="footer" className="flex flex-col gap-1 justify-start w-screen items-center bg-[#101720]">
+      <section id="footer" className="flex flex-col gap-1 justify-start w-screen items-center bg-inherit">
         
         <img
 					className="object-cover w-[275px] h-[100px] sm:w-[350px] sm:h-[125px]"
