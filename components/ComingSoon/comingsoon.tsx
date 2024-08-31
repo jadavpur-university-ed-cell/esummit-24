@@ -10,7 +10,7 @@ import AlertText from "../AlertText";
 const ComingSoon = () => {
   return (
     <>
-    <div className="pb-20 pt-26">
+    <div className="pb-20 pt-26 flex flex-col items-center">
       {/**
        *  UI: Spotlights
        *  Link: https://ui.aceternity.com/components/spotlight
@@ -68,7 +68,7 @@ const ComingSoon = () => {
               position="right"
             />
           </a>
-          <Image src='/svg_pers/ecell.png' alt='' height={200} width={400}/>
+          
         </div>
       </div>
       <Footer/>
