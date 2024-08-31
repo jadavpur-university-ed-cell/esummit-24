@@ -7,15 +7,15 @@ import Link from "next/link";
    
    export default function Footer() {
     return (
-      <section id="footer" className="flex flex-col justify-start w-screen items-center bg-[#101720]">
+      <section id="footer" className="flex flex-col gap-1 justify-start w-screen items-center bg-[#101720]">
         
         <img
-					className="object-cover w-[350px] h-[125px]"
+					className="object-cover w-[275px] h-[100px] sm:w-[350px] sm:h-[125px]"
 					src="/svg_pers/ecell.png"
 					alt="logo"
 				/>
    
-        <div className="flex sm:flex-row flex-col gap-2 sm:gap-0 sm:justify-between rounded-lg shadow mb-4 bg-gray-800 md:min-w-[95vw] sm:min-w-[98vw] p-1 ">
+        <div className="flex sm:flex-row flex-col gap-0 sm:gap-0 sm:justify-between rounded-lg shadow mb-4 bg-gray-800 min-w-[95vw] p-1 max-w-[90vw] sm:max-w-[100vw]">
 
           <div className="w-full mx-auto max-w-screen-xl  flex items-center justify-center sm:justify-between">
             <span className="sm:text-sm text-xs text-center text-gray-400">© 2024

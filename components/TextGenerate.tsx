@@ -45,7 +45,7 @@ export const TextGenerate = ({
   return (
     <div className={cn("font-bold", className)}>
       {/* mt-4 to my-4 */}
-      <div className="my-4">
+      <div className="mt-0 mb-2">
         {/* remove  text-2xl from the original */}
         <div className=" text-white leading-snug tracking-wide">
           {renderWords()}
