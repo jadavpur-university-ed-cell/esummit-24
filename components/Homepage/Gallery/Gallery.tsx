@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./Gallery.css";
 import { Swiper, SwiperSlide } from "swiper/react";
