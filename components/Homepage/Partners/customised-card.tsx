@@ -22,7 +22,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-10 w-[100%] py-10",
+        "grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-8 w-[100%] py-10",
         className
       )}
     >
@@ -92,11 +92,11 @@ export const Cardimage = ({
 }) => {
   return (
     <div className={cn(
-      "flex justify-center ",
+      "flex justify-center",
       className
     )}>
         <img
-					className="object-cover max-h-[100px] "
+					className="object-cover max-h-[100px]"
 					src={children}
 					alt="logo"
 				/>
@@ -134,6 +134,3 @@ export const CardTitle = ({
 //     </p>
 //   );
 // };
-
-
-

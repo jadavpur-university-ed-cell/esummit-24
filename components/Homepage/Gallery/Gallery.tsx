@@ -12,33 +12,17 @@ import {
   Pagination,
   Autoplay,
 } from "swiper/modules"; // Import Autoplay module
-import slide_image_1 from "./assets/img1.jpg";
-import slide_image_2 from "./assets/img2.jpg";
-import slide_image_3 from "./assets/img3.jpg";
-import slide_image_4 from "./assets/img4.jpg";
-import slide_image_5 from "./assets/img5.jpg";
-import slide_image_6 from "./assets/img6.jpg";
-import slide_image_7 from "./assets/img7.jpg";
-import slide_image_8 from "./assets/img8.jpg";
+
+import {images} from "@/components/Homepage/Gallery/images";
+import Image from "next/image";
+
 
 function Gallery() {
-  const images = [
-    slide_image_1,
-    slide_image_2,
-    slide_image_3,
-    slide_image_4,
-    slide_image_5,
-    slide_image_6,
-    slide_image_7,
-    slide_image_8,
-  ];
+  
   return (
-    <div className="container gallery-container">
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      ></link>
-      <h1 className="heading">Gallery</h1>
+    <section id="gallery" className='bg-[#101720] min-h-screen flex flex-col justify-center font-[Poppins] '>
+    <div className=" bg-[#101720] flex flex-col items-center justify-start min-h-[94vh] mx-5 p-5 rounded-3xl border-white  border-2">
+      <h1 className="text-5xl text-[#fcbf49] py-3 mb-7">Gallery</h1>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -57,18 +41,19 @@ function Gallery() {
         }}
         pagination={{ el: ".swiper-pagination", clickable: true }}
         modules={[EffectCoverflow, Pagination, Autoplay]} // Include Autoplay module
-        className="swiper_container"
+        className="h-[80vh] flex flex-col items-center justify-center w-[100%] lg:w-[70.5%] mx-auto sm:rounded-[6rem]"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img src={image} alt={`slide_image_${index + 1}`} />
+          <SwiperSlide key={index} className="">
+            <Image src={image.src} alt={image.alt} />
           </SwiperSlide>
         ))}
-        <div className="slider-controler">
-          <div className="swiper-pagination"></div>
+        <div className="flex items-center justify-center">
+          <div className="swiper-pagination flex justify-center text-center"></div>
         </div>
       </Swiper>
     </div>
+    </section>
   )
 }
 
