@@ -94,11 +94,11 @@ body {
     height: 47rem;
   }
   .swiper-slide {
-    width: 26rem !important;
+    width: 23rem !important;
     height: 36rem !important;
   }
   .swiper-slide img {
-    width: 26rem !important;
+    width: 23rem !important;
     height: 36rem !important;
   }
 }
