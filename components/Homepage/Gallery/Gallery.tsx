@@ -20,7 +20,7 @@ import Image from "next/image";
 function Gallery() {
   
   return (
-    <section id="gallery" className='bg-[#101720] min-h-screen flex flex-col justify-center font-[Poppins] '>
+    <section id="gallery" className='bg-[#101720] min-h-screen flex flex-col justify-center font-[Poppins]'>
     <div className=" bg-[#101720] flex flex-col items-center justify-start min-h-[94vh] mx-5 p-5 rounded-3xl border-white  border-2">
       <h1 className="text-5xl text-[#fcbf49] py-3 mb-7">Gallery</h1>
       <Swiper
@@ -41,10 +41,10 @@ function Gallery() {
         }}
         pagination={{ el: ".swiper-pagination", clickable: true }}
         modules={[EffectCoverflow, Pagination, Autoplay]} // Include Autoplay module
-        className="h-[80vh] flex flex-col items-center justify-center w-[100%] lg:w-[70.5%] mx-auto sm:rounded-[6rem]"
+        className="h-[80vh] flex flex-col items-center justify-center w-[100%] lg:w-[71.5%] mx-auto sm:rounded-[6rem]"
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="">
+          <SwiperSlide key={index} className="w-[38rem] h-[42rem]">
             <Image src={image.src} alt={image.alt} />
           </SwiperSlide>
         ))}
