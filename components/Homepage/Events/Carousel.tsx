@@ -50,7 +50,7 @@ const Carousel = ({eventList}:{eventList:event[]}) => {
 	const visibleItems = getVisibleItems();
 
 	return (
-		<div className="relative flex items-center justify-center w-full h-4/5 md:h-1/2 lg:h-4/5 grow">
+		<div className="relative flex items-center justify-center w-full h-full md:h-1/2 lg:h-4/5 grow">
 			<button
 				onClick={prev}
 				className="absolute left-0 md:-left-5 z-10 p-2 text-[#101720] bg-[#fcbf49] rounded-full aspect-square">

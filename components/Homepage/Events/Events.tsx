@@ -42,7 +42,7 @@ function Events() {
 	return (
 		<>
 			<section id="events">
-				<div className="h-[120vmin] bg-[#101720] flex flex-col items-center p-[10vmin]">
+				<div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
 					<h1 className="text-5xl text-[#fcbf49]">Events</h1>
 					<div className="flex items-center w-full h-full grow">
 					<Carousel eventList={eventList}/>
