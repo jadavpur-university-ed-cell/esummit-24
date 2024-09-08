@@ -22,7 +22,7 @@ const UserSchema = z.object({
 
 type FormFields = z.infer<typeof UserSchema>;
 
-cconst RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
+const RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
   const router = useRouter();
   const { email } = params;
 

@@ -1,4 +1,3 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { db } from "./db";
 import { PrismaClient } from "@prisma/client";
 import NextAuth from "next-auth";
@@ -14,7 +13,6 @@ export const authOptions = {
         }
     },
     secret: process.env.AUTH_SECRET,
-	adapter: PrismaAdapter(db as unknown as PrismaClient),
     debug: true,
     ...authConfig
 };

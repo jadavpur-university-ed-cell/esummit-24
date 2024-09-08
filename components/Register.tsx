@@ -4,8 +4,8 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import CardWrapper from "./CardWrapper"
-import { useTransition } from "react";
 import { Reg } from "@/app/actions/register";
+import { redirect, useRouter } from "next/navigation";
 
 export const RegisterSchema = z.object({
     email: z.string().email({
@@ -25,7 +25,7 @@ export const RegisterSchema = z.object({
 type FormFields = z.infer<typeof RegisterSchema>
 
 export const Register = () => {
-
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -38,10 +38,16 @@ export const Register = () => {
             type: "User"
         },
         resolver: zodResolver(RegisterSchema)
-    })
+    });
 
     const onSubmit:SubmitHandler<FormFields> = async (values) => {
         Reg(values)
+        if (values.type === "Admin") {
+            router.push("/admin")
+        }
+        if (values.type === "User") {
+            router.push(`/users/${values.email}`)
+        }
     }
 
     return (
