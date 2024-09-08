@@ -44,6 +44,8 @@ model User {
   email         String?   @unique
   phone         String?
   emailVerified DateTime? @map("email_verified")
+  isVerified    Boolean
+  rollNo        String?
   image         String?
   accounts      Account[]
   sessions      Session[]
@@ -66,17 +68,17 @@ model VerificationToken {
 }
 
 model Team {
-  teamId    String @id @default(cuid()) @unique
+  teamId    String  @id @unique @default(cuid())
   eventName String
   teamName  String
-  member2Id String
   member1Id String
-  member3Id String
-  member4Id String
-  member1   User   @relation("member1", fields: [member1Id], references: [id])
-  member2   User   @relation("member2", fields: [member2Id], references: [id])
-  member3   User   @relation("member3", fields: [member3Id], references: [id])
-  member4   User   @relation("member4", fields: [member4Id], references: [id])
+  member2Id String?
+  member3Id String?
+  member4Id String?
+  member1   User    @relation("member1", fields: [member1Id], references: [id])
+  member2   User?   @relation("member2", fields: [member2Id], references: [id])
+  member3   User?   @relation("member3", fields: [member3Id], references: [id])
+  member4   User?   @relation("member4", fields: [member4Id], references: [id])
 
   @@unique([eventName, teamName])
   @@unique([eventName, member1Id])
