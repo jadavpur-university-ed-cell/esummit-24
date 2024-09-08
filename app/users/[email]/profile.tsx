@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { PrismaClient } from '@prisma/client';
-import Link from 'next/link';
+import React, { useState } from "react";
+import { PrismaClient } from "@prisma/client";
+import Link from "next/link";
 
 interface User {
   name: string;
@@ -8,9 +8,9 @@ interface User {
   year: string;
   branch: string;
   image: string | null;
-  foodPreference: string; 
-  shirtSize: string;      
-  gender: string;         
+  foodPreference: string;
+  shirtSize: string;
+  gender: string;
 }
 
 interface Team {
@@ -23,23 +23,27 @@ interface Team {
   member4: { id: string; name: string };
 }
 
-const UserProfile = async ({ params }: { params: { userid: string } }) => {
+const UserProfile = async ({ params }: { params: { email: string } }) => {
   const prisma = new PrismaClient();
-  const { userid } = params;
+  const { email } = params;
 
-  // Fetch user data
+  // Fetch user data by email
   const user = await prisma.user.findUnique({
-    where: { id: userid },
+    where: { email },
   });
 
-  // Fetch teams the user is part of
+  if (!user) {
+    return <div>User not found</div>;
+  }
+
+  // Fetch teams the user is part of, using the user ID
   const teams = await prisma.team.findMany({
     where: {
       OR: [
-        { member1Id: userid },
-        { member2Id: userid },
-        { member3Id: userid },
-        { member4Id: userid },
+        { member1Id: user.id },
+        { member2Id: user.id },
+        { member3Id: user.id },
+        { member4Id: user.id },
       ],
     },
     include: {
@@ -51,13 +55,12 @@ const UserProfile = async ({ params }: { params: { userid: string } }) => {
   });
 
   const [editMode, setEditMode] = useState(false);
-  const [foodPreference, setFoodPreference] = useState(user?.foodPreference || '');
-  const [shirtSize, setShirtSize] = useState(user?.shirtSize || '');
+  const [foodPreference, setFoodPreference] = useState(user?.foodPreference || "");
+  const [shirtSize, setShirtSize] = useState(user?.shirtSize || "");
 
   const handleSave = async () => {
-  
     await prisma.user.update({
-      where: { id: userid },
+      where: { email },
       data: {
         foodPreference,
         shirtSize,
@@ -66,8 +69,6 @@ const UserProfile = async ({ params }: { params: { userid: string } }) => {
 
     setEditMode(false); // Exit edit mode after saving
   };
-
-  if (!user) return <div>Loading...</div>;
 
   return (
     <div className="min-h-screen bg-[#101720] text-white flex flex-col items-center py-10">
@@ -81,7 +82,7 @@ const UserProfile = async ({ params }: { params: { userid: string } }) => {
             <p className="text-lg">{user.college}</p>
             <p className="text-lg">{user.year}</p>
             <p className="text-lg">{user.branch}</p>
-            
+
             {editMode ? (
               <>
                 <label className="text-lg">
@@ -140,7 +141,8 @@ const UserProfile = async ({ params }: { params: { userid: string } }) => {
                 <td className="border px-4 py-2">{team.eventName}</td>
                 <td className="border px-4 py-2">{team.teamName}</td>
                 <td className="border px-4 py-2">
-                  {team.member1.name}, {team.member2.name}, {team.member3.name}, {team.member4.name}
+                  {team.member1.name}, {team.member2.name}, {team.member3.name},{" "}
+                  {team.member4.name}
                 </td>
                 <td className="border px-4 py-2">
                   <Link
@@ -160,3 +162,4 @@ const UserProfile = async ({ params }: { params: { userid: string } }) => {
 };
 
 export default UserProfile;
+

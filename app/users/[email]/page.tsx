@@ -22,7 +22,7 @@ const UserSchema = z.object({
 
 type FormFields = z.infer<typeof UserSchema>;
 
-const RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
+cconst RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
   const router = useRouter();
   const { email } = params;
 
@@ -48,7 +48,8 @@ const RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
           where: { email },
           data,
         });
-        router.push(`/users/${user.id}`);
+        // Redirect to the profile page using the email
+        router.push(`/users/${email}`);
       } else {
         console.error("User not found");
       }
@@ -58,6 +59,7 @@ const RegisterDetailsPage = ({ params }: { params: { email: string } }) => {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen bg-black text-yellow-300 flex flex-col items-center justify-center">
