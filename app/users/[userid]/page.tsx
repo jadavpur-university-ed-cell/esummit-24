@@ -8,6 +8,9 @@ interface User {
   year: string;
   branch: string;
   image: string | null;
+  foodPreference: string; // Added field
+  shirtSize: string;      // Added field
+  gender: string;         // Added field
 }
 
 interface Team {
@@ -20,7 +23,31 @@ interface Team {
   member4: { id: string; name: string };
 }
 
-const UserProfile = ({ user, teams }: { user: User; teams: Team[] }) => {
+const UserProfile = async ({ params }: { params: { userid: string } }) => {
+  const prisma = new PrismaClient();
+  const { userid } = params;
+
+  const user = await prisma.user.findUnique({
+    where: { id: userid },
+  });
+
+  const teams = await prisma.team.findMany({
+    where: {
+      OR: [
+        { member1Id: userid },
+        { member2Id: userid },
+        { member3Id: userid },
+        { member4Id: userid },
+      ],
+    },
+    include: {
+      member1: { select: { id: true, name: true } },
+      member2: { select: { id: true, name: true } },
+      member3: { select: { id: true, name: true } },
+      member4: { select: { id: true, name: true } },
+    },
+  });
+
   if (!user) return <div>Loading...</div>;
 
   return (
@@ -35,6 +62,9 @@ const UserProfile = ({ user, teams }: { user: User; teams: Team[] }) => {
             <p className="text-lg">{user.college}</p>
             <p className="text-lg">{user.year}</p>
             <p className="text-lg">{user.branch}</p>
+            <p className="text-lg">Food Preference: {user.foodPreference}</p>
+            <p className="text-lg">Shirt Size: {user.shirtSize}</p>
+            <p className="text-lg">Gender: {user.gender}</p>
           </div>
         </div>
 
@@ -70,41 +100,6 @@ const UserProfile = ({ user, teams }: { user: User; teams: Team[] }) => {
       </main>
     </div>
   );
-};
-
-export const getServerSideProps = async (context: { params: { userid: string } }) => {
-  const prisma = new PrismaClient();
-  const { userid } = context.params;
-
-  // Fetch user data
-  const user = await prisma.user.findUnique({
-    where: { id: userid },
-  });
-
-  // Fetch teams the user is part of
-  const teams = await prisma.team.findMany({
-    where: {
-      OR: [
-        { member1Id: userid },
-        { member2Id: userid },
-        { member3Id: userid },
-        { member4Id: userid },
-      ],
-    },
-    include: {
-      member1: { select: { id: true, name: true } },
-      member2: { select: { id: true, name: true } },
-      member3: { select: { id: true, name: true } },
-      member4: { select: { id: true, name: true } },
-    },
-  });
-
-  return {
-    props: {
-      user,
-      teams,
-    },
-  };
 };
 
 export default UserProfile;
