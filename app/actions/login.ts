@@ -1,21 +1,36 @@
 "use server";
 
-import { LoginSchema } from "@/components/Login";
-import { DEFAULT_LOGIN_REDIRECT } from "@/route";
-import { signIn } from "next-auth/react";
+import { LoginSchema } from "@/schemas";
+import { signIn } from "@/auth";
 import * as z from "zod";
+import { DEFAULT_LOGIN_REDIRECT } from "@/route";
+import { AuthError } from "next-auth";
 
-export async function Log(values: z.infer<typeof LoginSchema>) {
-  const { email, password } = values;
+export const login = async (values: z.infer<typeof LoginSchema>) => {
+  // const { email, password } = values;
+  // console.log(values);
+  const validatedFields = LoginSchema.safeParse(values);
+  if(!validatedFields.success) {
+    return { error: "Invalid credentials" };
+  }
 
+  const { email, password } = validatedFields.data;
   try {
     await signIn("credentials", {
-      email,
-      password,
-      redirectTo: DEFAULT_LOGIN_REDIRECT,
+      email, password,
+      redirectTo: DEFAULT_LOGIN_REDIRECT
     })
-  } catch (error) {
-    return { error: "Invalid credentials" };
-    throw error
+    
+  }
+  catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return { error: "Invalid credentials" };
+        default:
+          return { error: "An error occurred" };
+      }
+    }
+    throw error;
   }
 }

@@ -4,8 +4,9 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url       = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model Account {
@@ -42,6 +43,8 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
+  password      String?
+  role          String?
   phone         String?
   emailVerified DateTime? @map("email_verified")
   isVerified    Boolean
@@ -71,7 +74,7 @@ model VerificationToken {
 }
 
 model Team {
-  teamId    String  @id @unique @default(cuid())
+  teamId    String @id @unique @default(cuid())
   eventName String
   teamName  String
   member1Id String
