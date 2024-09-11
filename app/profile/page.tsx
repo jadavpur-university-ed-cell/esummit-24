@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
+import { DEFAULT_LOGIN_REDIRECT } from "@/route";
 const Profile = async () => {
   const session = await auth();
   return (
@@ -9,7 +10,7 @@ const Profile = async () => {
       <form
         action={async () => {
           "use server";
-          await signOut();
+          await signOut({ redirectTo: "/sign-in", redirect: true });
         }}
       >
         <Button type="submit" className="">
