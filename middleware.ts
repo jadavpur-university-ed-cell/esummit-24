@@ -2,6 +2,9 @@ import authConfig from "@/auth.config";
 import NextAuth, { NextAuthConfig } from "next-auth";
 const { auth } = NextAuth(authConfig);
 import { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, publicRoutes, authRoutes, adminRoutes } from "./route";
+// import { NextResponse } from "next/server";
+import { notFound, redirect } from "next/navigation";
+import { NextResponse } from "next/server";
 
 export default auth((req) => {
     const { nextUrl } = req;
@@ -15,7 +18,7 @@ export default auth((req) => {
     }
     if (isAuthRoute) {
         if (isLoggedIn) {
-         return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+            return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
         }
         return;
     }
@@ -27,7 +30,7 @@ export default auth((req) => {
             const userRole = req?.auth?.user?.role;
             if (userRole !== "Admin") {
                 console.log("User is not an admin");
-                return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+                return Response.redirect(new URL("/404", nextUrl));
             }
         }
         return;

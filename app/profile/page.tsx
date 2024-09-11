@@ -13,7 +13,7 @@ const Profile = async () => {
           await signOut({ redirectTo: "/sign-in", redirect: true });
         }}
       >
-        <Button type="submit" className="">
+        <Button type="submit" variant="outline">
           Log Out
         </Button>
       </form>
