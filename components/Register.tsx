@@ -44,7 +44,6 @@ export const Register = () => {
       });
     });
   };
-
   return (
     <CardWrapper
       title="Register"

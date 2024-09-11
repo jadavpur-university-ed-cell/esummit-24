@@ -5,14 +5,17 @@ import ExportCSV from "./ExportCSV";
 import Link from "next/link";
 import clsx from "clsx";
 import DeleteTeam from "./DeleteTeam";
+import EditTeam from "./EditTeam";
 
-function ShowUserData({ team }: { team: any }) {
+function ShowUserData({ team, eventName }: { team: any, eventName:string }) {
 	return (
 		<>
 			<div className="w-2/3 rounded-lg my-4 p-4 bg-[#17212e]">
 				<div className="flex justify-between px-[3%] mb-3">
 					<h2 className="text-2xl text-[#eae2b7]">{team.teamName}</h2>
-					<div>
+					<div className="flex gap-5 items-center">
+						{/* ADD FUNCTIONALITY TO EDIT TEAM BUTTON */}
+						<EditTeam teamId={team.teamId} eventName={eventName} teamName={team.teamName} />
 						<DeleteTeam teamId={team.teamId}/>
 					</div>
 				</div>
@@ -23,19 +26,19 @@ function ShowUserData({ team }: { team: any }) {
 						<span>{team.member1.phone}</span>
 					</p>
 					<p className="grid grid-cols-3 px-2 py-1 text-center">
-						<span>{team.member2.name}</span>
-						<span>{team.member2.email}</span>
-						<span>{team.member2.phone}</span>
+						<span>{team.member2?.name}</span>
+						<span>{team.member2?.email}</span>
+						<span>{team.member2?.phone}</span>
 					</p>
 					<p className="grid grid-cols-3 px-2 py-1 bg-[#10182288] text-center">
-						<span>{team.member3.name}</span>
-						<span>{team.member3.email}</span>
-						<span>{team.member3.phone}</span>
+						<span>{team.member3?.name}</span>
+						<span>{team.member3?.email}</span>
+						<span>{team.member3?.phone}</span>
 					</p>
 					<p className="grid grid-cols-3 px-2 py-1 text-center">
-						<span>{team.member4.name}</span>
-						<span>{team.member4.email}</span>
-						<span>{team.member4.phone}</span>
+						<span>{team.member4?.name}</span>
+						<span>{team.member4?.email}</span>
+						<span>{team.member4?.phone}</span>
 					</p>
 				</div>
 			</div>
@@ -83,7 +86,7 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 							<span className="text-2xl font-medium"> {teams.length} </span>
 							Teams
 						</h3>
-						<Link href="../admin/createTeam" target="_blank" className="bg-[#101720] px-2 py-1 rounded-[4px]">Add Team</Link>
+						<Link href="/admin/teams/createTeam" target="_blank" className="bg-[#101720] px-2 py-1 rounded-[4px]">Add Team</Link>
 
 					</div>
 					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-lg px-2 py-6 flex flex-col items-center justify-around">
@@ -130,7 +133,7 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 				</div>
 				<div className="w-11/12 flex flex-col items-center">
 					{arr.map((team: any, ind: number) => (
-						<ShowUserData team={team} key={ind} />
+						<ShowUserData team={team} key={ind} eventName={title} />
 					))}
 				</div>
 			</main>

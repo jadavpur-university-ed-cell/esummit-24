@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSquareMinus } from "react-icons/fa6";
-import { deleteTeam } from "./queries";
+import { deleteTeam } from "../../queries";
 export default function DeleteTeam({teamId}:{teamId:string}) {
 	return (
 		<>
