@@ -1,3 +1,2 @@
 ## Issues
-1) Some Typescript issues remain
-
+Can't find any
