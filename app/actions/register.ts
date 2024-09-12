@@ -40,7 +40,8 @@ export const Reg = async (values: z.infer<typeof RegisterSchema>) => {
       email : email,
       password: hashedPassword,
       name : name,
-      role: type
+      role: type,
+      isVerified: false
     }
   });
     return { success: "User created!" };

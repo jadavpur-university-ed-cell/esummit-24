@@ -32,31 +32,40 @@ const eventArr: Event[] = [
 	{
 		name: "LaunchX",
 		path: "launchx",
-	}
+	},
 ];
 
 export async function GET(
+	req: NextRequest, res:NextResponse,
+	{ params }: { params: { id: string } }
+) {
+	try {
+		// id here is the name of the event
+		const eventName = (eventArr.find((event) => event.path === params.id))?.name;
+		if(!eventName) return NextResponse.json({error:"Event not found"},{status:400});
+		const teams = await prisma.team.findMany({
+			where: {
+				eventName: eventName,
+			},
+			include: { member1: true, member2: true, member3: true, member4: true },
+		});
+		return NextResponse.json(teams);
+	} catch (err) {
+		return NextResponse.json({ error: "internal server error" },{status:501});
+	}
+}
+
+export async function DELETE(
 	req: NextRequest,
 	{ params }: { params: { id: string } }
 ) {
-	// id here is the name of the event
-    const event = eventArr.filter((event)=>event.path===params.id);
-    const eventName = event[0].name;
-	const teams = await prisma.team.findMany({
-		where: {
-			eventName: eventName,
-		},
-		include: { member1: true, member2: true, member3: true, member4: true },
-	});
-	return NextResponse.json(teams);
-}
-
-export async function DELETE(req:NextRequest, {params}:{params:{id:string}}) {
 	// id here is the team id
-    await prisma.team.delete({
-    where: {
-        teamId: params.id
-    }
-});
-return NextResponse.json({"message":`Team with id ${params.id} deleted successfully.`})
+	await prisma.team.delete({
+		where: {
+			teamId: params.id,
+		},
+	});
+	return NextResponse.json({
+		message: `Team with id ${params.id} deleted successfully.`,
+	});
 }
