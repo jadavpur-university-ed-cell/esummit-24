@@ -1,9 +1,14 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import clsx from "clsx";
+import { useCurrentRole } from "@/hooks/use-current-role";
+import { currentRole } from "@/lib/auth";
 
-function page() {
+async function page() {
+  const role = await currentRole();
   return (
     <>
+    <span className="text-white">Current Role : {role}</span>
     <section className='h-screen flex flex-col p-10'>
       <div className='w-full flex justify-center'>
     <h1 className='text-white text-4xl font-semibold'>Admin Page</h1>
@@ -17,4 +22,4 @@ function page() {
   )
 }
 
-export default page
+export default page;
