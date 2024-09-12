@@ -67,7 +67,7 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 	const [arr, setArr] = useState(teams);
 	const [searchVal, setSearchVal] = useState("");
 	const [searchBy, setSearchBy] = useState("member");
-	function handleFormSubmit(e:any){
+	function handleFormSubmit(e:React.FormEvent){
 		e.preventDefault();
 		if(searchVal===""){ 
 			setArr(teams);

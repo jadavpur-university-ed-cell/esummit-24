@@ -1,5 +1,18 @@
 "use server";
 
+interface User {
+	id: string;
+	name: string;
+	email: string;
+	phone: string;
+	isVerified: boolean;
+	rollNo: string;
+	verifyImage: string;
+	gender: string;
+	foodPreference: string;
+	shirtSize: string;
+}
+
 async function getTeams(event: string) {
     try {
         const response = await fetch(`http://localhost:3000/api/teams/${event}`, {
@@ -35,4 +48,13 @@ async function deleteTeam(teamId: string) {
 	});
 }
 
-export { getTeams, deleteTeam };
+async function editUserReq(user: User){
+    const data = await fetch(`http://localhost:3000/api/users/${user.id}`,{
+        method: 'PUT',
+        body: JSON.stringify(user),
+        cache: "no-store"
+    })
+    return (await data.json());
+}
+
+export { getTeams, deleteTeam, editUserReq };
