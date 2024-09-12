@@ -75,7 +75,7 @@ model VerificationToken {
 }
 
 model Team {
-  teamId    String  @id @unique @default(cuid())
+  teamId    String @id @unique @default(cuid())
   eventName String
   teamName  String
   member1Id String
