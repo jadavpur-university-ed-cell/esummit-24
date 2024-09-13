@@ -1,0 +1,18 @@
+export const images = [
+    {src:"/img1.jpg",alt:'img1'},
+    {src:"/img2.jpg",alt:'img2'},
+    {src:"/img3.jpg",alt:'img3'},
+    {src:"/img4.jpg",alt:'img4'},
+    {src:"/img5.jpg",alt:'img5'},
+    {src:"/img6.jpg",alt:'img6'},
+    {src:"/img7.jpg",alt:'img7'},
+    {src:"/img8.jpg",alt:'img8'},
+    {src:"/img1.jpg",alt:'img1'},
+    {src:"/img2.jpg",alt:'img2'},
+    {src:"/img3.jpg",alt:'img3'},
+    {src:"/img4.jpg",alt:'img4'},
+    {src:"/img5.jpg",alt:'img5'},
+    {src:"/img6.jpg",alt:'img6'},
+    {src:"/img7.jpg",alt:'img7'},
+    {src:"/img8.jpg",alt:'img8'},
+  ];
