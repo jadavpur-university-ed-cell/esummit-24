@@ -1,6 +1,0 @@
-{
-    "routes": [
-      { "src": "/esummit/(.*)", "dest": "/esummit/$1" },
-      { "handle": "filesystem" }
-    ]
-  }
