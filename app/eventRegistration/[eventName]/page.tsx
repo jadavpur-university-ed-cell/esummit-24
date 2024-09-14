@@ -1,11 +1,8 @@
 'use client'
-import Link from 'next/link'
 import allEventNames from './allEventNames'
 import {MemberInput,TeamInput} from './Comp'
 import React, { HtmlHTMLAttributes, useState } from 'react'
-import { DiVim } from 'react-icons/di'
 import { boolean, string } from 'zod'
-import { eventNames } from 'process'
 
 type eventPropType = {
   valid: boolean,
@@ -30,8 +27,9 @@ const checkValidEvent = (eventName:string) =>{
   }
   return res;
 }
-const checkTeamName =  (event:string,team:string):boolean =>{
-  if(team == "") {alert('team name is empty');return false;}
+const checkTeamName =  async(event:string,team:string) =>{
+  return new Promise((resolve, reject)=>{
+  if(team == "") {alert('team name is empty');resolve(false);}
   fetch("/api/user/checkTeamExists",{
     headers:{
       "event":event,
@@ -41,36 +39,40 @@ const checkTeamName =  (event:string,team:string):boolean =>{
    }).then(res =>{
     if(res.status == 200){
       res.json().then((body)=>{
-        if(!body.msg) {return true}//the team does not Exist
-        else {alert("team already exits");return false;}
+        if(!body.msg) {return resolve(true)}//the team does not Exist
+        else {alert("team already exits");return resolve(false);}
       })
     }
     else {
     console.log('got backend err');
       alert('something went wrong try again later');
-      return false;
+       resolve(false);
     }
    }).catch(err=>{
     console.log('got err');
       alert('something went wrong try again later');
-      return false;
+       resolve(false);
    })
+  })
 }
 
 const checkValidMembers=(
   members:Array<string>,
   teamSizeMax:number,
   teamSizeMin:number,
-):boolean=>{
+)=>{
+  return new Promise((resolve,reject)=>{
     const actualMembers = members.filter(e=>e!=""); // to get rid of the null inputs
     let s = actualMembers.length;
-    if(s>teamSizeMin || s<teamSizeMax) {alert("team Size not met");return false;}
+    if(s<teamSizeMin || s>teamSizeMax) {alert("team Size not met");resolve(false);}
     for (let i = 0; i < s; i++) {
       for (let j = i + 1; j < s; j++) {
-        if (actualMembers[i] == actualMembers[j]) {alert("multiple member with same mail");return false;}
+        if (actualMembers[i] == actualMembers[j]) {alert("multiple member with same mail");return resolve(false);}
       }
     }
-    return true;
+    // making db call
+    resolve(true)
+  })
 }
 
 const Event = ({params}:{params:{eventName:string}}) => {
@@ -84,9 +86,13 @@ const Event = ({params}:{params:{eventName:string}}) => {
   }
   const submit=async()=>{
     //checking team validation
-    if(checkTeamName(eventProp.name,teamDetails.name))
-    //member validity checking
-    if(checkValidMembers(members, eventProp.teamSize.max,eventProp.teamSize.min))alert('valid for submission');
+    let res= await checkTeamName(eventProp.name, teamDetails.name) 
+    if(res){
+      res = await checkValidMembers(members,eventProp.teamSize.max,eventProp.teamSize.min)
+      if(res) alert("submittable");
+      else alert("non submittable");
+    }
+       //member validity checking
     //member registration checking 
     //submitting the team
   }
