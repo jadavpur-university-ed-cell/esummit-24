@@ -9,26 +9,30 @@ import { eventNames } from 'process'
 
 type eventPropType = {
   valid: boolean,
-  teamSize?: {
+  name:string,
+  path:string,
+  teamSize: {
     min: number,
     max: number
   }
 }
 
 const checkValidEvent = (eventName:string) =>{
-  let res:eventPropType = {valid:true};
-  if(eventName in allEventNames){
-    res.valid = true;
-    //@ts-ignore
-    res.teamSize = {max : allEventNames[eventName].max,min : allEventNames[eventName].min};
+  const res:eventPropType = {valid:false,name:"",path:"",teamSize:{max:0,min:0}};
+  for(let i of allEventNames){
+    if(i.path === eventName){
+      res.valid = true;
+      res.name = i.name;
+      res.path = i.path;
+      res.teamSize = {min:i.min, max:i.max};
+      return res;
+    }
   }
-  else res.valid = false;
   return res;
 }
 const checkTeamName =  (event:string,team:string):boolean =>{
   if(team == "") {alert('team name is empty');return false;}
   fetch("/api/user/checkTeamExists",{
-    method:"GET",
     headers:{
       "event":event,
       "team":team
@@ -80,14 +84,14 @@ const Event = ({params}:{params:{eventName:string}}) => {
   }
   const submit=async()=>{
     //checking team validation
-    if(checkTeamName(params.eventName,teamDetails.name))
+    if(checkTeamName(eventProp.name,teamDetails.name))
     //member validity checking
     if(checkValidMembers(members, eventProp.teamSize.max,eventProp.teamSize.min))alert('valid for submission');
     //member registration checking 
     //submitting the team
   }
   return (<>
-  <h1>Event is {params.eventName}</h1>
+  <h1>Event is {eventProp.name}</h1>
     <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-32 lg:grid lg:grid-cols-2">
       <div className="lg:pr-8">
         <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
