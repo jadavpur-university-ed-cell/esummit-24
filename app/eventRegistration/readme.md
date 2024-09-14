@@ -1,4 +1,4 @@
-- [ ] TODO: Check if same emails cant be repeated
-- [ ] TODO: Check if the email is a registered user
-- [ ] TODO: wrap this up to check with db if the team name is already taken
+- [X] TODO: Check if same emails cant be repeated
+- [X] TODO: Check if the email is a registered user
+- [X] TODO: wrap this up to check with db if the team name is already taken
 - [ ] TODO: check the valid eventName
