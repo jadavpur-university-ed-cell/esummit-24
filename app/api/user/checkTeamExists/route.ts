@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { NextRequest } from "next/server";
 
+// return 1 is team Exists
 export async function GET(req:NextRequest){
   const prisma = new PrismaClient
   const eventName = req.headers.get("event");

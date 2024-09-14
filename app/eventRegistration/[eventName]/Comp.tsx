@@ -30,6 +30,7 @@ return (
         className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-md"
         value={state[id]}
         onChange={(e)=>{handleChange(e)}}
+        disabled={disabled}
       />
       {!disabled?<button onClick={handleRemove}>Remove</button>:<></>}
     </div>

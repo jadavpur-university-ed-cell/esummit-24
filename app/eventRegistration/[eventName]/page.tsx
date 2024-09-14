@@ -1,20 +1,22 @@
 'use client'
+import Link from 'next/link'
 import allEventNames from './allEventNames'
-import {MemberInput,TeamInput} from './MemberInput'
+import {MemberInput,TeamInput} from './Comp'
 import React, { HtmlHTMLAttributes, useState } from 'react'
 import { DiVim } from 'react-icons/di'
-import { string } from 'zod'
+import { boolean, string } from 'zod'
+import { eventNames } from 'process'
 
-
-const validEvent = (eventName:string) =>{
-  type result={
-    valid : boolean,
-    teamSize?:{
-      min:number,
-      max:number
-    }
+type eventPropType = {
+  valid: boolean,
+  teamSize?: {
+    min: number,
+    max: number
   }
-  let res:result = {valid:true};
+}
+
+const checkValidEvent = (eventName:string) =>{
+  let res:eventPropType = {valid:true};
   if(eventName in allEventNames){
     res.valid = true;
     //@ts-ignore
@@ -23,26 +25,69 @@ const validEvent = (eventName:string) =>{
   else res.valid = false;
   return res;
 }
+const checkTeamName =  (event:string,team:string):boolean =>{
+  if(team == "") {alert('team name is empty');return false;}
+  fetch("/api/user/checkTeamExists",{
+    method:"GET",
+    headers:{
+      "event":event,
+      "team":team
+    },
+    cache:'no-cache'
+   }).then(res =>{
+    if(res.status == 200){
+      res.json().then((body)=>{
+        if(!body.msg) {return true}//the team does not Exist
+        else {alert("team already exits");return false;}
+      })
+    }
+    else {
+    console.log('got backend err');
+      alert('something went wrong try again later');
+      return false;
+    }
+   }).catch(err=>{
+    console.log('got err');
+      alert('something went wrong try again later');
+      return false;
+   })
+}
+
+const checkValidMembers=(
+  members:Array<string>,
+  teamSizeMax:number,
+  teamSizeMin:number,
+):boolean=>{
+    const actualMembers = members.filter(e=>e!=""); // to get rid of the null inputs
+    let s = actualMembers.length;
+    if(s>teamSizeMin || s<teamSizeMax) {alert("team Size not met");return false;}
+    for (let i = 0; i < s; i++) {
+      for (let j = i + 1; j < s; j++) {
+        if (actualMembers[i] == actualMembers[j]) {alert("multiple member with same mail");return false;}
+      }
+    }
+    return true;
+}
 
 const Event = ({params}:{params:{eventName:string}}) => {
-  console.log(validEvent(params.eventName));
+  if(!checkValidEvent(params.eventName).valid) return(<div>not Valid Event</div>);
+  const eventProp:eventPropType = checkValidEvent(params.eventName);
   const [userMail, setUserMail] = useState<string>("owner@gmail.com");
   const [members, setMembers] = useState<Array<string>>([userMail]);
-  const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"sampleTeamName",size:4});
+  const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
   const addMember=()=>{
     setMembers([...members,""])
   }
   const submit=async()=>{
-    let s = members.length;
-    for (let i = 0; i < s; i++) {
-      for (let j = i + 1; j < s; j++) {
-        if (members[i] == members[j]) {alert("multiple member with same mail");return;}
-      }
-    }
+    //checking team validation
+    if(checkTeamName(params.eventName,teamDetails.name))
+    //member validity checking
+    if(checkValidMembers(members, eventProp.teamSize.max,eventProp.teamSize.min))alert('valid for submission');
     //member registration checking 
     //submitting the team
   }
   return (<>
+  <h1>Event is {params.eventName}</h1>
     <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-32 lg:grid lg:grid-cols-2">
       <div className="lg:pr-8">
         <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
@@ -51,7 +96,7 @@ const Event = ({params}:{params:{eventName:string}}) => {
           {/* the input boxes are rendered here */}
           {members.map((data, index) => {
             return (
-              <MemberInput key={index} id={index} label={`team member ${index + 1}`} state={members} setState={setMembers} disabled={index === 0 ? 1 : 0}></MemberInput>
+              <MemberInput key={index} id={index} label={`team member ${index + 1}`} state={members} setState={setMembers} disabled={index === 0 ? true : false}></MemberInput>
             )
           })}
           {members.length < teamDetails.size ? (<button onClick={addMember}>add</button>) : <></>}
