@@ -2,6 +2,7 @@ import React from "react";
 import UserList from "./UserList";
 import ExportCSV from "../ExportCSV";
 import Link from "next/link";
+import { getUsers } from "../../queries";
 
 interface User {
 	id: string;
@@ -17,10 +18,7 @@ interface User {
 }
 
 async function VerifiedUsers() {
-	const response = await fetch("http://localhost:3000/api/users", {
-		cache: "no-store",
-	});
-	const users: User[] = await response.json();
+	const users: User[] = await getUsers();
 	const verified: User[] = users.filter((user) => user.isVerified);
 	return (
 		<>

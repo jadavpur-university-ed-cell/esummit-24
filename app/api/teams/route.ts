@@ -4,6 +4,7 @@ import { NextResponse, NextRequest } from 'next/server';
 const prisma = new PrismaClient();
 
 export async function POST(req: NextRequest, res: NextResponse) {
+  // no longer used in form.tsx, can be deleted if no one else is using this.
     const body = await req.json();
     const { eventName, teamName, member1Id, member2Id, member3Id, member4Id } = body;
 
@@ -25,6 +26,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function PUT(req: NextRequest, res: NextResponse) {
+  // no longer used in queries.ts and editTeamForm.tsx, can be deleted if no one else is using.
     const body = await req.json();
     const { teamId, eventName, teamName, member1Id, member2Id, member3Id, member4Id } = body;
 

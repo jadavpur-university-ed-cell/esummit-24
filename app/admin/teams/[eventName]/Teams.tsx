@@ -8,6 +8,7 @@ import DeleteTeam from "./DeleteTeam";
 import EditTeam from "./EditTeam";
 
 function ShowUserData({ team, eventName }: { team: any, eventName:string }) {
+	console.log(team);
 	return (
 		<>
 			<div className="w-2/3 rounded-lg my-4 p-4 bg-[#17212e]">

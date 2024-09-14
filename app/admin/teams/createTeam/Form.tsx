@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { checkUser, createTeamQuery } from "../../queries";
 
 interface User {
 	id: string;
@@ -24,8 +25,8 @@ export default function CreateTeam() {
 		member1: User | null;
 		member2: User | null;
 		member3: User | null;
-		member4: User | null; }>
-	({
+		member4: User | null;
+	}>({
 		member1: null,
 		member2: null,
 		member3: null,
@@ -44,38 +45,23 @@ export default function CreateTeam() {
 	}>({});
 
 	// function to verify users by taking their email id and checking if they are valid, verified users
-	const handleEmailSubmit = async (
-		currentMember: string,
-		email: string
-	) => {
+	const handleEmailSubmit = async (currentMember: string, email: string) => {
 		setErrors((prev) => ({ ...prev, [currentMember]: undefined }));
 
 		try {
-			const response = await fetch("/api/users/checkMember", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					teamId: "",
-					newTeam: true,
-					email,
-					eventName: formData.eventName,
-				}),
-			});
+			const response = await checkUser(email, formData.eventName, true, " ");
 
-			const data = await response.json();
 			if (response.ok) {
-				setMembers((prev) => ({ ...prev, [currentMember]: data.user }));
+				setMembers((prev) => ({ ...prev, [currentMember]: response.user }));
 			} else {
-				setErrors((prev) => ({ ...prev, [currentMember]: data.error }));
+				setErrors((prev) => ({ ...prev, [currentMember]: response.error }));
 			}
 		} catch (error) {
 			setErrors((prev) => ({ ...prev, [currentMember]: "An error occurred" }));
 		}
 	};
 
-	const handleSubmit = async (e: React.FormEvent) => {
+	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 
 		const { eventName, teamName } = formData;
@@ -86,27 +72,21 @@ export default function CreateTeam() {
 			return;
 		}
 
-		const response = await fetch("/api/teams", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				eventName,
-				teamName,
-				member1Id: member1.id,
-				member2Id: member2?.id,
-				member3Id: member3?.id,
-				member4Id: member4?.id,
-			}),
-		});
+		const response = await createTeamQuery(
+			eventName,
+			teamName,
+			member1.id,
+			member2?.id,
+			member3?.id,
+			member4?.id
+		);
 
 		if (response.ok) {
 			setTeamCreationStatus("Team created successfully!");
 		} else {
 			setTeamCreationStatus("Error creating team");
 		}
-	};
+	}
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormData({
@@ -180,7 +160,9 @@ export default function CreateTeam() {
 						<span>{members.member1.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member1}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member1}
+					</p>
 				)}
 			</div>
 
@@ -207,7 +189,9 @@ export default function CreateTeam() {
 						<span>{members.member2.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member2}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member2}
+					</p>
 				)}
 			</div>
 
@@ -234,7 +218,9 @@ export default function CreateTeam() {
 						<span>{members.member3.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member3}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member3}
+					</p>
 				)}
 			</div>
 
@@ -261,7 +247,9 @@ export default function CreateTeam() {
 						<span>{members.member4.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member4}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member4}
+					</p>
 				)}
 			</div>
 			<div className="flex flex-col w-full items-center justify-between">
@@ -275,7 +263,8 @@ export default function CreateTeam() {
 							: "text-red-600 bg-transparent w-1/2 text-center"
 					}
 					value={teamCreationStatus}
-					disabled/>
+					disabled
+				/>
 			</div>
 		</form>
 	);

@@ -36,9 +36,10 @@ const eventArr: Event[] = [
 ];
 
 export async function GET(
-	req: NextRequest, res:NextResponse,
+	req: NextRequest,
 	{ params }: { params: { id: string } }
 ) {
+	// no longer used in queries.ts, may be deleted if not used elsewhere
 	try {
 		// id here is the name of the event
 		const eventName = (eventArr.find((event) => event.path === params.id))?.name;
@@ -59,6 +60,7 @@ export async function DELETE(
 	req: NextRequest,
 	{ params }: { params: { id: string } }
 ) {
+	// no longer used in queries.ts, may be deleted if not used elsewhere
 	// id here is the team id
 	await prisma.team.delete({
 		where: {

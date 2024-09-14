@@ -4,6 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function PUT(req:NextRequest, res:NextResponse){
+    // no longer fetched from queries.ts
     try {
         const user = await req.json();
 

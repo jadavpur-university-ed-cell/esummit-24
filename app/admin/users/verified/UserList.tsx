@@ -29,7 +29,7 @@ const [searchVal, setSearchVal] = useState("");
 			return;
 		}
 		const filteredArr = users.filter((user:User)=>{
-			if(user.name.toLowerCase().includes(searchVal.toLowerCase()))
+			if(user.name?.toLowerCase().includes(searchVal.toLowerCase()))
 				return user;
 		})
 		setDisplayedUsers(filteredArr);
