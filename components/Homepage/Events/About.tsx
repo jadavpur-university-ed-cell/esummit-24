@@ -2,15 +2,20 @@ import React from "react";
 
 interface AboutSectionProps {
   description: string;
-  imageUrl?: string; // Optional image URL
+  imageUrl?: string; 
+  eventNumber: number; // Prop to handle event-specific styles
 }
 
-const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl }) => {
+const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl, eventNumber }) => {
+  
+  // Determine color based on eventNumber
+  const sectionColor = eventNumber % 2 === 0 ? '#D62828' : '#e58220'; // Red for even, Orange for odd
+  
   return (
-    <div className="bg-[#101720] text-white py-8 px-4">
+    <div className="py-8 px-4" style={{ backgroundColor: '#101720' }}> {/* Background is now black */}
       <div className="max-w-4xl mx-auto">
         {/* About Section */}
-        <div className="bg-[#e58220] rounded-lg p-8 relative">
+        <div className="rounded-lg p-8 relative" style={{ backgroundColor: sectionColor }}>
           <h2 className="text-3xl font-bold text-center mb-4 border-b-2 border-black pb-2">About</h2>
           <div className="grid grid-cols-3 gap-4">
             {/* Image Placeholder */}
@@ -30,7 +35,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl }) =>
           </div>
         </div>
       </div>
-      {/* Orange Design Line */}
+      {/* Dynamic Orange/Red Design Line */}
       <div className="relative">
         <svg
           className="mx-auto"
@@ -42,7 +47,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl }) =>
         >
           <path
             d="M0,10 Q100,30 250,10 T500,10 L500,40 L0,40 Z"
-            fill="#e58220"
+            fill={sectionColor} 
           />
         </svg>
       </div>
@@ -51,4 +56,3 @@ const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl }) =>
 };
 
 export default AboutSection;
-
