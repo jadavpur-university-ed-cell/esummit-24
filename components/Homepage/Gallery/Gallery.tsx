@@ -45,7 +45,7 @@ function Gallery() {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="w-[38rem]">
-            <Image src={image.src} alt={image.alt} />
+            <Image src={image.src} alt={image.alt} fill />
           </SwiperSlide>
         ))}
         <div className="flex items-center justify-center">
