@@ -4,6 +4,7 @@ import allEventNames from './allEventNames'
 import {MemberInput,TeamInput} from './Comp'
 import React, { HtmlHTMLAttributes, useState } from 'react'
 import { boolean, string } from 'zod'
+import { useRouter } from 'next/navigation'
 
 type eventPropType = {
   valid: boolean,
@@ -113,7 +114,8 @@ const checkValidMembers=(
 }
 
 const Event = ({params}:{params:{eventName:string}}) => {
-  if(!checkValidEvent(params.eventName).valid) return(<div>not Valid Event</div>);
+  const router = useRouter();
+  if(!checkValidEvent(params.eventName).valid) router.push('/eventRegistration')
   const eventProp:eventPropType = checkValidEvent(params.eventName);
 
   const [userMail, setUserMail] = useState<string>("test@gmail.com");
