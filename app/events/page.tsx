@@ -1,4 +1,5 @@
 import EventsComponent from "@/components/Homepage/Events/Events";
+import Heading from "@/components/Homepage/Events/Heading"
 
 export default function Events() {
   return (

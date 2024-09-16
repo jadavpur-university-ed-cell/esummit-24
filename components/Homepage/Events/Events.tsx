@@ -5,36 +5,44 @@ import Carousel from "./Carousel";
 interface event {
   name: string;
   about: string;
+  eventNumber:number;
 }
-
+{/*1 for solo; 2 for multiple candidates*/}
 const eventList: event[] = [
   {
     name: "Hack <N> Pitch",
     about: "Pitch your hack and win exciting prizes",
+	eventNumber:2
   },
   {
     name: "Corporate Clash",
     about: "Compete with top corporate teams",
+	eventNumber:2
   },
   {
     name: "Inspira Talks",
     about: "Talks from inspiring industry leaders",
+	eventNumber:1
   },
   {
     name: "Mock Stock",
     about: "Experience the thrill of stock market trading",
+	eventNumber:1
   },
   {
     name: "Mock IPL Auction",
     about: "Participate in a thrilling IPL auction simulation",
+	eventNumber:1
   },
   {
     name: "Dizmart",
     about: "Showcase your design and marketing skills",
+	eventNumber:2
   },
   {
     name: "LaunchX",
     about: "Launch your product in the ultimate startup competition",
+	eventNumber:2
   },
 ];
 
