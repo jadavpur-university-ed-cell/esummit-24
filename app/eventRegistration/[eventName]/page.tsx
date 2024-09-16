@@ -1,4 +1,5 @@
 'use client'
+import checkUserColide from './userColide'
 import allEventNames from './allEventNames'
 import {MemberInput,TeamInput} from './Comp'
 import React, { HtmlHTMLAttributes, useState } from 'react'
@@ -29,7 +30,7 @@ const checkValidEvent = (eventName:string) =>{
 }
 const checkTeamName =  async(event:string,team:string) =>{
   return new Promise((resolve, reject)=>{
-  if(team == "") {alert('team name is empty');resolve(false);}
+  if(team == "") {alert('team name is empty');resolve(false);return;}
   fetch("/api/user/checkTeamExists",{
     headers:{
       "event":event,
@@ -39,62 +40,114 @@ const checkTeamName =  async(event:string,team:string) =>{
    }).then(res =>{
     if(res.status == 200){
       res.json().then((body)=>{
-        if(!body.msg) {return resolve(true)}//the team does not Exist
-        else {alert("team already exits");return resolve(false);}
+        if(!body.msg) {resolve(true);return}//the team does not Exist
+        else {alert("team already exits");resolve(false);return;}
       })
     }
     else {
     console.log('got backend err');
       alert('something went wrong try again later');
        resolve(false);
+       return;
     }
    }).catch(err=>{
     console.log('got err');
       alert('something went wrong try again later');
        resolve(false);
+       return;
    })
   })
 }
 
 const checkValidMembers=(
   members:Array<string>,
+  eventName:string,
+  teamName:string,
   teamSizeMax:number,
   teamSizeMin:number,
 )=>{
-  return new Promise((resolve,reject)=>{
-    const actualMembers = members.filter(e=>e!=""); // to get rid of the null inputs
-    let s = actualMembers.length;
-    if(s<teamSizeMin || s>teamSizeMax) {alert("team Size not met");resolve(false);}
+  return new Promise(async (resolve,reject)=>{
+    let s = members.length;
+    if(s<teamSizeMin || s>teamSizeMax) {alert("team Size not met");resolve(false);return;}
     for (let i = 0; i < s; i++) {
       for (let j = i + 1; j < s; j++) {
-        if (actualMembers[i] == actualMembers[j]) {alert("multiple member with same mail");return resolve(false);}
+        if (members[i] == members[j]) {alert("multiple member with same mail");return resolve(false);}
       }
     }
-    // making db call
-    resolve(true)
+    //checking if user Exists or not
+    const ids:Array<string>= [];
+    for(let i of members){
+      const dbres = await fetch("/api/user/getUserId",{
+        headers:{
+          mail:i
+        }
+      });
+      if(dbres.status == 500){
+        alert("could verify users plse try again later");
+        resolve(false);return;
+      }
+      if(dbres.status == 404){
+        dbres.json().then(res=>{
+          if(res.msg === 'userNotFound') alert(`${i} not registered`);
+          else alert("could verify users plse try again later");
+          resolve(false);return;
+        })
+      }
+      if(dbres.status == 200){
+        dbres.json().then(res=>{
+          ids.push(res.id);
+        })
+      }
+    }
+    console.log(ids);
+    for( const i in ids){
+      const a = await checkUserColide(ids[i],eventName,teamName);
+      if(!a){
+        alert(`${members[i]} is already in a team`);
+        resolve(false);
+        return;
+      }
+    }
+    resolve(true);
   })
 }
 
 const Event = ({params}:{params:{eventName:string}}) => {
   if(!checkValidEvent(params.eventName).valid) return(<div>not Valid Event</div>);
   const eventProp:eventPropType = checkValidEvent(params.eventName);
-  const [userMail, setUserMail] = useState<string>("owner@gmail.com");
+
+  const [userMail, setUserMail] = useState<string>("test@gmail.com");
   const [members, setMembers] = useState<Array<string>>([userMail]);
   const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
-  const addMember=()=>{
-    setMembers([...members,""])
-  }
-  const submit=async()=>{
+
+  const addMember=()=>{setMembers([...members,""])}
+  const onSubmit=async()=>{
     //checking team validation
-    let res= await checkTeamName(eventProp.name, teamDetails.name) 
+    let res = await checkTeamName(eventProp.name, teamDetails.name) 
     if(res){
-      res = await checkValidMembers(members,eventProp.teamSize.max,eventProp.teamSize.min)
-      if(res) alert("submittable");
+      //member validity checking , checks member registration, checks member team collilsion
+      const actualMembers = members.filter(e => e != "");
+      res = await checkValidMembers(actualMembers,eventProp.name,teamDetails.name,eventProp.teamSize.max,eventProp.teamSize.min)
+      if(res){
+        //submitting the team
+        const sendableMembers:{
+          eventName:string,
+          teamName:string,
+          member1: string | null,
+          member2: string | null,
+          member3: string | null,
+          member4: string | null,
+        } = { eventName:eventProp.name,teamName:teamDetails.name,member1: null, member2: null, member3: null, member4: null}
+        //array to object conversion
+        try {sendableMembers.member1 = actualMembers[0];}catch(e){};
+        try {sendableMembers.member2 = actualMembers[1];}catch(e){};
+        try {sendableMembers.member3 = actualMembers[2];}catch(e){};
+        try {sendableMembers.member4 = actualMembers[3];}catch(e){};
+        //console.log(sendableMembers);
+        alert(JSON.stringify(sendableMembers));
+      } 
       else alert("non submittable");
     }
-       //member validity checking
-    //member registration checking 
-    //submitting the team
   }
   return (<>
   <h1>Event is {eventProp.name}</h1>
@@ -114,7 +167,7 @@ const Event = ({params}:{params:{eventName:string}}) => {
           <button
             type="submit"
             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-grape-600 hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
-            onClick={submit}
+            onClick={onSubmit}
           >
             Submit
           </button>

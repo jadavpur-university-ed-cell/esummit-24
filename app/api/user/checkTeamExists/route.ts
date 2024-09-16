@@ -16,7 +16,6 @@ export async function GET(req:NextRequest){
         eventName: eventName
       }
     });
-    const res = new Response;
     if(dbres == null) return new Response(JSON.stringify({msg:0}),{status:200});
     return new Response(JSON.stringify({ msg: 1 }), { status: 200 });
   }
