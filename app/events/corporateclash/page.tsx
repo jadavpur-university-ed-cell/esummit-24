@@ -18,7 +18,7 @@ const CorporateClashEvent: React.FC = () => {
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
         <Heading name={"Corporate Clash"} eventNumber={eventNumber} />
       </div>
-      
+      <div className="mt-4 w-full h-0.5 bg-white"></div>
 
     </div>
   );

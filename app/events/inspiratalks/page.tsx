@@ -11,19 +11,18 @@ const InspiraTalks: React.FC = () => {
   return (
     <div className="h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-[#f2b2d8]  w-[66.6666%] h-[35px]">
-        </section>
+        <section className="bg-[#f2b2d8] w-[66.6666%] h-[35px]"></section>
       </div>
-      
-      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-       <div className=" p-5 text-center">
-      <h1 className="text-5xl font-semibold " style={{ color: '#f2b2d8' }}>
-        Inspira Talks
-      </h1>
-    </div>
-      </div>
-      
 
+      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
+        <div className="p-5 text-center">
+          <h1 className="text-5xl font-semibold" style={{ color: '#f2b2d8' }}>
+            Inspira Talks
+          </h1>
+          {/* Animated white horizontal line */}
+          <div className="mt-4 w-full h-0.5 bg-white"></div>
+        </div>
+      </div>
     </div>
   );
 };
