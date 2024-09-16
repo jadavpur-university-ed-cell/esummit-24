@@ -17,10 +17,12 @@ import {
 } from "@/components/ui/form";
 import { Reg } from "@/app/actions/register";
 import { RegisterSchema } from "@/schemas";
+import { useRouter } from "next/navigation";
 
 type FormFields = z.infer<typeof RegisterSchema>;
 
 export const Register = () => {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
@@ -29,7 +31,7 @@ export const Register = () => {
       email: "",
       password: "",
       name: "",
-      type: "User",
+      rcode: "",
     },
     resolver: zodResolver(RegisterSchema),
   });
@@ -40,7 +42,10 @@ export const Register = () => {
     startTransition(() => {
       Reg(values).then((data) => {
         if (data?.error) setError(data?.error);
-        if (data?.success) setSuccess(data?.success);
+        if (data?.success) {
+          setSuccess(data?.success);
+          router.push("/sign-in");
+        }
       });
     });
   };
@@ -95,15 +100,12 @@ export const Register = () => {
             />
             <FormField
               control={form.control}
-              name="type"
+              name="rcode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="type">Type</FormLabel>
+                  <FormLabel htmlFor="type">Referral Code</FormLabel>
                   <FormControl>
-                    <select {...field}>
-                      <option value="User">User</option>
-                      <option value="Admin">Admin</option>
-                    </select>
+                    <Input {...field} disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
