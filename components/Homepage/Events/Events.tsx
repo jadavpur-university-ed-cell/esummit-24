@@ -1,56 +1,56 @@
 "use client";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Carousel from "./Carousel";
 
 interface event {
-	name: string;
-	about: string;
+  name: string;
+  about: string;
 }
 
 const eventList: event[] = [
-	{
-		name: "One",
-		about: "Build your team",
-	},
-	{
-		name: "Two",
-		about: "Hackathon",
-	},
-	{
-		name: "Three",
-		about: "Talk show",
-	},
-	{
-		name: "Four",
-		about: "Product label design",
-	},
-	{
-		name: "Five",
-		about: "Build your team",
-	},
-	{
-		name: "Six",
-		about: "Build your team",
-	},
-	{
-		name: "Seven",
-		about: "Build your team",
-	},
+  {
+    name: "Hack <N> Pitch",
+    about: "Pitch your hack and win exciting prizes",
+  },
+  {
+    name: "Corporate Clash",
+    about: "Compete with top corporate teams",
+  },
+  {
+    name: "Inspira Talks",
+    about: "Talks from inspiring industry leaders",
+  },
+  {
+    name: "Mock Stock",
+    about: "Experience the thrill of stock market trading",
+  },
+  {
+    name: "Mock IPL Auction",
+    about: "Participate in a thrilling IPL auction simulation",
+  },
+  {
+    name: "Dizmart",
+    about: "Showcase your design and marketing skills",
+  },
+  {
+    name: "LaunchX",
+    about: "Launch your product in the ultimate startup competition",
+  },
 ];
 
-function Events() {
-	return (
-		<>
-			<section id="events">
-				<div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
-					<h1 className="text-5xl text-[#fcbf49]">Events</h1>
-					<div className="flex items-center w-full h-full grow">
-					<Carousel eventList={eventList}/>
-					</div>
-				</div>
-			</section>
-		</>
-	);
+function EventsComponent() {
+  return (
+    <>
+      <section id="events">
+        <div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
+          <h1 className="text-5xl text-[#fcbf49]">Events</h1>
+          <div className="flex items-center w-full h-full grow">
+            <Carousel eventList={eventList} />
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default Events;
+export default EventsComponent;

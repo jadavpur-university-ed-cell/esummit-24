@@ -1,12 +1,9 @@
+import EventsComponent from "@/components/Homepage/Events/Events";
 
-
-export default function Home() {
+export default function Events() {
   return (
-    
-    <div className="bg-black h-screen w-full">
-
-  
+    <div className="h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+      <EventsComponent />
     </div>
-    
   );
 }

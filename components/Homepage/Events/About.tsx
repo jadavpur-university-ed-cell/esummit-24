@@ -19,7 +19,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ description, imageUrl, even
       <div className="max-w-4xl mx-auto">
         {/* About Section */}
         <div className="rounded-lg p-8 relative" style={{ backgroundColor: sectionColor }}>
-          <h2 className="text-3xl font-bold text-center mb-4 border-b-2 border-white pb-2" style={{ color: '#FFFFFF' }}> 
+          <h2 className="text-3xl font-semibold text-center mb-4 border-b-2 border-white pb-2" style={{ color: '#FFFFFF' }}> 
             About
           </h2>
           <div className="grid grid-cols-3 gap-4">
