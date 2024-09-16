@@ -17,7 +17,7 @@ const eventList: event[] = [
   {
     name: "Corporate Clash",
     about: "Compete with top corporate teams",
-	eventNumber:2
+	eventNumber:4
   },
   {
     name: "Inspira Talks",
@@ -27,22 +27,22 @@ const eventList: event[] = [
   {
     name: "Mock Stock",
     about: "Experience the thrill of stock market trading",
-	eventNumber:1
+	eventNumber:3
   },
   {
     name: "Mock IPL Auction",
     about: "Participate in a thrilling IPL auction simulation",
-	eventNumber:1
+	eventNumber:5
   },
   {
     name: "Dizmart",
     about: "Showcase your design and marketing skills",
-	eventNumber:2
+	eventNumber:6
   },
   {
     name: "LaunchX",
     about: "Launch your product in the ultimate startup competition",
-	eventNumber:2
+	eventNumber:8
   },
 ];
 

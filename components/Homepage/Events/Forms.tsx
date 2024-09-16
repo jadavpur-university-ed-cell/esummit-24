@@ -1,6 +1,6 @@
 import React from "react";
-import Ghost1 from "./components/Homepage/Events/assets/Ghost 1.png";
-import Ghost2 from "./components/Homepage/Events/assets/Ghost 2.png";
+import Ghost1 from "@/components/Homepage/Events/assets/Ghost 1.png";
+import Ghost2 from "@/components/Homepage/Events/assets/Ghost 2.png";
 
 interface FormComponentProps {
   eventNumber: number; // Prop to handle event-specific styles
