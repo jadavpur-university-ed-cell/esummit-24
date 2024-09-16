@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { checkUser, editTeamQuery } from "../../queries";
 
 interface User {
 	id: string;
@@ -53,25 +54,17 @@ export default function EditTeam({
 		setErrors((prev) => ({ ...prev, [currentMember]: undefined }));
 
 		try {
-			const response = await fetch("/api/users/checkMember", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					teamId: teamId,
-					newTeam: false,
-					email,
-					eventName: formData.eventName,
-				}),
-			});
-
-			const data = await response.json();
+			const response = await checkUser(
+				email,
+				formData.eventName,
+				false,
+				teamId
+			);
 
 			if (response.ok) {
-				setMembers((prev) => ({ ...prev, [currentMember]: data.user }));
+				setMembers((prev) => ({ ...prev, [currentMember]: response.user }));
 			} else {
-				setErrors((prev) => ({ ...prev, [currentMember]: data.error }));
+				setErrors((prev) => ({ ...prev, [currentMember]: response.error }));
 			}
 		} catch (error) {
 			setErrors((prev) => ({ ...prev, [currentMember]: "An error occurred" }));
@@ -89,24 +82,19 @@ export default function EditTeam({
 			return;
 		}
 
-    const member2Id = member2? member2.id : null;
-    const member3Id = member3? member3.id : null;
-    const member4Id = member4? member4.id : null;
+		const member1Id = member1.id;
+		const member2Id = member2 ? member2.id : null;
+		const member3Id = member3 ? member3.id : null;
+		const member4Id = member4 ? member4.id : null;
 
-		const response = await fetch("/api/teams", {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				teamId,
-				eventName,
-				teamName,
-				member1Id: member1.id,
-				member2Id: member2Id,
-				member3Id: member3Id,
-				member4Id: member4Id,
-			}),
+		const response = await editTeamQuery({
+			teamId,
+			eventName,
+			teamName,
+			member1Id,
+			member2Id,
+			member3Id,
+			member4Id,
 		});
 
 		if (response.ok) {
@@ -152,7 +140,7 @@ export default function EditTeam({
 			<div className="grid grid-cols-4 gap-x-4">
 				<button
 					type="button"
-          className="bg-white text-[#101720] font-semibold px-2 py-1 rounded-sm w-fit"
+					className="bg-white text-[#101720] font-semibold px-2 py-1 rounded-sm w-fit"
 					onClick={() => handleEmailSubmit("member1", formData.member1Email)}>
 					Verify Member 1
 				</button>
@@ -163,7 +151,7 @@ export default function EditTeam({
 					onChange={handleInputChange}
 					placeholder="Member 1 Email"
 					required
-          autoComplete="off"
+					autoComplete="off"
 					className="bg-transparent text-white outline-none border-b"
 				/>
 				{members.member1 ? (
@@ -172,7 +160,9 @@ export default function EditTeam({
 						<span>{members.member1.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member1}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member1}
+					</p>
 				)}
 			</div>
 
@@ -180,7 +170,7 @@ export default function EditTeam({
 			<div className="grid grid-cols-4 gap-x-4">
 				<button
 					type="button"
-          className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
+					className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
 					onClick={() => handleEmailSubmit("member2", formData.member2Email)}>
 					Verify Member 2
 				</button>
@@ -190,7 +180,7 @@ export default function EditTeam({
 					value={formData.member2Email}
 					onChange={handleInputChange}
 					placeholder="Member 2 Email"
-          autoComplete="off"
+					autoComplete="off"
 					className="bg-transparent text-white outline-none border-b"
 				/>
 				{members.member2 ? (
@@ -199,7 +189,9 @@ export default function EditTeam({
 						<span>{members.member2.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member2}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member2}
+					</p>
 				)}
 			</div>
 
@@ -207,7 +199,7 @@ export default function EditTeam({
 			<div className="grid grid-cols-4 gap-x-4">
 				<button
 					type="button"
-          className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
+					className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
 					onClick={() => handleEmailSubmit("member3", formData.member3Email)}>
 					Verify Member 3
 				</button>
@@ -226,7 +218,9 @@ export default function EditTeam({
 						<span>{members.member3.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member3}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member3}
+					</p>
 				)}
 			</div>
 
@@ -234,7 +228,7 @@ export default function EditTeam({
 			<div className="grid grid-cols-4 gap-x-4">
 				<button
 					type="button"
-          className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
+					className="bg-white text-[#101720] px-2 py-1 rounded-sm w-fit font-semibold"
 					onClick={() => handleEmailSubmit("member4", formData.member4Email)}>
 					Verify Member 4
 				</button>
@@ -253,21 +247,28 @@ export default function EditTeam({
 						<span>{members.member4.phone}</span>
 					</p>
 				) : (
-					<p className="text-red-500 col-span-2 text-center">{errors.member4}</p>
+					<p className="text-red-500 col-span-2 text-center">
+						{errors.member4}
+					</p>
 				)}
 			</div>
 
-      <div className="flex flex-col w-full items-center gap-y-2">
-			<button type="submit" className="bg-white text-[#101720] font-medium px-2 py-1 rounded-md w-fit">Edit Team</button>
-      <input
+			<div className="flex flex-col w-full items-center gap-y-2">
+				<button
+					type="submit"
+					className="bg-white text-[#101720] font-medium px-2 py-1 rounded-md w-fit">
+					Edit Team
+				</button>
+				<input
 					className={
 						teamEditStatus === "Team edited successfully!"
 							? "text-green-500 bg-transparent w-1/2 text-center"
 							: "text-red-600 bg-transparent w-1/2 text-center"
 					}
 					value={teamEditStatus}
-					disabled/>
-      </div>
+					disabled
+				/>
+			</div>
 		</form>
 	);
 }

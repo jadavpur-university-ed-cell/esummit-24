@@ -3,6 +3,7 @@ import { NextResponse, NextRequest } from "next/server";
 
 const prisma = new PrismaClient();
 
+// no longer used in form.tsx and editTeamForm.tsx under admin, can be deleted if no one else is using
 export async function POST(req: NextRequest, res: NextResponse) {
 	const body = await req.json();
 	const { email, eventName, newTeam, teamId } = body;

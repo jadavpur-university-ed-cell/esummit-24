@@ -1,7 +1,6 @@
 "use client";
 import React, {useRef} from "react";
 import { FaPenToSquare, FaXmark } from "react-icons/fa6";
-import Form from "../createTeam/Form"
 import EditTeamForm from "./EditTeamForm"
 
 function EditTeam({teamId,eventName, teamName}:{teamId:string, eventName:string, teamName:string}) {
@@ -17,7 +16,7 @@ function EditTeam({teamId,eventName, teamName}:{teamId:string, eventName:string,
 			<button className="text-2xl text-white" onClick={toggleDialog}>
 				<FaPenToSquare />
 			</button>
-            <dialog ref={dialogRef} className="relative">
+            <dialog ref={dialogRef} className="relative backdrop:bg-[#00000080]">
                 <button onClick={toggleDialog} className="absolute top-4 right-4 text-white text-2xl"><FaXmark/></button>
                 <EditTeamForm eventName={eventName} teamId={teamId} teamName={teamName}/>
             </dialog>
