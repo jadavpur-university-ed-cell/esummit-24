@@ -8,18 +8,20 @@ interface FormComponentProps {
 
 const FormComponent: React.FC<FormComponentProps> = ({ eventNumber }) => {
   // Determine color based on eventNumber
-  const sectionColor = eventNumber % 2 === 0 ? '#D62828' : '#e58220'; // Red for even, Orange for odd
+  const sectionColor = eventNumber % 2 === 0 ? '#D62828' : '#F77F00'; // Red for even, Orange for odd
   const ghostImage = eventNumber % 2 === 0 ? Ghost1 : Ghost2;
 
   return (
-    <div className="py-8 px-4" style={{ backgroundColor: '#101720' }}> {/* Background is now black */}
+    <div className="py-8 px-4" style={{ backgroundColor: '#101720' }}> {/* Use black from the image */}
       <div className="max-w-4xl mx-auto">
         {/* Form Section */}
         <div className="rounded-lg p-8 relative" style={{ backgroundColor: sectionColor }}>
-          <h2 className="text-3xl font-bold text-center mb-4 border-b-2 border-black pb-2">Register</h2>
+          <h2 className="text-3xl font-bold text-center mb-4 border-b-2 border-white pb-2" style={{ color: '#FFFFFF' }}> {/* White text */}
+            Register
+          </h2>
           <form className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-lg font-medium text-white">
+              <label htmlFor="email" className="block text-lg font-medium" style={{ color: '#FFFFFF' }}>
                 Enter Email
               </label>
               <input
@@ -32,7 +34,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ eventNumber }) => {
               />
             </div>
             <div>
-              <label htmlFor="teamName" className="block text-lg font-medium text-white">
+              <label htmlFor="teamName" className="block text-lg font-medium" style={{ color: '#FFFFFF' }}>
                 Enter Team Name
               </label>
               <input
@@ -46,7 +48,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ eventNumber }) => {
             </div>
             <button
               type="submit"
-              className="w-full py-3 px-4 bg-[#101720] text-white font-bold rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-50"
+              className="w-full py-3 px-4 bg-[#FFFFFF] text-black font-bold rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-50"
             >
               Register
             </button>
@@ -57,6 +59,7 @@ const FormComponent: React.FC<FormComponentProps> = ({ eventNumber }) => {
           </div>
         </div>
       </div>
+
       {/* Dynamic Orange/Red Design Line */}
       <div className="relative">
         <svg
