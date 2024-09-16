@@ -22,6 +22,10 @@ const InspiraTalks: React.FC = () => {
           {/* Animated white horizontal line */}
           <div className="mt-4 w-full h-0.5 bg-white"></div>
         </div>
+
+        {/* About */}
+
+        <section className="flex flex-col w-[75%] pb-14 ml-5 bg-[#f2b2d8] border border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full"></section>
       </div>
     </div>
   );

@@ -2,23 +2,67 @@
 
 import React from "react";
 import Heading from "@/components/Homepage/Events/Heading";
-import AboutSection from "@/components/Homepage/Events/About";
 
 const CorporateClashEvent: React.FC = () => {
-  const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack-n-Pitch is your chance to shine, whether you're a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity's pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
+  const bulletPoints = [
+    "The challenge is designed to test your problem solving and problem statement understanding abilities.",
+    "Sharpen your critical analysis skills to dissect complex challenges.",
+    "The Analyst challenge transcends personal growth, offering an intellectually stimulating experience within a high-stakes corporate environment."
+  ];
+
   const eventNumber = 2;
 
   return (
     <div className="h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-[#d62828]  w-[66.6666%] h-[35px]">
-        </section>
+        <section className="bg-[#d62828] w-[66.6666%] h-[35px]"></section>
       </div>
-      
+
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
         <Heading name={"Corporate Clash"} eventNumber={eventNumber} />
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
+
+      {/* About Section */}
+      <div className="flex flex-col justify-center items-center pt-4 pb-0.5">
+        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-[#d62828] border border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
+          <h1 className="text-3xl font-semibold text-zinc-300 text-right px-10 pt-10">
+            About
+          </h1>
+          {/* Underline for About */}
+          <div className="flex shrink-0 self-end mt-5 max-w-full bg-zinc-300 h-[3px] w-[276px]" />
+          <div className="flex flex-col justify-center items-center pt-4 pb-0.5 w-[60%] self-end">
+            {/* Bulleted Points */}
+            <ul className="list-disc list-inside text-left px-10 pt-5 text-xl text-white">
+              {bulletPoints.map((point, index) => (
+                <li key={index} className="pb-2">{point}</li>
+              ))}
+            </ul>
+            <h1 className="text-3xl font-semibold text-white px-10 pt-10">
+              Don't miss this chance to step up, solve, and succeed in the world of business analysis!
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Sections */}
+      <div className="flex flex-col">
+      {/* First Row */}
+      <div className="flex justify-between mt-8">
+        <section className="bg-[#d62828] w-[25%] h-[35px]"></section>
+        <section className="w-[25%] h-[35px]"></section>
+        <section className="bg-[#d62828] w-[25%] h-[35px]"></section>
+        <section className="w-[25%] h-[35px]"></section>
+      </div>
+      
+      {/* Second Row */}
+      <div className="flex justify-between ">
+        <section className="w-[25%] h-[35px]"></section>
+        <section className="bg-[#d62828] w-[25%] h-[35px]"></section>
+        <section className="w-[25%] h-[35px]"></section>
+        <section className="bg-[#d62828] w-[25%] h-[35px]"></section>
+      </div>
+    </div>
 
     </div>
   );
