@@ -1,5 +1,5 @@
 import Link from "next/link"
-import allEventNames from "../../utils/allEventNames"
+import allEventNames from "@/lib/allEventNames.json"
 export default function (){
   return(
     <div className="">

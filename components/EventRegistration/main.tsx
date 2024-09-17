@@ -1,9 +1,9 @@
 'use client'
-import checkUserColide from './userColide'
 import {MemberInput,TeamInput} from './Comp'
 import {useState } from 'react'
 import {useRouter } from 'next/navigation'
-import { checkValidEvent,checkTeamName,checkValidMembers,eventPropType } from './ValidatorFunctions'
+import {checkValidEvent,checkTeamName,checkValidMembers,eventPropType } from './ValidatorFunctions'
+import Loading from "@/components/Loading"
 
 
 const Event = ({params}:{params:{eventName:string}}) => {
@@ -25,7 +25,6 @@ const Event = ({params}:{params:{eventName:string}}) => {
       //member validity checking , checks member registration, checks member team collilsion
       const actualMembers = members.filter(e => e != "");
       res = await checkValidMembers(actualMembers,eventProp.name,teamDetails.name,eventProp.teamSize.max,eventProp.teamSize.min)
-      console.log(res);
       if(res){
         //submitting the team
         const sendableMembers:{
@@ -41,7 +40,6 @@ const Event = ({params}:{params:{eventName:string}}) => {
         try {sendableMembers.member2 = actualMembers[1];}catch(e){};
         try {sendableMembers.member3 = actualMembers[2];}catch(e){};
         try {sendableMembers.member4 = actualMembers[3];}catch(e){};
-        //console.log(sendableMembers);
         alert(JSON.stringify(sendableMembers));
       } 
       else alert("non submittable");
@@ -70,8 +68,9 @@ const Event = ({params}:{params:{eventName:string}}) => {
           >
             Submit
           </button>
+          {/* for the loading feature */}
           {
-            loading? <div>Checking</div> : <></>
+            loading? <Loading/> : <></>
           }
         </div>
       </div>

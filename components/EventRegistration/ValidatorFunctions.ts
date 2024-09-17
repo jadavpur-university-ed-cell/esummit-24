@@ -1,4 +1,4 @@
-import allEventNames from '@/utils/allEventNames'
+import allEventNames from"@/lib/allEventNames.json"
 import checkUserColide from './userColide'
 
 interface eventPropType{
@@ -85,7 +85,6 @@ const checkValidMembers=(
       }
       if(dbres.status == 404){
         const res = await dbres.json()
-        console.log('here');
         if (res.msg === 'userNotFound') alert(`${i} not registered`);
         else alert("could verify users plse try again later");
         resolve(false);
@@ -96,7 +95,6 @@ const checkValidMembers=(
         ids.push(res.id);
       }
     }
-    console.log(ids);
     for( const i in ids){
       const a = await checkUserColide(ids[i],eventName,teamName);
       if(!a){
