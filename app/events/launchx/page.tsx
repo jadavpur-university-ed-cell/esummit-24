@@ -21,7 +21,7 @@ const LaunchXEvent: React.FC = () => {
       </div>
       
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-7xl font-semibold text-zinc-200">LaunchX</h1>
+        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-zinc-500">LaunchX</h1>
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
       
