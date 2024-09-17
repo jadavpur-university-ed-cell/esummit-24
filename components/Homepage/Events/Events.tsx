@@ -2,62 +2,60 @@
 import React from "react";
 import Carousel from "./Carousel";
 
-interface event {
+interface Event {
   name: string;
   about: string;
-  eventNumber:number;
+  route: string;
 }
-{/*1 for solo; 2 for multiple candidates*/}
-const eventList: event[] = [
+
+const eventList: Event[] = [
   {
     name: "Hack <N> Pitch",
     about: "Pitch your hack and win exciting prizes",
-	eventNumber:2
+    route: "/events/hacknpitch",
   },
   {
     name: "Corporate Clash",
     about: "Compete with top corporate teams",
-	eventNumber:4
+    route: "/events/corporateclash",
   },
   {
     name: "Inspira Talks",
     about: "Talks from inspiring industry leaders",
-	eventNumber:1
+    route: "/events/inspiratalks",
   },
   {
-    name: "Mock Stock",
+    name: "Mock Stock Exchange",
     about: "Experience the thrill of stock market trading",
-	eventNumber:3
+    route: "/events/mockstock",
   },
   {
     name: "Mock IPL Auction",
     about: "Participate in a thrilling IPL auction simulation",
-	eventNumber:5
+    route: "/events/mockipl",
   },
   {
     name: "Dizmart",
     about: "Showcase your design and marketing skills",
-	eventNumber:6
+    route: "/events/dizmart",
   },
   {
     name: "LaunchX",
     about: "Launch your product in the ultimate startup competition",
-	eventNumber:8
+    route: "/events/launchx",
   },
 ];
 
 function EventsComponent() {
   return (
-    <>
-      <section id="events">
-        <div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
-          <h1 className="text-5xl text-[#fcbf49]">Events</h1>
-          <div className="flex items-center w-full h-full grow">
-            <Carousel eventList={eventList} />
-          </div>
+    <section id="events">
+      <div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
+        <h1 className="text-5xl text-[#fcbf49]">Events</h1>
+        <div className="flex items-center w-full h-full grow">
+          <Carousel eventList={eventList} />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
