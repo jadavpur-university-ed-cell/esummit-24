@@ -6,19 +6,25 @@ interface CardProps {
   name: string;
   about: string;
   route: string;
+  image: string;
+  day: string;
 }
 
-const Card = ({ name, about, route }: CardProps) => {
+const Card = ({ name, about, route, image, day }: CardProps) => {
   return (
-    <CardSpotlight className="flex flex-col items-center h-full p-4">
-      <h1 className="text-3xl text-[#fcbf49] text-center z-20">{name}</h1>
-      <h2 className="text-2xl text-white text-center z-20 mb-4">{about}</h2>
+    <CardSpotlight className="flex flex-col items-center h-full p-6">
+      <img src={image} alt={name} className="w-auto h-60 mb-6 object-cover" />
+      <h1 className="text-3xl text-[#fcbf49] text-center z-20 mb-4">{name}</h1>
+      <h2 className="text-2xl text-white text-center z-20 mb-6">{about}</h2>
       <a
         href={route}
-        className="px-4 py-2 bg-[#fcbf49] text-[#101720] rounded-full z-20"
+        className="px-6 py-3 bg-[#fcbf49] text-[#101720] rounded-full z-20 mb-4"
       >
         Learn More
       </a>
+      <h2 className="text-xl text-[#fcbf49] font-bold text-center bg-[#101720] py-2 px-4 rounded-full z-20">
+        {day}
+      </h2>
     </CardSpotlight>
   );
 };
@@ -27,6 +33,8 @@ interface Event {
   name: string;
   about: string;
   route: string;
+  image: string;
+  day: string;
 }
 
 const Carousel = ({ eventList }: { eventList: Event[] }) => {
@@ -61,7 +69,7 @@ const Carousel = ({ eventList }: { eventList: Event[] }) => {
   const visibleItems = getVisibleItems();
 
   return (
-    <div className="relative flex items-center justify-center w-full h-full md:h-1/2 lg:h-4/5 grow">
+    <div className="relative flex items-center justify-center w-full h-full md:h-3/4 lg:h-full grow">
       <button
         onClick={prev}
         className="absolute left-0 md:-left-5 z-10 p-2 text-[#101720] bg-[#fcbf49] rounded-full aspect-square"
@@ -81,7 +89,13 @@ const Carousel = ({ eventList }: { eventList: Event[] }) => {
                   : "md:w-1/3"
               }`}
             >
-              <Card name={event.name} about={event.about} route={event.route} />
+              <Card
+                name={event.name}
+                about={event.about}
+                route={event.route}
+                image={event.image}
+                day={event.day}
+              />
             </div>
           ))}
         </div>
