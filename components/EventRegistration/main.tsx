@@ -1,116 +1,10 @@
 'use client'
 import checkUserColide from './userColide'
-import allEventNames from '@/utils/allEventNames'
 import {MemberInput,TeamInput} from './Comp'
 import {useState } from 'react'
 import {useRouter } from 'next/navigation'
+import { checkValidEvent,checkTeamName,checkValidMembers,eventPropType } from './ValidatorFunctions'
 
-type eventPropType = {
-  valid: boolean,
-  name:string,
-  path:string,
-  teamSize: {
-    min: number,
-    max: number
-  }
-}
-
-const checkValidEvent = (eventName:string) =>{
-  const res:eventPropType = {valid:false,name:"",path:"",teamSize:{max:0,min:0}};
-  for(let i of allEventNames){
-    if(i.path === eventName){
-      res.valid = true;
-      res.name = i.name;
-      res.path = i.path;
-      res.teamSize = {min:i.min, max:i.max};
-      return res;
-    }
-  }
-  return res;
-}
-const checkTeamName =  async(event:string,team:string) =>{
-  return new Promise((resolve, reject)=>{
-  if(team == "") {alert('team name is empty');resolve(false);return;}
-  fetch("/api/user/checkTeamExists",{
-    headers:{
-      "event":event,
-      "team":team
-    },
-    cache:'no-cache'
-   }).then(res =>{
-    if(res.status == 200){
-      res.json().then((body)=>{
-        if(!body.msg) {resolve(true);return}//the team does not Exist
-        else {alert("team already exits");resolve(false);return;}
-      })
-    }
-    else {
-    console.log('got backend err');
-      alert('something went wrong try again later');
-       resolve(false);
-       return;
-    }
-   }).catch(err=>{
-    console.log('got err');
-      alert('something went wrong try again later');
-       resolve(false);
-       return;
-   })
-  })
-}
-
-const checkValidMembers=(
-  members:Array<string>,
-  eventName:string,
-  teamName:string,
-  teamSizeMax:number,
-  teamSizeMin:number,
-)=>{
-  return new Promise(async (resolve,reject)=>{
-    let s = members.length;
-    if(s<teamSizeMin || s>teamSizeMax) {alert("team Size not met");resolve(false);return;}
-    for (let i = 0; i < s; i++) {
-      for (let j = i + 1; j < s; j++) {
-        if (members[i] == members[j]) {alert("multiple member with same mail");return resolve(false);}
-      }
-    }
-    //checking if user Exists or not
-    const ids:Array<string>= [];
-    for(let i of members){
-      const dbres = await fetch("/api/user/getUserId",{
-        headers:{
-          mail:i
-        }
-      });
-      if(dbres.status == 500){
-        alert("could verify users plse try again later");
-        resolve(false);return;
-      }
-      if(dbres.status == 404){
-        dbres.json().then(res=>{
-          if(res.msg === 'userNotFound') alert(`${i} not registered`);
-          else alert("could verify users plse try again later");
-          resolve(false);return;
-        })
-      }
-      if(dbres.status == 200){
-        dbres.json().then(res=>{
-          ids.push(res.id);
-        })
-      }
-    }
-    console.log(ids);
-    for( const i in ids){
-      const a = await checkUserColide(ids[i],eventName,teamName);
-      if(!a){
-        alert(`${members[i]} is already in a team`);
-        resolve(false);
-        return;
-      }
-    }
-    resolve(true);
-  })
-}
 
 const Event = ({params}:{params:{eventName:string}}) => {
   const router = useRouter();
@@ -120,15 +14,18 @@ const Event = ({params}:{params:{eventName:string}}) => {
   const [userMail, setUserMail] = useState<string>("test@gmail.com");
   const [members, setMembers] = useState<Array<string>>([userMail]);
   const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
+  const [loading, setLoading] = useState<boolean>(false); 
 
   const addMember=()=>{setMembers([...members,""])}
   const onSubmit=async()=>{
     //checking team validation
+    setLoading(true);
     let res = await checkTeamName(eventProp.name, teamDetails.name) 
     if(res){
       //member validity checking , checks member registration, checks member team collilsion
       const actualMembers = members.filter(e => e != "");
       res = await checkValidMembers(actualMembers,eventProp.name,teamDetails.name,eventProp.teamSize.max,eventProp.teamSize.min)
+      console.log(res);
       if(res){
         //submitting the team
         const sendableMembers:{
@@ -149,6 +46,7 @@ const Event = ({params}:{params:{eventName:string}}) => {
       } 
       else alert("non submittable");
     }
+    setLoading(false);
   }
   return (<>
   <h1>Event is {eventProp.name}</h1>
@@ -172,6 +70,9 @@ const Event = ({params}:{params:{eventName:string}}) => {
           >
             Submit
           </button>
+          {
+            loading? <div>Checking</div> : <></>
+          }
         </div>
       </div>
     </div>
