@@ -40,21 +40,22 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  password      String?
-  role          String?
-  phone         String?
-  emailVerified DateTime? @map("email_verified")
-  isVerified    Boolean
-  rollNo        String?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  gender  String?
+  id             String    @id @default(cuid())
+  name           String?
+  email          String?   @unique
+  password       String?
+  role           String?
+  phone          String?
+  emailVerified  DateTime? @map("email_verified")
+  isVerified     Boolean
+  rollNo         String?
+  verifyImage    String?
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  gender         String?
   foodPreference String?
-  shirtSize String?
+  shirtSize      String?
 
   member1of Team[] @relation("member1")
   member2of Team[] @relation("member2")

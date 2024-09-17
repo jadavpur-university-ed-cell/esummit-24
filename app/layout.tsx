@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GeistSans } from 'geist/font/sans';
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 // import Header from "@/components/Header";
 // import Provider from "@/components/Provider";
@@ -11,7 +11,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "E Summit-24 || JU",
-  description: "Jadavpur University Entrepreneurship Cell Welcomes you with the 9th edition of it's flagship event, the E-Summit",
+  description:
+    "Jadavpur University Entrepreneurship Cell Welcomes you with the 9th edition of it's flagship event, the E-Summit",
 };
 // Not Wrapping Next-Auth Here Until most of the job is done
 export default async function RootLayout({
@@ -20,16 +21,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // const session = await auth();
-  
+
   return (
     <html lang="en">
       <body className={GeistSans.className}>
         {/* <Provider session={session}>
           <Header />
         </Provider> */}
-          <main>
-            {children}
-          </main>
+        <main>{children}</main>
       </body>
     </html>
   );
