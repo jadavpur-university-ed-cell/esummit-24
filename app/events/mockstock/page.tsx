@@ -21,14 +21,14 @@ const MockStockEvent: React.FC = () => {
       </div>
       
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-5xl font-semibold text-cyan-500">Mock Stock Exchange</h1>
+        <h1 className="text-7xl font-semibold text-cyan-500">Mock Stock Exchange</h1>
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
       
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-4 pb-0.5">
         <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-bl from-red-700 to-sky-700 border hover:bg-gradient-to-l border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
-          <h1 className="text-4xl font-semibold text-white text-right px-10 pt-10">
+          <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10">
             About
           </h1>
           {/* Underline for About */}
