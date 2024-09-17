@@ -47,6 +47,9 @@ const MockStockEvent: React.FC = () => {
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-200 to-red-400 px-10 pt-10">
               {bottomText}
             </h1>
+            <button className="bg-red-50 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-red-800 hover:text-white  transition-all duration-300">
+              Participate
+            </button>
           </div>
         </div>
       </div>

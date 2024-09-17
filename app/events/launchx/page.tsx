@@ -48,6 +48,9 @@ const LaunchXEvent: React.FC = () => {
             <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-zinc-200 px-10 pt-10">
               {bottomText}
             </h1>
+            <button className="bg-gray-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-zinc-900 hover:text-white  transition-all duration-300">
+              Participate
+            </button>
           </div>
         </div>
       </div>
