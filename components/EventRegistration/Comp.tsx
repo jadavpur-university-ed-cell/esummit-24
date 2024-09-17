@@ -1,4 +1,3 @@
-
 type prop ={
   id:number,
   label:string,
