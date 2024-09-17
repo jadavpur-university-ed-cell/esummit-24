@@ -6,18 +6,18 @@ interface PoCCardProps {
   nameColor: string;  
 }
 
-const PoCCard: React.FC<PoCCardProps> = ({ name, phoneNumber, nameColor, phoneColor }) => {
+const PoCCard: React.FC<PoCCardProps> = ({ name, phoneNumber, nameColor }) => {
   const nameColorClass = `${nameColor}-600`;
   const phoneColorClass = `${nameColor}-400`;
 
   return (
-    <div className="p-4 bg-white shadow-lg border-solid rounded-lg mt-8 overflow-hidden">
+    <div className="p-4 bg-white shadow-lg border-solid rounded-lg mt-8 overflow-hidden w-[20%] justify-between">
       {/* Card Content */}
-      <div className="space-y-2">
-        <p className={`text-lg font-semibold ${nameColorClass} text-2xl`}>
+      <div className="space-y-2 justify-between">
+        <p className={`text-2xl font-semibold ${nameColorClass} text-2xl`}>
           {name}
         </p>
-        <p className={`text-md font-medium ${phoneColorClass}`}>
+        <p className={`text-lg font-medium ${phoneColorClass}`}>
           {phoneNumber}
         </p>
       </div>
@@ -29,7 +29,7 @@ const PoCCard: React.FC<PoCCardProps> = ({ name, phoneNumber, nameColor, phoneCo
           className="px-4 py-2 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors"
         >
           <svg
-            className="w-5 h-5 mr-2"
+            className="w-7 h-10 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

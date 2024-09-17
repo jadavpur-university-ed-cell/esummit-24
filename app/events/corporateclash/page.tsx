@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import Heading from "@/components/Homepage/Events/Heading";
+import FAQ from "@/components/Events/FAQS";
+import PoCCard from "@/components/Events/PoCCard";
 
 const CorporateClashEvent: React.FC = () => {
   const bulletPoints = [
@@ -12,8 +13,21 @@ const CorporateClashEvent: React.FC = () => {
 
   const bottomText = "Don't miss this chance to step up, solve, and succeed in the world of business analysis!";
 
+  const faqs = [
+    { question: "What is Corporate Clash?", answer: "Corporate Clash is a high-stakes problem-solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },
+    { question: "How can I participate?", answer: "You can participate by registering through the 'Participate' button on this page." },
+    { question: "What are the requirements?", answer: "You need to have a keen interest in business analysis and problem-solving skills. No prior experience is required." }
+  ];
+
+  // Points of Contact Data
+  const pointsOfContact = [
+    { name: "John Doe", phoneNumber: "+1234567890", nameColor: "text-red" },
+    { name: "Jane Smith", phoneNumber: "+0987654321", nameColor: "text-blue" },
+    { name: "Alice Johnson", phoneNumber: "+1122334455", nameColor: "text-green" }
+  ];
+
   return (
-    <div className="h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
         <section className="bg-orange-600 w-[66.6666%] h-[35px]"></section>
       </div>
@@ -46,14 +60,12 @@ const CorporateClashEvent: React.FC = () => {
               {bottomText}
             </h1>
             {/* Register Button */}
-            <button className="bg-red-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-red-800 hover:text-white  transition-all duration-300">
+            <button className="bg-red-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300">
               Participate
             </button>
           </div>
         </div>
       </div>
-
-      {/* Bottom Sections */}
       <div className="flex flex-col">
         {/* First Row */}
         <div className="flex justify-between mt-16">
@@ -70,6 +82,48 @@ const CorporateClashEvent: React.FC = () => {
           <section className="w-[25%] h-[35px]"></section>
           <section className="bg-red-700 w-[25%] h-[35px]"></section>
         </div>
+      </div>
+
+      {/* Points of Contact Section */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-extrabold text-red-600 text-center mb-8">Points of Contact</h2>
+        <div className="flex flex-wrap justify-center gap-4 ">
+          {pointsOfContact.map((contact, index) => (
+            <PoCCard
+              key={index}
+              name={contact.name}
+              phoneNumber={contact.phoneNumber}
+              nameColor={contact.nameColor}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col">
+        {/* First Row */}
+        <div className="flex justify-between mt-16">
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+        </div>
+        
+        {/* Second Row */}
+        <div className="flex justify-between">
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <FAQ 
+          faqs={faqs} 
+          headingColor="text-red-600" // Red heading color
+          questionColor="text-red-400" // Lighter red for questions
+          answerColor="text-white" // White for answers
+        />
       </div>
     </div>
   );
