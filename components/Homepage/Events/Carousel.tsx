@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 
-interface Event {
+interface CardProps {
   name: string;
   about: string;
+  route: string;
 }
 
-function Card({ name, about }: { name: string; about: string }) {
+const Card = ({ name, about, route }: CardProps) => {
   return (
     <CardSpotlight className="flex flex-col items-center h-full p-4">
       <h1 className="text-3xl text-[#fcbf49] text-center z-20">{name}</h1>
       <h2 className="text-2xl text-white text-center z-20 mb-4">{about}</h2>
-      <button className="px-4 py-2 bg-[#fcbf49] text-[#101720] rounded-full z-20">
+      <a
+        href={route}
+        className="px-4 py-2 bg-[#fcbf49] text-[#101720] rounded-full z-20"
+      >
         Learn More
-      </button>
+      </a>
     </CardSpotlight>
   );
+};
+
+interface Event {
+  name: string;
+  about: string;
+  route: string;
 }
 
 const Carousel = ({ eventList }: { eventList: Event[] }) => {
@@ -71,7 +81,7 @@ const Carousel = ({ eventList }: { eventList: Event[] }) => {
                   : "md:w-1/3"
               }`}
             >
-              <Card name={event.name} about={event.about} />
+              <Card name={event.name} about={event.about} route={event.route} />
             </div>
           ))}
         </div>
