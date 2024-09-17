@@ -35,7 +35,7 @@ const HacknPitchEvent: React.FC = () => {
             About
           </h1>
           {/* Underline for About */}
-          <div className="flex shrink-0 self-end mt-5 max-w-full bg-sky-600 h-[3px] w-[30%] outline-dashed mr-8" />
+          <div className="flex shrink-0 self-end mt-5 max-w-full bg-gray-200 h-[3px] w-[30%]  mr-8" />
           {/* Content Box */}
           <div className="flex flex-col justify-center items-center pt-4 pb-0.5 w-[60%] self-end">
             {/* Description */}

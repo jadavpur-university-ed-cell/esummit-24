@@ -11,37 +11,37 @@ interface Event {
 const eventList: Event[] = [
   {
     name: "Hack <N> Pitch",
-    about: "Pitch your hack and win exciting prizes",
+    about: "Join Hack-n-Pitch: Innovate, hack, and pitch your ideas overnight!",
     route: "/events/hacknpitch",
   },
   {
     name: "Corporate Clash",
-    about: "Compete with top corporate teams",
+    about: "Test your strategic skills in the ultimate analyst challenge.",
     route: "/events/corporateclash",
   },
   {
     name: "Inspira Talks",
-    about: "Talks from inspiring industry leaders",
+    about: "Learn from top experts and ignite your entrepreneurial journey.",
     route: "/events/inspiratalks",
   },
   {
     name: "Mock Stock Exchange",
-    about: "Experience the thrill of stock market trading",
+    about: "Master trading skills in a risk-free, competitive stock simulation.",
     route: "/events/mockstock",
   },
   {
     name: "Mock IPL Auction",
-    about: "Participate in a thrilling IPL auction simulation",
+    about: "Build your dream IPL team in a strategic mock auction.",
     route: "/events/mockipl",
   },
   {
     name: "Dizmart",
-    about: "Showcase your design and marketing skills",
+    about: "Design impactful labels at Dizmart, merging creativity, branding, and marketing.",
     route: "/events/dizmart",
   },
   {
     name: "LaunchX",
-    about: "Launch your product in the ultimate startup competition",
+    about: "Showcase, pitch, and launch your startup with expert backing.",
     route: "/events/launchx",
   },
 ];
