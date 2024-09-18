@@ -13,7 +13,7 @@ interface CardProps {
 const Card = ({ name, about, route, image, day }: CardProps) => {
   return (
     <CardSpotlight className="flex flex-col items-center h-full p-6">
-      <img src={image} alt={name} className="w-auto h-60 mb-6 object-cover" />
+      <img src={image} alt={name} className="w-auto h-40 mb-3 object-cover" />
       <h1 className="text-3xl text-[#fcbf49] text-center z-20 mb-4">{name}</h1>
       <h2 className="text-2xl text-white text-center z-20 mb-6">{about}</h2>
       <a
