@@ -7,24 +7,24 @@ import Loading from "@/components/Loading"
 import { getSession } from 'next-auth/react'
 
 
-const Event = ({params}:{params:{eventName:string}}) => {
+const Event = ({params,email}:{params:{eventName:string},email:string}) => {
   const router = useRouter();
   if(!checkValidEvent(params.eventName).valid) router.push('/eventRegistration')
   const eventProp:eventPropType = checkValidEvent(params.eventName);
-  const [userMail, setUserMail] = useState<string>("");
+  const [userMail, setUserMail] = useState<string>(email);
   const [members, setMembers] = useState<Array<string>>([userMail]);
   const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
   const [loading, setLoading] = useState<boolean>(false); 
-  useEffect(()=>{
-    setLoading(true);
-    getSession().then(session=>{
-      setUserMail(session?.user.email);
-    })
-  },[])
-  useEffect(()=>{
-      setMembers([userMail]);
-    setLoading(false);
-  },[userMail]);
+  // useEffect(()=>{
+  //   setLoading(true);
+  //   getSession().then(session=>{
+  //     setUserMail(session?.user.email);
+  //   })
+  // },[])
+  // useEffect(()=>{
+  //     setMembers([userMail]);
+  //   setLoading(false);
+  // },[userMail]);
 
   const addMember=()=>{setMembers([...members,""])}
   const onSubmit=async()=>{

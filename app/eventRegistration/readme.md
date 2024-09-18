@@ -7,3 +7,4 @@
 - [x] final submission
 - [ ] zod verification on frontend ??
 - [ ] user without email verification are not allowed
+- [ ] keeping session ssr

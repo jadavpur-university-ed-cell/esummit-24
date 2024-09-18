@@ -1,8 +1,10 @@
 import Event from "@/components/EventRegistration/main";
-export default function({params}:{params:{eventName:string}}){
+import {auth} from "@/auth"
+export default async function ({params}:{params:{eventName:string}}){
+  let res = await auth();
   return(
     <div>
-      <Event params={params}></Event>
+      <Event params={params} email={res?.user.email}></Event>
     </div>
   )
 }
