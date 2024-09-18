@@ -1,5 +1,4 @@
 "use client";
-"use client";
 
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
@@ -193,14 +192,30 @@ const CorporateClashEvent: React.FC = () => {
 
 
       {/* FAQ Section */}
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
-        <FAQ 
-          faqs={faqs} 
-          headingColor="text-red-400" // Red heading color
-          questionColor="text-red-500" // Lighter red for questions
-          answerColor="text-white" // White for answers
-        />
+      <div className="py-12 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
+        {/* FAQ Column */}
+        <div className="lg:w-3/5 lg:pr-8">
+          <FAQ 
+            faqs={faqs} 
+            headingColor="text-red-400" // Red heading color
+            questionColor="text-red-500" // Lighter red for questions
+            answerColor="text-white" // White for answers
+          />
+        </div>
+
+        {/* Sponsors Column */}
+        <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
+          {/* Add your sponsor names or content here */}
+          <h2 className="text-2xl font-bold text-white">Sponsors</h2>
+          <ul className="mt-4 text-white">
+            {/* Replace with actual sponsor names */}
+            <li>Sponsor 1</li>
+            <li>Sponsor 2</li>
+            <li>Sponsor 3</li>
+          </ul>
+        </div>
       </div>
+
     </div>
   );
 };
