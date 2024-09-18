@@ -62,7 +62,7 @@ const checkValidMembers=(
   teamName:string,
   teamSizeMax:number,
   teamSizeMin:number,
-)=>{
+):Promise<Array<string>>=>{
   return new Promise(async (resolve,reject)=>{
     let s = members.length;
     if(s<teamSizeMin || s>teamSizeMax) {alert("team Size not met");resolve(false);return;}
@@ -81,13 +81,13 @@ const checkValidMembers=(
       });
       if(dbres.status == 500){
         alert("could verify users plse try again later");
-        resolve(false);return;
+        resolve([]);return;
       }
       if(dbres.status == 404){
         const res = await dbres.json()
         if (res.msg === 'userNotFound') alert(`${i} not registered`);
         else alert("could verify users plse try again later");
-        resolve(false);
+        resolve([]);
         return;
       }
       if (dbres.status == 200) {
@@ -99,11 +99,11 @@ const checkValidMembers=(
       const a = await checkUserColide(ids[i],eventName,teamName);
       if(!a){
         alert(`${members[i]} is already in a team`);
-        resolve(false);
+        resolve([]);
         return;
       }
     }
-    resolve(true);
+    resolve(ids);
   })
 }
 

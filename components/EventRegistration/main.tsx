@@ -24,6 +24,7 @@ const Event = ({params}:{params:{eventName:string}}) => {
   useEffect(()=>{
     setLoading(true);
     getSession().then(res=>{
+      //@ts-ignore
       setUserMail(res?.user.email);
     })
   },[])
@@ -40,23 +41,34 @@ const Event = ({params}:{params:{eventName:string}}) => {
     if(res){
       //member validity checking , checks member registration, checks member team collilsion
       const actualMembers = members.filter(e => e != "");
-      res = await checkValidMembers(actualMembers,eventProp.name,teamDetails.name,eventProp.teamSize.max,eventProp.teamSize.min)
-      if(res){
+      const resIds = await checkValidMembers(actualMembers,eventProp.name,teamDetails.name,eventProp.teamSize.max,eventProp.teamSize.min)
+      if(resIds.length){
         //submitting the team
-        const sendableMembers:{
+        const sendableBody:{
           eventName:string,
           teamName:string,
-          member1: string | null,
-          member2: string | null,
-          member3: string | null,
-          member4: string | null,
-        } = { eventName:eventProp.name,teamName:teamDetails.name,member1: null, member2: null, member3: null, member4: null}
+          member1Id: string | null,
+          member2Id: string | null,
+          member3Id: string | null,
+          member4Id: string | null,
+        } = { eventName:eventProp.name,teamName:teamDetails.name,member1Id: null, member2Id: null, member3Id: null, member4Id: null}
         //array to object conversion
-        try {sendableMembers.member1 = actualMembers[0];}catch(e){};
-        try {sendableMembers.member2 = actualMembers[1];}catch(e){};
-        try {sendableMembers.member3 = actualMembers[2];}catch(e){};
-        try {sendableMembers.member4 = actualMembers[3];}catch(e){};
-        alert(JSON.stringify(sendableMembers));
+        //sendableBody.member1Id = {resIds.length>=1? resIds[1]:null};
+        sendableBody.member1Id = resIds.length>=1? resIds[0]:null;
+        sendableBody.member2Id = resIds.length>=2? resIds[1]:null;
+        sendableBody.member3Id = resIds.length>=3? resIds[2]:null;
+        sendableBody.member4Id = resIds.length>=4? resIds[3]:null;
+        console.log(sendableBody);
+        const dbres = await fetch("/api/teams/",{
+          method:"POST",
+          body:JSON.stringify(sendableBody)
+        });
+        if(dbres.status == 201) alert("team Created");
+        else {
+          alert("can't create team now");
+          const res = await dbres.json();
+          console.log(res);
+        }
       } 
       else alert("non submittable");
     }
