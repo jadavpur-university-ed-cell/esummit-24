@@ -3,6 +3,7 @@
 import React from "react";
 import Heading from "@/components/Homepage/Events/Heading";
 
+
 const MockStockEvent: React.FC = () => {
   const description = `The stock market thrives on chaos, but true traders find their edge amidst the madness. Do you have the insight, skill, and nerve to turn unpredictability into profit? Enter Mock Stock—a thrilling simulation that pits you against the market’s wild swings without the real-world risks. Test your strategies, sharpen your instincts, and experience the adrenaline rush of trading in a competitive, risk-free environment. From rookie traders to seasoned strategists, Mock Stock is your chance to learn, adapt, and beat the market madness. Are you ready to take control and conquer the chaos?`;
 
