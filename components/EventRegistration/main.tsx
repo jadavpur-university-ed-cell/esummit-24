@@ -70,7 +70,6 @@ const Event = ({params}:{params:{eventName:string}}) => {
           console.log(res);
         }
       } 
-      else alert("non submittable");
     }
     setLoading(false);
   }

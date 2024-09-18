@@ -4,5 +4,6 @@
 - [x] check the valid eventName
 - [x] handling the null entries
 - [x] Check if the email is a registered user and a team member or not
-- [ ] final submission
+- [x] final submission
 - [ ] zod verification on frontend ??
+- [ ] user without email verification are not allowed
