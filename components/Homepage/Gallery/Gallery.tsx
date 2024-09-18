@@ -20,9 +20,9 @@ import Image from "next/image";
 function Gallery() {
   
   return (
-    <section id="gallery" className='bg-[#101720] min-h-screen flex flex-col justify-center font-[Poppins]'>
-    <div className=" bg-[#101720] flex flex-col items-center justify-start min-h-[94vh] mx-5 p-5 rounded-3xl border-white  border-2">
-      <h1 className="text-5xl text-[#fcbf49] py-3 mb-7">Gallery</h1>
+    <section id="gallery" className='bg-[#040411] min-h-screen flex flex-col justify-center'>
+    <div className=" bg-[#040411] flex flex-col items-center justify-start min-h-[94vh] p-5 gap-y-10">
+      <h1 className="animated-title text-5xl sm:text-7xl text-[#fcbf49] py-3 mb-7 font-bold">Gallery</h1>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -48,9 +48,9 @@ function Gallery() {
             <Image src={image.src} alt={image.alt} fill />
           </SwiperSlide>
         ))}
-        <div className="flex items-center justify-center">
+        {/* <div className="flex items-center justify-center">
           <div className="swiper-pagination flex justify-center text-center"></div>
-        </div>
+        </div> */}
       </Swiper>
     </div>
     </section>

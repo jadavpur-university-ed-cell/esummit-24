@@ -1,16 +1,21 @@
-import React, {useState, useEffect} from "react";
+import React, { useRef } from "react";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
-import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 
-interface event{
-    name: string,
-    about: string
+import "swiper/css";
+import "swiper/css/autoplay";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+
+interface event {
+	name: string;
+	about: string;
 }
 
 function Card({ name, about }: { name: string; about: string }) {
 	return (
 		<>
-			<CardSpotlight className="flex flex-col items-center h-full">
+			<CardSpotlight className="flex flex-col items-center gap-y-10 h-full">
 				<h1 className="text-3xl text-white text-center z-20">{name}</h1>
 				<h2 className="text-2xl text-white text-center z-20">{about}</h2>
 			</CardSpotlight>
@@ -18,68 +23,39 @@ function Card({ name, about }: { name: string; about: string }) {
 	);
 }
 
-const Carousel = ({eventList}:{eventList:event[]}) => {
-	const [currentIndex, setCurrentIndex] = useState(0);
-
-	const next = () => {
-		setCurrentIndex((prevIndex) => (prevIndex + 1) % eventList.length);
-	};
-
-	const prev = () => {
-		setCurrentIndex(
-			(prevIndex) => (prevIndex - 1 + eventList.length) % eventList.length
-		);
-	};
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			next();
-		}, 7000);
-
-		return () => clearInterval(interval);
-	}, []);
-
-	const getVisibleItems = () => {
-		const items = [];
-		for (let i = 0; i < 3; i++) {
-			items.push(eventList[(currentIndex + i) % eventList.length]);
-		}
-		return items;
-	};
-
-	const visibleItems = getVisibleItems();
-
+export default function Carousel({ eventList }: { eventList: event[] }) {
+	const swiperRef = useRef<SwiperRef | null>(null);
 	return (
-		<div className="relative flex items-center justify-center w-full h-full md:h-1/2 lg:h-4/5 grow">
-			<button
-				onClick={prev}
-				className="absolute left-0 md:-left-5 z-10 p-2 text-[#101720] bg-[#fcbf49] rounded-full aspect-square">
-				<FaChevronLeft />
-			</button>
-			<div className="w-full h-full overflow-hidden grow">
-				<div className="flex justify-center w-full h-full gap-x-8 px-4">
-					{visibleItems.map((event, index) => (
-						<div
-							key={index}
-							className={`w-full h-full flex-shrink-0 grow lg:w-1/3 transition-all duration-500 ease-in-out transform ${
-								visibleItems.length === 1
-									? "sm:w-3/5 md:w-full"
-									: visibleItems.length === 2
-									? "md:w-1/2"
-									: "md:w-1/3"
-							}`}>
-							<Card name={event.name} about={event.about}/>
-						</div>
-					))}
-				</div>
+		<Swiper
+			ref={swiperRef}
+			spaceBetween={50}
+			slidesPerView={"auto"}
+			scrollbar={{ draggable: true }}
+			autoplay={{ delay: 4000, pauseOnMouseEnter: true }}
+			modules={[Autoplay, Navigation]}
+			navigation={true}
+			centeredSlides={true}
+			grabCursor={true}
+			speed={800}
+			loop={true}
+			longSwipes={false}>
+			{eventList.map((event, ind) => (
+				<SwiperSlide key={ind}>
+					<Card name={event.name} about={event.about} />
+				</SwiperSlide>
+			))}
+			<div className="w-full flex justify-end p-8 gap-x-6">
+				<button
+					onClick={() => swiperRef.current?.swiper.slidePrev()}
+					className="text-[#101720] bg-[#fcbf49] rounded-full aspect-square p-2 z-50">
+					<FaChevronLeft />
+				</button>
+				<button
+					onClick={() => swiperRef.current?.swiper.slideNext()}
+					className="text-[#101720] bg-[#fcbf49] rounded-full aspect-square p-2 z-50">
+					<FaChevronRight />
+				</button>
 			</div>
-			<button
-				onClick={next}
-				className="absolute right-0 md:-right-5 z-10 p-2 text-[#101720] bg-[#fcbf49] rounded-full aspect-square">
-				<FaChevronRight />
-			</button>
-		</div>
+		</Swiper>
 	);
-};
-
-export default Carousel;
+}

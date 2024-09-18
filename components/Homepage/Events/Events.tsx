@@ -9,31 +9,31 @@ interface event {
 
 const eventList: event[] = [
 	{
-		name: "One",
-		about: "Build your team",
+		name: "LaunchX",
+		about: "Launch X is the perfect platform for aspiring entrepreneurs to showcase their innovations and gain valuable feedback from industry experts to achieve next step of their own startup journey.",
 	},
 	{
-		name: "Two",
+		name: "Corporate Clash",
 		about: "Hackathon",
 	},
 	{
-		name: "Three",
+		name: "Mock Stock",
 		about: "Talk show",
 	},
 	{
-		name: "Four",
+		name: "Hack<n>Pitch",
 		about: "Product label design",
 	},
 	{
-		name: "Five",
+		name: "Mock IPL Auction",
 		about: "Build your team",
 	},
 	{
-		name: "Six",
+		name: "Diz Mart",
 		about: "Build your team",
 	},
 	{
-		name: "Seven",
+		name: "Inspira Talks",
 		about: "Build your team",
 	},
 ];
@@ -42,9 +42,9 @@ function Events() {
 	return (
 		<>
 			<section id="events">
-				<div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
-					<h1 className="text-5xl text-[#fcbf49]">Events</h1>
-					<div className="flex items-center w-full h-full grow">
+				<div className="min-h-screen bg-[#040411] flex flex-col items-center py-[6vmin] px-[8vmin] gap-y-16">
+					<h1 className="animated-title text-7xl font-bold text-[#fcbf49]">Events</h1>
+					<div className="flex items-center w-full h-[60vh] grow">
 					<Carousel eventList={eventList}/>
 					</div>
 				</div>

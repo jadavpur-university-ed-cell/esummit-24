@@ -2,6 +2,7 @@ import Navbar from "@/components/Homepage/Navbar/Navbar";
 import Hero from "@/components/Homepage/Hero/Root";
 import About from "@/components/Homepage/About/About";
 import Events from "@/components/Homepage/Events/Events";
+import EventTimeline from "@/components/Homepage/Timeline/Timeline";
 import Speakers from "@/components/Homepage/Speakers/Speakers";
 import Gallery from "@/components/Homepage/Gallery/Gallery";
 import Partners from "@/components/Homepage/Partners/Partners";
@@ -18,6 +19,7 @@ export default function Home() {
     <Hero/>
     <About/>
     <Events/>
+    <EventTimeline />
     <Speakers/>
     <Gallery/>
     <Partners/>
