@@ -110,6 +110,41 @@ const HacknPitchEvent: React.FC = () => {
           <section className="bg-blue-700 w-[25%] h-[35px]"></section>
         </div>
       </div>
+       {/* Rounds Section */}
+       <div className="pt-12">
+        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-blue-200">
+            Rounds
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
+        </div>
+        <RoundCards
+          headingColor="text-blue-500"
+          textColor="text-sky-50"
+          rounds={[
+            {
+              title: 'Screening Round',
+              date: 'Preliminary Submission',
+              description: 'Participants are required to submit a 3-slide PowerPoint presentation via the official website or Unstop. The submission should focus on the core aspects of the proposed innovation, excluding introductory and thank-you slides.',
+            },
+            {
+              title: 'Pitching Round',
+              date: 'Offline',
+              description: 'Thirty teams will be shortlisted to participate in an offline pitching session. Each team will deliver a 5-minute pitch followed by a 2-minute rebuttal, where they will have the opportunity to defend and elaborate on their presentation.',
+            },
+            {
+              title: 'Final Offline Round',
+              date: 'Offline',
+              description: 'Selected teams will be invited to Kolkata for the final offline round. Attendance will be subject to the feasibility and availability of the team.',
+            },
+            {
+              title: 'Elevator Pitch (Conditional)',
+              date: 'Offline',
+              description: 'An elevator pitch session may be conducted at the discretion of the VCs. Details and confirmation of this round will be provided at a later stage.',
+            },
+          ]}
+        />
+      </div>
 
       {/* Points of Contact Section */}
       <div className="py-4 px-4 sm:px-6 lg:px-4">
@@ -129,6 +164,32 @@ const HacknPitchEvent: React.FC = () => {
               nameColor={contact.nameColor}
             />
           ))}
+        </div>
+      </div>
+      {/* Step Design Section */}
+      <div className="flex flex-col">
+        {/* First Row */}
+        <div className="flex justify-between mt-16">
+          <section className="bg-blue-700 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-blue-600 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-blue-500 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-blue-400 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+        </div>
+        
+        {/* Second Row */}
+        <div className="flex justify-between mt-2">
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-sky-500 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-sky-400 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-sky-300 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-sky-200 w-[12.5%] h-[35px]"></section>
         </div>
       </div>
 
