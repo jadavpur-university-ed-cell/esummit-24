@@ -1,5 +1,6 @@
 import allEventNames from"@/lib/allEventNames.json"
 import checkUserColide from './userColide'
+import { PrismaClient } from "@prisma/client"
 
 interface eventPropType{
   valid: boolean,

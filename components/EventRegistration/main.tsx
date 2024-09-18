@@ -2,36 +2,29 @@
 import {MemberInput,TeamInput} from './Comp'
 import {useEffect, useState } from 'react'
 import {useRouter } from 'next/navigation'
-import {checkValidEvent,checkTeamName,checkValidMembers,eventPropType } from './ValidatorFunctions'
+import {checkValidEvent,checkTeamName,checkValidMembers,eventPropType} from './ValidatorFunctions'
 import Loading from "@/components/Loading"
 import { getSession } from 'next-auth/react'
 
 
-const getRes=async() =>{
-  const res = getSession();
-  console.log(res);
-}
 const Event = ({params}:{params:{eventName:string}}) => {
   const router = useRouter();
   if(!checkValidEvent(params.eventName).valid) router.push('/eventRegistration')
   const eventProp:eventPropType = checkValidEvent(params.eventName);
-
   const [userMail, setUserMail] = useState<string>("");
   const [members, setMembers] = useState<Array<string>>([userMail]);
   const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
   const [loading, setLoading] = useState<boolean>(false); 
-
   useEffect(()=>{
     setLoading(true);
-    getSession().then(res=>{
-      //@ts-ignore
-      setUserMail(res?.user.email);
+    getSession().then(session=>{
+      setUserMail(session?.user.email);
     })
   },[])
   useEffect(()=>{
-    setMembers([userMail]);
+      setMembers([userMail]);
     setLoading(false);
-  },[userMail])
+  },[userMail]);
 
   const addMember=()=>{setMembers([...members,""])}
   const onSubmit=async()=>{
@@ -92,6 +85,7 @@ const Event = ({params}:{params:{eventName:string}}) => {
             type="submit"
             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-grape-600 hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
             onClick={onSubmit}
+            disabled={loading}
           >
             Submit
           </button>
