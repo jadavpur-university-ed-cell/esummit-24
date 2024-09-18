@@ -3,8 +3,10 @@
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
+import RoundCards from "@/components/Events/RoundCards";
 
 const CorporateClashEvent: React.FC = () => {
+  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
   const bulletPoints = [
     "The challenge is designed to test your problem solving and problem statement understanding abilities.",
     "Sharpen your critical analysis skills to dissect complex challenges.",
@@ -29,43 +31,60 @@ const CorporateClashEvent: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-orange-600 w-[66.6666%] h-[35px]"></section>
+        <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section>
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-7xl font-semibold text-orange-300">
+        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-200">
           Corporate Clash
         </h1>
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
 
       {/* About Section */}
-      <div className="flex flex-col justify-center items-center pt-4 pb-0.5">
-        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-bl from-orange-500 to-[#c8102e] border border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
+        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
           <h1 className="text-4xl font-semibold text-white text-right px-10 pt-10">
             About
           </h1>
           {/* Underline for About */}
           <div className="flex shrink-0 self-end mt-5 max-w-full bg-zinc-500 h-[3px] w-[30%] outline-dashed mr-8" />
-          {/* Content Box */}
-          <div className="flex flex-col justify-center items-center pt-4 pb-0.5 w-[60%] self-end">
-            {/* Bulleted Points */}
-            <ul className="list-disc list-inside text-left px-10 pt-5 text-xl text-white">
-              {bulletPoints.map((point, index) => (
-                <li key={index} className="pb-2">{point}</li>
-              ))}
-            </ul>
-            {/* Bottom Text */}
-            <h1 className="text-3xl font-semibold text-white px-10 pt-10">
-              {bottomText}
-            </h1>
-            {/* Register Button */}
-            <button className="bg-red-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300">
-              Participate
-            </button>
+          
+          {/* Flex Container for Logo and Text */}
+          <div className="flex flex-col md:flex-row w-full px-10 py-0.5 gap-10">
+            {/* Corporate Clash Logo */}
+            <div className="flex items-center md:w-[40%] w-full justify-center">
+              <img
+                src="/event-logos/CorporateClash.png"
+                alt="Corporate Clash Logo"
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="flex flex-col md:w-[60%] w-full">
+              {/* Description */}
+            <p className="text-xl  text-blue-200 font-medium px-10 pt-5 ">{description}</p>
+              {/* Bulleted Points */}
+              <ul className="list-disc list-inside text-left text-xl font-medium px-10 pt-5 text-orange-50 mt-8">
+                {bulletPoints.map((point, index) => (
+                  <li key={index} className="pb-2">{point}</li>
+                ))}
+              </ul>
+              {/* Bottom Text */}
+              <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-50 px-10 pt-10">
+                {bottomText}
+              </h1>
+              {/* Register Button */}
+              <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300">
+                Participate
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Step Design Section */}
       <div className="flex flex-col">
         {/* First Row */}
         <div className="flex justify-between mt-16">
@@ -84,10 +103,56 @@ const CorporateClashEvent: React.FC = () => {
         </div>
       </div>
 
+      {/* Rounds Section */}
+      <div className="pt-12">
+      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+        <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+          Rounds
+          <div className="mt-4 w-full h-0.5 bg-white"></div>
+        </h1>
+      </div>
+        <RoundCards
+          headingColor="text-red-500" // updated to use Tailwind text class
+          textColor="text-red-50" // Tailwind text class
+          rounds={[
+            {
+              title: 'Screening Round',
+              date: 'Preliminary',
+              description:
+                'Participants submit a one-slide case solution online. A preliminary submission round on the website or Unstop with a 3-slide PPT excluding intro and thank you slides.',
+            },
+            {
+              title: 'Pitching Round',
+              date: 'Online',
+              description:
+                'The submitted solutions are pitched online in front of a panel of judges (mostly E-cell seniors).',
+            },
+            {
+              title: 'Live Presentation',
+              date: 'Offline',
+              description:
+                'Top teams present their prescribed case solutions live in front of a judge panel.',
+            },
+            {
+              title: 'Final Round',
+              date: 'Boardroom War',
+              description:
+                'Teams face a "boardroom war" round, where they tackle scenarios involving mergers, hostile takeovers, risks, or strategization.',
+            },
+          ]}
+        />
+      </div>
+
       {/* Points of Contact Section */}
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-red-600 text-center mb-8">Points of Contact</h2>
-        <div className="flex flex-wrap justify-center gap-4 ">
+      <div className="py-4 px-4 sm:px-6 lg:px-4">
+      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Points of Contact
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
+        </div>
+        
+        <div className="flex flex-wrap justify-center gap-3 ">
           {pointsOfContact.map((contact, index) => (
             <PoCCard
               key={index}
@@ -98,30 +163,40 @@ const CorporateClashEvent: React.FC = () => {
           ))}
         </div>
       </div>
+      {/* Step Design Section */}
       <div className="flex flex-col">
         {/* First Row */}
         <div className="flex justify-between mt-16">
-          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
-          <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
-          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-orange-900 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-800 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-700 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-600 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
         </div>
         
         {/* Second Row */}
-        <div className="flex justify-between">
-          <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-red-700 w-[25%] h-[35px]"></section>
-          <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+        <div className="flex justify-between mt-2">
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-700 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-600 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-500 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-400 w-[12.5%] h-[35px]"></section>
         </div>
       </div>
+
 
       {/* FAQ Section */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <FAQ 
           faqs={faqs} 
-          headingColor="text-red-600" // Red heading color
-          questionColor="text-red-400" // Lighter red for questions
+          headingColor="text-red-400" // Red heading color
+          questionColor="text-red-500" // Lighter red for questions
           answerColor="text-white" // White for answers
         />
       </div>
