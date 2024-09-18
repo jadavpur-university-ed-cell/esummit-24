@@ -42,7 +42,7 @@ const DizmartEvent: React.FC = () => {
 
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
-        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
+        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-orange-700 to-red-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
           <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10">
             About
           </h1>

@@ -30,14 +30,22 @@ const LaunchXEvent: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
-      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-      <section className="bg-gradient-to-r from-gray-600 to-zinc-600 w-[66.6666%] h-[35px]"></section>
+
+      <div className="flex justify-center">
+        <section className="bg-gradient-to-r from-zinc-600 to-zinc-700 w-[66.6666%] h-[35px]"></section>
       </div>
+
+      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
+        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-zinc-600 to-gray-200">
+          LaunchX
+        </h1>
+      </div>
+      
       <div className="mt-4 w-full h-0.5 bg-white"></div>
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
         <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-gray-600 to-zinc-800 hover:bg-gradient-to-tr border border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
-          <h1 className="text-4xl font-semibold text-white text-right px-10 pt-10 order-1">
+          <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10 order-1">
             About
           </h1>
           <div className="flex shrink-0 self-end mt-5 max-w-full bg-zinc-500 h-[3px] w-[30%] outline-dashed mr-8 order-2" /> 
@@ -176,7 +184,7 @@ const LaunchXEvent: React.FC = () => {
           />
         </div>
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          <h2 className="text-2xl font-bold text-white">Sponsors</h2>
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-gray-600 to-zinc-200">Sponsors</h2>
           <ul className="mt-4 text-white">
             <li>Sponsor 1</li>
             <li>Sponsor 2</li>
