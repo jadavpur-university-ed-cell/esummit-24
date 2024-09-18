@@ -1,20 +1,36 @@
 'use client'
 import {MemberInput,TeamInput} from './Comp'
-import {useState } from 'react'
+import {useEffect, useState } from 'react'
 import {useRouter } from 'next/navigation'
 import {checkValidEvent,checkTeamName,checkValidMembers,eventPropType } from './ValidatorFunctions'
 import Loading from "@/components/Loading"
+import { getSession } from 'next-auth/react'
 
 
+const getRes=async() =>{
+  const res = getSession();
+  console.log(res);
+}
 const Event = ({params}:{params:{eventName:string}}) => {
   const router = useRouter();
   if(!checkValidEvent(params.eventName).valid) router.push('/eventRegistration')
   const eventProp:eventPropType = checkValidEvent(params.eventName);
 
-  const [userMail, setUserMail] = useState<string>("test@gmail.com");
+  const [userMail, setUserMail] = useState<string>("");
   const [members, setMembers] = useState<Array<string>>([userMail]);
   const [teamDetails, setTeamDetails] = useState<{name:string,size:number}>({name:"",size:eventProp.teamSize.max});
   const [loading, setLoading] = useState<boolean>(false); 
+
+  useEffect(()=>{
+    setLoading(true);
+    getSession().then(res=>{
+      setUserMail(res?.user.email);
+    })
+  },[])
+  useEffect(()=>{
+    setMembers([userMail]);
+    setLoading(false);
+  },[userMail])
 
   const addMember=()=>{setMembers([...members,""])}
   const onSubmit=async()=>{
