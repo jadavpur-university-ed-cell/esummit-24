@@ -44,7 +44,7 @@ const CorporateClashEvent: React.FC = () => {
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
         <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
-          <h1 className="text-4xl font-semibold text-white text-right px-10 pt-10">
+          <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10">
             About
           </h1>
           {/* Underline for About */}
@@ -206,7 +206,7 @@ const CorporateClashEvent: React.FC = () => {
         {/* Sponsors Column */}
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
           {/* Add your sponsor names or content here */}
-          <h2 className="text-2xl font-bold text-white">Sponsors</h2>
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">Sponsors</h2>
           <ul className="mt-4 text-white">
             {/* Replace with actual sponsor names */}
             <li>Sponsor 1</li>
