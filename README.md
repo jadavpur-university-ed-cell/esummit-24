@@ -11,5 +11,7 @@
 
 
 # Todos for Merch
-- [ ] set Shirt size
-- [ ] Add basic UI
+- [x] set Shirt size
+- [x] Add basic UI
+- [x] server action
+- [ ] Payment Integration

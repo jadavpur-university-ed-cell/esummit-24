@@ -18,8 +18,7 @@ export default async function(){
   return(
     <div>
       {/* @ts-ignore */}
-      <ShirtPref size={res?.shirtSize}></ShirtPref>
-      <Purchase></Purchase>
+      <Purchase size={res?.shirtSize} userId={session.user.id}></Purchase>
     </div>
   )
 }
