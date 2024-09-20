@@ -1,4 +1,4 @@
-# Todos For Events Registration
+# Todos
 - [X] Check if same emails cant be repeated
 - [x] wrap this up to check with db if the team name is already taken
 - [x] check the valid eventName
@@ -7,11 +7,4 @@
 - [x] final submission
 - [ ] zod verification on frontend ??
 - [ ] user without email verification are not allowed
-- [ ] db call optimization
-
-
-# Todos for Merch
-- [x] set Shirt size
-- [x] Add basic UI
-- [x] server action
-- [ ] Payment Integration
+- [ ] keeping session ssr

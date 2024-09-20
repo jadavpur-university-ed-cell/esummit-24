@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+/data
+docker-compose.yml
 
 # next.js
 /.next/
@@ -27,6 +29,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel

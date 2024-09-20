@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id             String    @id @default(cuid())
+  name           String?
+  email          String?   @unique
+  password       String?
+  role           String?
+  phone          String?
+  emailVerified  DateTime? @map("email_verified")
+  isVerified     Boolean
+  rollNo         String?
+  verifyImage    String?
+  image          String?
+  accounts       Account[]
+  sessions       Session[]
+  gender         String?
+  foodPreference String?
+  shirtSize      String?
+
+  member1of Team[] @relation("member1")
+  member2of Team[] @relation("member2")
+  member3of Team[] @relation("member3")
+  member4of Team[] @relation("member4")
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model Team {
+  teamId    String @id @unique @default(cuid())
+  eventName String
+  teamName  String
+  member1Id String
+  member2Id String?
+  member3Id String?
+  member4Id String?
+  member1   User    @relation("member1", fields: [member1Id], references: [id])
+  member2   User?   @relation("member2", fields: [member2Id], references: [id])
+  member3   User?   @relation("member3", fields: [member3Id], references: [id])
+  member4   User?   @relation("member4", fields: [member4Id], references: [id])
+
+  @@unique([eventName, teamName])
+  @@unique([eventName, member1Id])
+  @@unique([eventName, member2Id])
+  @@unique([eventName, member3Id])
+  @@unique([eventName, member4Id])
+  @@map("teams")
+}
