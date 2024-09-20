@@ -65,8 +65,8 @@ const eventList: Event[] = [
 function EventsComponent() {
   return (
     <section id="events">
-      <div className="h-[80vh] bg-[#101720] flex flex-col items-center p-[10vmin] gap-y-10">
-        <h1 className="text-5xl text-[#fcbf49]">Events</h1>
+      <div className="min-h-screen bg-[#101720] flex flex-col items-center py-[4vmin] px-10 sm:px-[8vmin] gap-y-16">
+        <h1 className="animated-title text-5xl sm:text-7xl font-bold text-[#fcbf49]">Events</h1>
         <div className="flex items-center w-full h-full grow">
           <Carousel eventList={eventList} />
         </div>
