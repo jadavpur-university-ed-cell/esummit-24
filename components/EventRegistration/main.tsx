@@ -91,7 +91,9 @@ const Event = ({params,email}:{params:{eventName:string},email:string}) => {
           </button>
           {/* for the loading feature */}
           {
-            loading? <Loading/> : <></>
+            loading? 
+              "plse wait....."
+            : <></>
           }
         </div>
       </div>
