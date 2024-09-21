@@ -5,8 +5,10 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import { useRouter } from "next/navigation";
 
 const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
+  const router = useRouter();
   const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
   const bulletPoints = [
     "The challenge is designed to test your problem solving and problem statement understanding abilities.",
@@ -80,6 +82,9 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/corporateclash');
+              }}
               >
                 Participate {allow?"":"🔒"}
               </button>

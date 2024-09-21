@@ -22,6 +22,7 @@ export default function ():Promise<boolean> {
       r(true); return;
     }
     catch (err) {
+      console.log(err);
       r(false); return;
     }
   })

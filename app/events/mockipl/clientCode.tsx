@@ -1,6 +1,7 @@
 "use client";
 
 
+import { useRouter } from "next/navigation";
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
@@ -9,6 +10,7 @@ import { eventProps } from "../eventProps";
 
 
 const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
+  const router = useRouter();
   const description = `Step into the shoes of an IPL team owner and make strategic decisions to build your dream squad. With a roster of over 75 international superstars at your disposal, this is your chance to showcase your cricketing desires and strategic prowess.`;
 
 
@@ -90,6 +92,9 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/mockiplauction');
+              }}
               >
                 Participate {allow?"":"🔒"}
               </button>

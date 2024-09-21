@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
@@ -7,6 +8,7 @@ import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 
 const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
+  const router = useRouter();
   const description = 'Ever felt the power of a perfect design? In an instant, a compelling label can drive decisions. At Dizmart, create a standout label that commands attention and sets brands apart. Design with impact. Win with purpose.'
   const bulletPoints = [
     "Fuse your creativity with your business acumen to reimagine a product label and maximise its market potential.",
@@ -78,6 +80,9 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/dizmart');
+              }}
               >
                 Participate {allow?"":"🔒"}
               </button>
