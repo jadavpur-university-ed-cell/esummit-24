@@ -1,12 +1,7 @@
-import CorporateClashEvent from "./clientCode"
-import {auth} from "@/auth"
-export default async function (){
-  //most of the await calls;
-  const res:boolean = await new Promise(async (r)=>{
-    const session = await auth();
-    if(!session){r(false);return;}
-  })
-  console.log(res);
+import userVerify from "../userVerify";
+import CorporateClashEvent from "./clientCode";
+export default async function(){
+  const res:boolean = await userVerify();
   return(
     <CorporateClashEvent allow={res}></CorporateClashEvent>
   )

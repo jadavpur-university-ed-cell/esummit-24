@@ -6,45 +6,44 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 
-const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
-  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
+const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
+  const description = 'Ever felt the power of a perfect design? In an instant, a compelling label can drive decisions. At Dizmart, create a standout label that commands attention and sets brands apart. Design with impact. Win with purpose.'
   const bulletPoints = [
-    "The challenge is designed to test your problem solving and problem statement understanding abilities.",
-    "Sharpen your critical analysis skills to dissect complex challenges.",
-    "The Analyst challenge transcends personal growth, offering an intellectually stimulating experience within a high-stakes corporate environment."
+    "Fuse your creativity with your business acumen to reimagine a product label and maximise its market potential.",
+    "Dive into the intricacies of graphic design, brand cultivation, marketing, and sales while putting your skills against the best.",
+    "Take your masterpiece to the masses in a heart-pounding showdown to be the top performer.",
+    "Design is judged by its impact, not just its look. Dizmart provides a platform to merge functionality with visual excellence. Showcase your skill in turning concepts into effective solutions—where true success lies in execution."
   ];
 
-  const bottomText = "Don't miss this chance to step up, solve, and succeed in the world of business analysis!";
+  const bottomText = "Show the world your talent in blending creativity with strategy at Dizmart. Make your design count.";
 
   const faqs = [
-    { question: "What is Corporate Clash?", answer: "Corporate Clash is a high-stakes problem-solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },
+    { question: "What is Dizmart?", answer: "Dizmart is a design challenge where participants create product labels with maximum market potential." },
     { question: "How can I participate?", answer: "You can participate by registering through the 'Participate' button on this page." },
-    { question: "What are the requirements?", answer: "You need to have a keen interest in business analysis and problem-solving skills. No prior experience is required." }
+    { question: "What are the requirements?", answer: "A creative mind and basic understanding of product design are recommended. No prior experience is required." }
   ];
 
-  // Points of Contact Data
   const pointsOfContact = [
-    { name: "John Doe", phoneNumber: "+1234567890", nameColor: "text-red" },
-    { name: "Jane Smith", phoneNumber: "+0987654321", nameColor: "text-blue" },
-    { name: "Alice Johnson", phoneNumber: "+1122334455", nameColor: "text-green" }
+    { name: "Emily Green", phoneNumber: "+1234567890", nameColor: "text-red-500" },
+    { name: "Michael Brown", phoneNumber: "+0987654321", nameColor: "text-blue-500" }
   ];
 
   return (
-    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+    <div className="bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section>
+        <section className="bg-red-900 w-[66.6666%] h-[35px]"></section>
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-200">
-          Corporate Clash
+        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-300">
+          Dizmart
         </h1>
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
 
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
-        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
+        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-orange-700 to-red-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
           <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10">
             About
           </h1>
@@ -56,7 +55,7 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
             {/* Corporate Clash Logo */}
             <div className="flex items-center md:w-[40%] w-full justify-center">
               <img
-                src="/event-logos/CorporateClash.png"
+                src="/event-logos/Dizmart.png"
                 alt="Corporate Clash Logo"
                 className="w-full h-auto"
               />
@@ -76,7 +75,6 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
               <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-50 px-10 pt-10">
                 {bottomText}
               </h1>
-
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
@@ -87,76 +85,60 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
           </div>
         </div>
       </div>
-
-      {/* Step Design Section */}
-      <div className="flex flex-col">
+      {/* Decorative Sections */}
+      <div className="flex flex-col mt-16">
         {/* First Row */}
-        <div className="flex justify-between mt-16">
-          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+        <div className="flex justify-between">
+          <section className="bg-red-900 w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+          <section className="bg-red-900 w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
         </div>
-        
+
         {/* Second Row */}
         <div className="flex justify-between">
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+          <section className="bg-orange-500 w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+          <section className="bg-orange-500 w-[25%] h-[35px]"></section>
         </div>
       </div>
 
       {/* Rounds Section */}
       <div className="pt-12">
-      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
-        <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
-          Rounds
-          <div className="mt-4 w-full h-0.5 bg-white"></div>
-        </h1>
-      </div>
+        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Rounds
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
+        </div>
         <RoundCards
-          headingColor="text-red-500" // updated to use Tailwind text class
-          textColor="text-red-50" // Tailwind text class
+          headingColor="text-yellow-500"
+          textColor="text-yellow-50"
           rounds={[
             {
-              title: 'Screening Round',
-              date: 'Preliminary',
-              description:
-                'Participants submit a one-slide case solution online. A preliminary submission round on the website or Unstop with a 3-slide PPT excluding intro and thank you slides.',
+              title: "Preliminary Round",
+              date: "Online",
+              description: "Submit your product label design concept for review by our panel.",
             },
             {
-              title: 'Pitching Round',
-              date: 'Online',
-              description:
-                'The submitted solutions are pitched online in front of a panel of judges (mostly E-cell seniors).',
-            },
-            {
-              title: 'Live Presentation',
-              date: 'Offline',
-              description:
-                'Top teams present their prescribed case solutions live in front of a judge panel.',
-            },
-            {
-              title: 'Final Round',
-              date: 'Boardroom War',
-              description:
-                'Teams face a "boardroom war" round, where they tackle scenarios involving mergers, hostile takeovers, risks, or strategization.',
-            },
+              title: "Final Round",
+              date: "Offline",
+              description: "Pitch your design live in front of our judges and audience.",
+            }
           ]}
         />
       </div>
 
       {/* Points of Contact Section */}
       <div className="py-4 px-4 sm:px-6 lg:px-4">
-      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
           <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
             Points of Contact
             <div className="mt-4 w-full h-0.5 bg-white"></div>
           </h1>
         </div>
-        
-        <div className="flex flex-wrap justify-center gap-3 ">
+        <div className="flex flex-wrap justify-center gap-3">
           {pointsOfContact.map((contact, index) => (
             <PoCCard
               key={index}
@@ -194,34 +176,30 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
         </div>
       </div>
 
-
       {/* FAQ Section */}
       <div className="py-12 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
-        {/* FAQ Column */}
         <div className="lg:w-3/5 lg:pr-8">
-          <FAQ 
-            faqs={faqs} 
-            headingColor="text-red-400" // Red heading color
-            questionColor="text-red-500" // Lighter red for questions
-            answerColor="text-white" // White for answers
+          <FAQ
+            faqs={faqs}
+            headingColor="text-yellow-700"
+            questionColor="text-orange-300"
+            answerColor="text-white"
           />
         </div>
-
-        {/* Sponsors Column */}
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          {/* Add your sponsor names or content here */}
-          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">Sponsors</h2>
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Sponsors
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
           <ul className="mt-4 text-white">
-            {/* Replace with actual sponsor names */}
             <li>Sponsor 1</li>
             <li>Sponsor 2</li>
             <li>Sponsor 3</li>
           </ul>
         </div>
       </div>
-
     </div>
   );
 };
 
-export default CorporateClashEvent;
+export default DizmartEvent;
