@@ -3,6 +3,27 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+export async function GET(req:NextRequest,{params}:{params:{userId:string}}){
+  try {
+    const {userId} = params;
+    const user = await prisma.user.findFirst({
+      where: {
+        id: userId
+      },
+      include: {
+        member1of: true,
+        member2of: true,
+        member3of: true,
+        member4of: true
+      }
+    })
+    return NextResponse.json({user},{status:200});
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({error:error},{status:500});
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     

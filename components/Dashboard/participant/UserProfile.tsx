@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaEdit, FaSave } from 'react-icons/fa';
@@ -25,21 +26,75 @@ interface User {
   member4of: Team[];
 }
 
+const UserTeams = ({teams}:{teams:Team[]}) => {
+  return(
+  <div className="w-full mt-8 bg-gray-900 p-6 rounded-lg shadow-lg">
+  <h3 className="text-lg font-semibold mb-4">Event Participation</h3>
+  <table className="w-full text-left table-auto border-collapse">
+    <thead>
+      <tr className="bg-gray-800">
+        <th className="border p-2">Event Name</th>
+        <th className="border p-2">Team Name</th>
+        <th className="border p-2">Team Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      {teams.map((team, index) => (
+        <tr key={index} className="bg-gray-800">
+          <td className="border p-2">{team.eventName}</td>
+          <td className="border p-2">{team.teamName}</td>
+          <td className="border p-2">
+            {team.member1.name}, {team.member2.name}, {team.member3.name}, {team.member4.name}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+  )
+}
 const UserProfile = ({ userId }: { userId: string }) => {
-  const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({
+    id: '',
+    name: '',
+    college: '',
+    year: '',
+    branch: '',
+    foodPreference: '',
+    image: null,
+    member1of: [], 
+    member2of: [],
+    member3of: [], 
+    member4of: [] 
+  });
   const [isEditing, setIsEditing] = useState(false);
+  const [hasTeams, setHasTeams] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(`/api/user/${userId}`);
-      const data = await res.json();
-      setUser(data);
+      const data = (await res.json()).user;
+      console.log(data);
+      setUser({
+        ...data,
+        member1of: data.member1of || [],
+        member2of: data.member2of || [],
+        member3of: data.member3of || [],
+        member4of: data.member4of || [],
+      });
     }
     fetchData();
   }, [userId]);
 
   if (!user) return <div>Loading...</div>;
-  const teams = [...user.member1of, ...user.member2of, ...user.member3of, ...user.member4of];
+
+  const teams = [
+    ...(user.member1of || []),
+    ...(user.member2of || []),
+    ...(user.member3of || []),
+    ...(user.member4of || []),
+  ];
 
   const handleSave = () => {
     console.log('User Saved:', user);
@@ -65,7 +120,7 @@ const UserProfile = ({ userId }: { userId: string }) => {
               </div>
             ) : (
               <div>
-                <h2 className="text-4xl font-bold">{user.name}</h2>
+                <h2 className="text-4xl font-bold text-black">{user.name}</h2>
                 <p className="text-lg">{user.college}</p>
                 <p className="text-lg">{user.year}</p>
                 <p className="text-lg">{user.branch}</p>
@@ -85,29 +140,7 @@ const UserProfile = ({ userId }: { userId: string }) => {
         </div>
 
         {/* Event Participation */}
-        <div className="w-full mt-8 bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h3 className="text-lg font-semibold mb-4">Event Participation</h3>
-          <table className="w-full text-left table-auto border-collapse">
-            <thead>
-              <tr className="bg-gray-800">
-                <th className="border p-2">Event Name</th>
-                <th className="border p-2">Team Name</th>
-                <th className="border p-2">Team Members</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teams.map((team, index) => (
-                <tr key={index} className="bg-gray-800">
-                  <td className="border p-2">{team.eventName}</td>
-                  <td className="border p-2">{team.teamName}</td>
-                  <td className="border p-2">
-                    {team.member1.name}, {team.member2.name}, {team.member3.name}, {team.member4.name}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            <UserTeams teams={teams} />
       </div>
     </div>
   );
