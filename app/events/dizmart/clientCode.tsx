@@ -31,31 +31,31 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
   ];
 
   return (
-    <div className="bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-red-900 w-[66.6666%] h-[35px]"></section>
+        <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section>
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-300">
-          Dizmart
+        <h1 className="text-4xl sm:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-200">
+          DIZMART
         </h1>
       </div>
       <div className="mt-4 w-full h-0.5 bg-white"></div>
 
       {/* About Section */}
-      <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
-        <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-orange-700 to-red-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
-          <h1 className="text-5xl font-semibold text-white text-right px-10 pt-10">
+      <div className="flex flex-col justify-center items-center   pt-2 pb-0.5  ah ">
+        <div className="flex flex-col sm:w-[75%] w-[85%] pb-14  bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full mx-auto">
+          <h1 className="text-3xl sm:text-5xl font-semibold text-white text-center sm:text-right px-10 pt-10">
             About
           </h1>
           {/* Underline for About */}
-          <div className="flex shrink-0 self-end mt-5 max-w-full bg-zinc-500 h-[3px] w-[30%] outline-dashed mr-8" />
+          <div className="flex  shrink-0 sm:self-end self-center  mt-2 sm:mt-5 mb-3 sm:mb-0 max-w-full bg-zinc-500 h-[3px] w-[40%] sm:w-[30%] outline-dashed sm:mr-8" />
           
           {/* Flex Container for Logo and Text */}
-          <div className="flex flex-col md:flex-row w-full px-10 py-0.5 gap-10">
+          <div className="flex flex-col md:flex-row w-full sm:px-10 py-0.5 gap-10">
             {/* Corporate Clash Logo */}
-            <div className="flex items-center md:w-[40%] w-full justify-center">
+            <div className="flex items-center md:w-[40%] w-full justify-center px-8 sm:px-0">
               <img
                 src="/event-logos/Dizmart.png"
                 alt="Corporate Clash Logo"
@@ -66,22 +66,23 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
             {/* Text Content */}
             <div className="flex flex-col md:w-[60%] w-full">
               {/* Description */}
-            <p className="text-xl  text-blue-200 font-medium px-10 pt-5 ">{description}</p>
+            <p className="sm:text-xl text-md  text-blue-200 font-medium  sm:px-10 pt-5 ">{description}</p>
               {/* Bulleted Points */}
-              <ul className="list-disc list-inside text-left text-xl font-medium px-10 pt-5 text-orange-50 mt-8">
+              <ul className="list-disc list-inside text-left sm:text-xl text-md font-medium sm:px-10 pt-5 text-orange-50 mt-8">
                 {bulletPoints.map((point, index) => (
-                  <li key={index} className="pb-2">{point}</li>
+                  <li key={index} className="pb-5 sm:pb-2">{point}</li>
                 ))}
               </ul>
               {/* Bottom Text */}
-              <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-50 px-10 pt-10">
+              <h1 className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-50 sm:px-10 pt-10">
                 {bottomText}
               </h1>
+
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
               onClick={()=>{
-                router.push('/eventRegistration/dizmart');
+                router.push('/eventRegistration/corporateclash');
               }}
               >
                 Participate {allow?"":"🔒"}
@@ -90,27 +91,28 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
           </div>
         </div>
       </div>
-      {/* Decorative Sections */}
-      <div className="flex flex-col mt-16">
+
+      {/* Step Design Section */}
+      <div className="flex flex-col">
         {/* First Row */}
-        <div className="flex justify-between">
-          <section className="bg-red-900 w-[25%] h-[35px]"></section>
+        <div className="flex justify-between mt-16">
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-red-900 w-[25%] h-[35px]"></section>
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
         </div>
-
+        
         {/* Second Row */}
         <div className="flex justify-between">
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-orange-500 w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
           <section className="w-[25%] h-[35px]"></section>
-          <section className="bg-orange-500 w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
         </div>
       </div>
 
       {/* Rounds Section */}
-      <div className="pt-12">
+      <div className="pt-12 ">
         <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
           <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
             Rounds
@@ -137,13 +139,14 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
 
       {/* Points of Contact Section */}
       <div className="py-4 px-4 sm:px-6 lg:px-4">
-        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
           <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
             Points of Contact
             <div className="mt-4 w-full h-0.5 bg-white"></div>
           </h1>
         </div>
-        <div className="flex flex-wrap justify-center gap-3">
+        
+        <div className="flex flex-wrap justify-center gap-3 ">
           {pointsOfContact.map((contact, index) => (
             <PoCCard
               key={index}
@@ -181,30 +184,83 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
         </div>
       </div>
 
+
       {/* FAQ Section */}
       <div className="py-12 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
+        {/* FAQ Column */}
         <div className="lg:w-3/5 lg:pr-8">
-          <FAQ
-            faqs={faqs}
-            headingColor="text-yellow-700"
-            questionColor="text-orange-300"
-            answerColor="text-white"
+          <FAQ 
+            faqs={faqs} 
+            headingColor="text-red-400" // Red heading color
+            questionColor="text-red-500" // Lighter red for questions
+            answerColor="text-white" // White for answers
           />
         </div>
-        <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+
+        {/* Sponsors Column */}
+        <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0 ah text-center">
+          {/* Add your sponsor names or content here */}
+          
+          <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
             Sponsors
             <div className="mt-4 w-full h-0.5 bg-white"></div>
-          </h1>
-          <ul className="mt-4 text-white">
+          </h2>
+        </div>
+          <ul className="mt-7 text-white">
+            {/* Replace with actual sponsor names */}
             <li>Sponsor 1</li>
             <li>Sponsor 2</li>
             <li>Sponsor 3</li>
           </ul>
         </div>
       </div>
+
     </div>
   );
 };
 
 export default DizmartEvent;
+
+
+
+
+
+{/* <img
+src="/event-logos/Dizmart.png"
+alt="Corporate Clash Logo"
+className="w-full h-auto"
+/> */}
+
+
+
+
+
+
+
+
+
+{/* <div className="pt-12">
+        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Rounds
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
+        </div>
+        <RoundCards
+          headingColor="text-yellow-500"
+          textColor="text-yellow-50"
+          rounds={[
+            {
+              title: "Preliminary Round",
+              date: "Online",
+              description: "Submit your product label design concept for review by our panel.",
+            },
+            {
+              title: "Final Round",
+              date: "Offline",
+              description: "Pitch your design live in front of our judges and audience.",
+            }
+          ]}
+        />
+      </div> */}
