@@ -29,12 +29,13 @@ export const Reg = async (values: z.infer<typeof RegisterSchema>) => {
     if(!validatedFields.success) {
       return { error: "Invalid credentials" };
   } 
-  const { email, password, name, type } = validatedFields.data;
+  const { email, password, name, rcode } = validatedFields.data;
   const hashedPassword = await bcryptjs.hash(password, 10);
   const existingUser = await getUserByEmail(email);
   if (existingUser) {
       return { error: "Email already in use" };
   }
+  const type = rcode === process.env.REFERRAL_CODE ? "Admin" : "User";
   await db.user.create({
     data: {
       email : email,
@@ -44,5 +45,7 @@ export const Reg = async (values: z.infer<typeof RegisterSchema>) => {
       isVerified: false
     }
   });
-    return { success: "User created!" };
+
+  return { success: "User created!" };
+  
 }

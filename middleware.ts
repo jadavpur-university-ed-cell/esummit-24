@@ -14,7 +14,9 @@ export default auth((req) => {
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
     const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
     if (isApiAuthRoute) {
-        return;
+        if(!isLoggedIn) {
+            return NextResponse.json({message: "Not authenticated"}, {status: 401});
+        }
     }
     if (isAuthRoute) {
         if (isLoggedIn) {
@@ -40,9 +42,6 @@ export default auth((req) => {
 
 export const config = {
     matcher: [
-      // Skip Next.js internals and all static files, unless found in search params
       '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-      // Always run for API routes
-      '/(api|trpc)(.*)',
     ],
   }

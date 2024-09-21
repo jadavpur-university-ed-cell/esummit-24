@@ -22,6 +22,6 @@ export const RegisterSchema = z.object({
     name: z.string({
       message: "Name is required",
     }),
-    type: z.enum(["User", "Admin"]),
+    rcode: z.string().trim().optional().or(z.literal('')),
   });
   
