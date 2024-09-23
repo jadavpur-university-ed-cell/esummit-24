@@ -8,24 +8,18 @@ import Gallery from "@/components/Homepage/Gallery/Gallery";
 import Partners from "@/components/Homepage/Partners/Partners";
 import Footer from "@/components/Homepage/Footer/Footer";
 
-
-
 export default function Home() {
   return (
-    
     <div>
-
-    <Navbar/>  
-    <Hero/>
-    <About/>
-    <Events/>
-    <EventTimeline />
-    <Speakers/>
-    <Gallery/>
-    <Partners/>
-    <Footer/>
-
+      <Navbar />
+      <Hero />
+      <About />
+      <Events />
+      <EventTimeline />
+      <Speakers />
+      <Gallery />
+      <Partners />
+      <Footer />
     </div>
-    
   );
 }
