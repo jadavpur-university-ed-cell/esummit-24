@@ -276,7 +276,7 @@ const Hero: FunctionComponent = () => {
             </div>
             <div className="other-component">
               <TextGenerate
-                words="Faster the Future"
+                words="Foster the Future"
                 className="text-center text-2xl sm:text-3xl my-2 md:text-4xl"
               />
             </div>
