@@ -55,8 +55,7 @@ function Footer() {
 				</div>
 			</div>
 
-
-			<footer className="flex flex-col">
+			{/* <footer className="flex flex-col">
 				<div className="min-h-[40vh] flex flex-col md:flex-row md:items-center px-12 pt-12 w-full">
 					<div className="flex flex-col items-center w-full">
 						<Image
@@ -108,6 +107,49 @@ function Footer() {
 						&copy; Jadavpur University Entrepreneurship Cell. All rights
 						reserved.
 					</p>
+				</div>
+			</footer> */}
+
+			<footer className="p-8 grid grid-cols-2 md:grid-cols-5 items-center justify-items-center">
+				<Image
+					src="esummit-2024-printable.svg"
+					alt="E-Summit'24 Logo"
+					height={100}
+					width={175}
+					className="object-cover aspect-video w-[140px] h-[80px] md:w-[175px] md:h-[100px]"
+				/>
+				<Image
+					src="/svg_pers/ecell.png"
+					alt="E-Cell JU Logo"
+					height={100}
+					width={175}
+				/>
+				<h2 className="text-3xl text-[#fcbf49]">Our Address</h2>
+				<h2 className="text-3xl text-[#fcbf49]">Email</h2>
+				<p className="hidden md:block col-span-2 text-2xl text-[#eae2b7] text-center ml-16 justify-self-start">
+					The flagship event of E-Cell, Jadavpur University
+				</p>
+				<p className="text-[#eae2b7] text-2xl">
+					188, Raja Subodh Chandra Mallick Rd,
+					Jadavpur, Kolkata,
+					West Bengal 700032
+
+				</p>
+				<p className="text-[#eae2b7] md:self-start text-2xl">ecell@jadavpuruniversity.in</p>
+				<p className="col-span-2 md:col-span-4 text-[#eae2b7] text-center md:justify-self-start md:ml-16 text-xl md:text-2xl my-8 md:my-16">
+					&copy; 2024 Jadavpur University Entrepreneurship Cell. All Rights
+					Reserved.
+				</p>
+				<div className="w-full md:w-1/2 col-span-2 md:col-span-1 flex justify-center gap-x-4 md:justify-around text-2xl md:text-3xl text-[#eae2b7] md:my-16">
+					<Link href="" className="hover:text-[#fcbf49]">
+						<FaInstagram />
+					</Link>
+					<Link href="" className="hover:text-[#fcbf49]">
+						<FaFacebook />
+					</Link>
+					<Link href="" className="hover:text-[#fcbf49]">
+						<FaLinkedinIn />
+					</Link>
 				</div>
 			</footer>
 		</section>
