@@ -43,7 +43,7 @@ const eventList: Event[] = [
     name: "Mock IPL Auction",
     about: "Build your dream IPL team in a strategic mock auction.",
     route: "/events/mockipl",
-    image: "/event-logos/MockIPLAuction.png", // Add appropriate image,
+    image: "/event-logos/MockIPL.png", // Add appropriate image,
     day:"Day 2"
   },
   {

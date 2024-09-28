@@ -1,24 +1,14 @@
 import Link from "next/link"
 import allEventNames from "@/lib/allEventNames.json"
 import userVerify from "@/app/events/userVerify";
-export default async function (){
+import { redirect } from "next/navigation";
+import EventsComponent from "@/components/Homepage/Events/Events";
+export default async function eventRegistration(){
   const res:boolean = await userVerify();
   if(res)
   return(
-    <div className="">
-      {allEventNames.map(e=>{return(
-        <div key={e.path}>
-          <Link href={`/eventRegistration/${e.path}`} >
-            Event : {e.name}
-          </Link>
-        </div>
-      )})}
-    </div>
+    <EventsComponent />
   )
   else 
-    return (
-      <div>
-        you are not authorized
-      </div>
-    )
+    redirect("/sign-in")
 }

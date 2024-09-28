@@ -17,7 +17,7 @@ export function MemberInput({id, state, setState,label, disabled}:prop){
   }
 return (
   <div className="sm:col-span-2">
-    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+    <label htmlFor="email" className="block text-sm font-medium text-[#eae2b7]">
       {label}
     </label>
     <div className="mt-1 flex">
@@ -26,12 +26,12 @@ return (
         name="email"
         type="email"
         autoComplete="email"
-        className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-md"
+        className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-sm px-2 py-1"
         value={state[id]}
         onChange={(e)=>{handleChange(e)}}
         disabled={disabled}
       />
-      {!disabled?<button onClick={handleRemove}>Remove</button>:<></>}
+      {!disabled?<button onClick={handleRemove} className="bg-red-400 text-[#101720] px-2 py-1 rounded-sm ml-3">Remove</button>:<></>}
     </div>
   </div>
 )
@@ -46,7 +46,7 @@ export type teamProps={
 export function TeamInput({teamDetails,setTeamDetails}:teamProps){
   return (
     <div>
-      <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+      <label htmlFor="first-name" className="block text-sm font-medium text-[#eae2b7]">
         Team Name
       </label>
       <div className="mt-1">
@@ -55,7 +55,7 @@ export function TeamInput({teamDetails,setTeamDetails}:teamProps){
           name="team-name"
           id="team-name"
           autoComplete="team-name"
-          className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-md"
+          className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-sm px-2 py-1"
           value={teamDetails.name}
           onChange={(e) => { setTeamDetails({ ...teamDetails, name: e.target.value }) }}
         />
