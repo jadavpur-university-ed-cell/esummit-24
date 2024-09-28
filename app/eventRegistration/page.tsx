@@ -1,6 +1,9 @@
 import Link from "next/link"
 import allEventNames from "@/lib/allEventNames.json"
-export default function (){
+import userVerify from "@/app/events/userVerify";
+export default async function (){
+  const res:boolean = await userVerify();
+  if(res)
   return(
     <div className="">
       {allEventNames.map(e=>{return(
@@ -12,4 +15,10 @@ export default function (){
       )})}
     </div>
   )
+  else 
+    return (
+      <div>
+        you are not authorized
+      </div>
+    )
 }
