@@ -14,11 +14,10 @@ export default function ():Promise<boolean> {
         },
         select: {
           isVerified: true,
-          emailVerified: true
         }
       });
       if (!dbres) { r(false); return; }
-      if (!dbres?.emailVerified || !dbres?.isVerified) { r(false); return; }
+      if (!dbres?.isVerified) { r(false); return; }
       r(true); return;
     }
     catch (err) {
