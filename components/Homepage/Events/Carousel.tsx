@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
@@ -17,13 +18,16 @@ interface CardProps {
 }
 
 const Card = ({ name, about, route, image, day }: CardProps) => {
+	const router = useRouter();
 	return (
 		<CardSpotlight className="flex flex-col items-center h-full p-6">
 			<Image src={image} alt={name} className="w-auto h-40 aspect-video mb-3 object-contain" width={300} height={200} />
 			<h1 className="text-3xl text-[#fcbf49] text-center z-20 mb-4">{name}</h1>
 			<h2 className="text-2xl text-white text-center z-20 mb-6">{about}</h2>
 			<a
-				href={route}
+			onClick={()=>{
+				router.push(route);
+			}}
 				className="px-6 py-3 bg-[#fcbf49] text-[#101720] rounded-full z-20 mb-4">
 				Learn More
 			</a>
