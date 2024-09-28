@@ -1,19 +1,17 @@
-# E-Summit Website For 2024
+# Todos For Events Registration
+- [X] Check if same emails cant be repeated
+- [x] wrap this up to check with db if the team name is already taken
+- [x] check the valid eventName
+- [x] handling the null entries
+- [x] Check if the email is a registered user and a team member or not
+- [x] final submission
+- [ ] zod verification on frontend ??
+- [ ] user without email verification are not allowed
+- [ ] db call optimization
 
-## Tech-Stack Used: Next JS,TS, Prisma+PostGreSQL,Next-Auth, Aceternity UI
 
-### Job Assigned:
-
- #### Week 1-2:
-
- - Wireframe of a Coming Soon+ designs for esummit
- - Implementing the Coming soon before Wednesday this week on Website
- - Backend processes to start immediately.
-
-
- ### First Commit:
- - [x] Created Next App on TSX
- - [x] Initailsed Next-Auth + Secret, Prisma,Aceternity Ui, created a migrate code from client in dev mode to prisma in build mode
- - [ ] Seed Due, Prisma lib
-
-to access, run git clone (github clone link) and then run npm i
+# Todos for Merch
+- [x] set Shirt size
+- [x] Add basic UI
+- [x] server action
+- [ ] Payment Integration

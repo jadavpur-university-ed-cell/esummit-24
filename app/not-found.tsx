@@ -10,7 +10,7 @@ export default function Example() {
                 <span className="sr-only">Workflow</span>
                 <Image
                   className="w-[50vw] md:h-[30vh] md:w-[30vw] md:object-cover"
-                  src="esummit-2024-printable.svg"
+                  src="/esummit-2024-printable.svg"
                   alt="E-Summit'24 Logo"
                   width={400}
                   height={400}
@@ -21,7 +21,7 @@ export default function Example() {
               <div className="text-center">
                 <p className="text-sm font-semibold text-[#d62828] uppercase tracking-wide">404 error</p>
                 <h1 className="mt-2 text-4xl font-extrabold text-[#d62828] tracking-tight sm:text-5xl">Page not found.</h1>
-                <p className="mt-2 text-base text-[#eae2b7]">Sorry, we couldn’t find the page you’re looking for.</p>
+                <p className="mt-2 text-base text-[#eae2b7]">Sorry, we couldn&apos;t find the page you&apos;re looking for.</p>
                 <div className="mt-6">
                   <a href="/" className="text-base font-medium text-[#fcbf49] hover:text-[#fcbf49aa]">
                     Go back home<span aria-hidden="true"> &rarr;</span>

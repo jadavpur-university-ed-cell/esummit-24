@@ -1,0 +1,241 @@
+"use client";
+
+import React from "react";
+import FAQ from "@/components/Events/FAQS";
+import PoCCard from "@/components/Events/PoCCard";
+import RoundCards from "@/components/Events/RoundCards";
+import { eventProps } from "../eventProps";
+import { useRouter } from "next/navigation";
+import EventsNavbar from "@/components/Events/Navbar";
+
+const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
+  const router = useRouter();
+  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
+  const bulletPoints = [
+    "The challenge is designed to test your problem solving and problem statement understanding abilities.",
+    "Sharpen your critical analysis skills to dissect complex challenges.",
+    "The Analyst challenge transcends personal growth, offering an intellectually stimulating experience within a high-stakes corporate environment."
+  ];
+
+  const bottomText = "Don't miss this chance to step up, solve, and succeed in the world of business analysis!";
+
+  const faqs = [
+    { question: "What is Corporate Clash?", answer: "Corporate Clash is a high-stakes problem-solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },
+    { question: "How can I participate?", answer: "You can participate by registering through the 'Participate' button on this page." },
+    { question: "What are the requirements?", answer: "You need to have a keen interest in business analysis and problem-solving skills. No prior experience is required." }
+  ];
+
+  // Points of Contact Data
+  const pointsOfContact = [
+    { name: "John Doe", phoneNumber: "+1234567890", nameColor: "text-red" },
+    { name: "Jane Smith", phoneNumber: "+0987654321", nameColor: "text-blue" },
+    { name: "Alice Johnson", phoneNumber: "+1122334455", nameColor: "text-green" }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+      <div className="flex justify-center">
+        {/* <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
+      </div>
+
+      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
+        <h1 className="text-4xl sm:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-200">
+          Corporate Clash
+        </h1>
+      </div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
+
+      {/* About Section */}
+      <div className="flex flex-col justify-center items-center   pt-2 pb-0.5  ah ">
+        <div className="flex flex-col sm:w-[75%] w-[85%] pb-14  bg-gradient-to-br from-red-800 to-orange-600 hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full mx-auto">
+          <h1 className="text-3xl sm:text-5xl font-semibold text-white text-center sm:text-right px-10 pt-10">
+            About
+          </h1>
+          {/* Underline for About */}
+          <div className="flex  shrink-0 sm:self-end self-center  mt-2 sm:mt-5 mb-3 sm:mb-0 max-w-full bg-zinc-500 h-[3px] w-[40%] sm:w-[30%] outline-dashed sm:mr-8" />
+          
+          {/* Flex Container for Logo and Text */}
+          <div className="flex flex-col md:flex-row w-full sm:px-10 py-0.5 gap-10">
+            {/* Corporate Clash Logo */}
+            <div className="flex items-center md:w-[40%] w-full justify-center px-8 sm:px-0">
+              <img
+                src="/event-logos/CorporateClash.png"
+                alt="Corporate Clash Logo"
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="flex flex-col md:w-[60%] w-full">
+              {/* Description */}
+            <p className="sm:text-xl text-md  text-blue-200 font-medium  sm:px-10 pt-5 ">{description}</p>
+              {/* Bulleted Points */}
+              <ul className="list-disc list-inside text-left sm:text-xl text-md font-medium sm:px-10 pt-5 text-orange-50 mt-8">
+                {bulletPoints.map((point, index) => (
+                  <li key={index} className="pb-5 sm:pb-2">{point}</li>
+                ))}
+              </ul>
+              {/* Bottom Text */}
+              <h1 className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-50 sm:px-10 pt-10">
+                {bottomText}
+              </h1>
+
+              {/* Register Button */}
+              <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
+              disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/corporateclash');
+              }}
+              >
+                Participate {allow?"":"🔒"}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Step Design Section */}
+      <div className="flex flex-col">
+        {/* First Row */}
+        <div className="flex justify-between mt-16">
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-[#f77f00] w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+        </div>
+        
+        {/* Second Row */}
+        <div className="flex justify-between">
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+          <section className="w-[25%] h-[35px]"></section>
+          <section className="bg-red-700 w-[25%] h-[35px]"></section>
+        </div>
+      </div>
+
+      {/* Rounds Section */}
+      <div className="pt-12">
+      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+        <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+          Rounds
+          <div className="mt-4 w-full h-0.5 bg-white"></div>
+        </h1>
+      </div>
+        <RoundCards
+          headingColor="text-red-500" // updated to use Tailwind text class
+          textColor="text-red-50" // Tailwind text class
+          rounds={[
+            {
+              title: 'Screening Round',
+              date: 'Preliminary',
+              description:
+                'Participants submit a one-slide case solution online. A preliminary submission round on the website or Unstop with a 3-slide PPT excluding intro and thank you slides.',
+            },
+            {
+              title: 'Pitching Round',
+              date: 'Online',
+              description:
+                'The submitted solutions are pitched online in front of a panel of judges (mostly E-cell seniors).',
+            },
+            {
+              title: 'Live Presentation',
+              date: 'Offline',
+              description:
+                'Top teams present their prescribed case solutions live in front of a judge panel.',
+            },
+            {
+              title: 'Final Round',
+              date: 'Boardroom War',
+              description:
+                'Teams face a "boardroom war" round, where they tackle scenarios involving mergers, hostile takeovers, risks, or strategization.',
+            },
+          ]}
+        />
+      </div>
+
+      {/* Points of Contact Section */}
+      <div className="py-4 px-4 sm:px-6 lg:px-4">
+      <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Points of Contact
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h1>
+        </div>
+        
+        <div className="flex flex-wrap justify-center gap-3 ">
+          {pointsOfContact.map((contact, index) => (
+            <PoCCard
+              key={index}
+              name={contact.name}
+              phoneNumber={contact.phoneNumber}
+              nameColor={contact.nameColor}
+            />
+          ))}
+        </div>
+      </div>
+      {/* Step Design Section */}
+      <div className="flex flex-col">
+        {/* First Row */}
+        <div className="flex justify-between mt-16">
+          <section className="bg-orange-900 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-800 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-700 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-orange-600 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+        </div>
+        
+        {/* Second Row */}
+        <div className="flex justify-between mt-2">
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-700 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-600 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-500 w-[12.5%] h-[35px]"></section>
+          <section className=" w-[12.5%] h-[35px]"></section>
+          <section className="bg-red-400 w-[12.5%] h-[35px]"></section>
+        </div>
+      </div>
+
+
+      {/* FAQ Section */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
+        {/* FAQ Column */}
+        <div className="lg:w-3/5 lg:pr-8">
+          <FAQ 
+            faqs={faqs} 
+            headingColor="text-red-200" // Red heading color
+            questionColor="text-red-200" // Lighter red for questions
+            answerColor="text-white"
+            backgroundColor="orange-700" // White for answers
+          />
+        </div>
+
+        {/* Sponsors Column */}
+        <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0 ah text-center">
+          {/* Add your sponsor names or content here */}
+          
+          <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
+            Sponsors
+            <div className="mt-4 w-full h-0.5 bg-white"></div>
+          </h2>
+        </div>
+          <ul className="mt-7 text-white">
+            {/* Replace with actual sponsor names */}
+            <li>Sponsor 1</li>
+            <li>Sponsor 2</li>
+            <li>Sponsor 3</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default CorporateClashEvent;

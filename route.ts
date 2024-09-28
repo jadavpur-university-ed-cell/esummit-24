@@ -1,0 +1,5 @@
+export const publicRoutes = ["/","/home"];
+export const authRoutes = ["/sign-in", "/sign-up"];
+export const apiAuthPrefix = "/api/auth";
+export const DEFAULT_LOGIN_REDIRECT = "/profile";
+export const adminRoutes = "/admin";

@@ -1,56 +1,78 @@
 "use client";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Carousel from "./Carousel";
 
-interface event {
-	name: string;
-	about: string;
+interface Event {
+  name: string;
+  about: string;
+  route: string;
+  image: string;
+  day:string
 }
 
-const eventList: event[] = [
-	{
-		name: "LaunchX",
-		about: "Launch X is the perfect platform for aspiring entrepreneurs to showcase their innovations and gain valuable feedback from industry experts to achieve next step of their own startup journey.",
-	},
-	{
-		name: "Corporate Clash",
-		about: "Hackathon",
-	},
-	{
-		name: "Mock Stock",
-		about: "Talk show",
-	},
-	{
-		name: "Hack<n>Pitch",
-		about: "Product label design",
-	},
-	{
-		name: "Mock IPL Auction",
-		about: "Build your team",
-	},
-	{
-		name: "Diz Mart",
-		about: "Build your team",
-	},
-	{
-		name: "Inspira Talks",
-		about: "Build your team",
-	},
+const eventList: Event[] = [
+  {
+    name: "Hack <N> Pitch",
+    about: "Join Hack-n-Pitch: Innovate, hack, and pitch your ideas overnight!",
+    route: "/events/hacknpitch",
+    image: "/event-logos/HackNPitch.png",
+    day:"Day 1"
+  },
+  {
+    name: "Corporate Clash",
+    about: "Test your strategic skills in the ultimate analyst challenge.",
+    route: "/events/corporateclash",
+    image: "/event-logos/CorporateClash.png",
+    day:"Day 1"
+  },
+  {
+    name: "Inspira Talks",
+    about: "Learn from top experts and ignite your entrepreneurial journey.",
+    route: "/events/inspiratalks",
+    image: "/event-logos/inspiratalks.png", 
+    day:"Day 2"
+  },
+  {
+    name: "Mock Stock Exchange",
+    about: "Master trading skills in a risk-free, competitive stock simulation.",
+    route: "/events/mockstock",
+    image: "/event-logos/MockStock.png",
+    day:"Day 2"
+  },
+  {
+    name: "Mock IPL Auction",
+    about: "Build your dream IPL team in a strategic mock auction.",
+    route: "/events/mockipl",
+    image: "/event-logos/MockIPL.png", // Add appropriate image,
+    day:"Day 2"
+  },
+  {
+    name: "Dizmart",
+    about: "Design impactful labels at Dizmart, merging creativity, branding, and marketing.",
+    route: "/events/dizmart",
+    image: "/event-logos/Dizmart.png",
+    day:"Day 3"
+  },
+  {
+    name: "LaunchX",
+    about: "Showcase, pitch, and launch your startup with expert backing.",
+    route: "/events/launchx",
+    image: "/event-logos/LaunchX.png",
+    day:"Day 3"
+  },
 ];
 
-function Events() {
-	return (
-		<>
-			<section id="events">
-				<div className="min-h-screen bg-[#040411] flex flex-col items-center py-[6vmin] px-[8vmin] gap-y-16">
-					<h1 className="animated-title text-7xl font-bold text-[#fcbf49]">Events</h1>
-					<div className="flex items-center w-full h-[60vh] grow">
-					<Carousel eventList={eventList}/>
-					</div>
-				</div>
-			</section>
-		</>
-	);
+function EventsComponent() {
+  return (
+    <section id="events">
+      <div className="min-h-screen bg-[#101720] flex flex-col items-center py-[4vmin] px-10 sm:px-[8vmin] gap-y-16">
+        <h1 className="animated-title text-5xl sm:text-7xl font-bold text-[#fcbf49]">Events</h1>
+        <div className="flex items-center w-full h-full grow">
+          <Carousel eventList={eventList} />
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Events;
+export default EventsComponent;

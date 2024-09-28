@@ -46,6 +46,6 @@ import Image from "next/image";
             </Link>
           </div>
         </div>
-    </section>
+    </section> 
     )
   }
