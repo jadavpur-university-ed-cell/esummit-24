@@ -7,6 +7,7 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import EventsNavbar from "@/components/Events/Navbar";
 
 
 const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
@@ -29,7 +30,7 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
   const faqs = [
     { question: "What is HacknPitch?", answer: "HacknPitch is an overnight hackathon where participants can showcase their coding and pitching skills." },
     { question: "How do I register?", answer: "Click the 'Participate' button on this page to register." },
-    { question: "Is there a registration fee?", answer: "No, registration is free of charge." }
+    { question: "Is there a registration fee?", answer: "Yes, Rs.100 per person." }
   ];
 
 
@@ -45,7 +46,8 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       {/* Header Section */}
       <div className="flex justify-center">
-        <section className="bg-sky-700 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-sky-700 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
      
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
@@ -53,7 +55,7 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
           Hack n Pitch
         </h1>
       </div>
-      <div className="mt-4 w-full h-0.5 bg-white"></div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
 
 
       {/* About Section */}
@@ -218,9 +220,10 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
         <div className="lg:w-3/5 lg:pr-8">
           <FAQ
             faqs={faqs}
-            headingColor="text-blue-400" // Blue heading color
-            questionColor="text-blue-500" // Lighter blue for questions
+            headingColor="text-blue-200" // Blue heading color
+            questionColor="text-blue-200" // Lighter blue for questions
             answerColor="text-white" // White for answers
+            backgroundColor="cyan-700"
           />
         </div>
 

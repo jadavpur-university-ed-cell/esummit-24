@@ -7,6 +7,7 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import EventsNavbar from "@/components/Events/Navbar";
 
 
 const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
@@ -16,7 +17,7 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
 
   const bulletPoints = [
     "Round 1: Data Analysis requires you to analyze player stats and submit a detailed report and Excel sheet, showcasing your strategic acumen.",
-    "Round 2: Real-Time Bidding involves a live auction where you’ll assemble your team within a budget, testing your decision-making and budget management skills.",
+    "Round 2: Real-Time Bidding involves a live auction where you'll assemble your team within a budget, testing your decision-making and budget management skills.",
     "In the Final Decision, judges will evaluate your team's strategic planning and budget use."
   ];
 
@@ -24,7 +25,7 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
   const bottomText = "If you've ever thought you could outperform the real IPL auctions, now is your chance to prove it. The Mock IPL Auction isn't just a competition; it's a platform to channel your cricketing passion into effective strategies!";
     // FAQs data
     const faqs = [
-      { question: "What is HacknPitch?", answer: "HacknPitch is an overnight hackathon where participants can showcase their coding and pitching skills." },
+      { question: "What is Mock IPL Auction?", answer: "Mock IPL Auction is an exciting event where you'll get to buy players in an auction, and build your own IPL team." },
       { question: "How do I register?", answer: "Click the 'Participate' button on this page to register." },
       { question: "Is there a registration fee?", answer: "No, registration is free of charge." }
     ];
@@ -39,7 +40,8 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-orange-900 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-orange-900 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
 
 
@@ -47,7 +49,7 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
         <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-300">
           Mock IPL Auction
         </h1>
-        <div className="mt-4 w-full h-0.5 bg-white"></div>
+        {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
       </div>
 
 
@@ -214,9 +216,10 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
         <div className="lg:w-3/5 lg:pr-8">
           <FAQ
             faqs={faqs}
-            headingColor="text-blue-400" // Blue heading color
-            questionColor="text-red-500" // Lighter blue for questions
+            headingColor="text-purple-900" // Blue heading color
+            questionColor="text-purple-950" // Lighter blue for questions
             answerColor="text-white" // White for answers
+            backgroundColor="violet-500"
           />
         </div>
 

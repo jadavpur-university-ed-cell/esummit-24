@@ -5,6 +5,7 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import { useRouter } from "next/navigation";
+import EventsNavbar from "@/components/Events/Navbar";
 
 const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
   const router = useRouter();
@@ -35,7 +36,8 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
 
       <div className="flex justify-center">
-        <section className="bg-gradient-to-r from-zinc-600 to-zinc-700 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-gradient-to-r from-zinc-600 to-zinc-700 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
@@ -44,7 +46,7 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
         </h1>
       </div>
       
-      <div className="mt-4 w-full h-0.5 bg-white"></div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-2 pb-0.5">
         <div className="flex flex-col w-[75%] pb-14 ml-5 bg-gradient-to-br from-gray-600 to-zinc-800 hover:bg-gradient-to-tr border border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full">
@@ -191,6 +193,7 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
             headingColor="text-cyan-400" 
             questionColor="text-cyan-200" 
             answerColor="text-white"
+            backgroundColor="zinc-600"
           />
         </div>
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">

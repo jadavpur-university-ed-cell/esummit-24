@@ -6,6 +6,7 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import EventsNavbar from "@/components/Events/Navbar";
 
 
 
@@ -21,9 +22,9 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
 
   const bottomText = "So; APPLY NOW to test your mettle to become the Wolf of Dalal Street !!";
   const faqs = [
-    { question: "What is Dizmart?", answer: "Dizmart is a design challenge where participants create product labels with maximum market potential." },
+    { question: "What is Mock Stock?", answer: "Mock Stock is a thrilling simulation which dives into the intricacies of the stock market." },
     { question: "How can I participate?", answer: "You can participate by registering through the 'Participate' button on this page." },
-    { question: "What are the requirements?", answer: "A creative mind and basic understanding of product design are recommended. No prior experience is required." }
+    { question: "What are the requirements?", answer: "Enthusiasm and basic understanding of the stock market are recommended. No prior experience is required." }
   ];
 
   const pointsOfContact = [
@@ -34,13 +35,14 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
   return (
     <div className="bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-red-500 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-red-500 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
       
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-cyan-500 to-cyan-400">Mock Stock Exchange</h1>
+        <h1 className="text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-cyan-500 to-cyan-400">Mock Stock</h1>
       </div>
-      <div className="mt-4 w-full h-0.5 bg-white"></div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
       
       {/* About Section */}
       <div className="flex flex-col justify-center items-center pt-4 pb-0.5">
@@ -202,9 +204,10 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
         <div className="lg:w-3/5 lg:pr-8">
           <FAQ
             faqs={faqs}
-            headingColor="text-blue-400" // Blue heading color
-            questionColor="text-red-500" // Lighter blue for questions
+            headingColor="text-blue-200" // Blue heading color
+            questionColor="text-blue-200" // Lighter blue for questions
             answerColor="text-white" // White for answers
+            backgroundColor="red-600"
           />
         </div>
 

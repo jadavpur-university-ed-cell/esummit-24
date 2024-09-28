@@ -6,6 +6,7 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import { useRouter } from "next/navigation";
+import EventsNavbar from "@/components/Events/Navbar";
 
 const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
   const router = useRouter();
@@ -34,7 +35,8 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
@@ -42,11 +44,11 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
           Corporate Clash
         </h1>
       </div>
-      <div className="mt-4 w-full h-0.5 bg-white"></div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
 
       {/* About Section */}
       <div className="flex flex-col justify-center items-center   pt-2 pb-0.5  ah ">
-        <div className="flex flex-col sm:w-[75%] w-[85%] pb-14  bg-gradient-to-br from-red-800 to-orange-600 border hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full mx-auto">
+        <div className="flex flex-col sm:w-[75%] w-[85%] pb-14  bg-gradient-to-br from-red-800 to-orange-600 hover:bg-gradient-to-tr border-black border-solid rounded-[40px] shadow-[0px_4px_4px_rgba(0,0,0,0.3)] max-md:px-5 max-md:max-w-full mx-auto">
           <h1 className="text-3xl sm:text-5xl font-semibold text-white text-center sm:text-right px-10 pt-10">
             About
           </h1>
@@ -206,9 +208,10 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
         <div className="lg:w-3/5 lg:pr-8">
           <FAQ 
             faqs={faqs} 
-            headingColor="text-red-400" // Red heading color
-            questionColor="text-red-500" // Lighter red for questions
-            answerColor="text-white" // White for answers
+            headingColor="text-red-200" // Red heading color
+            questionColor="text-red-200" // Lighter red for questions
+            answerColor="text-white"
+            backgroundColor="orange-700" // White for answers
           />
         </div>
 

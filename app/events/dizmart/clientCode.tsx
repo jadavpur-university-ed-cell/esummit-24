@@ -6,6 +6,7 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import EventsNavbar from "@/components/Events/Navbar";
 
 const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
   const router = useRouter();
@@ -33,15 +34,16 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
-        <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section>
+        {/* <section className="bg-gradient-to-r from-red-600 to-orange-600 w-[66.6666%] h-[35px]"></section> */}
+        <EventsNavbar />
       </div>
 
       <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
         <h1 className="text-4xl sm:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-200">
-          DIZMART
+          Dizmart
         </h1>
       </div>
-      <div className="mt-4 w-full h-0.5 bg-white"></div>
+      {/* <div className="mt-4 w-full h-0.5 bg-white"></div> */}
 
       {/* About Section */}
       <div className="flex flex-col justify-center items-center   pt-2 pb-0.5  ah ">
@@ -191,9 +193,10 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
         <div className="lg:w-3/5 lg:pr-8">
           <FAQ 
             faqs={faqs} 
-            headingColor="text-red-400" // Red heading color
-            questionColor="text-red-500" // Lighter red for questions
+            headingColor="text-red-200" // Red heading color
+            questionColor="text-red-200" // Lighter red for questions
             answerColor="text-white" // White for answers
+            backgroundColor="orange-700"
           />
         </div>
 
