@@ -4,8 +4,10 @@ import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
+import { useRouter } from "next/navigation";
 
 const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
+  const router = useRouter();
   const description = `Launch X is the perfect platform for aspiring entrepreneurs to showcase their innovations and gain valuable feedback from industry experts to achieve the next step in their startup journey. With esteemed partners such as NASSCOM, 100X VC, TiE Kolkata, and WeWork Labs from previous editions, our reputation speaks for itself. Begin your journey by showcasing your startup idea, where you’ll fine-tune and launch your venture with guidance from top-tier mentors and support from over 20,000 passionate business aficionados. Navigate through these thrilling rounds:`;
 
   const bulletPoints = [
@@ -72,6 +74,9 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/launchx');
+              }}
               >
                 Participate {allow?"":"🔒"}
               </button>

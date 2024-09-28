@@ -5,4 +5,4 @@ Anyone is able to view the events , but selected are able to participate
 2. The user has to be verified by all means
    1. email verified
    2. id verified
-   3. payment done
+   3. payment done (ie isVerified true from db)

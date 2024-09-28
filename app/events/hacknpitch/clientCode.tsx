@@ -1,6 +1,7 @@
 "use client";
 
 
+import { useRouter } from "next/navigation";
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
 import PoCCard from "@/components/Events/PoCCard";
@@ -9,6 +10,7 @@ import { eventProps } from "../eventProps";
 
 
 const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
+  const router = useRouter();
   const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack-n-Pitch is your chance to shine, whether you're a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity's pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
 
 
@@ -95,6 +97,9 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
               {/* Register Button */}
               <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
               disabled ={!allow}
+              onClick={()=>{
+                router.push('/eventRegistration/hacknpitch');
+              }}
               >
                 Participate {allow?"":"🔒"}
               </button>
