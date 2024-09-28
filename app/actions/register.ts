@@ -2,7 +2,7 @@
 
 import { RegisterSchema } from "@/schemas";
 import bcryptjs from "bcryptjs";
-import { db } from "@/lib/db";
+import { prisma } from "@/prisma/pclient";
 import * as z from "zod";
 import { getUserByEmail } from "./data";
 
@@ -36,13 +36,12 @@ export const Reg = async (values: z.infer<typeof RegisterSchema>) => {
       return { error: "Email already in use" };
   }
   const type = rcode === process.env.REFERRAL_CODE ? "Admin" : "User";
-  await db.user.create({
+  await prisma.user.create({
     data: {
       email : email,
       password: hashedPassword,
       name : name,
       role: type,
-      isVerified: false
     }
   });
 

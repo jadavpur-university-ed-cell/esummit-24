@@ -13,7 +13,6 @@ export async function GET (req:NextRequest, res:NextResponse){
                 phone: true,
                 isVerified: true,
                 rollNo: true,
-                verifyImage: true,
                 gender: true,
                 foodPreference: true,
                 shirtSize: true

@@ -4,7 +4,7 @@ import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./app/actions/data";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getUserById } from "./app/actions/data";
-import { db } from "./lib/db";
+import { prisma } from "./prisma/pclient";
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 // NOT DOING OAuth for google or github
@@ -56,6 +56,6 @@ export default {
                 return token;
             }  
         },
-        adapter: PrismaAdapter(db),
+        adapter: PrismaAdapter(prisma),
         session:{strategy: "jwt"},
 } satisfies NextAuthConfig;

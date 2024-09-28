@@ -9,7 +9,6 @@ interface User {
 	phone: string|null;
 	isVerified: boolean;
 	rollNo: string|null;
-	verifyImage: string|null;
 	gender: string|null;
 	foodPreference: string|null;
 	shirtSize: string|null;
@@ -107,7 +106,6 @@ export async function getUsers() {
 					phone: true,
 					isVerified: true,
 					rollNo: true,
-					verifyImage: true,
 					gender: true,
 					foodPreference: true,
 					shirtSize: true
@@ -121,7 +119,6 @@ export async function getUsers() {
 			phone: user.phone? user.phone : "",
 			isVerified: user.isVerified,
 			rollNo: user.rollNo? user.rollNo : "",
-			verifyImage: user.verifyImage? user.verifyImage : "",
 			gender: user.gender? user.gender : "",
 			foodPreference: user.foodPreference? user.foodPreference : "",
 			shirtSize: user.shirtSize? user.shirtSize : "",
@@ -214,10 +211,9 @@ export async function checkUser(
 
 		if (!user) return { error: "User not found.", ok: false };
 
-		if (!user.emailVerified) return { error: "Email not verified.", ok: false };
 
 		if (!user.isVerified)
-			return { error: "College not verified/payment not done.", ok: false };
+			return { error: "User verification incomplete.", ok: false };
 
 		// checking if user already has a team
 		const existingTeam = await prisma.team.findFirst({

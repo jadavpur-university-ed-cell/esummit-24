@@ -13,6 +13,7 @@ export default auth((req) => {
     const isPublicRoute = publicRoutes.includes(nextUrl.pathname) || nextUrl.pathname.startsWith("/events");
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
     const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
+    if(nextUrl.pathname.startsWith("/api/user")) return;
     if (isApiAuthRoute) {
         if(!isLoggedIn) {
             return NextResponse.json({message: "Not authenticated"}, {status: 401});

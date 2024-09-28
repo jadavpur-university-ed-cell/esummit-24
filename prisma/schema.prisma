@@ -40,22 +40,23 @@ model Session {
 }
 
 model User {
-  id             String    @id @default(cuid())
+  id             String        @id @default(cuid())
   name           String?
-  email          String?   @unique
+  email          String?       @unique
   password       String?
   role           String?
   phone          String?
-  emailVerified  DateTime? @map("email_verified")
-  isVerified     Boolean
+  college        String?
+  year           String?
+  branch         String?
+  isVerified     Boolean       @default(false)
   rollNo         String?
-  verifyImage    String?
-  image          String?
   accounts       Account[]
   sessions       Session[]
   gender         String?
   foodPreference String?
   shirtSize      String?
+  transactions   Transaction[]
 
   member1of Team[] @relation("member1")
   member2of Team[] @relation("member2")
@@ -93,4 +94,11 @@ model Team {
   @@unique([eventName, member3Id])
   @@unique([eventName, member4Id])
   @@map("teams")
+}
+
+model Transaction {
+  transactionId String @id @unique @default(cuid())
+  status        String
+  userId        String
+  user          User   @relation(fields: [userId], references: [id])
 }

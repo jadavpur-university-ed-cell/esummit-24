@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { editUserReq } from "../queries";
+import { editUserReq } from "@/app/admin/queries";
 
 interface User {
 	id: string;
@@ -54,7 +54,7 @@ function EditUser({ user }: { user: User }) {
 					<label htmlFor="name">Name</label>
 					<input type="text" name="name" id="name" value={formData.name} onChange={(e)=>handleFormEdit(e,"name")} className="bg-transparent outline-none border-b" autoComplete="off"/>
 					<label htmlFor="email">Email</label>
-					<input type="email" name="email" id="email" value={formData.email} onChange={(e)=>handleFormEdit(e,"email")} className="bg-transparent outline-none border-b" autoComplete="off" />
+					<input type="email" name="email" id="email" value={formData.email} className="bg-transparent outline-none border-b" autoComplete="off" readOnly />
 				</div>
 				<div className="flex justify-between w-4/5 ">
 					<label htmlFor="phone">Phone Number</label>

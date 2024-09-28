@@ -11,7 +11,6 @@ interface User {
 	phone: string;
 	isVerified: boolean;
 	rollNo: string;
-	verifyImage: string;
 	gender: string;
 	foodPreference: string;
 	shirtSize: string;

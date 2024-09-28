@@ -9,7 +9,6 @@ interface User {
 	phone: string;
 	isVerified: boolean;
 	rollNo: string;
-	verifyImage: string;
 	gender: string;
 	foodPreference: string;
 	shirtSize: string;
@@ -23,7 +22,6 @@ function VerifyUser({ user }: { user: User }) {
 
 	async function handleVerify(){
 		user.isVerified = true;
-		user.verifyImage = "";
 		const data = await editUserReq(user);
 		const mail = await fetch("http://localhost:3000/api/mail",{
 			method: 'POST',
@@ -44,7 +42,6 @@ function VerifyUser({ user }: { user: User }) {
 	}
 	
 	async function handleReject(){
-		user.verifyImage = "";
 		const data = await editUserReq(user);
 		const mail = await fetch("http://localhost:3000/api/mail",{
 			method: 'POST',
@@ -71,12 +68,12 @@ function VerifyUser({ user }: { user: User }) {
 			</div>
 			<div className="w-full flex justify-center">
 				<div className="w-1/2">
-				<Image
+				{/* <Image
 					src={user.verifyImage}
 					width={600}
 					height={500}
 					alt="verification-image"
-					/>
+					/> */}
 				</div>
 				<div className="flex flex-col w-1/2 justify-center gap-y-16">
 					<div className="w-full flex justify-center">
