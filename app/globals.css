@@ -10,10 +10,10 @@ body::-webkit-scrollbar {
 	width: 15px; /* width of the entire scrollbar */
 }
 body::-webkit-scrollbar-track {
-	background: #040411; /* color of the tracking area */
+	background: #101720; /* color of the tracking area */
 }
 body::-webkit-scrollbar-thumb {
-	background-color: #101720;
+	background-color: #040411b1;
     border-radius: 0;
 	transition: all 0.5s ease-in-out;
 }

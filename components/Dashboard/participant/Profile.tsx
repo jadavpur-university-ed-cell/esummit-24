@@ -1,293 +1,229 @@
 "use client";
-import React, { useState, ChangeEvent } from "react";
-import Image from "next/image";
-import { FaEdit, FaSave } from "react-icons/fa";
+import { useState, useRef } from "react";
+import EditUser from "./EditUser";
+import { FaXmark } from "react-icons/fa6";
 
-interface UserData {
-  name: string;
-  college: string;
-  branch: string;
-  year: string;
-  foodPreference: string;
-  shirtSize: string;
-  phoneNumber: string;
-  emailID: string;
-  photo: File | null;
+interface Team {
+	eventName: string;
+	teamName: string;
+	member1: string;
+	member2: string;
+	member3: string;
+	member4: string;
 }
 
-interface UserEvent {
-  name: string;
-  teamName: string;
-  teamMembers: string;
-  teamEmails: string;
+interface User {
+	id: string;
+	name: string;
+	college: string;
+	year: string;
+	branch: string;
+	foodPreference: string;
+	rollNo: string;
+	shirtSize: string;
+	email: string;
+	gender: string;
+	isVerified: boolean;
+	phone: string;
 }
 
-interface UserProfileProps {
-  userData: UserData;
-  userEvents: UserEvent[];
-}
+const UserTeams = ({ teams }: { teams: Team[] }) => {
+	return (
+		<div className="w-full mt-8 bg-gray-900 p-6 rounded-lg shadow-lg">
+			<h3 className="text-3xl text-[#fcbf49] font-semibold mb-4">Event Participation</h3>
+			<table className="w-full text-left table-auto border-collapse">
+				<thead>
+					<tr className="bg-gray-800 text-[#eae2b7] text-lg">
+						<th className="border p-2">Event Name</th>
+						<th className="border p-2">Team Name</th>
+						<th className="border p-2">Team Members</th>
+					</tr>
+				</thead>
+				<tbody>
+					{teams.map((team, index) => {
+						return (
+							<tr key={index} className="bg-gray-800">
+								<td className="border p-2">{team.eventName}</td>
+								<td className="border p-2">{team.teamName}</td>
+								<td className="border p-2 grid grid-cols-1 md:grid-cols-2">
+									<span>{team.member1}</span>
+									<span>{team.member2}</span>
+									<span>{team.member3}</span>
+									<span>{team.member4}</span>
+								</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
+	);
+};
 
-const UserProfile: React.FC<UserProfileProps> = ({ userData, userEvents }) => {
-  const [user, setUser] = useState<UserData>(userData);
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setUser((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setUser((prevState) => ({
-        ...prevState,
-        photo: e.target.files[0],
-      }));
-    }
-  };
-
-  const handleSave = () => {
-    console.log("User Saved:", user);
-    setIsEditing(false);
-  };
-
-  return (
-    <div className="min-h-screen bg-[#101720] lg-grid-white/[0.03] md:bg-grid-large-white/[0.03] font-semibold text-[#d62828] text-lg flex flex-col items-center py-16 px-5">
-      {/* Profile Section */}
-      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
-        <h1 className="text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#d62828] to-[#f77f00] mb-2">
-          Welcome, {user.name}
-        </h1>
-      </div>
-      <div className="max-w-4xl w-full bg-[#f2b668] p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-        <div className="flex-1">
-          {isEditing ? (
-            <div className="space-y-4">
-              {/* Name Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={user.name}
-                  onChange={handleChange}
-                  placeholder="Name"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* College Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">College</label>
-                <input
-                  type="text"
-                  name="college"
-                  value={user.college}
-                  onChange={handleChange}
-                  placeholder="College"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Year Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Year</label>
-                <input
-                  type="text"
-                  name="year"
-                  value={user.year}
-                  onChange={handleChange}
-                  placeholder="Year"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Branch Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Branch</label>
-                <input
-                  type="text"
-                  name="branch"
-                  value={user.branch}
-                  onChange={handleChange}
-                  placeholder="Branch"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Food Preference Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Food Preference</label>
-                <input
-                  type="text"
-                  name="foodPreference"
-                  value={user.foodPreference}
-                  onChange={handleChange}
-                  placeholder="Food Preference"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Shirt Size Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Shirt Size</label>
-                <input
-                  type="text"
-                  name="shirtSize"
-                  value={user.shirtSize}
-                  onChange={handleChange}
-                  placeholder="Shirt Size"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Phone Number Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Phone Number</label>
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={user.phoneNumber}
-                  onChange={handleChange}
-                  placeholder="Phone Number"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              {/* Email ID Field */}
-              <div className="flex flex-col w-full">
-                <label className="block text-sm font-medium text-orange-500">Email ID</label>
-                <input
-                  type="email"
-                  name="emailID"
-                  value={user.emailID}
-                  onChange={handleChange}
-                  placeholder="Email ID"
-                  className="text-xl p-2 border border-gray-300 rounded-md w-full bg-white text-gray-900"
-                />
-              </div>
-
-              <div className="mt-6 flex space-x-4">
-                <button
-                  onClick={handleSave}
-                  className="px-4 py-2 bg-[#d62828] text-white rounded-md flex items-center"
-                >
-                  <FaSave className="mr-2" /> Save
-                </button>
-                <button
-                  onClick={() => setIsEditing(false)}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-md"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {/* Displaying Fields */}
-              <h2 className="text-2xl font-bold text-gray-900">{user.name}</h2>
-              <ul className="space-y-2 text-xl">
-                <li>
-                  <span className="font-semibold text-gray-700">College: </span>
-                  {user.college}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Year: </span>
-                  {user.year}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Branch: </span>
-                  {user.branch}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Food Preference: </span>
-                  {user.foodPreference}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Shirt Size: </span>
-                  {user.shirtSize}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Phone Number: </span>
-                  {user.phoneNumber}
-                </li>
-                <li>
-                  <span className="font-semibold text-gray-700">Email ID: </span>
-                  {user.emailID}
-                </li>
-              </ul>
-              <button
-                onClick={() => setIsEditing(true)}
-                className="mt-4 px-4 py-2 bg-[#d62828] text-white rounded-lg font-semibold"
-              >
-                Edit
-              </button>
-            </div>
-          )}
+const UserDetails = ({ user }: { user: User }) => {
+	return (
+		<div className="w-full flex justify-center mb-6">
+			<div className="grid grid-cols-1 md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Name</p>
+          <p>{user.name}</p>
         </div>
-
-        {/* Image Section */}
-        <div className="flex-1 flex justify-center">
-          <div className="relative">
-            <Image
-              src={user.photo ? URL.createObjectURL(user.photo) : "/images/avatar.jpg"}
-              alt="profile-img"
-              height={300}
-              width={300}
-              className="rounded-full border-4 border-gray-300 shadow-lg"
-            />
-            <input
-              type="file"
-              accept="image/*"
-              id="uploadBtn"
-              onChange={handleFileChange}
-              className="absolute bottom-0 right-0 opacity-0 w-0 h-0"
-            />
-            <label
-              htmlFor="uploadBtn"
-              className="absolute bottom-0 right-0 p-2 cursor-pointer bg-white text-gray-900 rounded-full shadow-md"
-            >
-              <FaEdit />
-            </label>
-          </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Email</p>
+          <p>{user.email}</p>
         </div>
-      </div>
-
-      {/* Event Participation Section */}
-      <div className="mt-8 w-full max-w-4xl bg-[#f2b668] p-6 rounded-lg shadow-lg">
-        <h3 className="text-3xl font-bold text-[#101720] mb-4 text-center">Event Participation</h3>
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-500">
-            <thead className="bg-[#f77f00] ">
-              <tr>
-                {["Event Name", "Team Name", "Team Members", "Team Emails"].map((header) => (
-                  <th
-                    key={header}
-                    className="px-6 py-3 text-left text-white uppercase tracking-wider text-sm"
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="bg-[#eae2b7] divide-y divide-red-800">
-              {userEvents.map((event, index) => (
-                <tr key={index} className="hover:bg-orange-100 transition duration-200">
-                  {["name", "teamName", "teamMembers", "teamEmails"].map((field) => (
-                    <td key={field} className="px-6 py-4 text-sm text-gray-900">
-                      {event[field as keyof UserEvent]}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Phone Number</p>
+          <p>{user.phone}</p>
         </div>
-      </div>
-    </div>
-  );
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">College</p>
+          <p>{user.college}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Roll Number</p>
+          <p>{user.rollNo}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Year of Study</p>
+          <p>{user.year}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Branch</p>
+          <p>{user.branch}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Shirt Size</p>
+          <p>{user.shirtSize}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Gender</p>
+          <p>{user.gender}</p>
+        </div>
+				<div className="flex flex-col w-1/2">
+          <p className="text-zinc-400 text-sm">Food Preference</p>
+          <p>{user.foodPreference}</p>
+        </div>
+			</div>
+		</div>
+	);
+};
+
+const UserProfile = ({
+	user,
+	memberTeams,
+}: {
+	user: User;
+	memberTeams: any;
+}) => {
+	const [userData, setUserData] = useState<User | null>({
+		id: "",
+		name: "",
+		college: "",
+		year: "",
+		branch: "",
+		foodPreference: "",
+		shirtSize: "",
+		rollNo: "",
+		email: "",
+		gender: "",
+		phone: "",
+		isVerified: true,
+	});
+	const [isEditing, setIsEditing] = useState(false);
+
+	const editUserRef = useRef<HTMLDialogElement>(null);
+
+	function toggleEditUser() {
+		if (!editUserRef.current) return;
+		editUserRef.current.hasAttribute("open")
+			? editUserRef.current.close()
+			: editUserRef.current.showModal();
+	}
+
+	if (!user) return <div>Loading...</div>;
+
+	const handleSave = () => {
+		console.log("User Saved:", user);
+		setIsEditing(false);
+	};
+
+	return (
+		<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-white">
+			<div className="flex flex-col items-center">
+				<UserDetails user={user} />
+
+				<div>
+					<button
+						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-sm"
+						onClick={toggleEditUser}>
+						Edit Details
+					</button>
+					<dialog
+						ref={editUserRef}
+						className="relative h-[90vh] w-[70vw] backdrop:bg-[#00000080] bg-[#101720] text-white">
+						<EditUser user={user} />
+						<button
+							onClick={toggleEditUser}
+							className="absolute top-4 right-4 text-white">
+							<FaXmark />
+						</button>
+					</dialog>
+				</div>
+
+				{/* Event Participation */}
+				<UserTeams teams={memberTeams} />
+			</div>
+		</div>
+	);
+	// return (
+	// 	<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-white">
+	// 		<div className="flex flex-col items-center">
+
+	// 			<div className="flex items-center flex-col w-full bg-gray-900 p-8 rounded-lg shadow-lg">
+	// 				<div className="flex-1 flex flex-col items-center text-center">
+	// 					{/* User Information */}
+	// 					{isEditing ? (
+	// 						<div className="mt-4 w-full space-y-4">
+	// 							{/* Editable fields */}
+	// 							{/* <input
+	// 								type="text"
+	// 								value={user.name}
+	// 								onChange={(e) =>
+	// 									setUserData({ ...userData, name: e.target.value })
+	// 								}
+	// 								className="text-lg p-2 border rounded-md w-full"
+	// 							/> */}
+	// 							{/* Add similar fields for college, year, branch, foodPreference */}
+	// 						</div>
+	// 					) : (
+	// 						<div>
+	// 							<h2 className="text-4xl font-bold text-black">{user.name}</h2>
+	// 							<p className="text-lg">{user.college}</p>
+	// 							<p className="text-lg">{user.year}</p>
+	// 							<p className="text-lg">{user.branch}</p>
+	// 							<p className="text-lg">{user.foodPreference}</p>
+	// 							{/* {user.image && (
+	//               <div className="w-40 h-40 rounded-full overflow-hidden mt-4">
+	//                 <Image src={user.image} alt="Profile Image" width={160} height={160} />
+	//               </div>
+	//             )} */}
+	// 						</div>
+	// 					)}
+
+	// 					<button
+	// 						onClick={() => setIsEditing(!isEditing)}
+	// 						className="mt-4 px-4 py-2 bg-blue-500 rounded-md">
+	// 						{isEditing ? <FaSave /> : <FaEdit />}
+	// 					</button>
+	// 				</div>
+	// 			</div>
+
+	// 			{/* Event Participation */}
+	// 			<UserTeams teams={memberTeams} />
+	// 		</div>
+	// 	</div>
+	// );
 };
 
 export default UserProfile;

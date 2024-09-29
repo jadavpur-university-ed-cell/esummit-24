@@ -16,9 +16,9 @@ function Gallery() {
   return (
     <section
       id="gallery"
-      className="bg-[#040411] min-h-screen flex flex-col justify-center w-full overflow-hidden"
+      className="bg-[#101720] min-h-screen flex flex-col justify-center w-full overflow-hidden"
     >
-      <div className=" bg-[#040411] flex flex-col items-center justify-start min-h-[94vh] p-5 gap-y-10">
+      <div className=" bg-[#101720] flex flex-col items-center justify-start min-h-[94vh] p-5 gap-y-10">
         <h1 className="animated-title text-5xl sm:text-7xl text-[#fcbf49] py-3 mb-7 font-bold">
           Gallery
         </h1>

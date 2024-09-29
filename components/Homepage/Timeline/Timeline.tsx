@@ -80,7 +80,7 @@ function EventTimeline() {
 		},
 	];
 	return (
-		<div className="w-full bg-[#040411] p-12">
+		<div className="w-full bg-[#101720] p-12">
 			<Timeline data={data} />
 		</div>
 	);

@@ -1,8 +1,7 @@
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
-import UserProfile from "@/components/Dashboard/Participant/profileBlocked";
-import RegisterDetailsPage from "@/components/Dashboard/Participant/CompleteRegistration"
+import UserProfile from "@/components/Dashboard/participant/Profile";
+import RegisterDetailsPage from "@/components/Dashboard/participant/CompleteRegistration"
 import { prisma } from "@/prisma/pclient";
 
 const getMemberName = async (id:string|null) => {
@@ -77,9 +76,9 @@ const Profile = async () => {
           await signOut({ redirectTo: "/sign-in", redirect: true });
         }}
         >
-        <Button type="submit" variant="outline">
+        <button type="submit" className="bg-[#fcbf49] px-2 py-1 font-medium rounded-sm text-[#101720]">
           Log Out
-        </Button>
+        </button>
       </form>
         </div>
       { (session && user?.isVerified) ?

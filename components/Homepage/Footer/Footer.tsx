@@ -5,7 +5,7 @@ import { FaInstagram, FaFacebook, FaLinkedinIn } from "react-icons/fa6";
 
 function Footer() {
 	return (
-		<section className="bg-[#040411] flex flex-col">
+		<section className="bg-[#101720] flex flex-col">
 			<div
 				id="contact"
 				className="p-16 flex flex-col gap-y-20 items-center w-full min-h-[70vh]">

@@ -5,6 +5,9 @@ interface User {
 	id: string;
 	name: string;
 	email: string;
+	college:string;
+	branch:string;
+	year:string;
 	phone: string;
 	isVerified: boolean;
 	rollNo: string;
@@ -24,7 +27,6 @@ function EditUser({ user }: { user: User }) {
 		const data = await editUserReq(formData);
 		data.success? setEditStatus("User edited successfully!") : setEditStatus("Error in editing user.");
 		data.success? setMessageColor(" bg-transparent text-green-500") : setMessageColor("bg-transparent text-red-500");
-		handleReset(e);
 	}
 
 	function handleFormEdit(e:React.ChangeEvent<HTMLInputElement>, formField: string){
@@ -48,29 +50,49 @@ function EditUser({ user }: { user: User }) {
 
 	return (
 		<div className="flex flex-col text-white h-full">
-			<h1 className="text-3xl my-5">Edit User</h1>
-			<form className="flex flex-col justify-around items-center h-full">
-				<div className="flex justify-between w-4/5 ">
-					<label htmlFor="name">Name</label>
+			<div className="w-full flex justify-center">
+			<h1 className="text-3xl my-5 font-bold text-[#fcbf49]">Edit Details</h1>
+			</div>
+			<form className="grid grid-cols-1 md:grid-cols-2 h-full justify-items-center gap-y-3">
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="name" className="text-[#eae2b7]">Name</label>
 					<input type="text" name="name" id="name" value={formData.name} onChange={(e)=>handleFormEdit(e,"name")} className="bg-transparent outline-none border-b" autoComplete="off"/>
-					<label htmlFor="email">Email</label>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="email" className="text-[#eae2b7]">Email</label>
 					<input type="email" name="email" id="email" value={formData.email} className="bg-transparent outline-none border-b" autoComplete="off" readOnly />
 				</div>
-				<div className="flex justify-between w-4/5 ">
-					<label htmlFor="phone">Phone Number</label>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="phone" className="text-[#eae2b7]">Phone Number</label>
 					<input type="text" name="phone" id="phone" value={formData.phone} onChange={(e)=>handleFormEdit(e,"phone")} className="bg-transparent outline-none border-b" autoComplete="off"/>
-					<label htmlFor="rollNo">Roll Number</label>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="college" className="text-[#eae2b7]">College</label>
+					<input type="text" name="college" id="college" value={formData.college} onChange={(e)=>handleFormEdit(e,"college")} className="bg-transparent outline-none border-b" autoComplete="off"/>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="branch" className="text-[#eae2b7]">Branch</label>
+					<input type="text" name="branch" id="branch" value={formData.branch} onChange={(e)=>handleFormEdit(e,"branch")} className="bg-transparent outline-none border-b" autoComplete="off"/>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="year" className="text-[#eae2b7]">Year of Study</label>
+					<input type="text" name="year" id="year" value={formData.year} onChange={(e)=>handleFormEdit(e,"year")} className="bg-transparent outline-none border-b" autoComplete="off"/>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="rollNo" className="text-[#eae2b7]">Roll Number</label>
 					<input type="text" name="rollNo" id="rollNo" value={formData.rollNo} onChange={(e)=>handleFormEdit(e,"rollNo")} className="bg-transparent outline-none border-b" autoComplete="off" />
 				</div>
-				<div className="flex justify-between w-4/5 ">
-					<label htmlFor="gender" className="text-white">Gender</label>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="gender" className="text-[#eae2b7]">Gender</label>
 					<input type="text" name="gender" id="gender" value={formData.gender} onChange={(e)=>handleFormEdit(e,"gender")} className="bg-transparent outline-none border-b" autoComplete="off"/>
-					<label htmlFor="foodPreference">Food Preference</label>
+				</div>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="foodPreference" className="text-[#eae2b7]">Food Preference</label>
 					<input type="text" name="foodPreference" id="foodPreference" value={formData.foodPreference} onChange={(e)=>handleFormEdit(e,"foodPreference")} className="bg-transparent outline-none border-b" autoComplete="off" />
 				</div>
-				<div className="flex gap-x-6">
-					<label htmlFor="shirtSize">Shirt Size</label>
-					<select name="shirtSize" id="shirtSize" className="text-[#101720] font-medium" value={formData.shirtSize} onChange={(e)=>handleSelectChange(e,"shirtSize")}>
+				<div className="flex flex-col w-1/2">
+					<label htmlFor="shirtSize" className="text-[#eae2b7]">Shirt Size</label>
+					<select name="shirtSize" id="shirtSize" className="text-[#101720] font-medium px-2 py-1" value={formData.shirtSize} onChange={(e)=>handleSelectChange(e,"shirtSize")}>
 						<option value={formData.shirtSize} hidden>{formData.shirtSize}</option>
 						<option value="small">Small</option>
 						<option value="medium">Medium</option>
@@ -78,15 +100,13 @@ function EditUser({ user }: { user: User }) {
 						<option value="extralarge">Extra Large</option>
 					</select>
 				</div>
-				<div className="w-4/5 flex justify-around">
-				<button type="submit" onClick={handleFormSubmit} className="bg-white rounded-sm px-2 py-1 text-[#101720] font-medium">
-					Edit User
+				<button type="submit" onClick={handleFormSubmit} className="bg-[#fcbf49] rounded-sm px-2 py-1 h-fit text-[#101720] font-medium">
+					Edit Details
+				</button>
+				<button className="bg-[#fcbf49] text-[#101720] px-2 py-1 h-fit rounded-sm font-medium" onClick={handleReset}>
+					Reset
 				</button>
 				<input type="text" className={messageColor} value={editStatus} disabled />
-				<button className="bg-white text-[#101720] px-2 py-1 rounded-sm font-medium" onClick={handleReset}>
-					Reset Details
-				</button>
-				</div>
 			</form>
 		</div>
 	);
