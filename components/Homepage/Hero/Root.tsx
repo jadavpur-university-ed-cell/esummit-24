@@ -4,6 +4,7 @@ import { FunctionComponent, useEffect, useRef } from "react";
 import { Spotlight } from "../../ui/Spotlight";
 import { gsap } from "gsap";
 import { TextGenerate } from "@/components/TextGenerate";
+import Countdown from "../Countdown/Countdown";
 
 const Hero: FunctionComponent = () => {
   const pacmanRef = useRef(null);
@@ -287,6 +288,7 @@ const Hero: FunctionComponent = () => {
               width={150}
               height={75}
             />
+            <Countdown/>
           </div>
         </div>
       </section>

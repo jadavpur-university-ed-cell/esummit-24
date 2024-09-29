@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 // import { FaGoogle } from "react-icons/fa6";
 
@@ -44,10 +45,11 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
         </div>
         </div>
          <div className="hidden lg:block relative w-0 flex-1">
-         <img
+         <Image
            className="absolute inset-0 h-full w-full object-cover"
            src="/login.png"
            alt=""
+           fill
          />
        </div>
        </div>

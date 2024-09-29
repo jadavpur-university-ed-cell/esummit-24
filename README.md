@@ -9,6 +9,10 @@
 - [ ] user without email verification are not allowed
 - [ ] db call optimization
 
+# issues
+- [ ]build successfull, but profile routing error
+- [ ]login no longer routing to sign-in
+
 
 # Todos for Merch
 - [x] set Shirt size
