@@ -1,6 +1,6 @@
 import { prisma } from "@/prisma/pclient";
 import { auth } from "@/auth"
-export default function ():Promise<boolean> {
+export default function userVerify():Promise<boolean> {
   return new Promise(async (r) => {
     const session = await auth();
     //this will give fatal error if secret is not set in the .env file

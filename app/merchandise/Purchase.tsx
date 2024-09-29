@@ -2,7 +2,7 @@
 import { useFormStatus } from "react-dom";
 import purchaseMerch from "../actions/purchaseMerch";
 import { useState } from "react";
-export default function({size,userId}:{size:string|null,userId:string}){
+export default function Purchase({size,userId}:{size:string|null,userId:string}){
   if(size == null){
     return(
       <div>

@@ -1,9 +1,9 @@
-import Loading from "@/components/Loading"
-export default function(){
+import Loader from "@/components/Loading"
+export default function Loading(){
   return (
     <div >
       <center>
-        <Loading></Loading>
+        <Loader></Loader>
       </center>
     </div>
   )

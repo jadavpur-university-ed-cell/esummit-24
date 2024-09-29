@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import ShirtPref from "./ShirtPref";
 import Purchase from "./Purchase";
 
-export default async function(){
+export default async function Page(){
   const session = await auth();
   const prisma = new PrismaClient();
   const res = await prisma.user.findFirst({
