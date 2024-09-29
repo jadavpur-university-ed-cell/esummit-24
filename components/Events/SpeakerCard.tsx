@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface CardProps {
   name: string;
@@ -14,7 +15,9 @@ const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode,
     <div className="relative p-4 bg-white shadow-lg group border-solid rounded-[40px] mt-8 overflow-hidden">
       {/* Speaker Image and Details */}
       <div className="aspect-w-3 aspect-h-2">
-        <img
+        <Image
+          width={200}
+          height={200}
           className="object-cover shadow-lg rounded-lg"
           src="https://via.placeholder.com/150" // Placeholder image, you can change this
           alt={name}

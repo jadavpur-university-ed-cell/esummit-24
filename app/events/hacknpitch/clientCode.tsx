@@ -8,17 +8,18 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import EventsNavbar from "@/components/Events/Navbar";
+import Image from "next/image";
 
 
 const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
   const router = useRouter();
-  const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack-n-Pitch is your chance to shine, whether you're a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity's pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
+  const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack&minus;n&minus;Pitch is your chance to shine, whether you&apos;re a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity&apos;s pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
 
 
   const bulletPoints = [
-    "Round 01: Idea Submission – Submit a 5-slide presentation based on the provided topics. Up to 15 teams (60 participants) will be shortlisted for the next round.",
-    "Round 02: Let’s Hack and Pitch",
-    "Day 1: Participate in a 12-hour hackathon to bring your ideas to life.",
+    "Round 01: Idea Submission &minus; Submit a 5-slide presentation based on the provided topics. Up to 15 teams (60 participants) will be shortlisted for the next round.",
+    "Round 02: Let&apos;s Hack and Pitch",
+    "Day 1: Participate in a 12&minus;hour hackathon to bring your ideas to life.",
     "Day 2: Pitch your creation to a panel of judges. Details on the pitch format and requirements will be shared with shortlisted teams."
   ];
 
@@ -70,10 +71,12 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
           <div className="flex flex-col md:flex-row w-full px-8 py-0.5 gap-10">
             {/* Logo */}
             <div className="flex items-center w-full sm:w-full md:w-[40%] justify-center">
-              <img
+              <Image
                 src="/event-logos/HacknPitch.png"
                 alt="HacknPitch Logo"
                 className="w-full h-auto"
+                height={200}
+                width={200}
               />
             </div>
            

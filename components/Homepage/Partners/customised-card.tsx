@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -95,7 +96,9 @@ export const Cardimage = ({
       "flex justify-center",
       className
     )}>
-        <img
+        <Image
+        width={200}
+        height={200}
 					className="object-cover max-h-[100px]"
 					src={children}
 					alt="logo"

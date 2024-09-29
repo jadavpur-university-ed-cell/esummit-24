@@ -55,7 +55,7 @@ const MerchPage: React.FC = () => {
               </p>
               {/* T-Shirt Design */}
               <div className="flex justify-center items-center pt-5">
-                <img src="/path/to/tshirt-design.jpg" alt="T-Shirt Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
+                <Image width={200} height={200} src="/path/to/tshirt-design.jpg" alt="T-Shirt Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
               </div>
               {/* Payment Link */}
               <a href="https://payment-link-for-tshirt.com" target="_blank" rel="noopener noreferrer">
@@ -86,7 +86,7 @@ const MerchPage: React.FC = () => {
               </p>
               {/* Cap Design */}
               <div className="flex justify-center items-center pt-5">
-                <img src="/path/to/cap-design.jpg" alt="Cap Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
+                <Image width={200} height={200} src="/path/to/cap-design.jpg" alt="Cap Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
               </div>
               {/* Payment Link */}
               <a href="https://payment-link-for-cap.com" target="_blank" rel="noopener noreferrer">

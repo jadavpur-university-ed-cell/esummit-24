@@ -6,6 +6,7 @@ import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import { useRouter } from "next/navigation";
 import EventsNavbar from "@/components/Events/Navbar";
+import Image from "next/image";
 
 const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
   const router = useRouter();
@@ -56,10 +57,12 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
           <div className="flex shrink-0 self-end mt-5 max-w-full bg-zinc-500 h-[3px] w-[30%] outline-dashed mr-8 order-2" /> 
           <div className="flex flex-col md:flex-row w-full px-10 py-0.5 gap-10 order-3">
             <div className="flex items-center md:w-[40%] w-full justify-center">
-              <img
+              <Image
                 src="/event-logos/LaunchX.png"
                 alt="LaunchX Logo"
                 className="w-full h-auto"
+                height={200}
+                width={200}
               />
             </div>
             <div className="flex flex-col md:w-[60%] w-full">

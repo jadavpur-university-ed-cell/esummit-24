@@ -7,6 +7,7 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import EventsNavbar from "@/components/Events/Navbar";
+import Image from "next/image";
 
 const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
   const router = useRouter();
@@ -58,10 +59,12 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
           <div className="flex flex-col md:flex-row w-full sm:px-10 py-0.5 gap-10">
             {/* Corporate Clash Logo */}
             <div className="flex items-center md:w-[40%] w-full justify-center px-8 sm:px-0">
-              <img
+              <Image
                 src="/event-logos/Dizmart.png"
                 alt="Corporate Clash Logo"
                 className="w-full h-auto"
+                height={200}
+                width={200}
               />
             </div>
 

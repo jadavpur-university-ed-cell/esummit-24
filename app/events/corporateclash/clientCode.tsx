@@ -7,22 +7,23 @@ import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import { useRouter } from "next/navigation";
 import EventsNavbar from "@/components/Events/Navbar";
+import Image from "next/image";
 
 const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
   const router = useRouter();
-  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
+  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the &quot;Analyst&quot; case study challenge awaits you.'
   const bulletPoints = [
     "The challenge is designed to test your problem solving and problem statement understanding abilities.",
     "Sharpen your critical analysis skills to dissect complex challenges.",
     "The Analyst challenge transcends personal growth, offering an intellectually stimulating experience within a high-stakes corporate environment."
   ];
 
-  const bottomText = "Don't miss this chance to step up, solve, and succeed in the world of business analysis!";
+  const bottomText = "Don&apos;t miss this chance to step up, solve, and succeed in the world of business analysis!";
 
   const faqs = [
-    { question: "What is Corporate Clash?", answer: "Corporate Clash is a high-stakes problem-solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },
-    { question: "How can I participate?", answer: "You can participate by registering through the 'Participate' button on this page." },
-    { question: "What are the requirements?", answer: "You need to have a keen interest in business analysis and problem-solving skills. No prior experience is required." }
+    { question: "What is Corporate Clash?", answer: "Corporate Clash is a high stakes problem solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },
+    { question: "How can I participate?", answer: "You can participate by registering through the &apos;Participate&apos; button on this page." },
+    { question: "What are the requirements?", answer: "You need to have a keen interest in business analysis and problem solving skills. No prior experience is required." }
   ];
 
   // Points of Contact Data
@@ -59,10 +60,12 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
           <div className="flex flex-col md:flex-row w-full sm:px-10 py-0.5 gap-10">
             {/* Corporate Clash Logo */}
             <div className="flex items-center md:w-[40%] w-full justify-center px-8 sm:px-0">
-              <img
+              <Image
                 src="/event-logos/CorporateClash.png"
                 alt="Corporate Clash Logo"
                 className="w-full h-auto"
+                height={200}
+                width={200}
               />
             </div>
 

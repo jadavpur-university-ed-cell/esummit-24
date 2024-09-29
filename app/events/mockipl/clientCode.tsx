@@ -8,6 +8,7 @@ import PoCCard from "@/components/Events/PoCCard";
 import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import EventsNavbar from "@/components/Events/Navbar";
+import Image from "next/image";
 
 
 const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
@@ -65,10 +66,12 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
           <div className="flex flex-col md:flex-row w-full px-8 py-0.5 gap-10">
             {/* Logo */}
             <div className="flex items-center w-full sm:w-full md:w-[40%] justify-center">
-              <img
+              <Image
                 src="/event-logos/MockIPL.png" //logo to be added
                 alt="MockIPL Logo"
                 className="w-full h-auto"
+                height={200}
+                width={200}
               />
             </div>
            
