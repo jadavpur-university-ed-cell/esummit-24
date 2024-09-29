@@ -1,8 +1,8 @@
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
-import UserProfile from "@/components/Dashboard/participant/UserProfile";
-import RegisterDetailsPage from "@/components/Dashboard/participant/CompleteRegistration"
+import UserProfile from "@/components/Dashboard/Participant/profileBlocked";
+import RegisterDetailsPage from "@/components/Dashboard/Participant/CompleteRegistration"
 import { prisma } from "@/prisma/pclient";
 
 const getMemberName = async (id:string|null) => {
