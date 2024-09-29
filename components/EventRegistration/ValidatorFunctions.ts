@@ -82,14 +82,15 @@ const checkValidMembers = (
 		let s = members.length;
 		if (s < teamSizeMin || s > teamSizeMax) {
 			alert("Team Size not met");
-			resolve(false);
+			resolve([]);
 			return;
 		}
 		for (let i = 0; i < s; i++) {
 			for (let j = i + 1; j < s; j++) {
 				if (members[i] == members[j]) {
 					alert("Multiple members with the same email");
-					return resolve(false);
+					resolve([]);
+					return;
 				}
 			}
 		}
