@@ -17,13 +17,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
 			return NextResponse.json({ error: "User not found" }, { status: 404 });
 		}
 
-		if(!user.emailVerified){ // checking if email is verified
-			return NextResponse.json({error:"Email not verified."},{status:400});
-		}
-
-		if(!user.isVerified){ // checking if college is verified
-			return NextResponse.json({error:"User's college not verified"},{status:400})
-		}
+		// if(!user.isVerified){ // checking if college is verified
+		// 	return NextResponse.json({error:"User's college not verified"},{status:400})
+		// }
 
 		// checking if user already has a team
 		const existingTeam = await prisma.team.findFirst({
