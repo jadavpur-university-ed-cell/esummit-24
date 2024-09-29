@@ -47,6 +47,7 @@ export const Login = () => {
       displaySocials
       footerLabel="Don't have an account?"
       footerLink="/sign-up"
+      footerLinkText="Sign up"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -56,9 +57,9 @@ export const Login = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="email">Email</FormLabel>
                   <FormControl>
-                    <Input {...field} disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Your Email Address" {...field} disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -69,9 +70,9 @@ export const Login = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="password">Password</FormLabel>
                   <FormControl>
-                    <Input {...field} type="password" disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Your Password" {...field} type="password" disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                   <span>{error}</span>
@@ -80,7 +81,7 @@ export const Login = () => {
               )}
             />
           </div>
-          <Button className="w-full" typeof="submit">
+          <Button className="w-full bg-[#FCBF49] hover:bg-[#EAE2B7] text-gray-700" typeof="submit">
             Login
           </Button>
         </form>

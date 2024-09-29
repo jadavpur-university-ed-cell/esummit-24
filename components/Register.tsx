@@ -53,8 +53,9 @@ export const Register = () => {
     <CardWrapper
       title="Register"
       displaySocials
-      footerLabel="Alreadt have an account?"
+      footerLabel="Already have an account?"
       footerLink="/sign-in"
+      footerLinkText="Sign in"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -64,9 +65,9 @@ export const Register = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="name">Name</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="name">Name</FormLabel>
                   <FormControl>
-                    <Input {...field} type="name" disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Your Full Name" {...field} type="name" disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -77,9 +78,9 @@ export const Register = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="email">Email</FormLabel>
                   <FormControl>
-                    <Input {...field} disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Your Email Address" {...field} disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,9 +91,9 @@ export const Register = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="password">Password</FormLabel>
                   <FormControl>
-                    <Input {...field} type="password" disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Enter your password" {...field} type="password" disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -103,9 +104,9 @@ export const Register = () => {
               name="rcode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="type">Referral Code</FormLabel>
+                  <FormLabel className="block text-sm font-medium text-gray-300" htmlFor="type">Referral Code</FormLabel>
                   <FormControl>
-                    <Input {...field} disabled={isPending} />
+                    <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Referral Code (if any)" {...field} disabled={isPending} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -114,7 +115,7 @@ export const Register = () => {
             <span>{error}</span>
             <span>{success}</span>
           </div>
-          <Button className="w-full" typeof="submit">
+          <Button className="w-full bg-[#F77F00] hover:bg-[#EAE2B7] hover:text-gray-700" typeof="submit">
             Register
           </Button>
         </form>

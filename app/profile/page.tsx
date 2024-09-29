@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
-import UserProfile from "@/components/Dashboard/Participant/UserProfile";
+import UserProfile from "@/components/Dashboard/Participant/profileBlocked";
 import RegisterDetailsPage from "@/components/Dashboard/Participant/CompleteRegistration"
 import { prisma } from "@/prisma/pclient";
 
