@@ -1,6 +1,6 @@
 import userVerify from "../userVerify";
 import InspiraTalks from "./clientCode";
-export default function(){
+export default function Page(){
   return(
     <InspiraTalks></InspiraTalks>
   )

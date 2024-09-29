@@ -14,7 +14,7 @@ const SizeInput=({state, setState}:{state:string, setState:Function})=>{
     </select>
   )
 }
-export default function ({size}:{size:string|null}) {
+export default function ShirtPref({size}:{size:string|null}) {
   const [shirtSize, setShirtSize] = useState<string>("");
   useEffect(() => {
     if (size == null) setShirtSize("");
