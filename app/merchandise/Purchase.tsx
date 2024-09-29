@@ -3,6 +3,8 @@ import { useFormStatus } from "react-dom";
 import purchaseMerch from "../actions/purchaseMerch";
 import { useState } from "react";
 export default function Purchase({size,userId}:{size:string|null,userId:string}){
+  const [response, setResponse]= useState("");
+  const {pending} = useFormStatus();
   if(size == null){
     return(
       <div>
@@ -10,8 +12,6 @@ export default function Purchase({size,userId}:{size:string|null,userId:string})
       </div>
     )
   }
-  const [response, setResponse]= useState("");
-  const {pending} = useFormStatus();
   const onSubmit= async (formdata:FormData)=>{
     if(!formdata.get("shirt")&&!formdata.get("cap")) {alert("check items to proceed");return;}
     formdata.append('userId',userId);
