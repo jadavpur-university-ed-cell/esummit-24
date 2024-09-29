@@ -1,11 +1,10 @@
 import { prisma } from "@/prisma/pclient";
 import { auth } from "@/auth"
-export default function userVerify():Promise<boolean> {
-  return new Promise(async (r) => {
+const userVerify=async ():Promise<boolean>=>{
     const session = await auth();
     //this will give fatal error if secret is not set in the .env file
-    if (!session) { r(false); return; }
-    if (session.user.role === "Admin") { r(true); return; }
+    if (!session) {  return false; }
+    if (session.user.role === "Admin") { return true; }
     //db call
     try {
       const dbres = await prisma.user.findFirst({
@@ -16,13 +15,13 @@ export default function userVerify():Promise<boolean> {
           isVerified: true,
         }
       });
-      if (!dbres) { r(false); return; }
-      if (!dbres?.isVerified) { r(false); return; }
-      r(true); return;
+      if (!dbres) { return false; }
+      if (!dbres?.isVerified) {  return false; }
+      return true;
     }
     catch (err) {
       console.log(err);
-      r(false); return;
+       return false;
     }
-  })
 }
+export default userVerify;
