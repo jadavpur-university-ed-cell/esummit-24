@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import EditUser from "./EditUser";
 import { FaXmark } from "react-icons/fa6";
+import { redirect } from "next/navigation";
 
 interface Team {
 	eventName: string;
@@ -141,7 +142,7 @@ const UserProfile = ({
 			: editUserRef.current.showModal();
 	}
 
-	if (!user) return <div>Loading...</div>;
+	if (!user) redirect("/sign-in");
 
 	const handleSave = () => {
 		console.log("User Saved:", user);

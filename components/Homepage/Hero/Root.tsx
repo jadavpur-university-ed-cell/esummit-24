@@ -96,11 +96,11 @@ const Hero: FunctionComponent = () => {
   return (
     <>
       <section id="hero" className="bg-[#101720]">
-        <div className="h-[80vh] lg:h-screen bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
+        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
           <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
           </div>
-          <div className="flex flex-col items-center justify-evenly gap-0 h-full overflow-hidden">
+          <div className="flex flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <p
               ref={textRef}
               className="text-center md:tracking-wider mb-0 sm:mb-4 lg:mb-0 sm:text-sm md:text-lg lg:text-xl w-4/5 lg:w-full opacity-0 text-white pt-10"

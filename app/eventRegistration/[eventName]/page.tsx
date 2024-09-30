@@ -11,7 +11,7 @@ export default async function EventRegistration({
 	if (userVerified) {
 		let res = await auth();
 		return (
-			<div>
+			<div className="bg-[#101720] h-full w-full">
 				{/* @ts-ignore */}
 				<Event params={params} email={res?.user.email}></Event>
 			</div>

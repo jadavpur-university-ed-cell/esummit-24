@@ -72,7 +72,7 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
             {/* Logo */}
             <div className="flex items-center w-full sm:w-full md:w-[40%] justify-center">
               <Image
-                src="/event-logos/HacknPitch.png"
+                src="/event-logos/HackNPitch.png"
                 alt="HacknPitch Logo"
                 className="w-full h-auto"
                 height={200}
