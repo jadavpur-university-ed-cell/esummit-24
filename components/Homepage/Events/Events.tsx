@@ -1,78 +1,78 @@
 "use client";
 import React from "react";
-import Carousel from "./Carousel";
+import CarouselComponent from "./Carousel";
 
 interface Event {
-  name: string;
-  about: string;
-  route: string;
-  image: string;
-  day:string
+	name: string;
+	about: string;
+	route: string;
+	image: string;
+	day: string;
 }
 
 const eventList: Event[] = [
-  {
-    name: "Hack <N> Pitch",
-    about: "Join Hack-n-Pitch: Innovate, hack, and pitch your ideas overnight!",
-    route: "/events/hacknpitch",
-    image: "/event-logos/HackNPitch.png",
-    day:"Day 1"
-  },
-  {
-    name: "Corporate Clash",
-    about: "Test your strategic skills in the ultimate analyst challenge.",
-    route: "/events/corporateclash",
-    image: "/event-logos/CorporateClash.png",
-    day:"Day 1"
-  },
-  {
-    name: "Inspira Talks",
-    about: "Learn from top experts and ignite your entrepreneurial journey.",
-    route: "/events/inspiratalks",
-    image: "/event-logos/inspiratalks.png", 
-    day:"Day 2"
-  },
-  {
-    name: "Mock Stock Exchange",
-    about: "Master trading skills in a risk-free, competitive stock simulation.",
-    route: "/events/mockstock",
-    image: "/event-logos/MockStock.png",
-    day:"Day 2"
-  },
-  {
-    name: "Mock IPL Auction",
-    about: "Build your dream IPL team in a strategic mock auction.",
-    route: "/events/mockipl",
-    image: "/event-logos/MockIPL.png", // Add appropriate image,
-    day:"Day 2"
-  },
-  {
-    name: "Dizmart",
-    about: "Design impactful labels at Dizmart, merging creativity, branding, and marketing.",
-    route: "/events/dizmart",
-    image: "/event-logos/Dizmart.png",
-    day:"Day 3"
-  },
-  {
-    name: "LaunchX",
-    about: "Showcase, pitch, and launch your startup with expert backing.",
-    route: "/events/launchx",
-    image: "/event-logos/LaunchX.png",
-    day:"Day 3"
-  },
+	{
+		name: "Hack <N> Pitch",
+		about: "Join Hack-n-Pitch: Innovate, hack, and pitch your ideas overnight!",
+		route: "/events/hacknpitch",
+		image: "/event-logos/HackNPitch.png",
+		day: "Day 1",
+	},
+	{
+		name: "Corporate Clash",
+		about: "Test your strategic skills in the ultimate analyst challenge.",
+		route: "/events/corporateclash",
+		image: "/event-logos/CorporateClash.png",
+		day: "Day 1",
+	},
+	{
+		name: "Inspira Talks",
+		about: "Learn from top experts and ignite your entrepreneurial journey.",
+		route: "/events/inspiratalks",
+		image: "/event-logos/inspiratalks.png",
+		day: "Day 2",
+	},
+	{
+		name: "Mock Stock Exchange",
+		about:
+			"Master trading skills in a risk-free, competitive stock simulation.",
+		route: "/events/mockstock",
+		image: "/event-logos/MockStock.png",
+		day: "Day 2",
+	},
+	{
+		name: "Mock IPL Auction",
+		about: "Build your dream IPL team in a strategic mock auction.",
+		route: "/events/mockipl",
+		image: "/event-logos/MockIPL.png", // Add appropriate image,
+		day: "Day 2",
+	},
+	{
+		name: "Dizmart",
+		about:
+			"Design impactful labels at Dizmart, merging creativity, branding, and marketing.",
+		route: "/events/dizmart",
+		image: "/event-logos/Dizmart.png",
+		day: "Day 3",
+	},
+	{
+		name: "LaunchX",
+		about: "Showcase, pitch, and launch your startup with expert backing.",
+		route: "/events/launchx",
+		image: "/event-logos/LaunchX.png",
+		day: "Day 3",
+	},
 ];
 
 function EventsComponent() {
-  return (
-    <section id="events">
-      <div className="min-h-screen bg-[#101720] flex flex-col items-center py-[4vmin] px-10 sm:px-[8vmin] gap-y-16">
-        <h1 className="animated-title text-5xl sm:text-7xl font-bold text-[#fcbf49]">Events</h1>
-        <div className="flex items-center w-full h-full grow">
-          <Carousel eventList={eventList} />
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section id="events" className="flex flex-col items-center p-12 px-16 gap-y-12">
+			<h1 className="animated-title text-5xl sm:text-7xl font-bold text-[#fcbf49]">
+				Events
+			</h1>
+			<CarouselComponent eventList={eventList} />
+		</section>
+	);
 }
 
 export default EventsComponent;

@@ -75,8 +75,8 @@ export const Login = () => {
                     <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Your Password" {...field} type="password" disabled={isPending} />
                   </FormControl>
                   <FormMessage />
-                  <span>{error}</span>
-                  <span>{success}</span>
+                  <span className="text-red-500">{error}</span>
+                  <span className="text-green-500">{success}</span>
                 </FormItem>
               )}
             />
