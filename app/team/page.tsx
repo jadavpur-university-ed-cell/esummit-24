@@ -19,7 +19,7 @@ type Team = {
 // Create the team data
 const teams: Team[] = [
   {
-    name: 'Marketing',
+    name: 'Public Relations',
     members: [
       {
         name: 'Whitney Francis',
@@ -48,6 +48,34 @@ const teams: Team[] = [
   },
   {
     name: 'Finance',
+    members: [
+      {
+        name: 'Jane Smith',
+        role: 'Accountant',
+        imageUrl:
+          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=faces&fit=crop&w=1024&h=1024&q=80',
+        twitterUrl: '#',
+        linkedinUrl: '#',
+      },
+      // Add more finance team members here
+    ],
+  },
+  {
+    name: 'Design',
+    members: [
+      {
+        name: 'Jane Smith',
+        role: 'Accountant',
+        imageUrl:
+          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=faces&fit=crop&w=1024&h=1024&q=80',
+        twitterUrl: '#',
+        linkedinUrl: '#',
+      },
+      // Add more finance team members here
+    ],
+  },
+  {
+    name: 'Logistics',
     members: [
       {
         name: 'Jane Smith',
