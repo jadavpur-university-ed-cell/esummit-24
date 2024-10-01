@@ -7,6 +7,7 @@ import Speakers from "@/components/Homepage/Speakers/Speakers";
 import Gallery from "@/components/Homepage/Gallery/Gallery";
 import Partners from "@/components/Homepage/Partners/Partners";
 import Footer from "@/components/Homepage/Footer/Footer";
+import PreFooter from "@/components/PreFooter";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Speakers />
       <Gallery />
       <Partners />
+      <PreFooter/>
       <Footer />
     </div>
   );
