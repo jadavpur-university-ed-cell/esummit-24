@@ -6,8 +6,7 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest, res: NextResponse) {
   // no longer used in form.tsx, can be deleted if no one else is using this.
     const body = await req.json();
-    const { eventName, teamName, member1Id, member2Id, member3Id, member4Id } = body;
-
+    let { eventName, teamName, member1Id, member2Id, member3Id, member4Id } = body;
     try {
       const team = await prisma.team.create({
         data: {

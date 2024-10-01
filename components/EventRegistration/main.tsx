@@ -1,4 +1,5 @@
 "use client";
+import  { Success,Warning } from "@/components/Modals";
 import { MemberInput, TeamInput } from "./Comp";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -8,8 +9,7 @@ import {
 	checkValidMembers,
 	eventPropType,
 } from "./ValidatorFunctions";
-import Loading from "@/components/Loading";
-import { getSession } from "next-auth/react";
+import { object } from "zod";
 
 const Event = ({
 	params,
@@ -29,16 +29,17 @@ const Event = ({
 		size: number;
 	}>({ name: "", size: eventProp.teamSize.max });
 	const [loading, setLoading] = useState<boolean>(false);
-	// useEffect(()=>{
-	//   setLoading(true);
-	//   getSession().then(session=>{
-	//     setUserMail(session?.user.email);
-	//   })
-	// },[])
-	// useEffect(()=>{
-	//     setMembers([userMail]);
-	//   setLoading(false);
-	// },[userMail]);
+
+	const [showWarning,setShowWarning] = useState<{show:boolean,title:string,msg:string}>({
+		show:false,
+		title:"Got an Err",
+		msg:"got an err"
+	})
+	const [showSuccess,setShowSuccess] = useState<{show:boolean,title:string,msg:string}>({
+		show:false,
+		title:"Succesfull",
+		msg:"Succesfull msg"
+	})
 
 	const addMember = () => {
 		setMembers([...members, ""]);
@@ -46,7 +47,7 @@ const Event = ({
 	const onSubmit = async () => {
 		//checking team validation
 		setLoading(true);
-		let res = await checkTeamName(eventProp.name, teamDetails.name);
+		let res = await checkTeamName(eventProp.name, teamDetails.name,showWarning,setShowWarning);
 		if (res) {
 			//member validity checking , checks member registration, checks member team collilsion
 			const actualMembers = members.filter((e) => e != "");
@@ -55,7 +56,9 @@ const Event = ({
 				eventProp.name,
 				teamDetails.name,
 				eventProp.teamSize.max,
-				eventProp.teamSize.min
+				eventProp.teamSize.min,
+				showWarning,
+				setShowWarning,
 			);
 			if (resIds.length) {
 				//submitting the team
@@ -85,8 +88,18 @@ const Event = ({
 					method: "POST",
 					body: JSON.stringify(sendableBody),
 				});
-				if (dbres.status == 201) alert("Team Created");
+				if (dbres.status == 201) {
+					let obj = {...showSuccess};
+					obj.title = "Congratulations";
+					obj.msg = "Team Created";
+					obj.show = true;
+					setShowSuccess(obj);
+				}
 				else {
+					const obj = {...showWarning};
+					obj.title = "Internal Issues"
+					obj.msg = "Try again later"
+					setShowWarning(obj);
 					alert("Error in creating team");
 					const res = await dbres.json();
 					console.log(res);
@@ -141,6 +154,8 @@ const Event = ({
 							{loading ? "Loading.." : <></>}
 						</div>
 					</div>
+					<Warning showWarning={showWarning} setShowWarning={setShowWarning}/>
+					<Success showSuccess={showSuccess} setShowSuccess={setShowSuccess}/>
 				</div>
 			</div>
 		</>

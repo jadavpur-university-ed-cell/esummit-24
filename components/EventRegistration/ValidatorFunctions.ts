@@ -1,6 +1,8 @@
 import allEventNames from "@/lib/allEventNames.json";
 import checkUserColide from "./userColide";
 import { PrismaClient } from "@prisma/client";
+import { Warning } from "../Modals";
+import { FaBookJournalWhills } from "react-icons/fa6";
 
 interface eventPropType {
 	valid: boolean;
@@ -30,14 +32,22 @@ const checkValidEvent = (eventName: string) => {
 	}
 	return res;
 };
-const checkTeamName = async (event: string, team: string) => {
+const checkTeamName = async (event: string, team: string,showWarning:{
+	show:boolean, msg:string, title:string
+},setShowWarning:Function) => {
+	let obj = { ...showWarning };
 	return new Promise(async (resolve, reject) => {
 		if (team == "") {
-			alert("Team Name is empty");
-			resolve([]);
+			obj.show = true;
+			obj.title = "Team Name Error";
+			obj.msg = "Team name is empty"
+			//alert("Team Name is empty");
+			setShowWarning(obj);
+			resolve(false);
 			return;
 		}
 		try {
+			console.log(event);
 			const dbres = await fetch("/api/user/checkTeamExists", {
 				headers: {
 					event: event,
@@ -45,26 +55,37 @@ const checkTeamName = async (event: string, team: string) => {
 				},
 				cache: "no-cache",
 			});
+			console.log()
 			if (dbres.status == 200) {
 				const body = await dbres.json();
 				if (!body.msg) {
+					console.log("here",body.msg);
 					resolve(true);
 					return;
 				} //the team does not Exist
 				else {
-					alert("team already exits");
+					obj.show = true;
+					obj.title = "Team name error";
+					obj.msg = "Team already exits";
+					setShowWarning(obj);
 					resolve(false);
 					return;
 				}
 			} else {
 				console.log("got backend err");
-				alert("something went wrong try again later");
+				obj.show = true;
+				obj.title = "Internal Error"
+				obj.msg = "try again later"
+				setShowWarning(obj);
 				resolve(false);
 				return;
 			}
 		} catch (err) {
 			console.log("got err");
-			alert("something went wrong try again later");
+			obj.show = true;
+			obj.title = "Internal Error"
+			obj.msg = "try again later"
+			setShowWarning(obj);
 			resolve(false);
 			return;
 		}
@@ -76,19 +97,28 @@ const checkValidMembers = (
 	eventName: string,
 	teamName: string,
 	teamSizeMax: number,
-	teamSizeMin: number
+	teamSizeMin: number,
+	showWarning:{show:boolean,title:string,msg:string},
+	setShowWarning:Function
 ):Promise<Array<string>> => {
+	let obj = {...showWarning};
 	return new Promise(async (resolve, reject) => {
 		let s = members.length;
 		if (s < teamSizeMin || s > teamSizeMax) {
-			alert("Team Size not met");
+			obj.show = true;
+			obj.msg = `Team Size should be ${teamSizeMin} to ${teamSizeMax} members`;
+			obj.title = "Team Size not fulfiled";
+			setShowWarning(obj);
 			resolve([]);
 			return;
 		}
 		for (let i = 0; i < s; i++) {
 			for (let j = i + 1; j < s; j++) {
 				if (members[i] == members[j]) {
-					alert("Multiple members with the same email");
+					obj.show = true;
+					obj.msg = `one or more member with same email`;
+					obj.title = "Duplicate members";
+					setShowWarning(obj);
 					resolve([]);
 					return;
 				}
@@ -103,14 +133,24 @@ const checkValidMembers = (
 				},
 			});
 			if (dbres.status == 500) {
-				alert("Could not verify users, Please try again later");
+				obj.show = true;
+				obj.title = "Internal Error";
+				obj.msg = `please try again later`;
+				setShowWarning(obj);
 				resolve([]);
 				return;
 			}
 			if (dbres.status == 404) {
 				const res = await dbres.json();
-				if (res.msg === "userNotFound") alert(`${i} not registered`);
-				else alert("could verify users plse try again later");
+				if (res.msg === "userNotFound") {
+					obj.show = true;
+					obj.title = "Member Not found";
+					obj.msg = `${i} not registrered`;
+					setShowWarning(obj);
+				}
+				else {
+					alert("could not verify users plse try again later");
+				}
 				resolve([]);
 				return;
 			}
@@ -122,7 +162,10 @@ const checkValidMembers = (
 		for (const i in ids) {
 			const a = await checkUserColide(ids[i], eventName, teamName);
 			if (!a) {
-				alert(`${members[i]} is already in a team`);
+				obj.show = true;
+				obj.title = "Member already in a team";
+				obj.msg = `${members[i]} is already in a team`;
+				setShowWarning(obj);
 				resolve([]);
 				return;
 			}
