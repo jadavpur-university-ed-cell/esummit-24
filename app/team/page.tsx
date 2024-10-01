@@ -6,7 +6,7 @@ type Member = {
   name: string;
   role: string;
   imageUrl: string;
-  twitterUrl: string;
+  instaUrl: string;
   linkedinUrl: string;
 };
 
@@ -19,43 +19,139 @@ type Team = {
 // Create the team data
 const teams: Team[] = [
   {
-    name: 'Public Relations',
-    members: [
-      {
-        name: 'Whitney Francis',
-        role: 'Copywriter',
-        imageUrl:
-          'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
-      },
-      // Add more marketing team members here
-    ],
-  },
-  {
     name: 'Tech',
     members: [
       {
-        name: 'John Doe',
-        role: 'Developer',
+        name: 'Anuran Das',
+        role: '',
         imageUrl:
-          'https://images.unsplash.com/photo-1603415526960-f36a7f2b1339?crop=faces&fit=crop&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
+          '/Team/Anuran_Das.jpg',
+        instaUrl: 'https://www.instagram.com/anu.run?igsh=MTRvcHlla2x6dTY3dw==',
+        linkedinUrl: 'https://www.linkedin.com/in/anuran-das-86898a23b',
       },
-      // Add more tech team members here
+      {
+        name: 'Rahul Pandey',
+        role: '',
+        imageUrl:
+          '/Team/Rahul_Pandey.jpg',
+        instaUrl: 'https://www.instagram.com/rahul.p_19?igsh=MWYzaTZlc3hzZ25oeA==',
+        linkedinUrl: 'https://www.linkedin.com/in/rahul-pandey2005/',
+      },
+      {
+        name: 'Rishob Mondal',
+        role: '',
+        imageUrl:
+          '/Team/Rishob_Mondal.jpg',
+        instaUrl: 'https://www.instagram.com/mondal_rishob?igsh=MXkybzNxcWlpNG91bg==',
+        linkedinUrl: 'https://www.linkedin.com/in/rishob-mondal-671497258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Aindree Chatterjee',
+        role: '',
+        imageUrl:
+          '/Team/Aindree_Chatterjee.jpg',
+        instaUrl: 'https://www.instagram.com/aindree2005/',
+        linkedinUrl: 'https://www.linkedin.com/in/aindree-chatterjee-b93279201/',
+      },
+      {
+        name: 'Piyush Gupta',
+        role: '',
+        imageUrl:
+          '/Team/Piyush_Kumar_Gupta.jpg',
+        instaUrl: 'https://www.instagram.com/kpiyushgupta/',
+        linkedinUrl: 'http://linkedin.com/in/kumarpiyushgupta',
+      },
+      {
+        name: 'Yash Raj Singh',
+        role: '',
+        imageUrl:
+          '/Team/Yash_Raj_Singh.jpg',
+        instaUrl: 'https://www.instagram.com/raj.yashhh/',
+        linkedinUrl: 'https://www.linkedin.com/in/yashhhhh/',
+      },
+      {
+        name: 'Ahnik Purkait ',
+        role: '',
+        imageUrl:
+          '/Team/Ahnik_Purkait .jpg',
+        instaUrl: 'https://www.instagram.com/voldyys_moldies',
+        linkedinUrl: 'https://www.linkedin.com/in/ahnikpurkait',
+      },
+      {
+        name: 'Arnob Bhakta',
+        role: '',
+        imageUrl:
+          '/Team/Arnob_Bhakta.jpg',
+        instaUrl: '#',
+        linkedinUrl: 'https://www.linkedin.com/in/arnob-bhakta-a86531296/',
+      },
+    ],
+  },
+  {
+    name: 'Public Relations',
+    members: [
+      {
+        name: 'Sohamdeep Mondal',
+        role: '',
+        imageUrl:
+          '/Team/Sohamdeep_Mondal.jpg',
+        instaUrl: 'https://www.instagram.com/sohamdeep7?igsh=Y21vODFndWlpdGto&utm_source=qr',
+        linkedinUrl: 'https://www.linkedin.com/in/sohamdeep-mondal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      },
+      // Add more Public Relations team members here
     ],
   },
   {
     name: 'Finance',
     members: [
       {
-        name: 'Jane Smith',
-        role: 'Accountant',
+        name: 'Bitan Mukherjee',
+        role: '',
         imageUrl:
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=faces&fit=crop&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
+          '/Team/Bitan_Mukherjee.jpg',
+        instaUrl: 'https://www.instagram.com/bitanmukherjeeee?igsh=MWV3cmFsZjY0dmdkbw==',
+        linkedinUrl: 'https://www.linkedin.com/in/bitan-mukherjee-10b66a1a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+     
+      {
+        name: 'Aditya Anand',
+        role: '',
+        imageUrl:
+          '/Team/Aditya_Anand.jpg',
+        instaUrl: 'https://www.instagram.com/aditya_anand176?igsh=c3F6ZHFwbWI1cnFx',
+        linkedinUrl: 'https://www.linkedin.com/in/aditya-astralite-anand/',
+      },
+      {
+        name: 'Om Karmakar',
+        role: '',
+        imageUrl:
+          '/Team/Om_Karmakar.jpg',
+        instaUrl: 'https://www.instagram.com/iamomkarmakar?igsh=MTlzaWZhYXRzbG5ndw==',
+        linkedinUrl: 'https://www.linkedin.com/in/om-karmakar-52214b1ba',
+      },
+      {
+        name: 'Aishani Roy ',
+        role: '',
+        imageUrl:
+          '/Team/Aishani_Roy .jpg',
+        instaUrl: 'https://www.instagram.com/aishani._?igsh=MTZtMmN3M3VrZ3o1cA==',
+        linkedinUrl: 'https://www.linkedin.com/in/aishani-roy-a6804829b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Arka_Dhar',
+        role: '',
+        imageUrl:
+          '/Team/Arka_Dhar.jpg',
+        instaUrl: 'https://www.instagram.com/__ark_phoenix/?next=%2F',
+        linkedinUrl: 'http://www.linkedin.com/in/arka-dhar-4921882a7',
+      },
+      {
+        name: 'Arpan Banerjee ',
+        role: '',
+        imageUrl:
+          '/Team/Arpan_Banerjee .jpg',
+        instaUrl: 'https://www.instagram.com/arpan_banerjee_ab?igsh=N2J0bDd5OG1sc3Bt',
+        linkedinUrl: 'https://www.linkedin.com/in/arpan-banerjee-470ba6297',
       },
       // Add more finance team members here
     ],
@@ -64,26 +160,82 @@ const teams: Team[] = [
     name: 'Design',
     members: [
       {
-        name: 'Jane Smith',
-        role: 'Accountant',
+        name: 'Saumili Roy',
+        role: '',
         imageUrl:
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=faces&fit=crop&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
+          '/Team/Saumili_Roy.jpg',
+        instaUrl: 'https://www.instagram.com/saumilir?igsh=MWVzejloNTl4YTJwOQ==',
+        linkedinUrl: 'http://linkedin.com/saumili-roy',
       },
-      // Add more finance team members here
+      {
+        name: 'Anitketan Suin',
+        role: '',
+        imageUrl:
+          '/Team/Anitketan_Suin.jpg',
+        instaUrl: 'https://www.instagram.com/_.anit._xd/',
+        linkedinUrl: 'https://www.linkedin.com/in/anitketan-suin-07488b289/',
+      },
+      {
+        name: 'Anurag Dey',
+        role: '',
+        imageUrl:
+          '/Team/Anurag_Dey.jpg',
+        instaUrl: 'https://www.instagram.com/_theweirdintrovert_/',
+        linkedinUrl: 'https://www.linkedin.com/in/iamanurag101/',
+      },
+      {
+        name: 'Meghna Das',
+        role: '',
+        imageUrl:
+          '/Team/Meghna_Das.jpg',
+        instaUrl: 'https://www.instagram.com/heels_xl?igsh=cXRsdmJpMmdyMzdk',
+        linkedinUrl: 'https://www.linkedin.com/in/meghna-das-009628248?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Sombrata Biswas',
+        role: '',
+        imageUrl:
+          '/Team/Sombrata_Biswas.jpg',
+        instaUrl: 'https://www.instagram.com/some.brat.uh?igsh=ODYzZm40OW8zYWYy',
+        linkedinUrl: 'https://www.linkedin.com/in/sombrata-b-099365217?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      },
+      {
+        name: 'Shrinjita Biswas',
+        role: '',
+        imageUrl:
+          '/Team/Shrinjita_Biswas.jpg',
+        instaUrl: 'https://www.instagram.com/shrinjita.exe?igsh=ZGMwanRiMDB4cXcw',
+        linkedinUrl: 'https://www.linkedin.com/in/shrinjita-biswas-82421921a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Chandrima Ghosh',
+        role: '',
+        imageUrl:
+          '/Team/Chandrima_Ghosh.jpg',
+        instaUrl: '#',
+        linkedinUrl: 'http://www.linkedin.com/in/chandrima-ghosh-5a15292a7',
+      },
+      {
+        name: 'Prama Ray',
+        role: '',
+        imageUrl:
+          '/Team/Prama_Ray.jpg',
+        instaUrl: 'https://www.instagram.com/thelaughinghooman?igsh=c2Z4MzV0YzBvOHpv',
+        linkedinUrl: 'https://www.linkedin.com/in/pramaray?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      // Add more design team members here
     ],
   },
   {
     name: 'Logistics',
     members: [
       {
-        name: 'Jane Smith',
-        role: 'Accountant',
+        name: 'Sohini Hazra',
+        role: '',
         imageUrl:
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=faces&fit=crop&w=1024&h=1024&q=80',
-        twitterUrl: '#',
-        linkedinUrl: '#',
+          '/Team/Sohini_Hazra.jpg',
+        instaUrl: 'https://www.instagram.com/_._.sohini._._/',
+        linkedinUrl: 'https://www.linkedin.com/in/sohini-hazra-a17121254/',
       },
       // Add more finance team members here
     ],
@@ -157,11 +309,11 @@ const TeamPage=()=> {
                       </div>
                       <ul role="list" className="flex justify-center space-x-5">
                         <li>
-                          <a href={person.twitterUrl} className="text-gray-400 hover:text-gray-500">
-                            <span className="sr-only">Twitter</span>
-                            <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                          <a href={person.instaUrl} className="text-gray-400 hover:text-gray-500">
+                            <span className="sr-only">Instagram</span>
+                            {/* <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                            </svg>
+                            </svg> */}
                           </a>
                         </li>
                         <li>
