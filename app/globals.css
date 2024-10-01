@@ -67,6 +67,10 @@ body,
     background-color: #101720;
 }
 
+.swiper-slide{
+  width: fit-content;
+}
+
 @layer base {
   :root {
         --background: 0 0% 100%;
