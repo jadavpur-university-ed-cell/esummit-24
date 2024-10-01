@@ -1,20 +1,17 @@
 "use client";
 import  { Success,Warning } from "@/components/Modals";
 import { MemberInput, TeamInput } from "./Comp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
 	checkValidEvent,
 	checkTeamName,
 	checkValidMembers,
 	eventPropType,
+	sanitizeMembers,
 } from "./ValidatorFunctions";
-import { object } from "zod";
 
-const Event = ({
-	params,
-	email,
-}: {
+const Event = ({params,email}: {
 	params: { eventName: string };
 	email: string;
 }) => {
@@ -51,6 +48,13 @@ const Event = ({
 		if (res) {
 			//member validity checking , checks member registration, checks member team collilsion
 			const actualMembers = members.filter((e) => e != "");
+
+			//zod validation on the the given member's email
+			const res = await sanitizeMembers(actualMembers);
+			if(!res) {setLoading(false);return;}
+			// zod validation done 
+
+			//validating the members
 			const resIds = await checkValidMembers(
 				actualMembers,
 				eventProp.name,
@@ -60,7 +64,10 @@ const Event = ({
 				showWarning,
 				setShowWarning,
 			);
+			//validating members done
+
 			if (resIds.length) {
+
 				//submitting the team
 				const sendableBody: {
 					eventName: string;
@@ -106,6 +113,7 @@ const Event = ({
 				}
 			}
 		}
+		// setting loader to false
 		setLoading(false);
 	};
 	return (
@@ -148,7 +156,7 @@ const Event = ({
 								className="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-lg font-medium rounded-sm text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
 								onClick={onSubmit}
 								disabled={loading}>
-								Submit
+								{loading?"Checking..":"Submit"}
 							</button>
 							{/* for the loading feature */}
 							{loading ? "Loading.." : <></>}

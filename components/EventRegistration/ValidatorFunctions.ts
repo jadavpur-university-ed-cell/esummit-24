@@ -1,8 +1,6 @@
 import allEventNames from "@/lib/allEventNames.json";
 import checkUserColide from "./userColide";
-import { PrismaClient } from "@prisma/client";
-import { Warning } from "../Modals";
-import { FaBookJournalWhills } from "react-icons/fa6";
+import * as z from "zod";
 
 interface eventPropType {
 	valid: boolean;
@@ -37,14 +35,21 @@ const checkTeamName = async (event: string, team: string,showWarning:{
 },setShowWarning:Function) => {
 	let obj = { ...showWarning };
 	return new Promise(async (resolve, reject) => {
-		if (team == "") {
+		const teamNameSchema = z.string()
+			.min(3, { message: "Team Name must be at least 3 characters long." })
+			.max(10, { message: "Team Name must be at most 10 characters long." })
+			.regex(/^(?=.*[a-zA-Z])(?=.*\d|.*[_]|.*[!@#$%^&*()]).*$/, { message: "Team Name must include at least one letter and cannot consist solely of numbers." })
+			.regex(/^[a-zA-Z0-9_!@#$%^&*()]+$/, { message: "Team Name can only contain letters, numbers, underscores, and certain special characters." });
+		const res =await teamNameSchema.safeParseAsync(team);
+		if(!res.success) {
 			obj.show = true;
 			obj.title = "Team Name Error";
-			obj.msg = "Team name is empty"
-			//alert("Team Name is empty");
+			obj.msg = "";
+			res.error.errors.forEach(e=>{
+			 obj.msg +="" + e.message;
+			});
 			setShowWarning(obj);
-			resolve(false);
-			return;
+			resolve(false);return;
 		}
 		try {
 			console.log(event);
@@ -91,6 +96,19 @@ const checkTeamName = async (event: string, team: string,showWarning:{
 		}
 	});
 };
+export const sanitizeMembers=async (members:Array<string>)=>{
+	const schema = z.string().email();
+	for(let i of members)
+	{
+		const res = await schema.safeParseAsync(i);
+		if(!res.success){
+			alert(`${i} is not a email id`);
+			return false;
+		}
+	}
+	return true;
+}
+
 
 const checkValidMembers = (
 	members: Array<string>,
