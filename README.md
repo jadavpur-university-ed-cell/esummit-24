@@ -5,13 +5,13 @@
 - [x] handling the null entries
 - [x] Check if the email is a registered user and a team member or not
 - [x] final submission
-- [ ] zod verification on frontend ??
+- [x] zod verification on frontend ??
 - [ ] user without email verification are not allowed
 - [ ] db call optimization
 
 # issues
-- [ ]build successfull, but profile routing error
-- [ ]login no longer routing to sign-in
+- [ ] build successfull, but profile routing error
+- [ ] login no longer routing to sign-in
 
 
 # Todos for Merch
