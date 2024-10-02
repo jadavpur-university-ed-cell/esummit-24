@@ -6,6 +6,14 @@ import { prisma } from "@/prisma/pclient";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Homepage/Navbar/Navbar";
 
+interface Transaction {
+	purchaseId: string;
+	type: string;
+	status: string;
+	bankId: string;
+	transactionId: string;
+}
+
 const getMemberName = async (id: string | null) => {
 	if (!id) return "";
 	const user = await prisma.user.findFirst({
@@ -76,6 +84,7 @@ const Profile = async () => {
 			member2of: true,
 			member3of: true,
 			member4of: true,
+			transactions: true
 		},
 	});
 
@@ -98,13 +107,17 @@ const Profile = async () => {
 		gender: user.gender ?? "",
 	};
 
+	const userTransactions: Transaction[] = user.transactions;
+
 	return (
 		<main>
 			<Navbar button="Merchandise" url="/merchandise" />
 			<div>
 				{/* <span className="text-white">{JSON.stringify(session)}</span> */}
 				<div className="flex justify-between px-8 py-12 items-center bg-[#101720]">
-					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">User Profile</h1>
+					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">
+						User Profile
+					</h1>
 					<form
 						action={async () => {
 							"use server";
@@ -118,11 +131,15 @@ const Profile = async () => {
 					</form>
 				</div>
 				{session && user?.isVerified ? (
-					<UserProfile user={userData} memberTeams={teams} />
+					<UserProfile
+						user={userData}
+						memberTeams={teams}
+						userTransactions={userTransactions}
+					/>
 				) : (
 					<RegisterDetailsPage email={user?.email ?? ""} />
 				)}
-              {/* </div> */}
+				{/* </div> */}
 			</div>
 		</main>
 	);

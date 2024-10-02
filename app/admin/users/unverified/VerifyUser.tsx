@@ -23,7 +23,7 @@ function VerifyUser({ user }: { user: User }) {
 	async function handleVerify(){
 		user.isVerified = true;
 		const data = await editUserReq(user);
-		const mail = await fetch("http://localhost:3000/api/mail",{
+		const mail = await fetch("/api/mail",{
 			method: 'POST',
 			headers: {
 				"Content-Type" : "application/json"
@@ -43,7 +43,7 @@ function VerifyUser({ user }: { user: User }) {
 	
 	async function handleReject(){
 		const data = await editUserReq(user);
-		const mail = await fetch("http://localhost:3000/api/mail",{
+		const mail = await fetch("/api/mail",{
 			method: 'POST',
 			headers: {
 				"Content-Type" : "application/json"
