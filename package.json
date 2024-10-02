@@ -64,7 +64,7 @@
     "tailwindcss": "^3.4.1",
     "typescript": "5.6.2"
   },
-  "description": "- Wireframe of a Coming Soon+ designs for esummit\r  - Implementing the Coming soon before Wednesday this week on Website\r  - Backend processes to start immediately.",
+  "description": "Joy Ma Go! E-Summit 2024 bachiye nao",
   "main": "index.js",
   "directories": {
     "lib": "lib"

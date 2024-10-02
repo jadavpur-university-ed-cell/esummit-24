@@ -107,14 +107,13 @@ const teams: Team[] = [
     name: 'Finance',
     members: [
       {
-        name: 'Bitan Mukherjee',
-        role: 'Judges Coordinator',
+        name: 'Jotiraditya Banerjee',
+        role: 'Finance Lead',
         imageUrl:
-          '/Team/Bitan_Mukherjee.jpg',
-        instaUrl: 'https://www.instagram.com/bitanmukherjeeee?igsh=MWV3cmFsZjY0dmdkbw==',
-        linkedinUrl: 'https://www.linkedin.com/in/bitan-mukherjee-10b66a1a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+          '/Team/Jotiraditya_Banerjee.png',
+        instaUrl: 'https://www.instagram.com/_._leviianthan_._',
+        linkedinUrl: 'https://www.linkedin.com/in/jotiraditya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
-     
       {
         name: 'Aditya Anand',
         role: 'Sponsorship Member',
@@ -122,6 +121,14 @@ const teams: Team[] = [
           '/Team/Aditya_Anand.jpg',
         instaUrl: 'https://www.instagram.com/aditya_anand176?igsh=c3F6ZHFwbWI1cnFx',
         linkedinUrl: 'https://www.linkedin.com/in/aditya-astralite-anand/',
+      },
+      {
+        name: 'Arka_Dhar',
+        role: 'Sponsorship Member',
+        imageUrl:
+          '/Team/Arka_Dhar.jpeg',
+        instaUrl: 'https://www.instagram.com/__ark_phoenix/?next=%2F',
+        linkedinUrl: 'http://www.linkedin.com/in/arka-dhar-4921882a7',
       },
       {
         name: 'Om Karmakar',
@@ -140,12 +147,20 @@ const teams: Team[] = [
         linkedinUrl: 'https://www.linkedin.com/in/aishani-roy-a6804829b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
-        name: 'Arka_Dhar',
+        name: 'Shubham Sarkar',
         role: 'Sponsorship Member',
         imageUrl:
-          '/Team/Arka_Dhar.jpeg',
-        instaUrl: 'https://www.instagram.com/__ark_phoenix/?next=%2F',
-        linkedinUrl: 'http://www.linkedin.com/in/arka-dhar-4921882a7',
+          '/Team/Shubham_Sarkar.jpg',
+        instaUrl: 'https://www.instagram.com/_iamshubhamsarkar_?igsh=MTZ2b24xc2pwdmI4dQ==',
+        linkedinUrl: 'https://www.linkedin.com/in/shubham-sarkar-57438b27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Bitan Mukherjee',
+        role: 'Judges Coordinator',
+        imageUrl:
+          '/Team/Bitan_Mukherjee.jpg',
+        instaUrl: 'https://www.instagram.com/bitanmukherjeeee?igsh=MWV3cmFsZjY0dmdkbw==',
+        linkedinUrl: 'https://www.linkedin.com/in/bitan-mukherjee-10b66a1a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
         name: 'Arpan Banerjee ',
@@ -154,6 +169,14 @@ const teams: Team[] = [
           '/Team/Arpan_Banerjee.jpg',
         instaUrl: 'https://www.instagram.com/arpan_banerjee_ab?igsh=N2J0bDd5OG1sc3Bt',
         linkedinUrl: 'https://www.linkedin.com/in/arpan-banerjee-470ba6297',
+      },
+      {
+        name: 'Ayudh Banerjee',
+        role: 'Judges Coordinator',
+        imageUrl:
+          '/Team/Ayudh_Banerjee.jpeg',
+        instaUrl: 'https://www.instagram.com/melody_of_lyf/',
+        linkedinUrl: 'https://www.linkedin.com/in/ayudh-banerjee/',
       },
       // Add more finance team members here
     ],
@@ -176,6 +199,14 @@ const teams: Team[] = [
           '/Team/Anitketan_Suin.jpg',
         instaUrl: 'https://www.instagram.com/_.anit._xd/',
         linkedinUrl: 'https://www.linkedin.com/in/anitketan-suin-07488b289/',
+      },
+      {
+        name: 'Apurba Nandi',
+        role: 'Designer',
+        imageUrl:
+          '/Team/Apurba_Nandi.jpg',
+        instaUrl: 'https://www.instagram.com/just.apurba/',
+        linkedinUrl: 'https://www.linkedin.com/in/apurbanandi/',
       },
       {
         name: 'Meghna Das',
