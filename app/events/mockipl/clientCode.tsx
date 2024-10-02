@@ -34,9 +34,9 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
 
     // Points of Contact data
     const pointsOfContact = [
-      { name: "Emily Davis", phoneNumber: "+1234567890", nameColor: "text-yellow-400" },
-      { name: "Michael Brown", phoneNumber: "+0987654321", nameColor: "text-red-400" },
-      { name: "Sarah Johnson", phoneNumber: "+1122334455", nameColor: "text-green-400" }
+      { name: "Aniket Biswas", phoneNumber: "+917439258545", nameColor: "text-yellow-400" },
+      { name: "Aindree Chatterjee", phoneNumber: "+916291896539", nameColor: "text-red-400" },
+      { name: "Rahul Pandey", phoneNumber: "+918961716604", nameColor: "text-green-400" }
     ];
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">

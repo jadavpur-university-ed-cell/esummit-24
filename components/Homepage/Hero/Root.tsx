@@ -5,6 +5,7 @@ import { Spotlight } from "../../ui/Spotlight";
 import { gsap } from "gsap";
 import { TextGenerate } from "@/components/TextGenerate";
 import Countdown from "../Countdown/Countdown";
+import Background from "../Background/Background";
 
 const Hero: FunctionComponent = () => {
   const pacmanRef = useRef(null);
@@ -95,11 +96,11 @@ const Hero: FunctionComponent = () => {
   }, []);
   return (
     <>
-      <section id="hero" className="bg-[#101720]">
-        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
-          <div className="absolute h-full w-full hero-content hidden">
+      <section id="hero" className="">
+        <div className="lg:h-max relative overflow-x-clip">
+          {/* <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
-          </div>
+          </div> */}
           <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <h2
               ref={textRef}
@@ -111,7 +112,6 @@ const Hero: FunctionComponent = () => {
             <div className=" w-full flex items-center justify-center">
               <svg
                 ref={pacmanRef}
-                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 374.999991 374.999991"
                 hanging={400}
                 width={400}
@@ -276,20 +276,16 @@ const Hero: FunctionComponent = () => {
               </svg>
             </div>
             <div className="text-center">
-            <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">Foster The</span>{' '}
-              <span className="block text-[#f77f00] xl:inline">Future!</span></h2>
+              <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Foster The</span>{" "}
+                <span className="block text-[#f77f00] xl:inline">Future!</span>
+              </h2>
               <h3 className="my-1 py-1 font-semibold">
-              <span className="block text-[#fcbf49] xl:inline">October 25th-October 27th</span>
-            </h3>
+                <span className="block text-[#fcbf49] xl:inline">
+                  October 25th-October 27th
+                </span>
+              </h3>
             </div>
-            {/* <Image
-              className="other-component object-cover w-[200px] h-[100px] sm:w-[250px] sm:h-[85px] mt-3 sm:mt-0 opacity-0"
-              src="/svg_pers/ecell.png"
-              alt="logo"
-              width={150}
-              height={75}
-            /> */}
             <Countdown/>
           </div>
         </div>

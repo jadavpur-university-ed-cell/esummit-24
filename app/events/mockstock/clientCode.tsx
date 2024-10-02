@@ -29,8 +29,8 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
   ];
 
   const pointsOfContact = [
-    { name: "Emily Green", phoneNumber: "+1234567890", nameColor: "text-red-500" },
-    { name: "Michael Brown", phoneNumber: "+0987654321", nameColor: "text-blue-500" }
+    { name: "Souptik Dasgupta", phoneNumber: "+919007475778", nameColor: "text-red-500" },
+    { name: "Apurba Nandi", phoneNumber: "+919749237190", nameColor: "text-blue-500" }
   ];
 
   return (

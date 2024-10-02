@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface Sponsor {
   logo: string;
@@ -11,8 +11,19 @@ interface Sponsor {
 // Reusable component to display each sponsor
 const SponsorItem: React.FC<Sponsor> = ({ logo, link }) => {
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className="sponsor-item">
-      <Image src={logo} alt={'logo'} width={100} height={100} className="grayscale" />
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="sponsor-item"
+    >
+      <Image
+        src={logo}
+        alt={"logo"}
+        width={100}
+        height={100}
+        className="grayscale"
+      />
     </a>
   );
 };
@@ -32,7 +43,6 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
           overflow-x: auto; /* Enable horizontal scrolling */
           gap: 20px;
           padding: 20px;
-          background-color: #101720;
           max-width: 100vw;
         }
 
@@ -69,36 +79,38 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
 const Partners: React.FC = () => {
   // Array of sponsors
   const sponsors = [
-    { logo: '/previous-sponsor/1.png', link: '#' },
-    { logo: '/previous-sponsor/2.png', link: '#' },
-    { logo: '/previous-sponsor/3.png', link: '#' },
-    { logo: '/previous-sponsor/4.png', link: '#' },
-    { logo: '/previous-sponsor/5.png', link: '#' },
-    { logo: '/previous-sponsor/6.png', link: '#' },
-    { logo: '/previous-sponsor/7.png', link: '#' },
-    { logo: '/previous-sponsor/8.png', link: '#' },
-    { logo: '/previous-sponsor/9.png', link: '#' },
-    { logo: '/previous-sponsor/10.png', link: '#' },
-    { logo: '/previous-sponsor/11.png', link: '#' },
-    { logo: '/previous-sponsor/12.png', link: '#' },
-    { logo: '/previous-sponsor/13.png', link: '#' },
-    { logo: '/previous-sponsor/14.png', link: '#' },
-    { logo: '/previous-sponsor/15.png', link: '#' },
-    { logo: '/previous-sponsor/16.png', link: '#' },
-    { logo: '/previous-sponsor/17.png', link: '#' },
-    { logo: '/previous-sponsor/18.png', link: '#' },
-    { logo: '/previous-sponsor/19.png', link: '#' },
-    { logo: '/previous-sponsor/20.png', link: '#' },
-    { logo: '/previous-sponsor/21.png', link: '#' },
-    { logo: '/previous-sponsor/22.png', link: '#' },
-    { logo: '/previous-sponsor/23.png', link: '#' }
+    { logo: "/previous-sponsor/1.png", link: "#" },
+    { logo: "/previous-sponsor/2.png", link: "#" },
+    { logo: "/previous-sponsor/3.png", link: "#" },
+    { logo: "/previous-sponsor/4.png", link: "#" },
+    { logo: "/previous-sponsor/5.png", link: "#" },
+    { logo: "/previous-sponsor/6.png", link: "#" },
+    { logo: "/previous-sponsor/7.png", link: "#" },
+    { logo: "/previous-sponsor/8.png", link: "#" },
+    { logo: "/previous-sponsor/9.png", link: "#" },
+    { logo: "/previous-sponsor/10.png", link: "#" },
+    { logo: "/previous-sponsor/11.png", link: "#" },
+    { logo: "/previous-sponsor/12.png", link: "#" },
+    { logo: "/previous-sponsor/13.png", link: "#" },
+    { logo: "/previous-sponsor/14.png", link: "#" },
+    { logo: "/previous-sponsor/15.png", link: "#" },
+    { logo: "/previous-sponsor/16.png", link: "#" },
+    { logo: "/previous-sponsor/17.png", link: "#" },
+    { logo: "/previous-sponsor/18.png", link: "#" },
+    { logo: "/previous-sponsor/19.png", link: "#" },
+    { logo: "/previous-sponsor/20.png", link: "#" },
+    { logo: "/previous-sponsor/21.png", link: "#" },
+    { logo: "/previous-sponsor/22.png", link: "#" },
+    { logo: "/previous-sponsor/23.png", link: "#" },
     // Add more sponsors as needed
   ];
 
   return (
-    <section id="partners" className="bg-[#101720] flex flex-col justify-center">
+    <section id="partners" className=" flex flex-col justify-center">
       <div className="flex flex-col items-center p-7 mx-5 lg:min-h-[65vh]">
-        <h1 className="animated-title text-5xl sm:text-7xl my-6 font-bold text-[#fcbf49]">Previous Sponsors</h1>
+        <h1 className="animated-title text-5xl sm:text-7xl my-6 font-bold text-[#fcbf49]">
+          Previous Sponsors
+        </h1>
         <PreviousSponsor sponsors={sponsors} />
       </div>
     </section>
