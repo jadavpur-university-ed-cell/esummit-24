@@ -6,11 +6,13 @@ export default async function Page() {
   let userDetails: {
     isLogin: boolean,
     id: string,
-    size: string | undefined | null, // null means shirtSize is not set, undefined means not able to get the size
+    size: string | undefined | null,
+    gender: string | undefined | null // null means shirtSize is not set, undefined means not able to get the size
   } = {
     isLogin: false,
     id: "",
-    size: null
+    size: null,
+    gender: null
   };
   const session = await auth();
   if (session) {
@@ -22,12 +24,15 @@ export default async function Page() {
       },
       select: {
         shirtSize: true,
+        gender: true
       }
     });
     if (!dbres){
-      userDetails.size = undefined
+      userDetails.size = undefined;
+      userDetails.gender = undefined;
     }
     userDetails.size = dbres?.shirtSize;
+    userDetails.gender = dbres?.gender;
   }
 
   return (

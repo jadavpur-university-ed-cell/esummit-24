@@ -88,16 +88,23 @@ function EditUser({ user }: { user: User }) {
 				</div>
 				<div className="flex flex-col w-1/2">
 					<label htmlFor="foodPreference" className="text-[#eae2b7]">Food Preference</label>
-					<input type="text" name="foodPreference" id="foodPreference" value={formData.foodPreference} onChange={(e)=>handleFormEdit(e,"foodPreference")} className="bg-transparent outline-none border-b" autoComplete="off" />
+					{/* <input type="text" name="foodPreference" id="foodPreference" value={formData.foodPreference} onChange={(e)=>handleFormEdit(e,"foodPreference")} className="bg-transparent outline-none border-b" autoComplete="off" /> */}
+					<select name="foodPreference" className="text-[#101720] font-medium px-2 py-1" value={formData.foodPreference} onChange={(e)=>handleSelectChange(e,"foodPreference")}>
+						<option value="Food Preference" hidden>Food Preference</option>
+						<option value="Veg">Veg</option>
+						<option value="Non Veg">Non Veg</option>
+					</select>
 				</div>
 				<div className="flex flex-col w-1/2">
 					<label htmlFor="shirtSize" className="text-[#eae2b7]">Shirt Size</label>
 					<select name="shirtSize" id="shirtSize" className="text-[#101720] font-medium px-2 py-1" value={formData.shirtSize} onChange={(e)=>handleSelectChange(e,"shirtSize")}>
 						<option value={formData.shirtSize} hidden>{formData.shirtSize}</option>
-						<option value="small">Small</option>
-						<option value="medium">Medium</option>
-						<option value="large">Large</option>
-						<option value="extralarge">Extra Large</option>
+						<option value="XS">XS</option>
+						<option value="S">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+						<option value="XXL">XXL</option>
 					</select>
 				</div>
 				<button type="submit" onClick={handleFormSubmit} className="bg-[#fcbf49] rounded-2xl px-2 py-1 h-fit text-[#101720] font-medium">
