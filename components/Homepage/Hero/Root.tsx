@@ -97,9 +97,6 @@ const Hero: FunctionComponent = () => {
     <>
       <section id="hero" className="bg-[#101720]">
         <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
-          <div className="absolute h-full w-full hero-content hidden">
-            <Image alt="hero" src="/hero-section-vector.svg" fill />
-          </div>
           <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <h2
               ref={textRef}
@@ -283,13 +280,6 @@ const Hero: FunctionComponent = () => {
               <span className="block text-[#fcbf49] xl:inline">October 25th-October 27th</span>
             </h3>
             </div>
-            {/* <Image
-              className="other-component object-cover w-[200px] h-[100px] sm:w-[250px] sm:h-[85px] mt-3 sm:mt-0 opacity-0"
-              src="/svg_pers/ecell.png"
-              alt="logo"
-              width={150}
-              height={75}
-            /> */}
             <Countdown/>
           </div>
         </div>
