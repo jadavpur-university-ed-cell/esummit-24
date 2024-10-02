@@ -10,10 +10,12 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
     transId:'',
     bankId:''
   });
+  const [loading, setLoading]  = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     try {
       // Simulate payment processing with a bank
       const response = await fetch('/api/process-payment', {
@@ -26,12 +28,13 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
           transId: token.transId,
           bankId : token.bankId,
         }),
+        cache:"no-cache"
       });
 
       const result = await response.json();
 
       if (result.success) {
-        setPaymentStatus('Payment Successful');
+        setPaymentStatus(result.paymentStatus);
       } else {
         setPaymentStatus('Payment Failed');
       }
@@ -39,6 +42,7 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
       console.error('Error processing payment:', error);
       setPaymentStatus('Payment Failed');
     }
+    setLoading(false);
   };
 
   return (
@@ -71,11 +75,11 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
         <button
           type="submit"
           className="bg-[#fcbf49] text-white py-2 px-4 rounded hover:bg-[#fabf49] focus:outline-none">
-          Submit Payment
+          {!loading?"Submit Payment":"Please wait..."}
         </button>
       </form>
       {paymentStatus && (
-        <p className={`mt-4 font-semibold ${paymentStatus === 'Payment Successful' ? 'text-green-500' : 'text-red-500'}`}>
+        <p className={`mt-4 font-semibold ${paymentStatus === 'pending' ? 'text-yellow-500' : 'text-red-500'}`}>
           {paymentStatus}
         </p>
       )}
