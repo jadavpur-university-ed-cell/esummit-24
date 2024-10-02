@@ -61,6 +61,42 @@ const UserTeams = ({ teams }: { teams: Team[] }) => {
 	);
 };
 
+interface Transaction {
+	purchaseId: string;
+	type: string;
+	status: string;
+}
+
+const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => {
+	return (
+		<div className="w-full mt-8 bg-[#101720] p-6 rounded-lg shadow-lg">
+			<h3 className="text-3xl text-[#fcbf49] font-semibold mb-4">User Transactions</h3>
+			<table className="w-full text-left table-auto border-collapse">
+				<thead>
+					<tr className="bg-[#101720] text-[#eae2b7] text-lg">
+						<th className="border p-2">Transcation Type</th>
+						<th className="border p-2">Purchase Id</th>
+						<th className="border p-2">Transaction Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{transactions.map((transaction, index) => {
+						return (
+							<tr key={index} className="bg-gray-800">
+								<td className="border p-2">{transaction.type}</td>
+								<td className="border p-2">{transaction.purchaseId}</td>
+								<td className="border p-2 grid grid-cols-1 md:grid-cols-2">
+									{transaction.status}
+								</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
+	);
+};
+
 const UserDetails = ({ user }: { user: User }) => {
 	return (
 		<div className="w-full flex justify-center mb-6">
@@ -113,9 +149,11 @@ const UserDetails = ({ user }: { user: User }) => {
 const UserProfile = ({
 	user,
 	memberTeams,
+	userTransactions
 }: {
 	user: User;
 	memberTeams: any;
+	userTransactions: Transaction[];
 }) => {
 	const [userData, setUserData] = useState<User | null>({
 		id: "",
@@ -174,6 +212,7 @@ const UserProfile = ({
 
 				{/* Event Participation */}
 				<UserTeams teams={memberTeams} />
+				<UserTransactions transactions={userTransactions} />
 			</div>
 		</div>
 	);
