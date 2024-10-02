@@ -1,20 +1,21 @@
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
 
-interface PaymentProps {
-  token: {
-    uid: string;
-    transId: string;
-  };
-}
 
-const Payment: React.FC<PaymentProps> = ({ token }) => {
-  const [bankId, setBankId] = useState<string>('');
+const Payment: React.FC<{uid:string}> = ({ uid }) => {
+  const [token, setToken] = useState<{
+    transId:string,
+    bankId:string
+  }>({
+    transId:'',
+    bankId:''
+  });
+  const [loading, setLoading]  = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    setLoading(true);
     try {
       // Simulate payment processing with a bank
       const response = await fetch('/api/process-payment', {
@@ -23,16 +24,17 @@ const Payment: React.FC<PaymentProps> = ({ token }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          uid: token.uid,
+          uid: uid,
           transId: token.transId,
-          bankId,
+          bankId : token.bankId,
         }),
+        cache:"no-cache"
       });
 
       const result = await response.json();
 
       if (result.success) {
-        setPaymentStatus('Payment Successful');
+        setPaymentStatus(result.paymentStatus);
       } else {
         setPaymentStatus('Payment Failed');
       }
@@ -40,6 +42,7 @@ const Payment: React.FC<PaymentProps> = ({ token }) => {
       console.error('Error processing payment:', error);
       setPaymentStatus('Payment Failed');
     }
+    setLoading(false);
   };
 
   return (
@@ -51,21 +54,32 @@ const Payment: React.FC<PaymentProps> = ({ token }) => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col">
             <label className="block text-sm font-medium text-gray-300" htmlFor="email">Transaction ID</label>
-            <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" type='number' placeholder="Enter Transaction ID" value={token.transId} />
+            <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" type="number" placeholder="Enter Transaction ID" value={token.transId} onChange={(e)=>{
+              setToken(prev=>{
+                let obj = {...prev};
+                obj.transId = e.target.value
+                return obj;
+              })
+            }} />
 
             <label className="block text-sm font-medium text-gray-300" htmlFor="email">UTR/Vendor ID</label>
-            <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Enter Vendor ID" value={token.transId} />
+            <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" type="text" placeholder="Enter Vendor ID" value={token.bankId} onChange={(e)=>{
+              setToken(prev=>{
+                let obj = {...prev};
+                obj.bankId = e.target.value
+                return obj;
+            })}}/>
         </div>
         {/* //TODO: register query in the database */}
 
         <button
           type="submit"
           className="bg-[#fcbf49] text-white py-2 px-4 rounded hover:bg-[#fabf49] focus:outline-none">
-          Submit Payment
+          {!loading?"Submit Payment":"Please wait..."}
         </button>
       </form>
       {paymentStatus && (
-        <p className={`mt-4 font-semibold ${paymentStatus === 'Payment Successful' ? 'text-green-500' : 'text-red-500'}`}>
+        <p className={`mt-4 font-semibold ${paymentStatus === 'pending' ? 'text-yellow-500' : 'text-red-500'}`}>
           {paymentStatus}
         </p>
       )}
