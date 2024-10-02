@@ -56,7 +56,7 @@ const Payment: React.FC<PaymentProps> = ({ token }) => {
             <label className="block text-sm font-medium text-gray-300" htmlFor="email">UTR/Vendor ID</label>
             <Input className="text-gray-300 bg-[#101720e7] focus:ring-gray-500" placeholder="Enter Vendor ID" value={token.transId} />
         </div>
-        //TODO: register query in the database
+        {/* //TODO: register query in the database */}
 
         <button
           type="submit"

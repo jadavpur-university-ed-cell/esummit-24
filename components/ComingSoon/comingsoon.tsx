@@ -3,7 +3,7 @@ import MagicButton from "../MagicButton";
 import { Spotlight } from "../ui/Spotlight";
 import { TextGenerate } from "../TextGenerate";
 import Image from "next/image";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 import AlertText from "../AlertText";
 import Locations from "../locations";
 // import { Logo_Glow } from "@/public/svg_pers";
@@ -43,7 +43,7 @@ const ComingSoon = () => {
             />
         </a>
         {/* <Locations/> */}
-        <Footer/>
+        {/* <Footer/> */}
       </div>  
     </div>
     </>

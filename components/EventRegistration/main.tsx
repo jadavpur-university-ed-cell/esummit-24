@@ -121,14 +121,14 @@ const Event = ({params,email}: {
 			<div className="flex flex-col p-8">
 				<div className="w-full flex justify-center">
 					<h1 className="text-4xl font-bold text-[#fcbf49]">
-						{eventProp.name}
+						Event Registration
 					</h1>
 				</div>
 				<div className="relative py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:flex justify-center">
 					<div className="lg:pr-8 flex justify-center">
 						<div className="max-w-md mx-auto sm:max-w-lg lg:mx-0 flex flex-col items-center gap-y-4">
-							<h2 className="text-xl font-bold tracking-tight sm:text-4xl text-[#fcbf49]">
-								Participate
+							<h2 className="text-xl font-normal tracking-tight sm:text-4xl text-[#f77f40]">
+								Participate in {eventProp.name}
 							</h2>
 							<TeamInput
 								teamDetails={teamDetails}
@@ -145,23 +145,25 @@ const Event = ({params,email}: {
 										disabled={index === 0 ? true : false}></MemberInput>
 								);
 							})}
-							{members.length < teamDetails.size ? (
-								<button onClick={addMember} className="bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 text-sm rounded-sm">Add Members</button>
+							<div className="flex items-center space-x-2">
+								{members.length < teamDetails.size ? (
+								<button onClick={addMember} className="bg-gray-700 text-gray-100 font-medium px-2 py-1 text-lg rounded-full">Add Member</button>
 							) : (
 								<></>
 							)}
 							{/* submit button rendered here */}
 							<button
 								type="submit"
-								className="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-lg font-medium rounded-sm text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
+								className="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-lg font-medium rounded-full text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
 								onClick={onSubmit}
 								disabled={loading}>
-								{loading?"Checking..":"Submit"}
+								{loading?"Checking..":"Register"}
 							</button>
 							{/* for the loading feature */}
 							{loading ? "Loading.." : <></>}
 						</div>
-					</div>
+					 </div>
+				   </div>
 					<Warning showWarning={showWarning} setShowWarning={setShowWarning}/>
 					<Success showSuccess={showSuccess} setShowSuccess={setShowSuccess}/>
 				</div>

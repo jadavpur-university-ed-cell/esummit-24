@@ -26,14 +26,14 @@ const ProductSection = () => {
             <h1 className="text-white text-3xl title-font font-medium mb-1">E-Summit 24 Mechandise</h1>
             <div className="flex mb-4">
               
-            //TODO: Apply such a logic where the genderand size of the user is shown and initialised as the order value
+            {/* //TODO: Apply such a logic where the genderand size of the user is shown and initialised as the order value */}
             {/* Gender Here  */}
               <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2">
                  {/* Size as said while registration here */}
               </span>
             </div>
             <p className="leading-relaxed text-gray-400">
-              Presenting the Official Merch of E-Summit'24. Grab your hands on the exclusive merchandise of E-Summit'24!
+              Presenting the Official Merch of E-Summit&apos;24. Grab your hands on the exclusive merchandise of E-Summit&apos;24!
               A round-necked T-Shirt with a 200 GSM fabric, perfect for your casual outings. <br/>
               <span className='font-semibold text-[#f77f00]'>Note:</span> This is a non Customizable Shirt, Organizing Comitee Members are asked to contact the Logistic Team for their Customized Shirts.
             </p>

@@ -22,7 +22,7 @@ const openSidebar = () => {
 
 	return (
 		<>
-			<div className="hidden lg:flex px-6 py-2 rounded-full bg-[#fcbf49] font-semibold text-[#101720] mt-8">
+			<div className="hidden lg:flex px-6 py-2 rounded-full bg-[#eae2b7] font-semibold text-[#101720] mt-8">
 				<nav className="flex gap-x-8">
 					<Link href="/events/launchx" className="hover:font-bold">
 						LaunchX

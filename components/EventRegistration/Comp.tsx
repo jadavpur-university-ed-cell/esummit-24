@@ -1,3 +1,5 @@
+import { DeleteIcon } from "lucide-react";
+
 type prop ={
   id:number,
   label:string,
@@ -16,23 +18,34 @@ export function MemberInput({id, state, setState,label, disabled}:prop){
     setState(newdata);
   }
 return (
-  <div className="sm:col-span-2">
-    <label htmlFor="email" className="block text-sm font-medium text-[#eae2b7]">
-      {label}
-    </label>
-    <div className="mt-1 flex">
-      <input
-        id="email"
-        name="email"
-        type="email"
-        autoComplete="email"
-        className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-sm px-2 py-1"
-        value={state[id]}
-        onChange={(e)=>{handleChange(e)}}
-        disabled={disabled}
-      />
-      {!disabled?<button onClick={handleRemove} className="bg-red-400 text-[#101720] px-2 py-1 rounded-sm ml-3">Remove</button>:<></>}
-    </div>
+  <div className="sm:col-span-3">
+  <div className="relative mb-4 flex items-center">
+  <input
+    type="email"
+    id="floatingInput"
+    name="email"
+    placeholder=" "
+    autoComplete="email"
+    className="peer block w-full px-3 py-3 text-sm text-gray-200 bg-transparent border border-gray-700 rounded-t-xl appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
+    value={state[id]}
+    onChange={(e) => handleChange(e)}
+    disabled={disabled}
+  />
+  <label
+    htmlFor="floatingInput"
+    className="absolute text-sm text-[#eae2b7] duration-300 transform -translate-y-6 scale-75 top-2 left-3 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-6"
+  >
+    {label}
+  </label>
+  {!disabled && (
+    <button
+      onClick={handleRemove}
+      className="bg-[#d62828] text-white px-1 text-xs rounded-lg ml-1"
+    >
+      <DeleteIcon />
+    </button>
+  )}
+   </div>
   </div>
 )
 }
@@ -45,21 +58,25 @@ export type teamProps={
 }
 export function TeamInput({teamDetails,setTeamDetails}:teamProps){
   return (
-    <div>
-      <label htmlFor="first-name" className="block text-sm font-medium text-[#eae2b7]">
-        Team Name
-      </label>
-      <div className="mt-1">
-        <input
-          type="text"
-          name="team-name"
-          id="team-name"
-          autoComplete="team-name"
-          className="block w-full shadow-sm sm:text-sm focus:ring-grape-500 focus:border-grape-500 border-gray-300 rounded-sm px-2 py-1"
-          value={teamDetails.name}
-          onChange={(e) => { setTeamDetails({ ...teamDetails, name: e.target.value }) }}
-        />
-      </div>
+      <div className="sm:col-span-3">
+       <div className="relative mb-4 flex items-center">
+         <input
+           type="text"
+           id="floatingInput"
+           name="team-name"
+           placeholder=" "
+           autoComplete="team-name"
+           className="peer block w-full px-3 py-3 text-sm text-gray-200 bg-transparent border border-gray-700 rounded-t-xl appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
+           value={teamDetails.name}
+           onChange={(e) => { setTeamDetails({ ...teamDetails, name: e.target.value }) }}
+         />
+         <label
+           htmlFor="floatingInput"
+           className="absolute text-sm text-[#eae2b7] duration-300 transform -translate-y-6 scale-75 top-2 left-3 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-6"
+         >
+           Add a Team Name
+         </label>
+         </div>
     </div>
   )
 }

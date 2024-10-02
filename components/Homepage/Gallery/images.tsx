@@ -22,7 +22,5 @@ export const images = [
     {src:'/gallery/21.jpg',alt:'21'},
     {src:'/gallery/22.jpg',alt:'22'},
     {src:'/gallery/23.jpg',alt:'23'},
-    {src:'/gallery/24.jpg',alt:'24'},
-    {src:'/gallery/25.jpg',alt:'25'},
-    {src:'/gallery/26.jpg',alt:'26'},
+    {src:'/gallery/24.jpg',alt:'24'}
   ];

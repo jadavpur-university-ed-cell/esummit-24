@@ -100,14 +100,14 @@ const Hero: FunctionComponent = () => {
           <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
           </div>
-          <div className="flex flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
-            <p
+          <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
+            <h2
               ref={textRef}
-              className="text-center md:tracking-wider mb-0 sm:mb-4 lg:mb-0 sm:text-sm md:text-lg lg:text-xl w-4/5 lg:w-full opacity-0 text-white pt-10"
+              className="text-center text-2xl md:tracking-wider mb-0 sm:mb-4 lg:mb-0 sm:text-sm md:text-lg lg:text-2xl w-4/5 lg:w-full opacity-0 text-white pt-10"
             >
               Jadavpur University Entrepreneurship Cell Presents the Fourth
               Edition of Our Flagship Event
-            </p>
+            </h2>
             <div className=" w-full flex items-center justify-center">
               <svg
                 ref={pacmanRef}
@@ -275,19 +275,21 @@ const Hero: FunctionComponent = () => {
                 </g>
               </svg>
             </div>
-            <div className="other-component">
-              <TextGenerate
-                words="Foster the Future"
-                className="text-center text-2xl sm:text-3xl my-2 md:text-4xl"
-              />
+            <div className="text-center">
+            <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
+              <span className="block xl:inline">Foster The</span>{' '}
+              <span className="block text-[#f77f00] xl:inline">Future!</span></h2>
+              <h3 className="my-1 py-1 font-semibold">
+              <span className="block text-[#fcbf49] xl:inline">October 25th-October 27th</span>
+            </h3>
             </div>
-            <Image
+            {/* <Image
               className="other-component object-cover w-[200px] h-[100px] sm:w-[250px] sm:h-[85px] mt-3 sm:mt-0 opacity-0"
               src="/svg_pers/ecell.png"
               alt="logo"
               width={150}
               height={75}
-            />
+            /> */}
             <Countdown/>
           </div>
         </div>

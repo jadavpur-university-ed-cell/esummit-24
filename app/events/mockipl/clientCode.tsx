@@ -95,13 +95,13 @@ const MockIPLEvent: React.FC<eventProps> = ({allow}) => {
               </h1>
              
               {/* Register Button */}
-              <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-red-200  text-black font-bold border border-black rounded-lg  py-2 mt-8 hover:bg-red-800 hover:text-white transition-all duration-300"
+              <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-[#fcbf49]  text-black font-bold border rounded-lg  py-2 mt-8 hover:bg-[#eae2b7] hover:text-[#101720] transition-all duration-300"
               disabled ={!allow}
               onClick={()=>{
                 router.push('/eventRegistration/mockiplauction');
               }}
               >
-                Participate {allow?"":"🔒"}
+               {allow?"Participate":"🔒"}
               </button>
             </div>
           </div>
