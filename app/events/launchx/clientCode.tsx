@@ -10,12 +10,12 @@ import Image from "next/image";
 
 const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
   const router = useRouter();
-  const description = `Launch X is the perfect platform for aspiring entrepreneurs to showcase their innovations and gain valuable feedback from industry experts to achieve the next step in their startup journey. With esteemed partners such as NASSCOM, 100X VC, TiE Kolkata, and WeWork Labs from previous editions, our reputation speaks for itself. Begin your journey by showcasing your startup idea, where you’ll fine-tune and launch your venture with guidance from top-tier mentors and support from over 20,000 passionate business aficionados. Navigate through these thrilling rounds:`;
+  const description = `Launch X is the perfect platform for aspiring entrepreneurs to showcase their innovations and gain valuable feedback from industry experts to achieve the next step in their startup journey. With esteemed partners such as NASSCOM, 100X VC, TiE Kolkata, and WeWork Labs from previous editions, our reputation speaks for itself. Begin your journey by showcasing your startup idea, where you will fine-tune and launch your venture with guidance from top-tier mentors and support from over 20,000 passionate business aficionados. Navigate through these thrilling rounds:`;
 
   const bulletPoints = [
-    "Round 1: Preliminary Submission – Make an impactful debut by sending a 3-slide PowerPoint presentation on the official website or Unstop, capturing the essence of your innovative idea.",
-    "Round 2: Offline Pitching Round – Compete as one of 30 shortlisted teams, delivering a compelling 5-minute pitch followed by a 2-minute rebuttal, putting your presentation skills and idea strength to the ultimate test.",
-    "Final Round: In-Person Presentation – If feasible, travel to Kolkata for the final showdown, where you might face an Elevator Pitch session assessed by prestigious VCs."
+    "Round 1: Preliminary Submission : Make an impactful debut by sending a 3-slide PowerPoint presentation on the official website or Unstop, capturing the essence of your innovative idea.",
+    "Round 2: Offline Pitching Round : Compete as one of 30 shortlisted teams, delivering a compelling 5-minute pitch followed by a 2-minute rebuttal, putting your presentation skills and idea strength to the ultimate test.",
+    "Final Round: In-Person Presentation : If feasible, travel to Kolkata for the final showdown, where you might face an Elevator Pitch session assessed by prestigious VCs."
   ];
 
   const bottomText = "Gain unparalleled access to top-tier VCs, forge invaluable networks, and vie against 100+ promising ventures from across India for substantial rewards and a place in the spotlight.";
@@ -25,14 +25,12 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
     { question: "How can I participate?", answer: "Register through the 'Participate' button on this page." },
     { question: "What are the requirements?", answer: "You should have a startup idea and be prepared to pitch it in the rounds." }
   ];
-
   // Points of Contact Data
   const pointsOfContact = [
-    { name: "John Doe", phoneNumber: "+1234567890", nameColor: "text-red-500" },
-    { name: "Jane Smith", phoneNumber: "+0987654321", nameColor: "text-blue-500" },
-    { name: "Alice Johnson", phoneNumber: "+1122334455", nameColor: "text-green-500" }
+    { name: "Raktim Banerjee", phoneNumber: "+919569584047", nameColor: "text-red-500" },
+    { name: "Om Karmakar", phoneNumber: "+916297127298", nameColor: "text-blue-500" },
+    { name: "Aniketan Suin", phoneNumber: "+919433894770", nameColor: "text-green-500" }
   ];
-
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
 
@@ -200,11 +198,13 @@ const LaunchXEvent: React.FC<eventProps> = ({allow})=> {
           />
         </div>
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-gray-600 to-zinc-200">Sponsors</h2>
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-gray-600 to-zinc-200">
+            {/* Sponsors */}
+            </h2>
           <ul className="mt-4 text-white">
-            <li>Sponsor 1</li>
+            {/* <li>Sponsor 1</li>
             <li>Sponsor 2</li>
-            <li>Sponsor 3</li>
+            <li>Sponsor 3</li> */}
           </ul>
         </div>
       </div>

@@ -28,9 +28,9 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
 
   // Points of Contact Data
   const pointsOfContact = [
-    { name: "John Doe", phoneNumber: "+1234567890", nameColor: "text-red" },
-    { name: "Jane Smith", phoneNumber: "+0987654321", nameColor: "text-blue" },
-    { name: "Alice Johnson", phoneNumber: "+1122334455", nameColor: "text-green" }
+    { name: "Gourab Paul", phoneNumber: "+917384026853", nameColor: "text-red" },
+    { name: "Ahnik Purkait", phoneNumber: "+918777098463", nameColor: "text-blue" },
+    { name: "Taufique Ali", phoneNumber: "+916291254793", nameColor: "text-green" }
   ];
 
   return (
@@ -224,15 +224,15 @@ const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
           
           <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
           <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
-            Sponsors
+            {/* Sponsors */}
             <div className="mt-4 w-full h-0.5 bg-white"></div>
           </h2>
         </div>
           <ul className="mt-7 text-white">
             {/* Replace with actual sponsor names */}
-            <li>Sponsor 1</li>
+            {/* <li>Sponsor 1</li>
             <li>Sponsor 2</li>
-            <li>Sponsor 3</li>
+            <li>Sponsor 3</li> */}
           </ul>
         </div>
       </div>

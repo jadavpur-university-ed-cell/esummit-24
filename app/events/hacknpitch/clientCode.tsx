@@ -37,12 +37,10 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
 
   // Points of Contact data
   const pointsOfContact = [
-    { name: "Emily Davis", phoneNumber: "+1234567890", nameColor: "text-yellow-400" },
-    { name: "Michael Brown", phoneNumber: "+0987654321", nameColor: "text-red-400" },
-    { name: "Sarah Johnson", phoneNumber: "+1122334455", nameColor: "text-green-400" }
+    { name: "Shivam Mundra", phoneNumber: "+918336940307", nameColor: "text-yellow-400" },
+    { name: "Aditya Anand", phoneNumber: "+918961313886", nameColor: "text-red-400" },
+    { name: "Arka Dhar", phoneNumber: "+917872980084", nameColor: "text-green-400" }
   ];
-
-
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       {/* Header Section */}

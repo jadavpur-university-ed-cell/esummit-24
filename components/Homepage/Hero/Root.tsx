@@ -286,14 +286,7 @@ const Hero: FunctionComponent = () => {
                 </span>
               </h3>
             </div>
-            {/* <Image
-              className="other-component object-cover w-[200px] h-[100px] sm:w-[250px] sm:h-[85px] mt-3 sm:mt-0 opacity-0"
-              src="/svg_pers/ecell.png"
-              alt="logo"
-              width={150}
-              height={75}
-            /> */}
-            <Countdown />
+            <Countdown/>
           </div>
         </div>
       </section>

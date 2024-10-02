@@ -35,6 +35,9 @@ const ProductSection = ({userDetails}:{userDetails:{
 	}
   return (
     <section className="text-gray-600 body-font overflow-hidden bg-[#101720]">
+    <h1 className="text-4xl text-[#fcbf49] mt-8 justify-center font-bold text-center">
+    E-Summit&apos;24 Merchandise
+    </h1>
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
@@ -43,7 +46,7 @@ const ProductSection = ({userDetails}:{userDetails:{
             src="/shirt.png"
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h2 className="text-sm title-font text-gray-500 tracking-widest">T-SHIRT</h2>
+            <h2 className="text-sm title-font text-[#f77f00] tracking-widest">T-SHIRT</h2>
             <h1 className="text-white text-3xl title-font font-medium mb-1">E-Summit 24 Mechandise</h1>
             <div className="flex mb-4">
               
@@ -53,9 +56,9 @@ const ProductSection = ({userDetails}:{userDetails:{
                  {/* Size as said while registration here */}
               </span>
             </div>
-            <p className="leading-relaxed text-gray-400">
+            <p className="leading-relaxed text-[#eae2b7]">
               Presenting the Official Merch of E-Summit&apos;24. Grab your hands on the exclusive merchandise of E-Summit&apos;24!
-              A round-necked T-Shirt with a 200 GSM fabric, perfect for your casual outings. <br/>
+              A round-necked T-Shirt with a 200 GSM fabric, perfect for your casual outings. <br/><br/>
               <span className='font-semibold text-[#f77f00]'>Note:</span> This is a non Customizable Shirt, Organizing Comitee Members are asked to contact the Logistic Team for their Customized Shirts.
             </p>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">

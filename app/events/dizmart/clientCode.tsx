@@ -28,10 +28,10 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
   ];
 
   const pointsOfContact = [
-    { name: "Emily Green", phoneNumber: "+1234567890", nameColor: "text-red-500" },
-    { name: "Michael Brown", phoneNumber: "+0987654321", nameColor: "text-blue-500" }
+    { name: "Srishti Sharma", phoneNumber: "+918700847372", nameColor: "text-red-500" },
+    { name: "Aishani Roy", phoneNumber: "+9186531 21414", nameColor: "text-blue-500" },
+    { name: "Meghna Das", phoneNumber: "+919874576453", nameColor: "text-blue-500" }
   ];
-
   return (
     <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
@@ -209,15 +209,15 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
           
           <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
           <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
-            Sponsors
+            {/* Sponsors */}
             <div className="mt-4 w-full h-0.5 bg-white"></div>
           </h2>
         </div>
           <ul className="mt-7 text-white">
             {/* Replace with actual sponsor names */}
-            <li>Sponsor 1</li>
+            {/* <li>Sponsor 1</li>
             <li>Sponsor 2</li>
-            <li>Sponsor 3</li>
+            <li>Sponsor 3</li> */}
           </ul>
         </div>
       </div>
@@ -227,46 +227,3 @@ const DizmartEvent: React.FC<eventProps> = ({allow}) =>{
 };
 
 export default DizmartEvent;
-
-
-
-
-
-{/* <img
-src="/event-logos/Dizmart.png"
-alt="Corporate Clash Logo"
-className="w-full h-auto"
-/> */}
-
-
-
-
-
-
-
-
-
-{/* <div className="pt-12">
-        <div className="flex flex-col justify-center items-center pt-8 pb-0.5">
-          <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-orange-600 to-red-200">
-            Rounds
-            <div className="mt-4 w-full h-0.5 bg-white"></div>
-          </h1>
-        </div>
-        <RoundCards
-          headingColor="text-yellow-500"
-          textColor="text-yellow-50"
-          rounds={[
-            {
-              title: "Preliminary Round",
-              date: "Online",
-              description: "Submit your product label design concept for review by our panel.",
-            },
-            {
-              title: "Final Round",
-              date: "Offline",
-              description: "Pitch your design live in front of our judges and audience.",
-            }
-          ]}
-        />
-      </div> */}
