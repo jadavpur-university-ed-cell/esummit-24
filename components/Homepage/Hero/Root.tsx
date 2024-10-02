@@ -5,6 +5,7 @@ import { Spotlight } from "../../ui/Spotlight";
 import { gsap } from "gsap";
 import { TextGenerate } from "@/components/TextGenerate";
 import Countdown from "../Countdown/Countdown";
+import Background from "../Background/Background";
 
 const Hero: FunctionComponent = () => {
   const pacmanRef = useRef(null);
@@ -95,11 +96,11 @@ const Hero: FunctionComponent = () => {
   }, []);
   return (
     <>
-      <section id="hero" className="bg-[#101720]">
-        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-image">
-          <div className="absolute h-full w-full hero-content hidden">
+      <section id="hero" className="">
+        <div className="lg:h-max relative overflow-x-clip">
+          {/* <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
-          </div>
+          </div> */}
           <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <h2
               ref={textRef}
@@ -111,7 +112,6 @@ const Hero: FunctionComponent = () => {
             <div className=" w-full flex items-center justify-center">
               <svg
                 ref={pacmanRef}
-                xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 374.999991 374.999991"
                 hanging={400}
                 width={400}
