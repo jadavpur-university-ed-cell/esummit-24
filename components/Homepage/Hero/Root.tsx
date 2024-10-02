@@ -96,7 +96,7 @@ const Hero: FunctionComponent = () => {
   return (
     <>
       <section id="hero" className="bg-[#101720]">
-        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
+        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-image">
           <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
           </div>
@@ -276,12 +276,15 @@ const Hero: FunctionComponent = () => {
               </svg>
             </div>
             <div className="text-center">
-            <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">Foster The</span>{' '}
-              <span className="block text-[#f77f00] xl:inline">Future!</span></h2>
+              <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Foster The</span>{" "}
+                <span className="block text-[#f77f00] xl:inline">Future!</span>
+              </h2>
               <h3 className="my-1 py-1 font-semibold">
-              <span className="block text-[#fcbf49] xl:inline">October 25th-October 27th</span>
-            </h3>
+                <span className="block text-[#fcbf49] xl:inline">
+                  October 25th-October 27th
+                </span>
+              </h3>
             </div>
             {/* <Image
               className="other-component object-cover w-[200px] h-[100px] sm:w-[250px] sm:h-[85px] mt-3 sm:mt-0 opacity-0"
@@ -290,7 +293,7 @@ const Hero: FunctionComponent = () => {
               width={150}
               height={75}
             /> */}
-            <Countdown/>
+            <Countdown />
           </div>
         </div>
       </section>
