@@ -1,5 +1,5 @@
 # Todos For Events Registration
-- [X] Check if same emails cant be repeated
+- [x] Check if same emails cant be repeated
 - [x] wrap this up to check with db if the team name is already taken
 - [x] check the valid eventName
 - [x] handling the null entries
@@ -7,18 +7,19 @@
 - [x] final submission
 - [x] zod verification on frontend ??
 - [ ] user without email verification are not allowed
-- [ ] db call optimization
+- [x] db call optimization
 
 # issues
-- [ ] build successfull, but profile routing error
-- [ ] login no longer routing to sign-in
+- [ ] White bg at esummit's homepage
+- [ ] Prisma Client Integration Pending
 
 
 # Todos for Merch
 - [x] set Shirt size
 - [x] Add basic UI
 - [x] server action
-- [ ] Payment Integration
+- [x] Payment Integration
+- [ ] Admin Side Code Remaining
 
 # Documentation
 
