@@ -104,7 +104,7 @@ const Profile = async () => {
 			<div>
 				{/* <span className="text-white">{JSON.stringify(session)}</span> */}
 				<div className="flex justify-between px-8 py-12 items-center">
-					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">Profile</h1>
+					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">User Profile</h1>
 					<form
 						action={async () => {
 							"use server";
@@ -112,7 +112,7 @@ const Profile = async () => {
 						}}>
 						<button
 							type="submit"
-							className="bg-[#fcbf49] px-2 py-1 font-medium rounded-sm text-[#101720]">
+							className="bg-[#d62828] text-white px-2 py-1 font-medium rounded-xl">
 							Log Out
 						</button>
 					</form>
@@ -122,6 +122,7 @@ const Profile = async () => {
 				) : (
 					<RegisterDetailsPage email={user?.email ?? ""} />
 				)}
+              {/* </div> */}
 			</div>
 		</>
 	);

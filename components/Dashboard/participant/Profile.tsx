@@ -30,11 +30,11 @@ interface User {
 
 const UserTeams = ({ teams }: { teams: Team[] }) => {
 	return (
-		<div className="w-full mt-8 bg-gray-900 p-6 rounded-lg shadow-lg">
+		<div className="w-full mt-8 bg-[#101720] p-6 rounded-lg shadow-lg">
 			<h3 className="text-3xl text-[#fcbf49] font-semibold mb-4">Event Participation</h3>
 			<table className="w-full text-left table-auto border-collapse">
 				<thead>
-					<tr className="bg-gray-800 text-[#eae2b7] text-lg">
+					<tr className="bg-[#101720] text-[#eae2b7] text-lg">
 						<th className="border p-2">Event Name</th>
 						<th className="border p-2">Team Name</th>
 						<th className="border p-2">Team Members</th>
@@ -64,7 +64,7 @@ const UserTeams = ({ teams }: { teams: Team[] }) => {
 const UserDetails = ({ user }: { user: User }) => {
 	return (
 		<div className="w-full flex justify-center mb-6">
-			<div className="grid grid-cols-1 md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
+			<div className="grid grid-cols-1 bg-gray-800 bg-opacity-40 px-1 pt-16 pb-24 rounded-2xl overflow-hidden md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
 				<div className="flex flex-col w-1/2">
           <p className="text-zinc-400 text-sm">Name</p>
           <p>{user.name}</p>
@@ -150,19 +150,19 @@ const UserProfile = ({
 	};
 
 	return (
-		<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-white">
+		<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-[#eae2b7] font-semibold">
 			<div className="flex flex-col items-center">
 				<UserDetails user={user} />
 
 				<div>
 					<button
-						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-sm"
+						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-xl"
 						onClick={toggleEditUser}>
 						Edit Details
 					</button>
 					<dialog
 						ref={editUserRef}
-						className="relative h-[90vh] w-[70vw] backdrop:bg-[#00000080] bg-[#101720] text-white">
+						className="relative h-[90vh] w-[70vw] backdrop:bg-[#00000080] bg-[#101720] text-[#fcbf49] font-semibold">
 						<EditUser user={user} />
 						<button
 							onClick={toggleEditUser}

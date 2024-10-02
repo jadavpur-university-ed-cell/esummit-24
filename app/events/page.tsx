@@ -1,0 +1,86 @@
+import React from 'react'
+import Link from 'next/link';
+import Footer from '@/components/Homepage/Footer/Footer';
+
+const events: EventDetails[] = [
+  {
+    category: "Pitching",
+    title: "LaunchX",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/launchx" 
+  },
+  {
+    category: "Product Marketing & Labelling",
+    title: "Dizmart",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/dizmart" 
+  },
+  {
+    category: "Hackathon",
+    title: "Hack<N>Pitch",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/hacknpitch" 
+  },
+  {
+    category: "Case Study",
+    title: "Corporate Clash",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/corporateclash" 
+  },
+  {
+    category: "Mock Trading",
+    title: "Mock Stock 3.0",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/mockstock" 
+  },
+  {
+    category: "Fantasy Gaming",
+    title: "Mock IPL Auction",
+    description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.",
+    link: "/events/mockipl" 
+  }
+];
+
+interface EventDetails {
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+}
+const EventItems: React.FC<EventDetails> = ({ category, title, description, link }) => (
+  <div className="p-4 lg:w-1/3">
+    <div className="h-full bg-gray-700 bg-opacity-40 px-8 pt-16 pb-24 rounded-xl overflow-hidden text-center relative transform transition-transform duration-300 hover:scale-105 hover:bg-gray-700">
+      <h2 className="tracking-widest text-base title-font font-extralight text-[#f77f00] mb-1">{category}</h2>
+      <h1 className="title-font sm:text-2xl text-xl font-extrabold text-gray-100 mb-3">{title}</h1>
+      <p className="leading-relaxed mb-3">{description}</p>
+      <Link href={link} passHref className='text-yellow-400 inline-flex items-center'>
+        <h3>View</h3>
+          <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14" />
+            <path d="M12 5l7 7-7 7" />
+          </svg>
+      </Link>
+    </div>
+  </div>
+);
+
+const Events:React.FC = () => { 
+  return (
+    <>
+    <div className="bg-[#101720] flex justify-center p-8 items-center">
+    <h1 className="text-4xl text-[#fcbf49] font-bold">Events</h1>
+    </div>
+    <section className="text-gray-400 bg-[#101720]">
+      <div className="container px-5 py-12 mx-auto">
+        <div className="flex flex-wrap -m-4">
+          {events.map((event, index) => (
+            <EventItems key={index} {...event} />
+          ))}
+        </div>
+      </div>
+    </section>
+    <Footer/>
+    </>
+  )
+}
+export default Events

@@ -6,5 +6,6 @@ export default function Page(){
       <InspiraTalks></InspiraTalks>
       <Footer></Footer>
     </div>
+
   )
 }

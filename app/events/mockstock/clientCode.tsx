@@ -8,6 +8,7 @@ import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import EventsNavbar from "@/components/Events/Navbar";
 import Image from "next/image";
+import Footer from "@/components/Homepage/Footer/Footer";
 
 
 const MockStockEvent: React.FC<eventProps> = ({allow}) => {
@@ -17,7 +18,7 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
   const bulletPoints = [
     "Compete on a national scale with the very best in your quest for success.",
     "Learn about the fundamentals of stock trading from seasoned professionals in the industry.",
-    "There’s more—Mock Stock represents a unique chance to delve into the intricacies of stock trading."
+    "There is more —Mock Stock represents a unique chance to delve into the intricacies of stock trading."
   ];
 
   const bottomText = "So; APPLY NOW to test your mettle to become the Wolf of Dalal Street !!";
@@ -33,6 +34,7 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
   ];
 
   return (
+    <>
     <div className="bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
       <div className="flex justify-center">
         {/* <section className="bg-red-500 w-[66.6666%] h-[35px]"></section> */}
@@ -225,6 +227,8 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
