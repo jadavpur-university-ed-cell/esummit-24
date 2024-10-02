@@ -33,10 +33,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      className="w-full bg-[#101720] font-sans md:px-10 overflow-clip"
-      ref={containerRef}
-    >
+    <div className="w-full font-sans md:px-10 overflow-clip" ref={containerRef}>
       <div className="max-w-screen flex justify-center">
         <h2 className="animated-title text-5xl md:text-7xl text-[#fcbf49] font-bold  ">
           Timeline
