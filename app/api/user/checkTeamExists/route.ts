@@ -12,8 +12,14 @@ export async function GET(req:NextRequest){
   try {
     const dbres = await prisma.team.findFirst({
       where: {
-        teamName: teamName,
-        eventName: eventName
+        AND:[
+        {teamName: {
+          equals: teamName,
+          mode: "insensitive"
+        }
+      },
+        {eventName: eventName}
+        ]
       }
     });
     if(dbres == null) return new Response(JSON.stringify({msg:0}),{status:200});

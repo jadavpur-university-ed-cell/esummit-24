@@ -8,9 +8,10 @@ interface CardProps {
   dayTime: string;
   mode: string;
   linkedin: string;
+  imgLink:string;
 }
 
-const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode, linkedin }) => {
+const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode, linkedin,imgLink }) => {
   return (
     <div className="relative p-4 bg-white shadow-lg group border-solid rounded-[40px] mt-8 overflow-hidden">
       {/* Speaker Image and Details */}
@@ -19,7 +20,7 @@ const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode,
           width={200}
           height={200}
           className="object-cover shadow-lg rounded-lg"
-          src="https://via.placeholder.com/150" // Placeholder image, you can change this
+          src={imgLink} // Placeholder image, you can change this
           alt={name}
         />
       </div>

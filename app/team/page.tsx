@@ -82,7 +82,7 @@ const teams: Team[] = [
         name: 'Arnob Bhakta',
         role: '',
         imageUrl:
-          '/Team/Arnob_Bhakta.jpg',
+          '/Team/Arnab_Bhakta.jpg',
         instaUrl: '#',
         linkedinUrl: 'https://www.linkedin.com/in/arnob-bhakta-a86531296/',
       },
@@ -95,7 +95,7 @@ const teams: Team[] = [
         name: 'Sohamdeep Mondal',
         role: '',
         imageUrl:
-          '/Team/Sohamdeep_Mondal.jpg',
+          '/Team/Sohamdeep_Mondal.jpeg',
         instaUrl: 'https://www.instagram.com/sohamdeep7?igsh=Y21vODFndWlpdGto&utm_source=qr',
         linkedinUrl: 'https://www.linkedin.com/in/sohamdeep-mondal?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       },
@@ -134,7 +134,7 @@ const teams: Team[] = [
         name: 'Aishani Roy ',
         role: '',
         imageUrl:
-          '/Team/Aishani_Roy .jpg',
+          '/Team/Aishani_Roy.jpg',
         instaUrl: 'https://www.instagram.com/aishani._?igsh=MTZtMmN3M3VrZ3o1cA==',
         linkedinUrl: 'https://www.linkedin.com/in/aishani-roy-a6804829b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
@@ -142,7 +142,7 @@ const teams: Team[] = [
         name: 'Arka_Dhar',
         role: '',
         imageUrl:
-          '/Team/Arka_Dhar.jpg',
+          '/Team/Arka_Dhar.jpeg',
         instaUrl: 'https://www.instagram.com/__ark_phoenix/?next=%2F',
         linkedinUrl: 'http://www.linkedin.com/in/arka-dhar-4921882a7',
       },
@@ -150,7 +150,7 @@ const teams: Team[] = [
         name: 'Arpan Banerjee ',
         role: '',
         imageUrl:
-          '/Team/Arpan_Banerjee .jpg',
+          '/Team/Arpan_Banerjee.jpg',
         instaUrl: 'https://www.instagram.com/arpan_banerjee_ab?igsh=N2J0bDd5OG1sc3Bt',
         linkedinUrl: 'https://www.linkedin.com/in/arpan-banerjee-470ba6297',
       },
@@ -164,7 +164,7 @@ const teams: Team[] = [
         name: 'Saumili Roy',
         role: '',
         imageUrl:
-          '/Team/Saumili_Roy.jpg',
+          '/Team/Saumili_Roy.jpeg',
         instaUrl: 'https://www.instagram.com/saumilir?igsh=MWVzejloNTl4YTJwOQ==',
         linkedinUrl: 'http://linkedin.com/saumili-roy',
       },
@@ -196,7 +196,7 @@ const teams: Team[] = [
         name: 'Sombrata Biswas',
         role: '',
         imageUrl:
-          '/Team/Sombrata_Biswas.jpg',
+          '/Team/Sombrata_Biswas.jpeg',
         instaUrl: 'https://www.instagram.com/some.brat.uh?igsh=ODYzZm40OW8zYWYy',
         linkedinUrl: 'https://www.linkedin.com/in/sombrata-b-099365217?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       },
@@ -234,7 +234,7 @@ const teams: Team[] = [
         name: 'Sohini Hazra',
         role: '',
         imageUrl:
-          '/Team/Sohini_Hazra.jpg',
+          '/Team/Sohini_Hazra.png',
         instaUrl: 'https://www.instagram.com/_._.sohini._._/',
         linkedinUrl: 'https://www.linkedin.com/in/sohini-hazra-a17121254/',
       },

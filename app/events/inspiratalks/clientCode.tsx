@@ -32,6 +32,7 @@ const InspiraTalks: React.FC = () => {
                 dayTime="Day 1, 10:00 AM"
                 mode="Online"
                 linkedin="https://linkedin.com/in/lindsaywalton"
+                imgLink="/speakerImages/comingsoon.png"
               />
             </div>
             <div className="w-[30%] max-md:w-full">
@@ -42,6 +43,7 @@ const InspiraTalks: React.FC = () => {
                 dayTime="Day 2, 2:00 PM"
                 mode="Offline"
                 linkedin="https://linkedin.com/in/alexjohnson"
+                imgLink="/speakerImages/comingsoon.png"
               />
             </div>
             <div className="w-[30%] max-md:w-full">
@@ -52,6 +54,7 @@ const InspiraTalks: React.FC = () => {
                 dayTime="Day 3, 11:30 AM"
                 mode="Hybrid"
                 linkedin="https://linkedin.com/in/samanthalee"
+                imgLink="/speakerImages/comingsoon.png"
               />
             </div>
           </div>

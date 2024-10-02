@@ -1,20 +1,17 @@
 "use client";
+import  { Success,Warning } from "@/components/Modals";
 import { MemberInput, TeamInput } from "./Comp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
 	checkValidEvent,
 	checkTeamName,
 	checkValidMembers,
 	eventPropType,
+	sanitizeMembers,
 } from "./ValidatorFunctions";
-import Loading from "@/components/Loading";
-import { getSession } from "next-auth/react";
 
-const Event = ({
-	params,
-	email,
-}: {
+const Event = ({params,email}: {
 	params: { eventName: string };
 	email: string;
 }) => {
@@ -29,16 +26,17 @@ const Event = ({
 		size: number;
 	}>({ name: "", size: eventProp.teamSize.max });
 	const [loading, setLoading] = useState<boolean>(false);
-	// useEffect(()=>{
-	//   setLoading(true);
-	//   getSession().then(session=>{
-	//     setUserMail(session?.user.email);
-	//   })
-	// },[])
-	// useEffect(()=>{
-	//     setMembers([userMail]);
-	//   setLoading(false);
-	// },[userMail]);
+
+	const [showWarning,setShowWarning] = useState<{show:boolean,title:string,msg:string}>({
+		show:false,
+		title:"Got an Err",
+		msg:"got an err"
+	})
+	const [showSuccess,setShowSuccess] = useState<{show:boolean,title:string,msg:string}>({
+		show:false,
+		title:"Succesfull",
+		msg:"Succesfull msg"
+	})
 
 	const addMember = () => {
 		setMembers([...members, ""]);
@@ -46,18 +44,30 @@ const Event = ({
 	const onSubmit = async () => {
 		//checking team validation
 		setLoading(true);
-		let res = await checkTeamName(eventProp.name, teamDetails.name);
+		let res = await checkTeamName(eventProp.name, teamDetails.name,showWarning,setShowWarning);
 		if (res) {
 			//member validity checking , checks member registration, checks member team collilsion
 			const actualMembers = members.filter((e) => e != "");
+
+			//zod validation on the the given member's email
+			const res = await sanitizeMembers(actualMembers);
+			if(!res) {setLoading(false);return;}
+			// zod validation done 
+
+			//validating the members
 			const resIds = await checkValidMembers(
 				actualMembers,
 				eventProp.name,
 				teamDetails.name,
 				eventProp.teamSize.max,
-				eventProp.teamSize.min
+				eventProp.teamSize.min,
+				showWarning,
+				setShowWarning,
 			);
+			//validating members done
+
 			if (resIds.length) {
+
 				//submitting the team
 				const sendableBody: {
 					eventName: string;
@@ -85,14 +95,25 @@ const Event = ({
 					method: "POST",
 					body: JSON.stringify(sendableBody),
 				});
-				if (dbres.status == 201) alert("Team Created");
+				if (dbres.status == 201) {
+					let obj = {...showSuccess};
+					obj.title = "Congratulations";
+					obj.msg = "Team Created";
+					obj.show = true;
+					setShowSuccess(obj);
+				}
 				else {
+					const obj = {...showWarning};
+					obj.title = "Internal Issues"
+					obj.msg = "Try again later"
+					setShowWarning(obj);
 					alert("Error in creating team");
 					const res = await dbres.json();
 					console.log(res);
 				}
 			}
 		}
+		// setting loader to false
 		setLoading(false);
 	};
 	return (
@@ -135,12 +156,14 @@ const Event = ({
 								className="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-lg font-medium rounded-sm text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
 								onClick={onSubmit}
 								disabled={loading}>
-								Submit
+								{loading?"Checking..":"Submit"}
 							</button>
 							{/* for the loading feature */}
 							{loading ? "Loading.." : <></>}
 						</div>
 					</div>
+					<Warning showWarning={showWarning} setShowWarning={setShowWarning}/>
+					<Success showSuccess={showSuccess} setShowSuccess={setShowSuccess}/>
 				</div>
 			</div>
 		</>
