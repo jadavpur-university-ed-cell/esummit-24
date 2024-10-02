@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/prisma/pclient";
 
-const prisma = new PrismaClient();
 
 interface Event {
 	name: string;

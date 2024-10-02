@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/prisma/pclient";
 
 export async function PUT(req:NextRequest, res:NextResponse){
     // no longer fetched from queries.ts

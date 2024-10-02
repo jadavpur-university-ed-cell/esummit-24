@@ -1,8 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/prisma/pclient";
 
 export async function GET(req:NextRequest){
-  const prisma = new PrismaClient;
   const userMail = req.headers.get('mail');
   try{
     const dbres = await prisma.user.findFirst({

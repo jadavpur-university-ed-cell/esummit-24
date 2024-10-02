@@ -1,24 +1,39 @@
-import { getSession } from "next-auth/react"
-import {auth} from "@/auth"
-import { PrismaClient } from "@prisma/client";
-import ShirtPref from "./ShirtPref";
-import Purchase from "./Purchase";
-
-export default async function Page(){
+import ProductSection from "./ClientCode"
+import {prisma} from "@/prisma/pclient"
+import { auth } from "@/auth"
+//server side rendering
+export default async function Page() {
+  let userDetails: {
+    isLogin: boolean,
+    id: string,
+    size: string | undefined | null, // null means shirtSize is not set, undefined means not able to get the size
+  } = {
+    isLogin: false,
+    id: "",
+    size: null
+  };
   const session = await auth();
-  const prisma = new PrismaClient();
-  const res = await prisma.user.findFirst({
-    where:{
-      id:session?.user.id
+  if (session) {
+    userDetails.isLogin = true;
+    userDetails.id = session.user.id;
+    const dbres = await prisma.user.findFirst({
+      where: {
+        id: session.user.id,
+      },
+      select: {
+        shirtSize: true,
+      }
+    });
+    if (!dbres){
+      userDetails.size = undefined
     }
-    ,select:{
-      shirtSize:true
-    }
-  });
-  return(
+    userDetails.size = dbres?.shirtSize;
+  }
+
+  return (
     <div>
-      {/* @ts-ignore */}
-      <Purchase size={res?.shirtSize} userId={session.user.id}></Purchase>
+      <ProductSection userDetails={userDetails}/>
     </div>
   )
+
 }

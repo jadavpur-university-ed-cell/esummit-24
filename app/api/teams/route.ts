@@ -1,7 +1,6 @@
-import {PrismaClient} from "@prisma/client"
+import {prisma} from "@/prisma/pclient"
 import { NextResponse, NextRequest } from 'next/server';
 
-const prisma = new PrismaClient();
 
 export async function POST(req: NextRequest, res: NextResponse) {
   // no longer used in form.tsx, can be deleted if no one else is using this.

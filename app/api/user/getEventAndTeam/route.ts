@@ -1,8 +1,7 @@
 import { NextRequest } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/prisma/pclient";
 
 export async function GET(req:NextRequest){
-  const prisma = new PrismaClient;
   const userId = req.headers.get("userId");
   if(!userId) return new Response(JSON.stringify({
     msg:"inputInvalid"

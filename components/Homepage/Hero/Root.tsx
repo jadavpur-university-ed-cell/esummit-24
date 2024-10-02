@@ -96,7 +96,10 @@ const Hero: FunctionComponent = () => {
   return (
     <>
       <section id="hero" className="bg-[#101720]">
-        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-grid-white/[0.03]">
+        <div className="lg:h-max bg-[#101720] relative overflow-x-clip bg-image">
+          <div className="absolute h-full w-full hero-content hidden">
+            <Image alt="hero" src="/hero-section-vector.svg" fill />
+          </div>
           <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <h2
               ref={textRef}
@@ -273,12 +276,15 @@ const Hero: FunctionComponent = () => {
               </svg>
             </div>
             <div className="text-center">
-            <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">Foster The</span>{' '}
-              <span className="block text-[#f77f00] xl:inline">Future!</span></h2>
+              <h2 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Foster The</span>{" "}
+                <span className="block text-[#f77f00] xl:inline">Future!</span>
+              </h2>
               <h3 className="my-1 py-1 font-semibold">
-              <span className="block text-[#fcbf49] xl:inline">October 25th-October 27th</span>
-            </h3>
+                <span className="block text-[#fcbf49] xl:inline">
+                  October 25th-October 27th
+                </span>
+              </h3>
             </div>
             <Countdown/>
           </div>
