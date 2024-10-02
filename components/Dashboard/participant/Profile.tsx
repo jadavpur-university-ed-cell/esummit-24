@@ -156,7 +156,7 @@ const UserProfile = ({
 
 				<div>
 					<button
-						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-sm"
+						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-2xl"
 						onClick={toggleEditUser}>
 						Edit Details
 					</button>
@@ -177,54 +177,6 @@ const UserProfile = ({
 			</div>
 		</div>
 	);
-	// return (
-	// 	<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-white">
-	// 		<div className="flex flex-col items-center">
-
-	// 			<div className="flex items-center flex-col w-full bg-gray-900 p-8 rounded-lg shadow-lg">
-	// 				<div className="flex-1 flex flex-col items-center text-center">
-	// 					{/* User Information */}
-	// 					{isEditing ? (
-	// 						<div className="mt-4 w-full space-y-4">
-	// 							{/* Editable fields */}
-	// 							{/* <input
-	// 								type="text"
-	// 								value={user.name}
-	// 								onChange={(e) =>
-	// 									setUserData({ ...userData, name: e.target.value })
-	// 								}
-	// 								className="text-lg p-2 border rounded-md w-full"
-	// 							/> */}
-	// 							{/* Add similar fields for college, year, branch, foodPreference */}
-	// 						</div>
-	// 					) : (
-	// 						<div>
-	// 							<h2 className="text-4xl font-bold text-black">{user.name}</h2>
-	// 							<p className="text-lg">{user.college}</p>
-	// 							<p className="text-lg">{user.year}</p>
-	// 							<p className="text-lg">{user.branch}</p>
-	// 							<p className="text-lg">{user.foodPreference}</p>
-	// 							{/* {user.image && (
-	//               <div className="w-40 h-40 rounded-full overflow-hidden mt-4">
-	//                 <Image src={user.image} alt="Profile Image" width={160} height={160} />
-	//               </div>
-	//             )} */}
-	// 						</div>
-	// 					)}
-
-	// 					<button
-	// 						onClick={() => setIsEditing(!isEditing)}
-	// 						className="mt-4 px-4 py-2 bg-blue-500 rounded-md">
-	// 						{isEditing ? <FaSave /> : <FaEdit />}
-	// 					</button>
-	// 				</div>
-	// 			</div>
-
-	// 			{/* Event Participation */}
-	// 			<UserTeams teams={memberTeams} />
-	// 		</div>
-	// 	</div>
-	// );
 };
 
 export default UserProfile;

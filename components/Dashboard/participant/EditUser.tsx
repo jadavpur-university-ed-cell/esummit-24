@@ -100,10 +100,10 @@ function EditUser({ user }: { user: User }) {
 						<option value="extralarge">Extra Large</option>
 					</select>
 				</div>
-				<button type="submit" onClick={handleFormSubmit} className="bg-[#fcbf49] rounded-sm px-2 py-1 h-fit text-[#101720] font-medium">
+				<button type="submit" onClick={handleFormSubmit} className="bg-[#fcbf49] rounded-2xl px-2 py-1 h-fit text-[#101720] font-medium">
 					Edit Details
 				</button>
-				<button className="bg-[#fcbf49] text-[#101720] px-2 py-1 h-fit rounded-sm font-medium" onClick={handleReset}>
+				<button className="bg-[#fcbf49] text-[#101720] px-2 py-1 h-fit rounded-2xl font-medium" onClick={handleReset}>
 					Reset
 				</button>
 				<input type="text" className={messageColor} value={editStatus} disabled />
