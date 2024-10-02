@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 // Define the type for team member
 type Member = {
@@ -25,7 +26,7 @@ const teams: Team[] = [
         name: 'Anuran Das',
         role: '',
         imageUrl:
-          '/Team/Anuran_Das.jpg',
+          '/Team/Anuran_Das.png',
         instaUrl: 'https://www.instagram.com/anu.run?igsh=MTRvcHlla2x6dTY3dw==',
         linkedinUrl: 'https://www.linkedin.com/in/anuran-das-86898a23b',
       },
@@ -33,7 +34,7 @@ const teams: Team[] = [
         name: 'Rahul Pandey',
         role: '',
         imageUrl:
-          '/Team/Rahul_Pandey.jpg',
+          '/Team/Rahul_Pandey.jpeg',
         instaUrl: 'https://www.instagram.com/rahul.p_19?igsh=MWYzaTZlc3hzZ25oeA==',
         linkedinUrl: 'https://www.linkedin.com/in/rahul-pandey2005/',
       },
@@ -49,7 +50,7 @@ const teams: Team[] = [
         name: 'Aindree Chatterjee',
         role: '',
         imageUrl:
-          '/Team/Aindree_Chatterjee.jpg',
+          '/Team/Aindree_Chatterjee.png',
         instaUrl: 'https://www.instagram.com/aindree2005/',
         linkedinUrl: 'https://www.linkedin.com/in/aindree-chatterjee-b93279201/',
       },
@@ -57,7 +58,7 @@ const teams: Team[] = [
         name: 'Piyush Gupta',
         role: '',
         imageUrl:
-          '/Team/Piyush_Kumar_Gupta.jpg',
+          '/Team/Piyush_Kumar_Gupta.png',
         instaUrl: 'https://www.instagram.com/kpiyushgupta/',
         linkedinUrl: 'http://linkedin.com/in/kumarpiyushgupta',
       },
@@ -73,7 +74,7 @@ const teams: Team[] = [
         name: 'Ahnik Purkait ',
         role: '',
         imageUrl:
-          '/Team/Ahnik_Purkait .jpg',
+          '/Team/Ahnik_Purkait.jpg',
         instaUrl: 'https://www.instagram.com/voldyys_moldies',
         linkedinUrl: 'https://www.linkedin.com/in/ahnikpurkait',
       },
@@ -301,7 +302,7 @@ const TeamPage=()=> {
               {activeTeamMembers.map((person) => (
                 <li key={person.name}>
                   <div className="space-y-6">
-                    <img className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src={person.imageUrl} alt={person.name} />
+                    <Image className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" width={300} height={300} src={person.imageUrl} alt={person.name} />
                     <div className="space-y-2">
                       <div className="text-lg leading-6 font-medium space-y-1">
                         <h3>{person.name}</h3>

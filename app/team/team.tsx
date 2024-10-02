@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 const people = [
     {
       name: 'Whitney Francis',
@@ -28,7 +29,7 @@ const people = [
               {people.map((person) => (
                 <li key={person.name}>
                   <div className="space-y-6">
-                    <img className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src={person.imageUrl} alt="" />
+                    <Image className="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" width={300} height={300} src={person.imageUrl} alt={person.name} />
                     <div className="space-y-2">
                       <div className="text-lg leading-6 font-medium space-y-1">
                         <h3>{person.name}</h3>

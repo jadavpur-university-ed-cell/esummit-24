@@ -33,7 +33,7 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
           gap: 20px;
           padding: 20px;
           background-color: #101720;
-          scrollbar-width: thin; /* For Firefox */
+          max-width: 100vw;
         }
 
         .previous-sponsor-item {
@@ -51,14 +51,14 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
         }
 
         /* For WebKit browsers (like Chrome, Safari) to hide scrollbar */
-        ::-webkit-scrollbar {
+        div.previous-sponsor-list::-webkit-scrollbar {
           height: 8px;
         }
-        ::-webkit-scrollbar-thumb {
+        div.previous-sponsor-list::-webkit-scrollbar-thumb {
           background-color: #fcbf49;
           border-radius: 10px;
         }
-        ::-webkit-scrollbar-track {
+        div.previous-sponsor-list::-webkit-scrollbar-track {
           background-color: #101720;
         }
       `}</style>
@@ -96,9 +96,9 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section id="partners" className="bg-[#101720] min-h-screen flex flex-col justify-center">
-      <div className="flex flex-col items-center min-h-[94vh] p-7 mx-5">
-        <h1 className="text-5xl sm:text-7xl font-bold text-[#fcbf49]">Previous Sponsors</h1>
+    <section id="partners" className="bg-[#101720] flex flex-col justify-center">
+      <div className="flex flex-col items-center p-7 mx-5 min-h-[65vh]">
+        <h1 className="animated-title text-5xl sm:text-7xl my-6 font-bold text-[#fcbf49]">Previous Sponsors</h1>
         <PreviousSponsor sponsors={sponsors} />
       </div>
     </section>
