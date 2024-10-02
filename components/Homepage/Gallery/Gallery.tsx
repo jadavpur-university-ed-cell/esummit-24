@@ -16,9 +16,9 @@ function Gallery() {
   return (
     <section
       id="gallery"
-      className="bg-[#101720] min-h-screen flex flex-col justify-center w-full overflow-hidden"
+      className="bg-[#101720] min-h-[50vh] lg:min-h-screen flex flex-col justify-center w-full overflow-hidden"
     >
-      <div className=" bg-[#101720] flex flex-col items-center justify-start min-h-[94vh] p-5 gap-y-10">
+      <div className=" bg-[#101720] flex flex-col items-center justify-start p-5 gap-y-10">
         <h1 className="animated-title text-5xl sm:text-7xl text-[#fcbf49] py-3 mb-7 font-bold">
           Gallery
         </h1>
@@ -40,10 +40,10 @@ function Gallery() {
           }}
           pagination={{ el: ".swiper-pagination", clickable: true }}
           modules={[EffectCoverflow, Pagination, Autoplay]} // Include Autoplay module
-          className="h-[80vh] flex flex-col items-center justify-center w-[100%] lg:w-[71.5%] mx-auto sm:rounded-[6rem]"
+          className="flex flex-col items-center justify-center w-[100%] lg:w-[71.5%] mx-auto sm:rounded-[6rem]"
         >
           {images.map((image, index) => (
-            <SwiperSlide key={index} className="w-[38rem]">
+            <SwiperSlide key={index}>
               <Image src={image.src} alt={image.alt} fill />
             </SwiperSlide>
           ))}

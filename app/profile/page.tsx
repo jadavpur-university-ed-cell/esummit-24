@@ -99,11 +99,11 @@ const Profile = async () => {
 	};
 
 	return (
-		<>
-			<Navbar />
+		<main>
+			<Navbar button="Merchandise" url="/merchandise" />
 			<div>
 				{/* <span className="text-white">{JSON.stringify(session)}</span> */}
-				<div className="flex justify-between px-8 py-12 items-center">
+				<div className="flex justify-between px-8 py-12 items-center bg-[#101720]">
 					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">User Profile</h1>
 					<form
 						action={async () => {
@@ -112,7 +112,7 @@ const Profile = async () => {
 						}}>
 						<button
 							type="submit"
-							className="bg-[#d62828] text-white px-2 py-1 font-medium rounded-xl">
+							className="bg-[#d62828] text-white px-3 py-1 rounded-sm">
 							Log Out
 						</button>
 					</form>
@@ -124,7 +124,7 @@ const Profile = async () => {
 				)}
               {/* </div> */}
 			</div>
-		</>
+		</main>
 	);
 };
 

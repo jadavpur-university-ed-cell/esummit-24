@@ -150,13 +150,13 @@ const UserProfile = ({
 	};
 
 	return (
-		<div className="relative pb-20 pt-26 min-h-screen bg-[#101720] text-[#eae2b7] font-semibold">
+		<div className="relative pt-26 bg-[#101720] min-h-screen text-[#eae2b7] font-semibold">
 			<div className="flex flex-col items-center">
 				<UserDetails user={user} />
 
 				<div>
 					<button
-						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-xl"
+						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-sm"
 						onClick={toggleEditUser}>
 						Edit Details
 					</button>
