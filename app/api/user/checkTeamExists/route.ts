@@ -1,9 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/prisma/pclient";
 import { NextRequest } from "next/server";
 
 // return 1 is team Exists
 export async function GET(req:NextRequest){
-  const prisma = new PrismaClient
   const eventName = req.headers.get("event");
   const teamName = req.headers.get("team");
   if(eventName == null ||teamName == null ) return new Response(JSON.stringify({
