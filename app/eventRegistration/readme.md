@@ -9,4 +9,12 @@
 - [ ] user without isVerified are not allowed
 
 
-working in the modal branch
+# basic zod validation rules for event registration
+### Team name:
+1. at least 3 characters
+2. at most 10 characters
+3. must include at least one letter
+4. contain letters, numbers, underscores, and certain special characters
+
+### member emails
+1. should be a valid email id
