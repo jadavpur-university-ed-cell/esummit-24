@@ -150,7 +150,7 @@ const UserProfile = ({
 	};
 
 	return (
-		<div className="relative pt-26 bg-[#101720] text-[#eae2b7] font-semibold">
+		<div className="relative pt-26 bg-[#101720] min-h-screen text-[#eae2b7] font-semibold">
 			<div className="flex flex-col items-center">
 				<UserDetails user={user} />
 
