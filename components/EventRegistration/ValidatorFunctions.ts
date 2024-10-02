@@ -38,7 +38,7 @@ const checkTeamName = async (event: string, team: string,showWarning:{
 		const teamNameSchema = z.string()
 			.min(3, { message: "Team Name must be at least 3 characters long." })
 			.max(10, { message: "Team Name must be at most 10 characters long." })
-			.regex(/^(?=.*[a-zA-Z])(?=.*\d|.*[_]|.*[!@#$%^&*()]).*$/, { message: "Team Name must include at least one letter and cannot consist solely of numbers." })
+			.regex(/^(?=.*[a-zA-Z]).+$/, { message: "Team Name must include at least one letter and cannot consist solely of numbers and symbols." })
 			.regex(/^[a-zA-Z0-9_!@#$%^&*()]+$/, { message: "Team Name can only contain letters, numbers, underscores, and certain special characters." });
 		const res =await teamNameSchema.safeParseAsync(team);
 		if(!res.success) {
