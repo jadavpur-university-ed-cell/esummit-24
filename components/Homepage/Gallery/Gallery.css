@@ -66,7 +66,7 @@ body {
 }
 
 .swiper-slide {
-  width: 38rem !important;
+  width: 58rem !important;
   height: 42rem !important;
   
 }
@@ -76,12 +76,12 @@ body {
     height: 47rem;
   }
   .swiper-slide {
-    width: 23rem !important;
-    height: 36rem !important;
+    width: 30rem !important;
+    height: 23rem !important;
   }
   .swiper-slide img {
-    width: 23rem !important;
-    height: 36rem !important;
+    width: 30rem !important;
+    height: 23rem !important;
   }
 }
 

@@ -27,7 +27,7 @@ const navigation = {
   export default function Footer() {
 	return (
 		<>
-	  <footer className="bg-gray-800" aria-labelledby="footer-heading">
+	  <footer className="bg-gray-800" id="footer" aria-labelledby="footer-heading">
 		<div className="max-w-full mx-auto py-12 px-2 sm:px-6 lg:py-16 lg:px-8">
 		  <div className="xl:grid xl:grid-cols-3 xl:gap-8">
 			<div className="xl:col-span-1">

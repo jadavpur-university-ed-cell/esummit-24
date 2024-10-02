@@ -8,11 +8,13 @@ import Gallery from "@/components/Homepage/Gallery/Gallery";
 import Partners from "@/components/Homepage/Partners/Partners";
 import Footer from "@/components/Homepage/Footer/Footer";
 import PreFooter from "@/components/PreFooter";
+import {currentUser} from "@/lib/auth"
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
   return (
     <div>
-      <Navbar />
+      {user? (<Navbar button="Profile" url="/profile"/>):(<Navbar button="Login" url="/sign-in"/>)}
       <Hero />
       <About />
       <Events />

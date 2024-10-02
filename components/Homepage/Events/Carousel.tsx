@@ -12,9 +12,6 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import "swiper/css";
-import "swiper/css/autoplay";
-
 interface CardProps {
 	name: string;
 	about: string;

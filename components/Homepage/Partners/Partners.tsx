@@ -97,7 +97,7 @@ const Partners: React.FC = () => {
 
   return (
     <section id="partners" className="bg-[#101720] flex flex-col justify-center">
-      <div className="flex flex-col items-center p-7 mx-5 min-h-[65vh]">
+      <div className="flex flex-col items-center p-7 mx-5 lg:min-h-[65vh]">
         <h1 className="animated-title text-5xl sm:text-7xl my-6 font-bold text-[#fcbf49]">Previous Sponsors</h1>
         <PreviousSponsor sponsors={sponsors} />
       </div>
