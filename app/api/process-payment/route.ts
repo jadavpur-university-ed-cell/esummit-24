@@ -1,4 +1,5 @@
 import {prisma} from "@/prisma/pclient"
+import { PaymentStatus,TransactionType } from "@prisma/client";
 import { NextRequest,NextResponse } from "next/server";
 export async function POST(req: NextRequest, res: NextResponse) {
   const body = await req.json();
@@ -11,12 +12,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
   }
   try {
     const dbres = await prisma.transaction.create({
-      data: {
-        transactionId: transId,
-        status: "pending",
-        userId: uid
+      data:{
+        transactionId:transId,
+        bankId:bankId,
+        userId:uid,
+        type: TransactionType.Merch,
+        status:PaymentStatus.Pending
       }
-    });
+    })
     if (!dbres) {
       console.log(dbres);
       return NextResponse.json({ success: false }, { status: 400 });
