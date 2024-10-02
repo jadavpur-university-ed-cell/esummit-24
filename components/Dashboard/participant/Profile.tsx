@@ -65,6 +65,8 @@ interface Transaction {
 	purchaseId: string;
 	type: string;
 	status: string;
+	bankId: string;
+	transactionId: string;
 }
 
 const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => {
@@ -75,7 +77,7 @@ const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => 
 				<thead>
 					<tr className="bg-[#101720] text-[#eae2b7] text-lg">
 						<th className="border p-2">Transcation Type</th>
-						<th className="border p-2">Purchase Id</th>
+						<th className="border p-2">Transaction Id</th>
 						<th className="border p-2">Transaction Status</th>
 					</tr>
 				</thead>
@@ -84,7 +86,7 @@ const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => 
 						return (
 							<tr key={index} className="bg-gray-800">
 								<td className="border p-2">{transaction.type}</td>
-								<td className="border p-2">{transaction.purchaseId}</td>
+								<td className="border p-2">{transaction.transactionId}</td>
 								<td className="border p-2 grid grid-cols-1 md:grid-cols-2">
 									{transaction.status}
 								</td>
