@@ -44,7 +44,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
             </div>
         </div>
         </div>
-         <div className="hidden lg:flex h-screen">
+         <div className="hidden lg:flex h-screen w-[50vw]">
          <Image
            className="h-full w-full object-cover rounded-sm"
            src="/login.png"

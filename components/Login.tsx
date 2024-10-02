@@ -42,7 +42,7 @@ export const Login = () => {
 		});
 	};
 	return (
-		<div className="h-screen bg-[#101720] grid place-items-center w-screen">
+		<div className="max-h-screen w-screen bg-[#101720] grid place-items-center">
 			<CardWrapper
 				title="Login"
 				displaySocials
