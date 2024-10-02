@@ -56,7 +56,7 @@ model User {
   gender         String?
   foodPreference String?
   shirtSize      String?
-  transactions   Transaction[]
+  transactions Transaction[]
 
   member1of Team[] @relation("member1")
   member2of Team[] @relation("member2")
@@ -97,8 +97,18 @@ model Team {
 }
 
 model Transaction {
-  transactionId String @id @unique @default(cuid())
-  status        String
-  userId        String
+  purchaseId    String @id @unique @default(cuid())
+  transactionId String
+  bankId        String
+  status        PaymentStatus
+  userId        String 
   user          User   @relation(fields: [userId], references: [id])
+
+  @@unique([transactionId, bankId])
+}
+
+enum PaymentStatus {
+  Pending
+  Verified
+  Rejected
 }
