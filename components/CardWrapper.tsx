@@ -20,8 +20,8 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     footerLinkText
 }) => {
     return (
-        <div className="h-full flex">
-          <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+        <div className="h-full w-full flex justify-between items-center">
+          <div className="flex-1 flex flex-col justify-center items-center sm:px-6 lg:px-20 xl:px-24">
             <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
                 {/* esummit logo here */}
@@ -44,12 +44,13 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
             </div>
         </div>
         </div>
-         <div className="hidden lg:block relative w-0 flex-1">
+         <div className="hidden lg:flex h-screen">
          <Image
-           className="absolute inset-0 h-full w-full object-cover"
+           className="h-full w-full object-cover rounded-sm"
            src="/login.png"
            alt=""
-           fill
+           width={512}
+           height={512}
          />
        </div>
        </div>
