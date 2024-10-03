@@ -73,7 +73,7 @@ const Events:React.FC = () => {
     </div>
     <section className="text-gray-400 bg-[#101720]">
       <div className="container px-5 py-12 mx-auto">
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap -m-4 justify-center">
           {events.map((event, index) => (
             <EventItems key={index} {...event} />
           ))}

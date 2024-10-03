@@ -22,7 +22,6 @@ const SponsorItem: React.FC<Sponsor> = ({ logo, link }) => {
         alt={"logo"}
         width={100}
         height={100}
-        className="grayscale"
       />
     </a>
   );
@@ -40,6 +39,7 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
       <style jsx>{`
         .previous-sponsor-list {
           display: flex;
+          align-items: center;
           overflow-x: auto; /* Enable horizontal scrolling */
           gap: 20px;
           padding: 20px;
@@ -49,10 +49,11 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
         .previous-sponsor-item {
           flex-shrink: 0; /* Prevent shrinking of items */
           transition: transform 0.2s ease, filter 0.2s ease;
+          filter: grayscale(100%);
         }
 
-        .previous-sponsor-item:hover .grayscale {
-          transform: scale(1.05); /* Slight zoom on hover */
+        .previous-sponsor-item:hover {
+          transform: scale(1.1); /* Slight zoom on hover */
           filter: grayscale(0); /* Remove grayscale on hover */
         }
 

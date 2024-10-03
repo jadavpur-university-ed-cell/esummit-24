@@ -32,23 +32,23 @@ export default function Footer() {
         id="footer"
         aria-labelledby="footer-heading"
       >
-        <div className="max-w-full mx-auto py-12 px-2 sm:px-6 lg:py-16 lg:px-8">
+        <div className="max-w-full mx-auto py-12 px-2 sm:px-6 lg:px-8">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-            <div className="xl:col-span-1">
+            <div className="xl:col-span-1 w-full flex justify-center">
               <Link href="/">
                 <Image
                   src="/esummit-2024-printable.svg"
                   alt="E-Summit 2024"
                   width={40}
                   height={20}
-                  className="object-cover sm:h-[145px] sm:w-[250px]"
+                  className="object-cover sm:h-[145px] w-[250px]"
                 />
               </Link>
             </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+            <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2 justify-items-center sm:justify-items-stretch">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-[#f77f00] tracking-wider uppercase">
+                  <h3 className="text-[14px] font-semibold text-[#f77f00] tracking-wider uppercase">
                     Explore
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -56,7 +56,7 @@ export default function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-lg text-[#eae2b7] hover:text-[#fcbf49]"
+                          className="text-[16px] text-[#eae2b7] hover:text-[#fcbf49]"
                         >
                           {item.name}
                         </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-[#f77f00] tracking-wider uppercase">
+                  <h3 className="text-[14px] font-semibold text-[#f77f00] tracking-wider uppercase">
                     Help
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -73,7 +73,7 @@ export default function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-lg text-[#eae2b7] hover:text-[#fcbf49]"
+                          className="text-[16px] text-[#eae2b7] hover:text-[#fcbf49]"
                           download
                           target="blank"
                         >
@@ -86,7 +86,7 @@ export default function Footer() {
               </div>
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-[#f77f00] tracking-wider uppercase">
+                  <h3 className="text-[14px] font-semibold text-[#f77f00] tracking-wider uppercase">
                     Contact
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -94,7 +94,7 @@ export default function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-lg text-[#eae2b7] hover:text-[#fcbf49]"
+                          className="text-[16px] text-[#eae2b7] hover:text-[#fcbf49]"
                         >
                           {item.name}
                         </Link>
@@ -103,7 +103,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  <h3 className="text-[14px] font-semibold text-gray-400 tracking-wider uppercase">
                     &nbsp;
                   </h3>
                   <ul role="list" className="mt-4 space-y-4">
@@ -111,7 +111,7 @@ export default function Footer() {
                       <li key={item.name}>
                         <Link
                           href={item.href}
-                          className="text-lg text-[#eae2b7] hover:text-[#fcbf49]"
+                          className="text-[16px] text-[#eae2b7] hover:text-[#fcbf49]"
                         >
                           {item.name}
                         </Link>
@@ -122,14 +122,14 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="max-w-15xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-            <nav className="flex justify-center text-[#eae2b7] space-x-6 md:order-2">
+          <div className="max-w-15xl mx-auto py-[4vh] px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+            <nav className="flex justify-center text-[#eae2b7] space-x-6 md:order-2 mb-4 sm:mb-0">
               <Link
                 href="https://www.linkedin.com/school/juecell"
                 target="blank"
                 className="flex items-center"
               >
-                <FaLinkedin className="footer-icons text-xl sm:text-xl transition-colors duration-150 ease-in-out hover:text-blue-700" />
+                <FaLinkedin className="footer-icons text-[16px] sm:text-[16px] transition-colors duration-150 ease-in-out hover:text-blue-700" />
               </Link>
 
               <Link
@@ -137,7 +137,7 @@ export default function Footer() {
                 target="blank"
                 className="flex items-center"
               >
-                <FaFacebook className="footer-icons text-xl sm:text-xl transition-colors duration-150 ease-in-out hover:text-blue-400" />
+                <FaFacebook className="footer-icons text-[16px] sm:text-[16px] transition-colors duration-150 ease-in-out hover:text-blue-400" />
               </Link>
 
               <Link
@@ -145,7 +145,7 @@ export default function Footer() {
                 target="blank"
                 className="flex items-center"
               >
-                <FaInstagram className="footer-icons text-xl sm:text-xl transition-colors duration-150 ease-in-out hover:text-rose-500" />
+                <FaInstagram className="footer-icons text-[16px] sm:text-[16px] transition-colors duration-150 ease-in-out hover:text-rose-500" />
               </Link>
 
               <Link
@@ -153,11 +153,11 @@ export default function Footer() {
                 target="blank"
                 className="flex items-center"
               >
-                <BsTwitterX className="footer-icons text-xl sm:text-xl  transition-colors duration-150 ease-in-out hover:text-white" />
+                <BsTwitterX className="footer-icons text-[16px] sm:text-[16px]  transition-colors duration-150 ease-in-out hover:text-white" />
               </Link>
             </nav>
             <div className="mt-1 md:mt-0 md:order-1">
-              <p className="text-center text-xl text-[#eae2b7]">
+              <p className="text-center text-[16px] text-[#eae2b7]">
                 &copy; 2024{" "}
                 <Link href="www.juecell.com">
                   Jadavpur University Entrepreneurship Cell

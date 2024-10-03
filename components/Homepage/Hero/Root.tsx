@@ -96,7 +96,7 @@ const Hero: FunctionComponent = () => {
   }, []);
   return (
     <>
-      <section id="hero" className="bg-[#101720]">
+      <section id="hero" className="bg-transparent">
         <div className="lg:h-max relative overflow-x-clip ">
           {/* <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
@@ -109,7 +109,7 @@ const Hero: FunctionComponent = () => {
               Jadavpur University Entrepreneurship Cell Presents the Fourth
               Edition of Our Flagship Event
             </h2>
-            <div className=" w-full flex items-center justify-center">
+            <div className=" w-full flex items-center justify-center pr-[8vw]">
               <svg
                 ref={pacmanRef}
                 viewBox="0 0 374.999991 374.999991"

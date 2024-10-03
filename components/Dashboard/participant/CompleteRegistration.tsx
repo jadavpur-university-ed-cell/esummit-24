@@ -145,7 +145,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 					<select id="foodPreference" {...register("foodPreference")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white">
 						<option value="Food Preference" hidden>Food Preference</option>
 						<option value="Veg">Veg</option>
-						<option value="Non-Veg">Nov-Veg</option>
+						<option value="Non-Veg">Non-Veg</option>
 					</select>
 					{errors.foodPreference && (
 						<p className="text-red-500">{errors.foodPreference.message}</p>

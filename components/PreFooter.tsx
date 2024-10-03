@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image"; 
    export default function PreFooter() {
     return (
-      <main className="mt-1 mx-auto max-w-7xl px-4 sm:mt-8">
+      <main className="mt-1 mx-auto max-w-7xl px-4 sm:mt-8 min-h-[55vh]">
           <div className="text-center">
             <h1 className="text-4xl tracking-tight font-bold text-[#eae2b7] sm:text-5xl md:text-6xl">
               <span className="block xl:inline">6 Events.</span>{' '}
@@ -30,14 +30,16 @@ import Image from "next/image";
                 </Link>
               </div>
             </div>
-            <span className="flex justify-evenly min-h-2 text-white md:text-lg">
+            <span className="flex flex-col sm:flex-row justify-center min-h-2 text-white md:text-lg gap-x-16">
+            <div className="w-full sm:w-fit flex justify-center">
             <Image
                 src="/svg_pers/ecell.png"
                 alt="E-Cell JU Logo"
                 height={500}
                 width={500}
                 className="object-cover aspect-video w-[125px] h-[70px] md:w-[175px] md:h-[100px]"
-              />
+                />
+                </div>
              <h1 className="text-4xl font-extralight"><br/>IDEATE | INNOVATE | BUILD</h1>
            </span>
           </div>

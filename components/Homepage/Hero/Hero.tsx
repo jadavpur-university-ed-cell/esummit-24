@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
     {/* <Background /> */}
-    <div className="bg-[#101720]">
+    <div className='bg-transparent'>
     <HeroComponent/>
     </div>
     </>
