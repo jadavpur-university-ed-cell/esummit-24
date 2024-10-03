@@ -12,15 +12,15 @@ import { currentUser } from "@/lib/auth";
 import Background from "@/components/Homepage/Background/Background";
 
 export default async function Home() {
-  const user = await currentUser();
+  const user = await currentUser(); 
   return (
     <div>
+      <Background />
       {user ? (
         <Navbar button="Profile" url="/profile" />
       ) : (
         <Navbar button="Login" url="/sign-in" />
       )}
-      <Background />
       <Hero />
       <About />
       <Events />

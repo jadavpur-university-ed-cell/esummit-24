@@ -96,8 +96,8 @@ const Hero: FunctionComponent = () => {
   }, []);
   return (
     <>
-      <section id="hero" className="">
-        <div className="lg:h-max relative overflow-x-clip">
+      <section id="hero" className="bg-[#101720]">
+        <div className="lg:h-max relative overflow-x-clip ">
           {/* <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />
           </div> */}
@@ -294,4 +294,4 @@ const Hero: FunctionComponent = () => {
   );
 };
 
-export default Hero;
+export default Hero
