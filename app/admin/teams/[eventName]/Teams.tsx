@@ -57,7 +57,7 @@ if(searchBy==="team"){
 }
 else if(searchBy==="member"){
 	filteredArr = teams.filter((team:any)=>{
-		if(team.member1.name.toLowerCase().includes(searchVal.toLowerCase()) || team.member2.name.toLowerCase().includes(searchVal.toLowerCase()) || team.member3.name.toLowerCase().includes(searchVal.toLowerCase()) || team.member4.name.toLowerCase().includes(searchVal.toLowerCase()))
+		if(team.member1.name.toLowerCase().includes(searchVal.toLowerCase()) || (team.member2 && team.member2.name.toLowerCase().includes(searchVal.toLowerCase())) || (team.member3 && team.member3.name.toLowerCase().includes(searchVal.toLowerCase())) || (team.member4 && team.member4.name.toLowerCase().includes(searchVal.toLowerCase())))
 			return team;
 	})
 }

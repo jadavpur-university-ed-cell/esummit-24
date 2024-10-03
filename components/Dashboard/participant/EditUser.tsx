@@ -1,20 +1,6 @@
 import React, {useState} from "react";
 import { editUserReq } from "@/app/admin/queries";
-
-interface User {
-	id: string;
-	name: string;
-	email: string;
-	college:string;
-	branch:string;
-	year:string;
-	phone: string;
-	isVerified: boolean;
-	rollNo: string;
-	gender: string;
-	foodPreference: string;
-	shirtSize: string;
-}
+import {User} from "@/lib/types";
 
 function EditUser({ user }: { user: User }) {
 

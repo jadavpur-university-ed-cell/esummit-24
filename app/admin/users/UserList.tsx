@@ -1,24 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import clsx from "clsx";
 import UserDetails from "./UserDetails";
-
-interface User {
-	id: string;
-	name: string;
-	email: string;
-	phone: string;
-	isVerified: boolean;
-	rollNo: string;
-	gender: string;
-	foodPreference: string;
-	shirtSize: string;
-}
+import clsx from "clsx";
+import {User} from "@/lib/types"
 
 function UserList({ users }: { users: User[] }) {
 
-const [searchVal, setSearchVal] = useState("");
+	const [searchVal, setSearchVal] = useState("");
 	const [displayedUsers , setDisplayedUsers] = useState(users);
 	
 	function handleFormSubmit(e: React.FormEvent) {
@@ -28,7 +17,7 @@ const [searchVal, setSearchVal] = useState("");
 			return;
 		}
 		const filteredArr = users.filter((user:User)=>{
-			if(user.name?.toLowerCase().includes(searchVal.toLowerCase()))
+			if(user.name.toLowerCase().includes(searchVal.toLowerCase()))
 				return user;
 		})
 		setDisplayedUsers(filteredArr);
@@ -36,8 +25,8 @@ const [searchVal, setSearchVal] = useState("");
 
 	return (
 		<>
-			<div>
-			<div className="w-full flex justify-center">
+			<div className="w-full flex flex-col gap-y-6 mt-5">
+				<div className="w-full flex justify-center">
 					<form
 						className="flex rounded-lg"
 						onSubmit={(e) => handleFormSubmit(e)}
@@ -68,12 +57,12 @@ const [searchVal, setSearchVal] = useState("");
 						<p>Name</p>
 						<p>Email</p>
 						<p>Phone</p>
-						<p>Roll Number</p>
 						<p>Gender</p>
+						<p>Transactions</p>
 					</div>
-					{displayedUsers.map((user, ind) => (
-						<UserDetails key={ind} user={user} />
-					))}
+					{displayedUsers.map((user, ind) => {
+						return (<UserDetails key={ind} user={user} />)
+})}
 				</ul>
 			</div>
 		</>

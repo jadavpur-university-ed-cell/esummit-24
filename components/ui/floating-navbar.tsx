@@ -76,7 +76,7 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-2xl">{navItem.name}</span>
           </Link>
         ))}
-        <Link href={url} target="_blank" className="border text-2xl font-medium relative border-white/[0.2] text-[#fcbf49] px-4 py-2 rounded-full">
+        <Link href={url} className="border text-2xl font-medium relative border-white/[0.2] text-[#fcbf49] px-4 py-2 rounded-full">
           <span>{button}</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
         </Link>

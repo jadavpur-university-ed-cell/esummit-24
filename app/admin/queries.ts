@@ -1,17 +1,7 @@
 "use server";
 import { prisma } from "@/prisma/pclient";
-
-interface User {
-	id: string;
-	name: string|null;
-	email: string|null;
-	phone: string|null;
-	isVerified: boolean;
-	rollNo: string|null;
-	gender: string|null;
-	foodPreference: string|null;
-	shirtSize: string|null;
-}
+import { User } from "@/lib/types";
+import {PaymentStatus, TransactionType} from "@prisma/client"
 
 interface Event {
 	name: string;
@@ -100,28 +90,34 @@ export async function getUsers() {
 		const data = await prisma.user.findMany({
 			select: {
 				id: true,
-					name: true,
-					email: true,
-					phone: true,
-					isVerified: true,
-					rollNo: true,
-					gender: true,
-					foodPreference: true,
-					shirtSize: true
-			}
-		})
+				name: true,
+				email: true,
+				phone: true,
+				isVerified: true,
+				rollNo: true,
+				gender: true,
+				foodPreference: true,
+				shirtSize: true,
+				college: true,
+				year: true,
+				branch: true,
+			},
+		});
 
-		const users = data.map(user=>({
+		const users = data.map((user) => ({
 			id: user.id,
-			name: user.name? user.name : "",
-			email: user.email? user.email : "",
-			phone: user.phone? user.phone : "",
+			name: user.name ? user.name : "",
+			email: user.email ? user.email : "",
+			phone: user.phone ? user.phone : "",
 			isVerified: user.isVerified,
-			rollNo: user.rollNo? user.rollNo : "",
-			gender: user.gender? user.gender : "",
-			foodPreference: user.foodPreference? user.foodPreference : "",
-			shirtSize: user.shirtSize? user.shirtSize : "",
-		}))
+			rollNo: user.rollNo ? user.rollNo : "",
+			gender: user.gender ? user.gender : "",
+			foodPreference: user.foodPreference ? user.foodPreference : "",
+			shirtSize: user.shirtSize ? user.shirtSize : "",
+			college: user.college ? user.college : "",
+			year: user.year ? user.year : "",
+			branch: user.branch ? user.branch : "",
+		}));
 
 		return users;
 	} catch (error) {
@@ -210,7 +206,6 @@ export async function checkUser(
 
 		if (!user) return { error: "User not found.", ok: false };
 
-
 		if (!user.isVerified)
 			return { error: "User verification incomplete.", ok: false };
 
@@ -240,9 +235,59 @@ export async function checkUser(
 				return { error: "User is a part of another team.", ok: false };
 		}
 
-		return { user, ok: false };
+		return { user, ok: true };
 	} catch (err) {
 		console.log(err);
 		return { error: err, ok: false };
 	}
 }
+
+interface Transaction {
+	purchaseId: string;
+	type: string;
+	status: string;
+	bankId: string;
+	transactionId: string;
+}
+
+// enum PaymentStatus {
+// 	Pending="Pending",
+// 	Verified="Verified",
+// 	Rejected="Rejected",
+// }
+
+// enum TransactionType{
+// 	Merch="Merch",
+// 	Hackathon="Hackathon"
+// }
+
+interface TransactionData {
+	purchaseId: string;
+	type: string;
+	status: PaymentStatus;
+	bankId: string;
+	transactionId: string;
+}
+
+export const updateTransactionStatus = async (
+	transaction: Transaction,
+	status: string
+) => {
+	
+	try {
+		await prisma.transaction.update({
+			where: {
+				purchaseId: transaction.purchaseId,
+			},
+			data: {
+				...transaction,
+				status: PaymentStatus[status as keyof typeof PaymentStatus],
+				type: TransactionType[transaction.type as keyof typeof TransactionType]
+			},
+		});
+		return { msg: "Transaction Status Updated." };
+	} catch (error) {
+		console.log(error);
+		return { msg: error };
+	}
+};

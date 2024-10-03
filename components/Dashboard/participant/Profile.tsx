@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import EditUser from "./EditUser";
 import { FaXmark } from "react-icons/fa6";
 import { redirect } from "next/navigation";
+import {User} from "@/lib/types"
 
 interface Team {
 	eventName: string;
@@ -11,21 +12,6 @@ interface Team {
 	member2: string;
 	member3: string;
 	member4: string;
-}
-
-interface User {
-	id: string;
-	name: string;
-	college: string;
-	year: string;
-	branch: string;
-	foodPreference: string;
-	rollNo: string;
-	shirtSize: string;
-	email: string;
-	gender: string;
-	isVerified: boolean;
-	phone: string;
 }
 
 const UserTeams = ({ teams }: { teams: Team[] }) => {

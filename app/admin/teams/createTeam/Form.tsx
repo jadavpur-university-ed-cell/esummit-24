@@ -142,7 +142,7 @@ export default function CreateTeam() {
 					className="bg-white px-2 py-1 rounded-sm w-fit"
 					type="button"
 					onClick={() => handleEmailSubmit("member1", formData.member1Email)}>
-					Verify Member 1
+					Confirm Member 1
 				</button>
 				<input
 					type="email"
@@ -172,7 +172,7 @@ export default function CreateTeam() {
 					className="bg-white px-2 py-1 rounded-sm w-fit"
 					type="button"
 					onClick={() => handleEmailSubmit("member2", formData.member2Email)}>
-					Verify Member 2
+					Confirm Member 2
 				</button>
 				<input
 					type="email"
@@ -201,7 +201,7 @@ export default function CreateTeam() {
 					className="bg-white px-2 py-1 rounded-sm w-fit"
 					type="button"
 					onClick={() => handleEmailSubmit("member3", formData.member3Email)}>
-					Verify Member 3
+					Confirm Member 3
 				</button>
 				<input
 					type="email"
@@ -230,7 +230,7 @@ export default function CreateTeam() {
 					className="bg-white px-2 py-1 rounded-sm w-fit "
 					type="button"
 					onClick={() => handleEmailSubmit("member4", formData.member4Email)}>
-					Verify Member 4
+					Confirm Member 4
 				</button>
 				<input
 					type="email"

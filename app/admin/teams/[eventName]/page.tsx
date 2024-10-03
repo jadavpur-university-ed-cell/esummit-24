@@ -13,3 +13,4 @@ async function EventTeams(req: any) {
 }
 
 export default EventTeams;
+export const dynamic = 'force-dynamic';

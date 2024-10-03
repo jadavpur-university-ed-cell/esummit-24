@@ -1,25 +1,14 @@
 'use client'
 import React from 'react';
-
-interface User {
-	id: string;
-	name: string;
-	email: string;
-	phone: string;
-	isVerified: boolean;
-	rollNo: string;
-	gender: string;
-	foodPreference: string;
-	shirtSize: string;
-}
+import {User} from "@/lib/types";
 
 const ExportCSV = ({users}:{users:User[]}) => {
   const downloadCSV = () => {
     // Convert the data array into a CSV string
 
     const csvString = [
-      ["Name", "Email", "Phone","Roll Number", "Gender", "Food Preference","Shirt Size"], // Specify your headers here
-      ...users.map((user:User) => [user.name, user.email, user.phone, user.rollNo, user.gender, user.foodPreference, user.shirtSize]) // Map your data fields accordingly
+      ["Name", "Email", "Phone","College", "Year", "Branch", "Roll Number", "Gender", "Food Preference","Shirt Size"], // Specify your headers here
+      ...users.map((user:User) => [user.name, user.email, user.phone, user.college, user.year, user.branch, user.rollNo, user.gender, user.foodPreference, user.shirtSize]) // Map your data fields accordingly
     ]
     .map(row => row.join(","))
     .join("\n")
