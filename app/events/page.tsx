@@ -50,7 +50,7 @@ interface EventDetails {
 }
 const EventItems: React.FC<EventDetails> = ({ category, title, image, link }) => (
   <div className="p-4 lg:w-1/3">
-    <div className="h-full bg-gray-700 bg-opacity-40 px-8 py-10 rounded-xl overflow-hidden text-center relative transform transition-transform duration-300 hover:scale-105 hover:bg-gray-700">
+    <div className="h-full bg-gray-700 bg-opacity-50 px-8 py-10 rounded-xl overflow-hidden text-center relative transform transition-transform duration-300 hover:scale-105 hover:bg-gray-700">
       <Image src={image} alt={title} width={300} height={300} className='w-full aspect-video object-contain'/>
       <h2 className="tracking-widest text-base title-font font-extralight text-[#f77f00] mb-1">{category}</h2>
       <h1 className="title-font sm:text-2xl text-xl font-extrabold text-gray-100 mb-3">{title}</h1>

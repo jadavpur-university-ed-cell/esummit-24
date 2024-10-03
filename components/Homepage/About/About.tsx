@@ -6,7 +6,7 @@ const About: FunctionComponent = () => {
 	return (
 		<section
 			id="about"
-			className=" w-full min-h-screen flex flex-col  justify-center text-white z-10">
+			className=" w-full min-h-screen flex flex-col  justify-center text-white z-10 bg-[#101720] bg-opacity-60">
 			<div className="flex flex-col items-center min-h-[80vh] sm:min-h-screen justify-around px-8 z-10">
 				<h1 className="text-5xl sm:text-7xl text-[#fcbf49] my-6 p-6 sm:my-0 sm:p-0 sm:pt-8 sm:mt-4 font-bold">
 					About us

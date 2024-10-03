@@ -12,7 +12,7 @@ const PoCCard: React.FC<PoCCardProps> = ({ name, phoneNumber, nameColor }) => {
   const phoneColorClass = `${nameColor}-400`;
 
   return (
-    <div className="p-6 shadow-xl mx-4 bg-[#101720,0.1] backdrop-blur-md border border-gray-200 rounded-lg mt-8 overflow-hidden w-full md:w-[40%] lg:w-[20%] flex flex-col items-center justify-between">
+    <div className="p-6 shadow-xl mx-4 bg-[#101720,0.1] backdrop-blur-md border border-gray-200 rounded-xl mt-8 overflow-hidden w-full md:w-[40%] lg:w-[20%] flex flex-col items-center justify-between">
       {/* Card Content */}
       <div className="space-y-2 flex flex-col items-center text-center">
         <p className={`text-2xl font-semibold py-3 ${nameColorClass}`}>

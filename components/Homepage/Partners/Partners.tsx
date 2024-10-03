@@ -107,7 +107,7 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section id="partners" className=" flex flex-col justify-center">
+    <section id="partners" className=" flex flex-col bg-[#101720] bg-opacity-60 justify-center">
       <div className="flex flex-col items-center p-7 mx-5 lg:min-h-[65vh]">
         <h1 className="animated-title text-5xl sm:text-7xl my-6 font-bold text-[#fcbf49]">
           Previous Sponsors

@@ -16,7 +16,7 @@ interface Team {
 
 const UserTeams = ({ teams }: { teams: Team[] }) => {
 	return (
-		<div className="w-full mt-8 bg-[#101720] p-6 rounded-lg shadow-lg">
+		<div className="w-full mt-8 bg-[#101720] p-6 rounded-xl shadow-lg">
 			<h3 className="text-3xl text-[#fcbf49] font-semibold mb-4">Event Participation</h3>
 			<table className="w-full text-left table-auto border-collapse">
 				<thead>
@@ -57,7 +57,7 @@ interface Transaction {
 
 const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => {
 	return (
-		<div className="w-full mt-8 bg-[#101720] p-6 rounded-lg shadow-lg">
+		<div className="w-full mt-8 bg-[#101720] p-6 rounded-xl shadow-lg">
 			<h3 className="text-3xl text-[#fcbf49] font-semibold mb-4">User Transactions</h3>
 			<table className="w-full text-left table-auto border-collapse">
 				<thead>
@@ -88,7 +88,7 @@ const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => 
 const UserDetails = ({ user }: { user: User }) => {
 	return (
 		<div className="w-full flex justify-center mb-6">
-			<div className="grid grid-cols-1 bg-gray-800 bg-opacity-40 px-1 pt-16 pb-24 rounded-2xl overflow-hidden md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
+			<div className="grid grid-cols-1 bg-gray-800 bg-opacity-50 px-1 pt-16 pb-24 rounded-2xl overflow-hidden md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
 				<div className="flex flex-col w-1/2">
           <p className="text-zinc-400 text-sm">Name</p>
           <p>{user.name}</p>

@@ -19,7 +19,7 @@ const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode,
         <Image
           width={200}
           height={200}
-          className="object-cover shadow-lg rounded-lg"
+          className="object-cover shadow-lg rounded-xl"
           src={imgLink} // Placeholder image, you can change this
           alt={name}
         />

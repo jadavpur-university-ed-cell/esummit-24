@@ -78,7 +78,7 @@ const ProductSection = ({userDetails}:{userDetails:{
               </button>
               <dialog
               ref={editUserRef} 
-              className="relative h-[90vh] w-[70vw] rounded-lg backdrop:bg-[#00000080] bg-[#101720] text-[#fcbf49] font-semibold">
+              className="relative h-[90vh] w-[70vw] rounded-xl backdrop:bg-[#00000080] bg-[#101720] text-[#fcbf49] font-semibold">
               <Payment uid={userDetails.id} />
               <button
                   onClick={togglePaymentWindow}

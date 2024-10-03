@@ -11,16 +11,16 @@ const navigation = {
     { name: "Team", href: "/team" },
   ],
   Help: [
-    { name: "Brochure", href: "/E-SUMMIT_2024_Brochure.pdf" },
+    { name: "For Sponsors", href: "/E-SUMMIT_2024_Brochure.pdf" },
     { name: "Privacy", href: "/E-Cell_Privacy_Policy.pdf" },
   ],
   Contact: [
-    { name: "Debamita", href: "wa.me/919163918118" },
-    { name: "Sparsh", href: "wa.me/918100555567" },
+    { name: "Debamita", href: "https://api.whatsapp.com/send/?phone=919163918118&text&type=phone_number&app_absent=0" },
+    { name: "Sparsh", href: "https://api.whatsapp.com/send/?phone=918100555567&text&type=phone_number&app_absent=0" },
   ],
   Contact2: [
-    { name: "Piyush", href: "wa.me/917439484942" },
-    { name: "Jotiraditya", href: "wa.me/916289867756" },
+    { name: "Piyush", href: "https://api.whatsapp.com/send/?phone=917439484942&text&type=phone_number&app_absent=0" },
+    { name: "Jotiraditya", href: "https://api.whatsapp.com/send/?phone=916289867756&text&type=phone_number&app_absent=0" },
   ],
 };
 

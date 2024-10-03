@@ -25,7 +25,7 @@ const RoundCards: React.FC<RoundCardsProps> = ({ headingColor, textColor, rounds
         {rounds.map((round, index) => (
           <div
             key={index}
-            className="rounded-lg shadow-xl py-6 px-8 mx-4 border border-white bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] backdrop-blur-md"
+            className="rounded-xl shadow-xl py-6 px-8 mx-4 border border-white bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] backdrop-blur-md"
           >
             {/* Title */}
             <h2 className={`text-2xl font-bold ${headingColor}`}>{round.title}</h2>

@@ -66,7 +66,7 @@ const eventList: Event[] = [
 
 function EventsComponent() {
 	return (
-		<section id="events" className="flex flex-col items-center p-12 px-16 gap-y-12">
+		<section id="events" className="flex flex-col bg-[#101720] bg-opacity-50 items-center p-12 px-16 gap-y-12">
 			<h1 className="animated-title text-5xl sm:text-7xl font-bold text-[#fcbf49]">
 				Events
 			</h1>

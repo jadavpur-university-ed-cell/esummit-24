@@ -39,7 +39,7 @@ function EventCard({ name,path, ind }: { name: string, path:string, ind: number 
 		<>
 			<div
 				className={clsx(
-					"w-full h-[50vh] p-5 my-4 rounded-lg flex items-center justify-between flex-col relative bg-[#202d3fa1]",
+					"w-full h-[50vh] p-5 my-4 rounded-xl flex items-center justify-between flex-col relative bg-[#202d3fa1]",
 					{ "col-span-3": ind !== 2 && ind !== 3 && ind !== 4 },
 					{ "col-span-2": ind === 2 || ind === 3 || ind === 4 }
 				)}>

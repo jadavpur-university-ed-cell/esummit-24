@@ -28,7 +28,7 @@ function UserList({ users }: { users: User[] }) {
 			<div className="w-full flex flex-col gap-y-6 mt-5">
 				<div className="w-full flex justify-center">
 					<form
-						className="flex rounded-lg"
+						className="flex rounded-xl"
 						onSubmit={(e) => handleFormSubmit(e)}
 						autoComplete="off">
 						<input

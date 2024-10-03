@@ -11,7 +11,7 @@ function ShowUserData({ team, eventName }: { team: any, eventName:string }) {
 	console.log(team);
 	return (
 		<>
-			<div className="w-2/3 rounded-lg my-4 p-4 bg-[#17212e]">
+			<div className="w-2/3 rounded-xl my-4 p-4 bg-[#17212e]">
 				<div className="flex justify-between px-[3%] mb-3">
 					<h2 className="text-2xl text-[#eae2b7]">{team.teamName}</h2>
 					<div className="flex gap-5 items-center">
@@ -82,7 +82,7 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 			<main className="py-[10vh] flex flex-col items-center">
 				<h1 className="text-white text-5xl font-medium">{title}</h1>
 				<div className="w-3/5 grid grid-cols-4 gap-x-4 my-[6vh]">
-					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-lg px-2 py-6 flex flex-col items-center">
+					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-xl px-2 py-6 flex flex-col items-center">
 						<h3 className="mb-2 text-center">
 							<span className="text-2xl font-medium"> {teams.length} </span>
 							Teams
@@ -90,12 +90,12 @@ function Teams({ teams, title }: { teams: any; title: string }) {
 						<Link href="/admin/teams/createTeam" target="_blank" className="bg-[#101720] px-2 py-1 rounded-[4px]">Add Team</Link>
 
 					</div>
-					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-lg px-2 py-6 flex flex-col items-center justify-around">
+					<div className="col-span-1 text-lg text-white bg-[#192331] rounded-xl px-2 py-6 flex flex-col items-center justify-around">
 						<h2>Export as CSV</h2>
 						<ExportCSV data={teams} fileName={`${title}.csv`} />
 					</div>
-					<div className="col-span-2 bg-[#192331] flex flex-col items-center p-4 rounded-lg justify-around">
-						<form className="flex w-full justify-center rounded-lg" onSubmit={(e)=>handleFormSubmit(e)}
+					<div className="col-span-2 bg-[#192331] flex flex-col items-center p-4 rounded-xl justify-around">
+						<form className="flex w-full justify-center rounded-xl" onSubmit={(e)=>handleFormSubmit(e)}
 							autoComplete="off">
 							<input
 								type="text"

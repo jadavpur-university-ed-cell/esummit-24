@@ -96,7 +96,7 @@ const Hero: FunctionComponent = () => {
   }, []);
   return (
     <>
-      <section id="hero" className="bg-transparent">
+      <section id="hero" className="bg-[#101720] bg-opacity-50">
         <div className="lg:h-max relative overflow-x-clip ">
           {/* <div className="absolute h-full w-full hero-content hidden">
             <Image alt="hero" src="/hero-section-vector.svg" fill />

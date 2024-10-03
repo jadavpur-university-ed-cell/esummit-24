@@ -6,7 +6,7 @@ function EventTimeline() {
     {
       title: "Day 1",
       content: (
-        <div className="flex flex-col gap-y-12">
+        <div className="flex flex-col gap-y-12 bg-[#101720] bg-opacity-60">
           <div className="flex flex-col gap-y-4">
             <h3 className="text-[#fcbf49] text-5xl  ">Hack&lt;n&gt;Pitch</h3>
             <p className="text-[#eae2b7] text-3xl">

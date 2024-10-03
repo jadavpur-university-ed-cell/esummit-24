@@ -52,8 +52,8 @@ const SpeakerItems: React.FC<SpeakerDetails> = ({
   about,
   link,
 }) => (
-  <div className="p-4 sm:w-4/5 lg:w-11/12">
-    <div className="h-full bg-gray-700 bg-opacity-40 px-8 py-8 rounded-xl overflow-hidden text-center relative transform transition-transform duration-300 hover:scale-105 hover:bg-gray-700">
+  <div className="p-4 sm:w-4/5 lg:w-11/12 bg-[#101720] bg-opacity-50">
+    <div className="h-full bg-gray-700 bg-opacity-50 px-8 py-8 rounded-xl overflow-hidden text-center relative transform transition-transform duration-300 hover:scale-105 hover:bg-gray-700">
       <Image
         src={image}
         alt={name}

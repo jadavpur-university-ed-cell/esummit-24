@@ -40,7 +40,7 @@ return (
   {!disabled && (
     <button
       onClick={handleRemove}
-      className="bg-[#d62828] text-white px-1 text-xs rounded-lg ml-1"
+      className="bg-[#d62828] text-white px-1 text-xs rounded-xl ml-1"
     >
       <DeleteIcon />
     </button>

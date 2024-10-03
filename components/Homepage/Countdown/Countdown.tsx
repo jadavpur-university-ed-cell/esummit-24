@@ -47,7 +47,7 @@ const Countdown = () => {
             <div className="text-center">
               <span className="block h-[30px] leading-[30px] text-gray-200">Days</span>
             </div>
-            <div className="relative font-semibold w-[60px] h-[80px] rounded-lg text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
+            <div className="relative font-semibold w-[60px] h-[80px] rounded-xl text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
               {days}
             </div>
           </div>
@@ -57,7 +57,7 @@ const Countdown = () => {
             <div className="text-center">
               <span className="block h-[30px] leading-[30px] text-gray-200">Hours</span>
             </div>
-            <div className="relative font-semibold w-[60px] h-[80px] rounded-lg text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
+            <div className="relative font-semibold w-[60px] h-[80px] rounded-xl text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
               {hours}
             </div>
           </div>
@@ -67,7 +67,7 @@ const Countdown = () => {
             <div className="text-center">
               <span className="block h-[30px] leading-[30px] text-gray-200">Minutes</span>
             </div>
-            <div className="relative font-semibold w-[60px] h-[80px] rounded-lg text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
+            <div className="relative font-semibold w-[60px] h-[80px] rounded-xl text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
               {minutes}
             </div>
           </div>
@@ -77,7 +77,7 @@ const Countdown = () => {
             <div className="text-center">
               <span className="block h-[30px] leading-[30px] text-gray-200">Seconds</span>
             </div>
-            <div className="relative font-semibold w-[60px] h-[80px] rounded-lg text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
+            <div className="relative font-semibold w-[60px] h-[80px] rounded-xl text-4xl flex items-center justify-center text-gray-800 bg-gray-300">
               {seconds}
             </div>
           </div>

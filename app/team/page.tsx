@@ -303,7 +303,7 @@ const TeamPage=()=> {
             </div>
                   {/* Tabs for Team Selection */}
             <div className="sm:block bg-gray-900">
-        <nav className="relative z-0 rounded-lg shadow flex" aria-label="Tabs">
+        <nav className="relative z-0 rounded-xl shadow flex" aria-label="Tabs">
           {teams.map((team, tabIdx) => (
             <button
               key={team.name}

@@ -55,11 +55,11 @@ const MerchPage: React.FC = () => {
               </p>
               {/* T-Shirt Design */}
               <div className="flex justify-center items-center pt-5">
-                <Image width={200} height={200} src="/path/to/tshirt-design.jpg" alt="T-Shirt Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
+                <Image width={200} height={200} src="/path/to/tshirt-design.jpg" alt="T-Shirt Design" className="w-full max-w-[400px] rounded-xl shadow-md"/>
               </div>
               {/* Payment Link */}
               <a href="https://payment-link-for-tshirt.com" target="_blank" rel="noopener noreferrer">
-                <button className="bg-orange-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-orange-800 hover:text-white transition-all duration-300">
+                <button className="bg-orange-200 text-black font-bold border border-black rounded-xl px-8 py-2 mt-8 hover:bg-orange-800 hover:text-white transition-all duration-300">
                   Buy T-Shirt
                 </button>
               </a>
@@ -86,11 +86,11 @@ const MerchPage: React.FC = () => {
               </p>
               {/* Cap Design */}
               <div className="flex justify-center items-center pt-5">
-                <Image width={200} height={200} src="/path/to/cap-design.jpg" alt="Cap Design" className="w-full max-w-[400px] rounded-lg shadow-md"/>
+                <Image width={200} height={200} src="/path/to/cap-design.jpg" alt="Cap Design" className="w-full max-w-[400px] rounded-xl shadow-md"/>
               </div>
               {/* Payment Link */}
               <a href="https://payment-link-for-cap.com" target="_blank" rel="noopener noreferrer">
-                <button className="bg-orange-200 text-black font-bold border border-black rounded-lg px-8 py-2 mt-8 hover:bg-orange-800 hover:text-white transition-all duration-300">
+                <button className="bg-orange-200 text-black font-bold border border-black rounded-xl px-8 py-2 mt-8 hover:bg-orange-800 hover:text-white transition-all duration-300">
                   Buy Cap
                 </button>
               </a>
