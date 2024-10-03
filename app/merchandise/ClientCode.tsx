@@ -3,6 +3,7 @@ import React,{useRef} from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import Payment from './Payment';
 import Image from 'next/image';
+import Footer from '@/components/Homepage/Footer/Footer';
 
 const ProductSection = ({userDetails}:{userDetails:{
     isLogin:boolean,
@@ -35,7 +36,11 @@ const ProductSection = ({userDetails}:{userDetails:{
       }
 	}
   return (
+    <>
     <section className="text-gray-600 body-font overflow-hidden bg-[#101720]">
+      <h1 className="text-4xl text-[#fcbf49] mt-8 justify-center font-bold text-center">
+        E-Summit&apos;24 Merchandise
+      </h1>
       <div className="container px-5 py-8 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <Image
@@ -47,7 +52,7 @@ const ProductSection = ({userDetails}:{userDetails:{
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-[#f77f00] tracking-widest">T-SHIRT</h2>
-            <h1 className="text-[#fcbf49] text-3xl title-font font-semibold mb-1">E-Summit 24 Merchandise</h1>
+            <h1 className="text-[#fcbf49] text-2xl title-font font-semibold mb-1">Get the official E-Summit 24 Merchandise</h1>
             <div className="flex mb-4 text-grey-200">
               
             {/* //TODO: Apply such a logic where the genderand size of the user is shown and initialised as the order value */}
@@ -86,6 +91,8 @@ const ProductSection = ({userDetails}:{userDetails:{
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 };
 

@@ -11,7 +11,6 @@
 
 # issues
 - [ ] White bg at esummit's homepage
-- [ ] Prisma Client Integration Pending
 
 
 # Todos for Merch

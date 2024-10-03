@@ -33,7 +33,7 @@ export function Warning({showWarning,setShowWarning}:{
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="max-w-sm w-full bg-gray-700 shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -41,8 +41,8 @@ export function Warning({showWarning,setShowWarning}:{
                     <ExclamationCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true"/>    
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">{showWarning.title}</p>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="text-sm font-medium text-gray-100">{showWarning.title}</p>
+                    <p className="mt-1 text-sm text-[#eae2b7]">
                       {showWarning.msg}
                     </p>
                     <div className="mt-3 flex space-x-7">
@@ -61,14 +61,14 @@ export function Warning({showWarning,setShowWarning}:{
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
-                      className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="bg-gray-700 rounded-md inline-flex text-gray-200 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fcbf47]"
                         onClick={()=>{
                           const obj = {...showWarning};
                           obj.show = false
                           setShowWarning(obj);
                         }}
                     >
-                       <XMarkIcon className="h-5 w-5 text-black" aria-hidden="true" /> 
+                       <XMarkIcon className="h-5 w-5 text-white" aria-hidden="true" /> 
                       {/* <XIcon className="h-5 w-5" aria-hidden="true" /> */}
                     </button>
                   </div>
@@ -109,19 +109,19 @@ export function Success({showSuccess,setShowSuccess}:
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div className="max-w-sm w-full bg-gray-700 shadow-lg rounded-lg pointer-events-auto ring-1 ring-[#eae2b7] ring-opacity-5 overflow-hidden">
               <div className="p-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <CheckBadgeIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">{showSuccess.title}</p>
-                    <p className="mt-1 text-sm text-gray-500">{showSuccess.msg}</p>
+                    <p className="text-sm font-medium text-gray-100">{showSuccess.title}</p>
+                    <p className="mt-1 text-sm text-gray-200">{showSuccess.msg}</p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
-                      className="bg-white rounded-md inline-flex text-black hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="bg-gray-700 rounded-md inline-flex text-[#eae2b7] hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#fcbf47]"
                       onClick={() => {
                         obj.show = false;
                         setShowSuccess(obj);
