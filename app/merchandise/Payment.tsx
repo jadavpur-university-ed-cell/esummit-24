@@ -1,5 +1,6 @@
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 
 const Payment: React.FC<{uid:string}> = ({ uid }) => {
@@ -49,11 +50,11 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
     <div className="p-6">
             <h2 className="text-lg text-[#fcbf49] flex justify-center font-semibold mb-4">Complete Your Payment</h2>
             <p className="text-sm text-gray-400 text-center mb-2">
-             Scan Any One of the Two QR codes provided to below, and pay via any UPI App.<br/>The Shirt will be provided to you on the event day<br/>To change the size of the shirt, change you shirt size in the Profile tab</p>
+             Scan Any One of the Two QR codes provided to below, and pay via any UPI App.<br/>The Shirt will be provided to you on the event day. <br/>To change the size of the shirt, change your shirt size in the Profile tab.</p>
 
       <div className="flex justify-center space-x-4">
-        <img src="/payment1.jpg" alt="Payment1" width={200} height={200} />
-        <img src="/payment2.jpg" alt="Payment2" width={200} height={200} />
+        <Image src="/payment1.jpg" alt="Payment1" width={200} height={200} />
+        <Image src="/payment2.jpg" alt="Payment2" width={200} height={200} />
         </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         

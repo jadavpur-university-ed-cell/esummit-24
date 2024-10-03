@@ -17,11 +17,11 @@ const ProductSection = ({userDetails}:{userDetails:{
         return false;
       }
       if(userDetails.size === undefined) {
-        alert("Unable to find Shirt Size plse try again later");
+        alert("Unable to find Shirt Size please try again later");
         return false;
       }
       if(userDetails.size === null) {
-        alert("plse set you shirt size from profile section");
+        alert("Please set your shirt size from profile section");
         return false;
       }
       return true;

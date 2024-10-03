@@ -11,14 +11,14 @@ import Image from "next/image";
 
 const CorporateClashEvent: React.FC<eventProps> = ({allow}) => {
   const router = useRouter();
-  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the &quot;Analyst&quot; case study challenge awaits you.'
+  const description='In a dynamic corporate world, adaptability and analytical prowess are vital. If you thrive on dissecting business successes and challenges to craft strategic solutions, the "Analyst" case study challenge awaits you.'
   const bulletPoints = [
     "The challenge is designed to test your problem solving and problem statement understanding abilities.",
     "Sharpen your critical analysis skills to dissect complex challenges.",
     "The Analyst challenge transcends personal growth, offering an intellectually stimulating experience within a high-stakes corporate environment."
   ];
 
-  const bottomText = "Don&apos;t miss this chance to step up, solve, and succeed in the world of business analysis!";
+  const bottomText = "Don't miss this chance to step up, solve, and succeed in the world of business analysis!";
 
   const faqs = [
     { question: "What is Corporate Clash?", answer: "Corporate Clash is a high stakes problem solving challenge designed to test your analytical and critical thinking skills in a corporate environment." },

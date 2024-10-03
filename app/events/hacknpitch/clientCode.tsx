@@ -18,7 +18,7 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
 
   const bulletPoints = [
     "Round 01: Idea Submission &minus; Submit a 5-slide presentation based on the provided topics. Up to 15 teams (60 participants) will be shortlisted for the next round.",
-    "Round 02: Let&apos;s Hack and Pitch",
+    "Round 02: Let's Hack and Pitch",
     "Day 1: Participate in a 12&minus;hour hackathon to bring your ideas to life.",
     "Day 2: Pitch your creation to a panel of judges. Details on the pitch format and requirements will be shared with shortlisted teams."
   ];
