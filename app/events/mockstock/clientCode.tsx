@@ -131,25 +131,10 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
           textColor="text-sky-50"
           rounds={[
             {
-              title: 'Screening Round',
-              date: 'Preliminary Submission',
-              description: 'Participants are required to submit a 3-slide PowerPoint presentation via the official website or Unstop. The submission should focus on the core aspects of the proposed innovation, excluding introductory and thank-you slides.',
-            },
-            {
-              title: 'Pitching Round',
-              date: 'Offline',
-              description: 'Thirty teams will be shortlisted to participate in an offline pitching session. Each team will deliver a 5-minute pitch followed by a 2-minute rebuttal, where they will have the opportunity to defend and elaborate on their presentation.',
-            },
-            {
-              title: 'Final Offline Round',
-              date: 'Offline',
-              description: 'Selected teams will be invited to Kolkata for the final offline round. Attendance will be subject to the feasibility and availability of the team.',
-            },
-            {
-              title: 'Elevator Pitch (Conditional)',
-              date: 'Offline',
-              description: 'An elevator pitch session may be conducted at the discretion of the VCs. Details and confirmation of this round will be provided at a later stage.',
-            },
+              title: 'Single Round',
+              date: 'TBD',
+              description: 'In this event participants will engage with a curated list of stocks derived from a selected data set. Using a platform modeled after standard trading systems they will trade the top 100 listed stocks. The participant with the highest net worth at the conclusion of the event will be declared the winner. ',
+            }
           ]}
         />
       </div>
