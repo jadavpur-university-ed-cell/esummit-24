@@ -69,7 +69,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="Phone Number *"
 						{...register("phone")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						className="p-2 rounded-xl text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
 						/>
 					{errors.phone && (
 						<p className="text-red-500">{errors.phone.message}</p>
@@ -80,7 +80,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="Roll Number *"
 						{...register("rollNo")}
-						className="p-2 rounded-md  text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						className="p-2 rounded-xl text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
 						/>
 					{errors.rollNo && (
 						<p className="text-red-500">{errors.rollNo.message}</p>
@@ -91,7 +91,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="College *"
 						{...register("college")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						className="p-2 rounded-xl text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
 						/>
 					{errors.college && (
 						<p className="text-red-500">{errors.college.message}</p>
@@ -103,7 +103,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="Year *"
 						{...register("year")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						className="p-2 rounded-xl text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
 						/>
 					{errors.year && <p className="text-red-500">{errors.year.message}</p>}
 						</div>
@@ -113,7 +113,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="Branch *"
 						{...register("branch")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						className="p-2 rounded-xl text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
 						/>
 					{errors.branch && (
 						<p className="text-red-500">{errors.branch.message}</p>
@@ -127,7 +127,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						className="p-2 rounded-md text-gray-600 bg-transparent border border-white"
 					/> */}
 					<div className="w-full">
-					<select id="shirtSize" {...register("shirtSize")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white w-full">
+					<select id="shirtSize" {...register("shirtSize")} className="p-2 rounded-xl text-gray-600 bg-transparent border border-white w-full">
 						<option value="Shirt Size" hidden>Shirt Size *</option>
 						<option value="XS">XS</option>
 						<option value="S">S</option>
@@ -146,7 +146,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						type="text"
 						placeholder="Gender *"
 						{...register("gender")}
-						className="p-2 rounded-md placeholder:text-gray-600 text-white bg-transparent border border-white w-full"
+						className="p-2 rounded-xl placeholder:text-gray-600 text-white bg-transparent border border-white w-full"
 						/>
 					{errors.gender && (
 						<p className="text-red-500">{errors.gender.message}</p>
@@ -160,7 +160,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						className="p-2 rounded-md placeholder:text-gray-600 text-white bg-transparent border border-white"
 					/> */}
 					<div className="w-full">
-					<select id="foodPreference" {...register("foodPreference")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white w-full">
+					<select id="foodPreference" {...register("foodPreference")} className="p-2 rounded-xl text-gray-600 bg-transparent border border-white w-full">
 						<option value="Food Preference" hidden>Food Preference *</option>
 						<option value="Veg">Veg</option>
 						<option value="Non-Veg">Non-Veg</option>

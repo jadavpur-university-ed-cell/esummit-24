@@ -25,3 +25,19 @@ export const getUserById = async (id: string | undefined) => {
 		return null;
 	}
 };
+
+export const updatePasswordByEmail = async(email:string, pass:string) => {
+	try {
+		await prisma.user.update({
+			where: {
+				email
+			},
+			data: {
+				password: pass
+			}
+		})
+		return;
+	} catch (error) {
+		throw error;
+	}
+}

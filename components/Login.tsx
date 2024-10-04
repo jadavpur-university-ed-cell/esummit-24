@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { login } from "@/app/actions/login";
 import { LoginSchema } from "@/schemas";
+import Link from "next/link";
 type FormFields = z.infer<typeof LoginSchema>;
 
 export const Login = () => {
@@ -37,10 +38,12 @@ export const Login = () => {
 		setError("");
 		setSuccess("");
 		startTransition(() => {
-			login(values).then((data: any) => {
-				if (data?.error) setError(data?.error);
-				if (data?.success) setSuccess(data?.success);
-			}).finally(()=>setSubmitText("Login"));
+			login(values)
+				.then((data: any) => {
+					if (data?.error) setError(data?.error);
+					if (data?.success) setSuccess(data?.success);
+				})
+				.finally(() => setSubmitText("Login"));
 		});
 	};
 	return (
@@ -52,7 +55,7 @@ export const Login = () => {
 				footerLink="/sign-up"
 				footerLinkText="Sign up">
 				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 pb-3">
 						<div className="space-y-4">
 							<FormField
 								control={form.control}
@@ -66,7 +69,7 @@ export const Login = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												className="text-gray-300 bg-[#101720e7] focus:ring-gray-500"
+												className="text-gray-300 bg-[#101720e7] focus:ring-gray-500 rounded-xl"
 												placeholder="Your Email Address"
 												{...field}
 												disabled={isPending}
@@ -80,7 +83,7 @@ export const Login = () => {
 								control={form.control}
 								name="password"
 								render={({ field }) => (
-									<FormItem>
+									<FormItem className="mb-3">
 										<FormLabel
 											className="block text-sm font-medium text-gray-300"
 											htmlFor="password">
@@ -88,7 +91,7 @@ export const Login = () => {
 										</FormLabel>
 										<FormControl>
 											<Input
-												className="text-gray-300 bg-[#101720e7] focus:ring-gray-500"
+												className="text-gray-300 bg-[#101720e7] focus:ring-gray-500 rounded-xl"
 												placeholder="Your Password"
 												{...field}
 												type="password"
@@ -103,12 +106,17 @@ export const Login = () => {
 							/>
 						</div>
 						<Button
-							className="w-full bg-[#FCBF49] hover:bg-[#EAE2B7] text-gray-700"
+							className="w-full bg-[#FCBF49] hover:bg-[#EAE2B7] text-[#101720] mb-3 rounded-xl"
 							typeof="submit">
 							{submitText}
 						</Button>
 					</form>
 				</Form>
+				<Link
+					href="/forgotPassword"
+					className="text-white hover:text-[#f77f00] transition-colors duration-150">
+					Forgot Password?
+				</Link>
 			</CardWrapper>
 		</div>
 	);

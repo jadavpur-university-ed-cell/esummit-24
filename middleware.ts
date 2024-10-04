@@ -9,7 +9,7 @@ export default auth((req) => {
     const { nextUrl } = req;
     const isLoggedIn = !!req.auth;
     const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-    const isPublicRoute = !nextUrl.pathname.startsWith("/admin") && !nextUrl.pathname.startsWith("/api") && !nextUrl.pathname.startsWith("/eventRegistration") && !nextUrl.pathname.startsWith("/merchandise") &&!nextUrl.pathname.startsWith("/profile");
+    const isPublicRoute = !nextUrl.pathname.startsWith("/admin") && !nextUrl.pathname.startsWith("/eventRegistration") && !nextUrl.pathname.startsWith("/merchandise") &&!nextUrl.pathname.startsWith("/profile");
     const isAuthRoute = authRoutes.includes(nextUrl.pathname);
     const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
     if(nextUrl.pathname.startsWith("/api/user")) return;

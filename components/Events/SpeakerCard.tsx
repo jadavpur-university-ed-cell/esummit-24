@@ -13,7 +13,7 @@ interface CardProps {
 
 const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode, linkedin,imgLink }) => {
   return (
-    <div className="relative p-4 bg-white shadow-lg group border-solid rounded-[40px] mt-8 overflow-hidden">
+    <div className="relative p-4 bg-white shadow-lg group border-solid rounded-[40px] mt-8 overflow-hidden flex flex-col items-center">
       {/* Speaker Image and Details */}
       <div className="aspect-w-3 aspect-h-2">
         <Image
@@ -41,7 +41,7 @@ const SpeakerCard: React.FC<CardProps> = ({ name, talk, synopsis, dayTime, mode,
           <h3 className="text-lg font-semibold mb-2">Synopsis</h3>
           <p className="text-gray-700 text-sm">{synopsis}</p>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 w-full flex justify-center">
           <button className="px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition-colors">
             Register
           </button>

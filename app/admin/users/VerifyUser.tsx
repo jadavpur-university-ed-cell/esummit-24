@@ -43,7 +43,8 @@ function VerifyUser({transaction,user}:{transaction:Transaction, user:{name:stri
                 <p>Vendor ID: ${transaction.bankId}</p>
 				<p>In case of any queries/issues, please contact someone from the Tech Team.</p>
 				<br>
-				<h4>E-Cell, Jadavpur University`,
+				<h4>Regards,</h4>
+                <h4>E-Cell, Jadavpur University</h4>`,
 			}),
 		});
 		const mailResult = await mail.json();
@@ -74,7 +75,8 @@ function VerifyUser({transaction,user}:{transaction:Transaction, user:{name:stri
                 <p>Vendor ID: ${transaction.bankId}</p>
 				<p>In case of any queries/issues, please contact someone from the Tech Team.</p>
 				<br>
-				<h4>E-Cell, Jadavpur University`,
+				<h4>Regards,</h4>
+                <h4>E-Cell, Jadavpur University</h4>`,
 			}),
 		});
 		const mailResult = await mail.json();

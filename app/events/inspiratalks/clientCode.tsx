@@ -12,12 +12,12 @@ const InspiraTalks: React.FC = () => {
     { name: "Yash Raj Singh", phoneNumber: "+919155277350", nameColor: "text-blue-500" }
   ];
   return (
-    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white">
+    <div className="min-h-screen bg-[#101720] bg-grid-white/[0.03] md:bg-grid-large-white/[0.03] text-white pb-8 w-full">
       <div className="flex justify-center">
         {/* <section className="bg-[#f2b2d8] w-[66.6666%] h-[35px]"></section> */}
         <EventsNavbar />
       </div>
-      <div className="flex flex-col justify-center items-center pt-16 pb-0.5">
+      <div className="flex flex-col justify-center items-center pt-16 pb-0.5 w-full">
         <div className="p-5 text-center">
           <h1 className="text-7xl font-semibold" style={{ color: '#f2b2d8' }}>
             Inspira Talks
@@ -32,7 +32,7 @@ const InspiraTalks: React.FC = () => {
               <SpeakerCard
                 name="Coming Soon"
                 talk="Coming Soon"
-                synopsis=""
+                synopsis="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ducimus eaque rem quod exercitationem tempora mollitia expedita quo enim officia?"
                 dayTime="Day 1, 03:00 PM"
                 mode="TBD"
                 linkedin="https://linkedin.com/in/lindsaywalton"
@@ -43,7 +43,7 @@ const InspiraTalks: React.FC = () => {
               <SpeakerCard
                 name="Coming Soon"
                 talk="Coming Soon"
-                synopsis=""
+                synopsis="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ducimus eaque rem quod exercitationem tempora mollitia expedita quo enim officia?"
                 dayTime="Day 2, 6:30 PM"
                 mode="Offline"
                 linkedin="https://linkedin.com/in/alexjohnson"
@@ -54,7 +54,7 @@ const InspiraTalks: React.FC = () => {
               <SpeakerCard
                 name="Coming Soon"
                 talk="Coming Soon"
-                synopsis=""
+                synopsis="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ducimus eaque rem quod exercitationem tempora mollitia expedita quo enim officia?"
                 dayTime="Day 2, 8:30 PM"
                 mode="Hybrid"
                 linkedin="https://linkedin.com/in/samanthalee"
@@ -63,7 +63,7 @@ const InspiraTalks: React.FC = () => {
             </div>
           </div>
         </section>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3 w-full">
           {pointsOfContact.map((contact, index) => (
             <PoCCard
               key={index}

@@ -28,15 +28,15 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
                 <h2 className="mt-6 text-3xl font-bold text-[#EAE2B7]">{title}</h2>
               </div>
             {children}
-            <div>
+            <div className="flex w-2/3 justify-between items-center">
                 {footerLabel &&
-                    <p className="text-gray-200 mt-3">
+                    <p className="text-gray-200 mt-2">
                         {footerLabel}
                     </p>
                 }
                 {footerLink &&
                     <Link href={footerLink}>
-                        <p className="text-gray-200 mt-3 hover:text-[#F77F00]">
+                        <p className="text-gray-200 mt-2 hover:text-[#F77F00] transition-colors duration-150">
                             {footerLinkText}
                         </p>
                     </Link>
