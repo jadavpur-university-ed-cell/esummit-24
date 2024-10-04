@@ -152,7 +152,7 @@ const teams: Team[] = [
         linkedinUrl: 'https://www.linkedin.com/in/aditya-astralite-anand/',
       },
       {
-        name: 'Arka_Dhar',
+        name: 'Arka Dhar',
         role: 'Sponsorship Member',
         imageUrl:
           '/Team/Arka_Dhar.jpeg',
