@@ -125,7 +125,7 @@ const Profile = async () => {
 						}}>
 						<button
 							type="submit"
-							className="bg-[#d62828] text-white px-3 py-1 rounded-2xl">
+							className="bg-[#d62828] text-white px-3 py-1 rounded-full">
 							Log Out
 						</button>
 					</form>

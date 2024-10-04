@@ -335,7 +335,7 @@ const TeamPage=()=> {
               {activeTeamMembers.map((person) => (
                 <li key={person.name}>
                   <div className="space-y-6">
-                    <Image className="mx-auto h-40 w-40 rounded-full ring-1 ring-[#fcbf49] xl:w-56 xl:h-56" width={300} height={300} src={person.imageUrl} alt={person.name} />
+                    <Image className="mx-auto h-40 w-40 rounded-full ring-1 ring-[#fcbf49] xl:w-56 xl:h-56 object-cover" width={300} height={300} src={person.imageUrl} alt={person.name} />
                     <div className="space-y-2">
                       <div className="text-lg text-[#fcbf49] hover:text-[#f77f00] leading-6 font-medium space-y-1">
                         <h3>{person.name}</h3>
