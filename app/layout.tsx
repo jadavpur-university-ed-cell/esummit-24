@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "E-Summit 2024 | JU E-Cell",
   description: "Jadavpur University Entrepreneurship Cell Welcomes you with the 4th edition of it's flagship event, the E-Summit, including a plethora of events, workshops, and competitions.",
   metadataBase: new URL('https://esummit.juecell.com'),
-    keywords: ['esummit', 'entrepreneuship', 'ju','shark tank', 'pitching', 'case study','product marketing', 'fest', 'ju-ecell', 'technology', 'events', 'games', 'coding', 'esummit24', 'techfest', 'ai', 'management', 'jadavpur university', 'kolkata', 'puja', 'durga puja'],
+    keywords: ['esummit','juecell','esummit ju','ju esummit', 'esummit juecell','juecell esummit', 'entrepreneuship', 'ju','shark tank', 'pitching', 'case study','product marketing', 'fest', 'ju-ecell', 'technology', 'events', 'games', 'coding', 'esummit24', 'techfest', 'ai', 'management', 'jadavpur university', 'kolkata', 'puja', 'durga puja'],
     authors: [{ name: ' JU E-Cell', url: 'https://esummit.juecell.com' }],
     creator: ' JU E-Cell',
     publisher: ' JU E-Cell',
@@ -50,7 +50,7 @@ export default async function RootLayout({
     />
     <meta
         name='keywords'
-        content=' E-Summit, entrepreneuship, ju,shark tank, pitching, case study,product marketing, fest, ju-ecell, technology, events, games, coding, esummit24, techfest, ai, management, jadavpur university,Kolkata, West Bengal,puja, durga puja'
+        content=' E-Summit, entrepreneuship,esummit ju,ju esummit,esummit juecell,juecell esummit, ju,shark tank, pitching, case study,product marketing, fest, ju-ecell, technology, events, games, coding, esummit24, techfest, ai, management, jadavpur university,Kolkata, West Bengal,puja, durga puja'
     />
     <meta name='author' content='JU E-Cell' />
 
@@ -72,7 +72,7 @@ export default async function RootLayout({
     <meta
         property="og:image"
         itemProp="image"
-        content="https://ibb.co/Lxd4Nm8"
+        content="/E-SummitSEO.png"
     />
     <link
         rel='shortcut icon'

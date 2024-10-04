@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useRouter } from "next/navigation";
 import React from "react";
 import FAQ from "@/components/Events/FAQS";
@@ -9,17 +8,18 @@ import RoundCards from "@/components/Events/RoundCards";
 import { eventProps } from "../eventProps";
 import EventsNavbar from "@/components/Events/Navbar";
 import Image from "next/image";
+import Link  from "next/link";
 
 
 const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
   const router = useRouter();
-  const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack&minus;n&minus;Pitch is your chance to shine, whether you&apos;re a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity&apos;s pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
+  const description = `HackNPitch is an Overnight Hackathon event. Relish the coding culture at JU and compete against the best to craft the app that will outshine all others. Hack<N>Pitch is your chance to shine, whether you're a developer, designer, or entrepreneur. Join us for this exciting challenge, where innovation meets competition, and the best ideas come to life! The wheel, humanity&apos;s pioneering invention, succeeded by electricity, the invention that reshaped the world.`;
 
 
   const bulletPoints = [
-    "Round 01: Idea Submission &minus; Submit a 5-slide presentation based on the provided topics. Up to 15 teams (60 participants) will be shortlisted for the next round.",
+    "Round 01: Idea Submission &minus; Submit a 5-slide presentation based on the provided topics. Up to 8 teams (32 participants) will be shortlisted for the next round.",
     "Round 02: Let's Hack and Pitch",
-    "Day 1: Participate in a 12&minus;hour hackathon to bring your ideas to life.",
+    "Day 1: Participate in a 12 hour hackathon to bring your ideas to life.",
     "Day 2: Pitch your creation to a panel of judges. Details on the pitch format and requirements will be shared with shortlisted teams."
   ];
 
@@ -31,7 +31,7 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
   const faqs = [
     { question: "What is HacknPitch?", answer: "HacknPitch is an overnight hackathon where participants can showcase their coding and pitching skills." },
     { question: "How do I register?", answer: "Click the 'Participate' button on this page to register." },
-    { question: "Is there a registration fee?", answer: "Yes, Rs.100 per person." }
+    { question: "Is there a registration fee?", answer: "Yes, ₹300 per Team." }
   ];
 
 
@@ -150,12 +150,12 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
             {
               title: 'Overnight Coding',
               date: 'Offline',
-              description: ' 15 teams will be shortlisted to advance to the next stage. On Day 1 teams will engage in an intense 12-hour hackathon',
+              description: ' 8 teams will be shortlisted to advance to the next stage. On Day 1 teams will engage in an intense 12-hour hackathon',
             },
             {
               title: 'Final Offline Pitching Round',
               date: 'Offline',
-              description: 'On Day 2   a pitch session in front of a panel of judges  is to be held',
+              description: 'On Day 2  a pitch session in front of a panel of judges  is to be held',
             },
             
           ]}
@@ -224,14 +224,13 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
           />
         </div>
 
-
         {/* Sponsors Column */}
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-blue-200">Sponsors</h2>
+          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-blue-600 to-blue-200">Event Sponsor</h2>
           <ul className="mt-4 text-white">
-            <li>Sponsor 1</li>
-            <li>Sponsor 2</li>
-            <li>Sponsor 3</li>
+            <Link href='https://beeceptor.com/?utm_source=hackathon&utm_medium=email&utm_campaign=hacknpitchju' target="blank"><Image src='/sponsors/beeceptor-logo.png' alt="Beeceptor Logo"  height={500}  width={500} className="object-cover w-[125px] h-[70px] md:w-[175px] md:h-[100px]"/></Link>
+            {/* <li>Sponsor 2</li>
+            <li>Sponsor 3</li> */}
           </ul>
         </div>
       </div>

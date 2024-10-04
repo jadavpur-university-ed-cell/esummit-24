@@ -204,11 +204,11 @@ const MockStockEvent: React.FC<eventProps> = ({allow}) => {
 
         {/* Sponsors Column */}
         <div className="lg:w-2/5 lg:pl-8 mt-8 lg:mt-0">
-          <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-cyan-500 to-red-400">Sponsors</h2>
+          {/* <h2 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-bl from-cyan-500 to-red-400">Sponsors</h2> */}
           <ul className="mt-4 text-white">
-            <li>Sponsor 1</li>
+            {/* <li>Sponsor 1</li>
             <li>Sponsor 2</li>
-            <li>Sponsor 3</li>
+            <li>Sponsor 3</li> */}
           </ul>
         </div>
       </div>

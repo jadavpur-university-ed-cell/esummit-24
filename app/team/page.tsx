@@ -21,6 +21,19 @@ type Team = {
 //the team data
 const teams: Team[] = [
   {
+    name: 'Admin',
+    members: [
+      {
+        name: 'Debamita Banerjee',
+        role: 'Student Head',
+        imageUrl:
+          '/Team/Debamita_Banerjee.jpeg',
+        instaUrl: 'https://www.instagram.com/debamitaa?igsh=aHJjeGZ1NzFpc24w&utm_source=qr',
+        linkedinUrl: 'https://www.linkedin.com/in/debamita-banerjee?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      }
+    ],
+  },
+  {
     name: 'Tech',
     members: [
       {
@@ -115,6 +128,22 @@ const teams: Team[] = [
         linkedinUrl: 'https://www.linkedin.com/in/jotiraditya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
+        name: 'Shivam Mundra',
+        role: 'Sponsorship Member',
+        imageUrl:
+          '/Team/Shivam_Mundra.jpg',
+        instaUrl: 'https://www.instagram.com/shivam_mundra24/',
+        linkedinUrl: 'https://www.linkedin.com/in/shivam-mundra-97989123b/',
+      },
+      {
+        name: 'Jahid Mamud',
+        role: 'Sponsorship Member',
+        imageUrl:
+          '/Team/Jahid.jpeg',
+        instaUrl: 'https://www.instagram.com/jem_.__?igsh=b2o0ZjlqZ3pkeW5t',
+        linkedinUrl: 'http://www.linkedin.com/in/jahid-mamud',
+      },
+      {
         name: 'Aditya Anand',
         role: 'Sponsorship Member',
         imageUrl:
@@ -147,12 +176,28 @@ const teams: Team[] = [
         linkedinUrl: 'https://www.linkedin.com/in/aishani-roy-a6804829b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
+        name: 'Souptik Dasgupta',
+        role: 'Sponsorship Member',
+        imageUrl:
+          '/Team/Souptik_Dasgupta.jpg',
+        instaUrl: 'https://www.instagram.com/dark_sdg_4_u/profilecard/?igsh=MW55N3B6bzl1eTk4Ng==',
+        linkedinUrl: 'https://www.linkedin.com/in/souptik-dasgupta-246871325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
         name: 'Shubham Sarkar',
         role: 'Sponsorship Member',
         imageUrl:
           '/Team/Shubham_Sarkar.jpg',
         instaUrl: 'https://www.instagram.com/_iamshubhamsarkar_?igsh=MTZ2b24xc2pwdmI4dQ==',
         linkedinUrl: 'https://www.linkedin.com/in/shubham-sarkar-57438b27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      },
+      {
+        name: 'Taufique Ali ',
+        role: 'Sponsorship Member',
+        imageUrl:
+          '/Team/Taufique_Ali.jpg',
+        instaUrl: 'https://www.instagram.com/taufiqueali007s?igsh=bHYycDVsaWUzN3By',
+        linkedinUrl: 'https://www.linkedin.com/in/taufiqueali?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
         name: 'Bitan Mukherjee',
@@ -217,6 +262,14 @@ const teams: Team[] = [
         linkedinUrl: 'https://www.linkedin.com/in/meghna-das-009628248?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
       },
       {
+        name: 'Anubrata Karmakar',
+        role: 'Designer',
+        imageUrl:
+          '/Team/Anubrata_Karmakar.jpg',
+        instaUrl: 'https://www.instagram.com/anubrata_0312/',
+        linkedinUrl: 'https://www.linkedin.com/in/anubrata-karmakar-926631212',
+      },
+      {
         name: 'Prama Ray',
         role: 'OC, Designer',
         imageUrl:
@@ -271,6 +324,22 @@ const teams: Team[] = [
           '/Team/Sohini_Hazra.png',
         instaUrl: 'https://www.instagram.com/_._.sohini._._/',
         linkedinUrl: 'https://www.linkedin.com/in/sohini-hazra-a17121254/',
+      },
+      {
+        name: 'Gourab Paul',
+        role: 'Operations co-in-Charge',
+        imageUrl:
+          '/Team/Gourab_Paul.png',
+        instaUrl: 'https://www.instagram.com/gourab____paul/',
+        linkedinUrl: 'https://www.linkedin.com/in/gourab-paul-259156227/',
+      },
+      {
+        name: 'Sabyasachi Sen',
+        role: 'Logistics Member',
+        imageUrl:
+          '/Team/Sabyasachi_Sen.jpeg',
+        instaUrl: 'https://www.instagram.com/yoursabya/',
+        linkedinUrl: 'https://www.linkedin.com/in/sabyasachi-sen-16b7b3303',
       },
       // Add more finance team members here
     ],

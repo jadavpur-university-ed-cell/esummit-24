@@ -11,6 +11,7 @@ const navigation = {
     { name: "Team", href: "/team" },
   ],
   Help: [
+    { name: "Brochure", href: "/participant_guidebook.pdf" },
     { name: "For Sponsors", href: "/E-SUMMIT_2024_Brochure.pdf" },
     { name: "Privacy", href: "/E-Cell_Privacy_Policy.pdf" },
   ],
@@ -159,7 +160,7 @@ export default function Footer() {
             <div className="mt-1 md:mt-0 md:order-1">
               <p className="text-center text-[16px] text-[#eae2b7]">
                 &copy; 2024{" "}
-                <Link href="www.juecell.com">
+                <Link href="https://www.juecell.com">
                   Jadavpur University Entrepreneurship Cell
                 </Link>
                 . All rights reserved.
