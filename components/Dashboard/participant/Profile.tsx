@@ -62,7 +62,7 @@ const UserTransactions = ({ transactions }: { transactions: Transaction[] }) => 
 			<table className="w-full text-left table-auto border-collapse">
 				<thead>
 					<tr className="bg-[#101720] text-[#eae2b7] text-lg">
-						<th className="border p-2">Transcation Type</th>
+						<th className="border p-2">Transaction Type</th>
 						<th className="border p-2">Transaction Id</th>
 						<th className="border p-2">Transaction Status</th>
 					</tr>
@@ -89,45 +89,45 @@ const UserDetails = ({ user }: { user: User }) => {
 	return (
 		<div className="w-full flex justify-center mb-6">
 			<div className="grid grid-cols-1 bg-gray-800 bg-opacity-50 px-1 pt-16 pb-24 rounded-2xl overflow-hidden md:grid-cols-2 text-lg gap-y-2 w-4/5 py-4 justify-items-center">
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Name</p>
-          <p>{user.name}</p>
+          <p className="text-wrap break-words">{user.name}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col flex-wrap w-5/6 sm:w-2/3 text-wrap">
           <p className="text-zinc-400 text-sm">Email</p>
-          <p>{user.email}</p>
+          <p className="text-wrap break-all">{user.email}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Phone Number</p>
-          <p>{user.phone}</p>
+          <p className="text-wrap break-all">{user.phone}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">College</p>
-          <p>{user.college}</p>
+          <p className="text-wrap break-words">{user.college}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Roll Number</p>
-          <p>{user.rollNo}</p>
+          <p className="text-wrap break-all">{user.rollNo}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Year of Study</p>
-          <p>{user.year}</p>
+          <p className="text-wrap break-all">{user.year}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Branch</p>
-          <p>{user.branch}</p>
+          <p className="text-wrap break-word">{user.branch}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Shirt Size</p>
-          <p>{user.shirtSize}</p>
+          <p className="text-wrap">{user.shirtSize}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Gender</p>
-          <p>{user.gender}</p>
+          <p className="text-wrap break-all">{user.gender}</p>
         </div>
-				<div className="flex flex-col w-1/2">
+				<div className="flex flex-col w-5/6 sm:w-2/3">
           <p className="text-zinc-400 text-sm">Food Preference</p>
-          <p>{user.foodPreference}</p>
+          <p className="text-wrap break-all">{user.foodPreference}</p>
         </div>
 			</div>
 		</div>

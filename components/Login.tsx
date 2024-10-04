@@ -24,6 +24,7 @@ export const Login = () => {
 	const [isPending, startTransition] = useTransition();
 	const [error, setError] = useState<string | undefined>("");
 	const [success, setSuccess] = useState<string | undefined>("");
+	const [submitText, setSubmitText] = useState<string>("Login");
 	const form = useForm<FormFields>({
 		defaultValues: {
 			email: "",
@@ -32,13 +33,14 @@ export const Login = () => {
 		resolver: zodResolver(LoginSchema),
 	});
 	const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+		setSubmitText("Submitting..");
 		setError("");
 		setSuccess("");
 		startTransition(() => {
 			login(values).then((data: any) => {
 				if (data?.error) setError(data?.error);
 				if (data?.success) setSuccess(data?.success);
-			});
+			}).finally(()=>setSubmitText("Redirecting.."));
 		});
 	};
 	return (
@@ -103,7 +105,7 @@ export const Login = () => {
 						<Button
 							className="w-full bg-[#FCBF49] hover:bg-[#EAE2B7] text-gray-700"
 							typeof="submit">
-							Login
+							{submitText}
 						</Button>
 					</form>
 				</Form>

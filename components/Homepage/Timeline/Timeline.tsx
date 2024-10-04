@@ -70,7 +70,7 @@ function EventTimeline() {
     },
   ];
   return (
-    <div className="w-full p-12">
+    <div className="w-full p-12 bg-[#101720] bg-opacity-50">
       <Timeline data={data} />
     </div>
   );

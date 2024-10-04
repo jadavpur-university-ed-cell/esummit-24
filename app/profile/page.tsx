@@ -111,11 +111,11 @@ const Profile = async () => {
 
 	return (
 		<main>
-			<Navbar button="Merchandise" url="/merchandise" />
+			<Navbar button="Merch" url="/merchandise" />
 			<div>
 				{/* <span className="text-white">{JSON.stringify(session)}</span> */}
-				<div className="flex justify-between px-8 py-12 items-center bg-[#101720]">
-					<h1 className="text-4xl text-[#fcbf49] font-bold ml-12">
+				<div className="flex justify-between px-8 pt-24 sm:pt-16 pb-12 items-center bg-[#101720]">
+					<h1 className="text-4xl text-[#fcbf49] font-bold ml-3 sm:ml-12">
 						User Profile
 					</h1>
 					<form

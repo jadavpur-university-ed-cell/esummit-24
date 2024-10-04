@@ -7,23 +7,23 @@ export default function Navbar({button,url}:{button:string,url:string}) {
     {
       name: "Home",
       link: "/",
-      icon: <IconHome className="h-8 w-8 text-neutral-500 dark:text-white" />,
+      icon: <IconHome className="h-[24px] w-[24px] text-neutral-500 dark:text-white" />,
     },
     {
       name: "About",
       link: "/#about",
-      icon: <IconInfoCircle className="h-8 w-8 text-neutral-500 dark:text-white" />,
+      icon: <IconInfoCircle className="h-[24px] w-[24px] text-neutral-500 dark:text-white" />,
     },
     {
       name: "Events",
       link: "/#events",
-      icon: <IconCalendarEvent className="h-8 w-8 text-neutral-500 dark:text-white" />,
+      icon: <IconCalendarEvent className="h-[24px] w-[24px] text-neutral-500 dark:text-white" />,
     },
     {
       name: "Contact",
       link: "/#footer",
       icon: (
-        <IconMessage className="h-8 w-8 text-neutral-500 dark:text-white" />
+        <IconMessage className="h-[24px] w-[24px] text-neutral-500 dark:text-white" />
       ),
     },
   ];

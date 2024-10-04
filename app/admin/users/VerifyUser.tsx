@@ -33,7 +33,10 @@ function VerifyUser({transaction,user}:{transaction:Transaction, user:{name:stri
 				body: `<h4>Congratulations ${user?.name}, your transaction for ${transactionType} has been verified successfully!</h4>
                 <h3>Transaction Details:</h3>
                 <p>Transaction ID: ${transaction.transactionId}</p>
-                <p>Vendor ID: ${transaction.bankId}</p>`,
+                <p>Vendor ID: ${transaction.bankId}</p>
+				<p>In case of any queries/issues, please contact someone from the Tech Team.</p>
+				<br>
+				<h4>E-Cell, Jadavpur University`,
 			}),
 		});
 		const mailResult = await mail.json();
@@ -61,7 +64,10 @@ function VerifyUser({transaction,user}:{transaction:Transaction, user:{name:stri
                 <p> Please check the transaction details on your side, and make sure you provide the correct Transaction ID.</p>
                 <h3>Transaction Details: </h3>
                 <p>Transaction ID: ${transaction.transactionId}</p>
-                <p>Vendor ID: ${transaction.bankId}</p>`,
+                <p>Vendor ID: ${transaction.bankId}</p>
+				<p>In case of any queries/issues, please contact someone from the Tech Team.</p>
+				<br>
+				<h4>E-Cell, Jadavpur University`,
 			}),
 		});
 		const mailResult = await mail.json();

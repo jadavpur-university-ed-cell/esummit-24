@@ -31,22 +31,20 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 		resolver: zodResolver(UserSchema),
 	});
 
-	const [loading, setLoading] = useState(false);
+	const [submitText, setSubmitText] = useState("Submit");
 
 	const onSubmit: SubmitHandler<FormFields> = async (
 		data,
 		e?: React.BaseSyntheticEvent
 	) => {
-		console.log("submitting data.");
-		console.log(email);
-		setLoading(true);
+		setSubmitText("Submitting..");
 		try {
-			updateUserDetails(data, email);
+			await updateUserDetails(data, email);
 			router.refresh();
 		} catch (error) {
 			console.log(error);
 		} finally {
-			setLoading(false);
+			setSubmitText("Submitted. Redirecting..");
 		}
 	};
 
@@ -155,7 +153,7 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						<button
 							type="submit"
 							className="p-2 bg-[#fcbf49] text-[#101720] rounded-md font-medium w-fit">
-							{loading ? "Submitting..." : "Submit"}
+							{submitText}
 						</button>
 					</div>
 				</form>

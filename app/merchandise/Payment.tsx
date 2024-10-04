@@ -100,8 +100,9 @@ const Payment: React.FC<{uid:string}> = ({ uid }) => {
      </div>
       </form>
       {paymentStatus && (
-        <p className={`mt-4 font-semibold ${paymentStatus === 'pending' ? 'text-yellow-500' : 'text-red-500'}`}>
-          {paymentStatus}
+        <p className={`mt-4 font-semibold ${paymentStatus === 'Pending' ? 'text-yellow-500' : 'text-red-500'}`}>
+          Payment Verification Status: {paymentStatus}.
+          {paymentStatus==="Pending"? " You will be updated via email once your payment verification is processed. Contact our team in case of any issues/queries." : ""}
         </p>
       )}
     </div>

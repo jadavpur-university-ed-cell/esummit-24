@@ -104,7 +104,7 @@ const Hero: FunctionComponent = () => {
           <div className="flex font-light flex-col items-center justify-evenly gap-0 h-full overflow-x-hidden py-20">
             <h2
               ref={textRef}
-              className="text-center text-2xl md:tracking-wider mb-0 sm:mb-4 lg:mb-0 sm:text-sm md:text-lg lg:text-2xl w-4/5 lg:w-full opacity-0 text-white pt-10"
+              className="text-center text-2xl mb-0 sm:mb-4 lg:mb-0 sm:text-sm md:text-lg lg:text-2xl w-4/5 lg:w-full opacity-0 text-white pt-10 font-medium"
             >
               Jadavpur University Entrepreneurship Cell Presents the Fourth
               Edition of Our Flagship Event

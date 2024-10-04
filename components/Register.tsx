@@ -112,8 +112,8 @@ export const Register = () => {
                 </FormItem>
               )}
             />
-            <span>{error}</span>
-            <span>{success}</span>
+            <span className="text-red-500">{error}</span>
+            <span className="text-green-500">{success}</span>
           </div>
           <Button className="w-full bg-[#F77F00] hover:bg-[#EAE2B7] hover:text-gray-700" typeof="submit">
             Register
