@@ -143,25 +143,21 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
           textColor="text-sky-50"
           rounds={[
             {
-              title: 'Screening Round',
+              title: 'Prelims',
               date: 'Preliminary Submission',
-              description: 'Participants are required to submit a 3-slide PowerPoint presentation via the official website or Unstop. The submission should focus on the core aspects of the proposed innovation, excluding introductory and thank-you slides.',
+              description: ' Prelims is  online idea submission  in a concise five-slide presentation based on given topics.',
             },
             {
-              title: 'Pitching Round',
+              title: 'Overnight Coding',
               date: 'Offline',
-              description: 'Thirty teams will be shortlisted to participate in an offline pitching session. Each team will deliver a 5-minute pitch followed by a 2-minute rebuttal, where they will have the opportunity to defend and elaborate on their presentation.',
+              description: ' 15 teams will be shortlisted to advance to the next stage. On Day 1 teams will engage in an intense 12-hour hackathon',
             },
             {
-              title: 'Final Offline Round',
+              title: 'Final Offline Pitching Round',
               date: 'Offline',
-              description: 'Selected teams will be invited to Kolkata for the final offline round. Attendance will be subject to the feasibility and availability of the team.',
+              description: 'On Day 2   a pitch session in front of a panel of judges  is to be held',
             },
-            {
-              title: 'Elevator Pitch (Conditional)',
-              date: 'Offline',
-              description: 'An elevator pitch session may be conducted at the discretion of the VCs. Details and confirmation of this round will be provided at a later stage.',
-            },
+            
           ]}
         />
       </div>
