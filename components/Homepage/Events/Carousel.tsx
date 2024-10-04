@@ -39,7 +39,7 @@ const Card = ({ name, about, route, image, day }: CardProps) => {
 				onClick={() => {
 					router.push(route);
 				}}
-				className="px-6 py-3 bg-[#fcbf49] text-[#101720] rounded-full z-20 mb-4">
+				className="px-6 py-3 bg-[#fcbf49] text-[#101720] rounded-full z-20 mb-4 cursor-pointer">
 				Learn More
 			</a>
 			<h2 className="text-xl text-[#fcbf49] font-bold text-center bg-[#101720] py-2 px-4 rounded-full z-20">

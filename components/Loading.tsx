@@ -2,9 +2,9 @@ export default function Loader(){
   return(
     <div className='flex space-x-2 justify-center items-center bg-[#101720] h-screen'>
       <span className='sr-only'>Loading...</span>
-      <div className='h-9 w-5 bg-white rounded-full animate-bounce [animation-delay:-0.3s]'></div>
-      <div className='h-9 w-5 bg-white rounded-full animate-bounce [animation-delay:-0.15s]'></div>
-      <div className='h-9 w-5 bg-white rounded-full animate-bounce'></div>
+      <div className='h-9 w-5 bg-[#eae2b7] rounded-full animate-bounce [animation-delay:-0.3s]'></div>
+      <div className='h-9 w-5 bg-[#eae2b7] rounded-full animate-bounce [animation-delay:-0.15s]'></div>
+      <div className='h-9 w-5 bg-[#eae2b7] rounded-full animate-bounce'></div>
     </div>
   )
 }

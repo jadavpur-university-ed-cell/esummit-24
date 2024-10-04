@@ -182,7 +182,7 @@ const UserProfile = ({
 
 				<div>
 					<button
-						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-2 py-1 rounded-2xl"
+						className="flex justify-center text-lg bg-[#fcbf49] text-[#101720] font-medium px-4 py-1 rounded-full"
 						onClick={toggleEditUser}>
 						Edit Details
 					</button>

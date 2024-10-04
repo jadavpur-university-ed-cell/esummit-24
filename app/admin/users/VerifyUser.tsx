@@ -12,6 +12,13 @@ interface Transaction {
 
 function VerifyUser({transaction,user}:{transaction:Transaction, user:{name:string|null, email:string|null, transactions:Transaction[]}|null}) {
 
+	if(transaction.status!=="Pending")
+		return (
+			<div className="cols-span-2 text-[#f77f00] w-full text-center">
+				{transaction.status}
+			</div>
+		)
+
 	async function handleVerify() {
 		const transactionType =
 			transaction.type === "Merch" ? "Merchandise" : "Hack N Pitch";

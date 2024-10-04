@@ -52,58 +52,73 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 		<div className="bg-[#101720] text-[#fcbf49] flex flex-col items-center">
 			<div className="bg-gray-800 rounded-xl px-8 py-4 shadow-lg w-4/5 mb-6">
 				<div className="w-full flex justify-center">
-					<h1 className="text-3xl font-bold text-[#eae2b7] mb-4">
+					<h1 className="text-3xl font-bold text-[#eae2b7]">
 						Complete Your Registration
 					</h1>
+				</div>
+				<div className="w-full flex justify-center">
+					<h3 className="text-sm font-medium text-[#d62828] mb-4">
+						Fields marked with * are required
+					</h3>
 				</div>
 				<form
 					className="grid grid-cols-1 md:grid-cols-2 gap-8"
 					onSubmit={handleSubmit(onSubmit)}>
+						<div className="w-full">
 					<input
 						type="text"
-						placeholder="Phone Number"
+						placeholder="Phone Number *"
 						{...register("phone")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						/>
 					{errors.phone && (
 						<p className="text-red-500">{errors.phone.message}</p>
 					)}
+					</div>
+					<div className="w-full">
 					<input
 						type="text"
-						placeholder="Roll Number"
+						placeholder="Roll Number *"
 						{...register("rollNo")}
-						className="p-2 rounded-md  text-white placeholder:text-gray-600 bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md  text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						/>
 					{errors.rollNo && (
 						<p className="text-red-500">{errors.rollNo.message}</p>
 					)}
+					</div>
+					<div className="w-full">
 					<input
 						type="text"
-						placeholder="College"
+						placeholder="College *"
 						{...register("college")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						/>
 					{errors.college && (
 						<p className="text-red-500">{errors.college.message}</p>
 					)}
+					</div>
 
+					<div className="w-full">
 					<input
 						type="text"
-						placeholder="Year"
+						placeholder="Year *"
 						{...register("year")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						/>
 					{errors.year && <p className="text-red-500">{errors.year.message}</p>}
+						</div>
 
+					<div className="w-full">
 					<input
 						type="text"
-						placeholder="Branch"
+						placeholder="Branch *"
 						{...register("branch")}
-						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md text-white placeholder:text-gray-600 bg-transparent border border-white w-full"
+						/>
 					{errors.branch && (
 						<p className="text-red-500">{errors.branch.message}</p>
 					)}
+					</div>
 
 					{/* <input
 						type="text"
@@ -111,8 +126,9 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						{...register("shirtSize")}
 						className="p-2 rounded-md text-gray-600 bg-transparent border border-white"
 					/> */}
-					<select id="shirtSize" {...register("shirtSize")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white">
-						<option value="Shirt Size" hidden>Shirt Size</option>
+					<div className="w-full">
+					<select id="shirtSize" {...register("shirtSize")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white w-full">
+						<option value="Shirt Size" hidden>Shirt Size *</option>
 						<option value="XS">XS</option>
 						<option value="S">S</option>
 						<option value="M">M</option>
@@ -123,16 +139,19 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 					{errors.shirtSize && (
 						<p className="text-red-500">{errors.shirtSize.message}</p>
 					)}
+					</div>
 
+					<div className="w-full">
 					<input
 						type="text"
-						placeholder="Gender"
+						placeholder="Gender *"
 						{...register("gender")}
-						className="p-2 rounded-md placeholder:text-gray-600 text-white bg-transparent border border-white"
-					/>
+						className="p-2 rounded-md placeholder:text-gray-600 text-white bg-transparent border border-white w-full"
+						/>
 					{errors.gender && (
 						<p className="text-red-500">{errors.gender.message}</p>
 					)}
+					</div>
 
 					{/* <input
 						type="text"
@@ -140,19 +159,21 @@ const RegisterDetailsPage = ({ email }: { email: string }) => {
 						{...register("foodPreference")}
 						className="p-2 rounded-md placeholder:text-gray-600 text-white bg-transparent border border-white"
 					/> */}
-					<select id="foodPreference" {...register("foodPreference")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white">
-						<option value="Food Preference" hidden>Food Preference</option>
+					<div className="w-full">
+					<select id="foodPreference" {...register("foodPreference")} className="p-2 rounded-md text-gray-600 bg-transparent border border-white w-full">
+						<option value="Food Preference" hidden>Food Preference *</option>
 						<option value="Veg">Veg</option>
 						<option value="Non-Veg">Non-Veg</option>
 					</select>
 					{errors.foodPreference && (
 						<p className="text-red-500">{errors.foodPreference.message}</p>
 					)}
+					</div>
 
 					<div className="md:col-span-2 flex justify-center">
 						<button
 							type="submit"
-							className="p-2 bg-[#fcbf49] text-[#101720] rounded-md font-medium w-fit">
+							className="py-1 px-4 bg-[#fcbf49] text-[#101720] rounded-full font-medium w-fit">
 							{submitText}
 						</button>
 					</div>

@@ -40,7 +40,7 @@ export const Login = () => {
 			login(values).then((data: any) => {
 				if (data?.error) setError(data?.error);
 				if (data?.success) setSuccess(data?.success);
-			}).finally(()=>setSubmitText("Redirecting.."));
+			}).finally(()=>setSubmitText("Login"));
 		});
 	};
 	return (
