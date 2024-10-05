@@ -97,15 +97,17 @@ const HacknPitchEvent: React.FC<eventProps> = ({allow}) => {
                 {bottomText}
               </h1>
 
-              {/* Register Button */}
-              <button className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-[#fcbf49]  text-black font-bold border rounded-xl  py-2 mt-8 hover:bg-[#eae2b7] hover:text-[#101720] transition-all duration-300"
-              disabled ={!allow}
-              onClick={()=>{
-                router.push('/eventRegistration/hacknpitch');
-              }}
+              {/* Register Button - Add unstop link. Later, change to participate and reroute to eventRegistration */}
+              <Link className="gap-10 text-xl px-3 w-[76] sm:w-[50%] self-center bg-[#fcbf49]  text-black font-bold border rounded-xl  py-2 mt-8 hover:bg-[#eae2b7] hover:text-[#101720] transition-all duration-300"
+              // disabled ={!allow}
+              href="#"
+              // onClick={()=>{
+              //   router.push('/eventRegistration/hacknpitch');
+              // }}
               >
-                {allow?"Participate":"🔒"}
-              </button>
+                {/* Change this to participate later */}
+                {allow?"Register via Unstop":"🔒"}
+              </Link>
             </div>
           </div>
         </div>

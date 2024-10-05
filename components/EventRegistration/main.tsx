@@ -3,6 +3,7 @@ import  { Success,Warning } from "@/components/Modals";
 import { MemberInput, TeamInput } from "./Comp";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import {
 	checkValidEvent,
 	checkTeamName,
@@ -37,6 +38,14 @@ const Event = ({params,email}: {
 		title:"Succesfull",
 		msg:"Succesfull msg"
 	})
+
+	// console.log(params.eventName);
+
+	if(params.eventName=="hacknpitch") 
+		return (<div className="flex flex-col items-center gap-y-3 p-8">
+				<h1 className="text-[#fcbf49] text-2xl font-semibold">Register via Unstop</h1>
+				<Link href="#" className="underline text-[#eae2b7]">Unstop Link</Link>
+			</div>)
 
 	const addMember = () => {
 		setMembers([...members, ""]);

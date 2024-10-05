@@ -1,3 +1,7 @@
+## Tasks
+- [ ] Add Unstop event link for hack-n-pitch. Right now registration via website is disabled.
+- [ ] Add payment modal for hack-n-pitch.
+
 # esummit-24
 
 ### Stack
