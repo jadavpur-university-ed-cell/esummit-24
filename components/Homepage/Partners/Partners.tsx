@@ -5,25 +5,21 @@ import Image from "next/image";
 
 interface Sponsor {
   logo: string;
-  link: string;
+  
 }
 
 // Reusable component to display each sponsor
-const SponsorItem: React.FC<Sponsor> = ({ logo, link }) => {
+const SponsorItem: React.FC<Sponsor> = ({ logo }) => {
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="sponsor-item"
-    >
+    
+    
       <Image
         src={logo}
         alt={"logo"}
         width={100}
         height={100}
       />
-    </a>
+    
   );
 };
 
@@ -33,7 +29,7 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
     <div className="previous-sponsor-list">
       {sponsors.map((sponsor, index) => (
         <div key={index} className="previous-sponsor-item">
-          <SponsorItem logo={sponsor.logo} link={sponsor.link} />
+          <SponsorItem logo={sponsor.logo}  />
         </div>
       ))}
       <style jsx>{`
@@ -80,29 +76,29 @@ const PreviousSponsor: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
 const Partners: React.FC = () => {
   // Array of sponsors
   const sponsors = [
-    { logo: "/previous-sponsor/1.png", link: "#" },
-    { logo: "/previous-sponsor/2.png", link: "#" },
-    { logo: "/previous-sponsor/3.png", link: "#" },
-    { logo: "/previous-sponsor/4.png", link: "#" },
-    { logo: "/previous-sponsor/5.png", link: "#" },
-    { logo: "/previous-sponsor/6.png", link: "#" },
-    { logo: "/previous-sponsor/7.png", link: "#" },
-    { logo: "/previous-sponsor/8.png", link: "#" },
-    { logo: "/previous-sponsor/9.png", link: "#" },
-    { logo: "/previous-sponsor/10.png", link: "#" },
-    { logo: "/previous-sponsor/11.png", link: "#" },
-    { logo: "/previous-sponsor/12.png", link: "#" },
-    { logo: "/previous-sponsor/13.png", link: "#" },
-    { logo: "/previous-sponsor/14.png", link: "#" },
-    { logo: "/previous-sponsor/15.png", link: "#" },
-    { logo: "/previous-sponsor/16.png", link: "#" },
-    { logo: "/previous-sponsor/17.png", link: "#" },
-    { logo: "/previous-sponsor/18.png", link: "#" },
-    { logo: "/previous-sponsor/19.png", link: "#" },
-    { logo: "/previous-sponsor/20.png", link: "#" },
-    { logo: "/previous-sponsor/21.png", link: "#" },
-    { logo: "/previous-sponsor/22.png", link: "#" },
-    { logo: "/previous-sponsor/23.png", link: "#" },
+    { logo: "/previous-sponsor/1.png"},
+    { logo: "/previous-sponsor/2.png"},
+    { logo: "/previous-sponsor/3.png"},
+    { logo: "/previous-sponsor/4.png"},
+    { logo: "/previous-sponsor/5.png"},
+    { logo: "/previous-sponsor/6.png"},
+    { logo: "/previous-sponsor/7.png"},
+    { logo: "/previous-sponsor/8.png"},
+    { logo: "/previous-sponsor/9.png"},
+    { logo: "/previous-sponsor/10.png"},
+    { logo: "/previous-sponsor/11.png"},
+    { logo: "/previous-sponsor/12.png"},
+    { logo: "/previous-sponsor/13.png"},
+    { logo: "/previous-sponsor/14.png"},
+    { logo: "/previous-sponsor/15.png"},
+    { logo: "/previous-sponsor/16.png"},
+    { logo: "/previous-sponsor/17.png"},
+    { logo: "/previous-sponsor/18.png"},
+    { logo: "/previous-sponsor/19.png"},
+    { logo: "/previous-sponsor/20.png"},
+    { logo: "/previous-sponsor/21.png"},
+    { logo: "/previous-sponsor/22.png"},
+    { logo: "/previous-sponsor/23.png"},
     // Add more sponsors as needed
   ];
 
