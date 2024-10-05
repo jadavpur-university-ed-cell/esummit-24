@@ -7,7 +7,7 @@ import * as z from "zod";
 import { getUserByEmail } from "./data";
 
 export const Reg = async (values: z.infer<typeof RegisterSchema>) => {
-    console.log(values);
+    // console.log(values);
     // const { email, password, name, type } = values;
     // const existingUser = await getUserByEmail(email);
 

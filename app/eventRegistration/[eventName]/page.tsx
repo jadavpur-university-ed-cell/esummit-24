@@ -12,7 +12,7 @@ export default async function EventRegistration({
 	if (userVerified) {
 		let res = await auth();
 		return (
-			<div className="flex items-center justify-center bg-[#101720] min-w-full min-h-screen overflow-hidden">
+			<div className="flex items-center justify-center bg-[#101720] min-w-full min-h-screen overflow-hidden py-8">
               <div className="bg-gray-700 bg-opacity-50 px-1 pt-2 rounded-2xl overflow-hidden text-lg py-1 justify-items-center">
              {/* @ts-ignore */}
              <Event params={params} email={res?.user.email} />

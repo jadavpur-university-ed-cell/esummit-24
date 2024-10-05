@@ -18,29 +18,29 @@ export function MemberInput({id, state, setState,label, disabled}:prop){
     setState(newdata);
   }
 return (
-  <div className="sm:col-span-3">
-  <div className="relative mb-4 flex items-center">
+  <div className="sm:col-span-3 w-full">
+  <div className="relative mb-4 flex items-center w-full">
   <input
     type="email"
     id="floatingInput"
     name="email"
     placeholder=" "
     autoComplete="email"
-    className="peer block w-full px-3 py-3 text-sm text-gray-200 bg-transparent border border-gray-700 rounded-t-xl appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
+    className="peer block w-full px-3 py-2 text-sm text-gray-200 bg-transparent border border-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
     value={state[id]}
     onChange={(e) => handleChange(e)}
     disabled={disabled}
   />
   <label
     htmlFor="floatingInput"
-    className="absolute text-sm text-[#eae2b7] duration-300 transform -translate-y-6 scale-75 top-2 left-3 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-6"
+    className="absolute text-sm text-[#eae2b7] duration-300 transform -translate-y-6 scale-75 top-0.5 left-3 z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-5"
   >
     {label}
   </label>
   {!disabled && (
     <button
       onClick={handleRemove}
-      className="bg-[#d62828] text-white px-1 text-xs rounded-xl ml-1"
+      className=" text-[#d62828] text-xs ml-3"
     >
       <DeleteIcon />
     </button>
@@ -58,15 +58,15 @@ export type teamProps={
 }
 export function TeamInput({teamDetails,setTeamDetails}:teamProps){
   return (
-      <div className="sm:col-span-3">
-       <div className="relative mb-4 flex items-center">
+      <div className="sm:col-span-3 w-full">
+       <div className="relative mb-4 flex items-center pt-2 w-full">
          <input
            type="text"
            id="floatingInput"
            name="team-name"
            placeholder=" "
            autoComplete="team-name"
-           className="peer block w-full px-3 py-3 text-sm text-gray-200 bg-transparent border border-gray-700 rounded-t-xl appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
+           className="peer block w-full px-3 py-2 text-sm text-gray-200 bg-transparent border border-gray-700 appearance-none focus:outline-none focus:ring-2 focus:ring-gray-700 focus:border-[#eae2b7] mb-[-1px] rounded-xl"
            value={teamDetails.name}
            onChange={(e) => { setTeamDetails({ ...teamDetails, name: e.target.value }) }}
          />

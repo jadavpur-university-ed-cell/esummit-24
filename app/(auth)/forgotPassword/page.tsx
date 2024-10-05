@@ -71,7 +71,6 @@ function ForgotPassword() {
                 }),
             });
             const mailResponse = await mail.json();
-            console.log(mailResponse);
             if(!mailResponse.success){
                 setMessage("Error in sending email.");
                 setButtonText("Submit");

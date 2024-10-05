@@ -118,16 +118,16 @@ const Event = ({params,email}: {
 	};
 	return (
 		<>
-			<div className="flex flex-col p-8">
+			<div className="flex flex-col p-8 pb-0">
 				<div className="w-full flex justify-center">
 					<h1 className="text-4xl font-bold text-[#fcbf49]">
 						Event Registration
 					</h1>
 				</div>
-				<div className="relative py-12 px-4 sm:py-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:flex justify-center">
-					<div className="lg:pr-8 flex justify-center">
-						<div className="max-w-md mx-auto sm:max-w-lg lg:mx-0 flex flex-col items-center gap-y-4">
-							<h2 className="text-xl font-normal tracking-tight sm:text-4xl text-[#f77f40]">
+				<div className="relative py-6 px-4 sm:py-6 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:flex justify-center">
+					<div className="flex justify-center">
+						<div className="max-w-md mx-auto sm:max-w-lg lg:mx-0 flex flex-col items-center gap-y-3">
+							<h2 className="text-xl font-normal tracking-tight sm:text-2xl text-[#f77f40]">
 								Participate in {eventProp.name}
 							</h2>
 							<TeamInput
@@ -147,21 +147,21 @@ const Event = ({params,email}: {
 							})}
 							<div className="flex items-center space-x-2">
 								{members.length < teamDetails.size ? (
-								<button onClick={addMember} className="bg-gray-700 text-gray-100 font-medium px-2 py-1 text-lg rounded-full">Add Member</button>
+								<button onClick={addMember} className="bg-gray-700 text-gray-100 text-sm px-3 py-2 rounded-full">Add Member</button>
 							) : (
 								<></>
 							)}
 							{/* submit button rendered here */}
 							<button
 								type="submit"
-								className="inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-lg font-medium rounded-full text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
+								className="inline-flex justify-center py-2 px-3 font-medium border border-transparent shadow-sm text-sm rounded-full text-[#101720] bg-[#fcbf49] hover:bg-grape-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-grape-500"
 								onClick={onSubmit}
 								disabled={loading}>
 								{loading?"Checking..":"Register"}
 							</button>
 							{/* for the loading feature */}
-							{loading ? "Loading.." : <></>}
 						</div>
+							{loading ? <p className="text-sm text-[#fcbf49]">Loading...</p> : <></>}
 					 </div>
 				   </div>
 					<Warning showWarning={showWarning} setShowWarning={setShowWarning}/>
